@@ -2,8 +2,6 @@
 
 [Unity Forum Thread](https://forum.unity.com/threads/simpler-alternative-to-addressables.820998)
 
-[![openupm](https://img.shields.io/npm/v/com.locus.bundlesystem?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.locus.bundlesystem/)
-
 AssetBundle system from unity5 will be obsolute in future.\
 Unity Addressables system provides very flexible implementation that fits on any project.\
 But for my experience, there's huge learning curve to get into it.\
@@ -230,14 +228,6 @@ BundleSystem.BundledAssetPath MyAsset;
 <br />
 
 ## Installation
-
-### Install via OpenUPM
-
-The package is available on the [openupm registry](https://openupm.com). It's recommended to install it via [openupm-cli](https://github.com/openupm/openupm-cli).
-
-```
-openupm add com.locus.bundlesystem
-```
 
 ### Install via Git URL
 
