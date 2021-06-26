@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Locus Bundle System For Unity | LocusBundleSystemV2 documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Locus Bundle System For Unity | LocusBundleSystemV2 documentation ">
+    <meta name="generator" content="docfx 2.58.0.0">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="locus-bundle-system-for-unity">Locus Bundle System For Unity</h1>
+
+<p><a href="https://forum.unity.com/threads/simpler-alternative-to-addressables.820998">Unity Forum Thread</a></p>
+<p>AssetBundle system from unity5 will be obsolute in future.\
+Unity Addressables system provides very flexible implementation that fits on any project.\
+But for my experience, there&#39;s huge learning curve to get into it.\
+And also, there&#39;s no synchronized api which is familier to <strong>Resource.Load</strong> Users.</p>
+<p>So here is my own bundle system that also utilizes Scriptable Build Pipline and it provides synchronized API.</p>
+<p>This is build up to support very common senarios I&#39;ve experienced.\
+But you can extend this on purpose.(just fork and make modifications)</p>
+<p>\
+<strong>Synchronized API Support!</strong></p>
+<p>Main pros of Unity Addressables system is memory management.\
+It unloads bundle according to bundle&#39;s reference count.\
+So you don&#39;t need to call Resources.UnloadUnusedAssets() function which hangs your gameplay.</p>
+<p>Mine support same functionality as well as synchronized api.\
+This is done by caching WWWRequest.\
+Note that caching assetbundles eats some memory(but quite low)</p>
+<p>When a assetbundle&#39;s reference count is zero.\
+It fires another assetbundle request and cache up until assetbundle can be unloaded and swapped.</p>
+<p>\
+<strong>Folder based Bundle &amp; Local Bundles</strong></p>
+<p>Like using Resources folder, you can specify folder that you want to make bundle(there&#39;s no bundle name in each asset).\
+It&#39;s very comfortable for users that loves organizing contents using Folders like me.</p>
+<p>And using local bundles, you can ship part of your bundles in player build.\
+It also can be changed later on by patching.</p>
+<h2 id="introduction-video">Introduction Video</h2>
+<p><a href="http://www.youtube.com/watch?v=49WKJRscDrA" title="Locus Bundle System Intro"><img src="http://img.youtube.com/vi/49WKJRscDrA/0.jpg" alt="Check this out"></a></p>
+<h2 id="how-to-setup">How to Setup</h2>
+<p><strong>Assets -&gt; Create -&gt; Create Bundle Build Setting</strong></p>
+<p>Create AssetBundleSetting ScriptableObject using Context Menu.\
+This object can be anywhere under Assets folder</p>
+<p><strong>Setup Bundle Informations</strong></p>
+<p><img src="https://user-images.githubusercontent.com/6591432/73616925-a527b580-465c-11ea-8c82-b004e3822d98.png" alt="BundleSettingInspector"></p>
+<ol>
+<li><p><em>Bundle List</em></p>
+<ul>
+<li>BundleName : AssetBundle&#39;s name which you should provide when loading object from AssetBundles.</li>
+<li>Included In Player : if true, this bundle will be shipped with player(also can be updated).</li>
+<li>Folder : Drag or select folder, assets under that folder will be packed into this bundle.</li>
+<li>Include Subfolder : if true, will search assets from subfolders recurviely, your asset name when loading will be [SubFolderPath]/[AssetName]</li>
+<li>Compress Bundle : if true, it will use LMZA compression. otherwise LZ4 is used. Shipped local bundles will be always LZ4</li>
+</ul>
+</li>
+<li><p><em>Output Folder and URL</em></p>
+<ul>
+<li>Specify your Local/Remote bundle build output path here, also provide Remote URL for remote patch.</li>
+</ul>
+</li>
+<li><p><em>Editor Functionalities</em></p>
+<ul>
+<li>Emulate In Editor : Use and Update actual assetbundles like you do in built player.</li>
+<li>Emulate Without Remote URL : if true, remote bundle will be loaded from remote output path, useful when your CDN is not ready yet.</li>
+<li>Clean Cache In Editor : if true, clean up cache when initializing.</li>
+<li>Force Rebuild : Disables BuildCache (When Scriptable Build Pipline ignores your modification, turn it on. It barely happens though)</li>
+</ul>
+</li>
+<li><p><em>Useful Utilities.</em></p>
+<ul>
+<li>Cache Server : Cache server setting for faster bundle build(you need seperate Cache server along with asset cache server)</li>
+<li>Ftp : if you have ftp information, upload your remote bundle with single click.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Multiple Settings</strong></p>
+<p><img src="https://user-images.githubusercontent.com/6591432/73616927-a5c04c00-465c-11ea-9689-3b8e5cdd4970.png" alt="FindActiveSetting">\
+<img src="https://user-images.githubusercontent.com/6591432/73616924-a527b580-465c-11ea-8cff-a4bfa60faf0a.png" alt="ActiveSetting">\
+Multiple AssetBundleSettings are supported.\
+You can set one of them as your active AssetBundleBuildSetting(Saved in EditorPref).\
+You can find active AssetBundleBuildSetting in menu.</p>
+<p><strong>Auto Optimize Your Bundles</strong></p>
+<p>This system support automated assetbundle optimization.\
+Which means, it automatically findout duplicated top-most assets in your bundle dependency tree,\
+and make them into seperated shared bundles.
+By using this, you can easily manage your dependencies, and there will be <strong>no</strong> duplicated assets included in your assetbundles.\
+<img src="https://user-images.githubusercontent.com/6591432/86381697-7cb5ed00-bcc8-11ea-8f84-75e248828e42.png" alt="image">\
+If you find out execpted shared bundles are created, define a bundle warp them up, it&#39;ll automatically disappeared in next build.\
+<img src="https://user-images.githubusercontent.com/6591432/86384732-1c27af80-bcca-11ea-84f9-7791a7598969.png" alt="image"></p>
+<p><strong>Folders in Packages</strong></p>
+<p>This system can handle assets in Packages Folder.\
+If you can drag folder from there, It&#39;ll be fine.(development/local packages)\
+But if you dragging is freezed, just copy and paste it&#39;s path.\
+<img src="https://user-images.githubusercontent.com/6591432/99907679-85639a00-2d21-11eb-9414-f3ccf8682871.png" alt="CapturePath">\
+<img src="https://user-images.githubusercontent.com/6591432/99907681-8694c700-2d21-11eb-817a-c30392b2a180.png" alt="PasteButton"></p>
+<p><strong>Bundled Asset Path</strong></p>
+<p>This is a utility struct that helps you save some time to write actual path yourself.</p>
+<pre><code class="lang-cs">BundleSystem.BundledAssetPath MyAsset;
+</code></pre><p><img src="https://user-images.githubusercontent.com/6591432/102692341-072de100-4256-11eb-9634-9203cd2761ab.gif" alt="Honeycam 2020-12-19 23-25-54"></p>
+<h2 id="api-examples">API Examples</h2>
+<p>\
+<strong>Initialization Example</strong></p>
+<pre><code class="lang-cs">    IEnumerator Start()
+    {
+        //show log message
+        BundleManager.LogMessages = true;
+
+        //show some ongui elements for debugging
+        BundleManager.ShowDebugGUI = true;
+
+        //initialize bundle system &amp; load local bundles
+        yield return BundleManager.Initialize();
+
+        //get download size from latest bundle manifest
+        var manifestReq = BundleManager.GetManifest();
+        yield return manifestReq;
+        if (!manifestReq.Succeeded)
+        {
+            //handle error
+            Debug.LogError(manifestReq.ErrorCode);
+        }
+
+        Debug.Log($&quot;Need to download { BundleManager.GetDownloadSize(manifestReq.Result) * 0.000001f } mb&quot;);
+
+        //start downloading
+        var downloadReq = BundleManager.DownloadAssetBundles(manifestReq.Result);
+        while(!downloadReq.IsDone)
+        {
+            if(downloadReq.CurrentCount &gt;= 0)
+            {
+                Debug.Log($&quot;Current File {downloadReq.CurrentCount}/{downloadReq.TotalCount}, &quot; +
+                    $&quot;Progress : {downloadReq.Progress * 100}%, &quot; +
+                    $&quot;FromCache {downloadReq.CurrentlyLoadingFromCache}&quot;);
+            }
+            yield return null;
+        }
+
+        if(!downloadReq.Succeeded)
+        {
+            //handle error
+            Debug.LogError(downloadReq.ErrorCode);
+        }
+        //start to game
+    }
+</code></pre><p>\
+<strong>API Examples</strong></p>
+<pre><code class="lang-cs">    IEnumerator ApiSamples()
+    {
+        //Sync loading
+        {
+            var loaded = BundleManager.Load&lt;Texture2D&gt;(&quot;Texture&quot;, &quot;TextureName&quot;);
+            //do something
+            BundleManager.ReleaseObject(loaded);
+        }
+
+        //Async loading
+        {
+            var loadReq = BundleManager.LoadAsync&lt;Texture2D&gt;(&quot;Texture&quot;, &quot;TextureName&quot;);
+            yield return loadReq;
+            //do something
+            loadReq.Dispose();
+        }
+
+        //Asnyc loading with 
+        {
+            //use using clause for easier release
+            using (var loadReq = BundleManager.LoadAsync&lt;Texture2D&gt;(&quot;Texture&quot;, &quot;TextureName&quot;))
+            {
+                yield return loadReq;
+                //do something
+            }
+        }
+
+        //Instantiate Sync
+        {
+            var loaded = BundleManager.Load&lt;GameObject&gt;(&quot;Prefab&quot;, &quot;PrefabName&quot;);
+            //do something
+            var instance = BundleManager.Instantiate(loaded);
+            BundleManager.ReleaseObject(loaded);
+        }
+
+        //Instantiate Async with using clause(which is recommended, or just dispose request)
+        {
+            using (var loadReq = BundleManager.LoadAsync&lt;GameObject&gt;(&quot;Prefab&quot;, &quot;PrefabName&quot;))
+            {
+                yield return loadReq;
+                var instance = BundleManager.Instantiate(loadReq.Asset);
+            }
+        }
+
+        //load scene
+        {
+            //Sync
+            BundleManager.LoadScene(&quot;Scene&quot;, &quot;SomeScene&quot;, UnityEngine.SceneManagement.LoadSceneMode.Single);
+            //Async
+            yield return BundleManager.LoadSceneAsync(&quot;Scene&quot;, &quot;SomeScene&quot;, UnityEngine.SceneManagement.LoadSceneMode.Single);
+        }
+    }
+</code></pre><p>\
+<strong>Editor Test Script</strong></p>
+<pre><code class="lang-cs">      [Test]
+      public void BundleTest()
+      {
+         //call this bofore you call bundle manager api while not playing
+         //while not playing, BundleManager always utilies AssetDatabase
+         BundleSystem.BundleManager.SetupApiTestSetting();
+         Assert.IsTrue(BundleSystem.BundleManager.IsAssetExist(&quot;LocalScene&quot;, &quot;Inner/TitleScene&quot;));
+         Assert.IsTrue(BundleSystem.BundleManager.IsAssetExist(&quot;Sprites&quot;, &quot;MySprite&quot;));
+      }
+</code></pre><p><br></p>
+<h2 id="installation">Installation</h2>
+<h3 id="install-via-git-url">Install via Git URL</h3>
+<p>Use Unity Package Manager to use it as is.\
+To update to latest version, Open up your Packages/manifest.json and delete following part</p>
+<pre><code class="lang-json">&quot;lock&quot;: {
+    &quot;com.locus.bundlesystem&quot;: {
+      &quot;revision&quot;: &quot;HEAD&quot;,
+      &quot;hash&quot;: &quot;7e0cf885f61145eaa20a7901ef9a1cdc60d09438&quot;
+    }
+  }
+</code></pre><p>If you want to modify, clone this repo into your project&#39;s <em>Packages</em> folder.</p>
+<h2 id="license">License</h2>
+<p><a href="https://raw.githubusercontent.com/locus84/Threading/c6f053aac6840c133dc7f2a302de8799ea6daf36/LICENSE">MIT</a></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/locus84/Locus-Bundle-System-v2/blob/master/Documentation/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            LocusBundleSystemV2 documentation
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

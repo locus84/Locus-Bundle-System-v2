@@ -1,0 +1,2172 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: BundleSystem
+  name: BundleSystem
+  href: api/BundleSystem.html
+  commentId: N:BundleSystem
+  fullName: BundleSystem
+  nameWithType: BundleSystem
+- uid: BundleSystem.AssetBundleBuilder
+  name: AssetBundleBuilder
+  href: api/BundleSystem.AssetBundleBuilder.html
+  commentId: T:BundleSystem.AssetBundleBuilder
+  fullName: BundleSystem.AssetBundleBuilder
+  nameWithType: AssetBundleBuilder
+- uid: BundleSystem.AssetBundleBuilder.BuildAssetBundles(BundleSystem.AssetBundleBuildSetting)
+  name: BuildAssetBundles(AssetBundleBuildSetting)
+  href: api/BundleSystem.AssetBundleBuilder.html#BundleSystem_AssetBundleBuilder_BuildAssetBundles_BundleSystem_AssetBundleBuildSetting_
+  commentId: M:BundleSystem.AssetBundleBuilder.BuildAssetBundles(BundleSystem.AssetBundleBuildSetting)
+  fullName: BundleSystem.AssetBundleBuilder.BuildAssetBundles(BundleSystem.AssetBundleBuildSetting)
+  nameWithType: AssetBundleBuilder.BuildAssetBundles(AssetBundleBuildSetting)
+- uid: BundleSystem.AssetBundleBuilder.BuildAssetBundles*
+  name: BuildAssetBundles
+  href: api/BundleSystem.AssetBundleBuilder.html#BundleSystem_AssetBundleBuilder_BuildAssetBundles_
+  commentId: Overload:BundleSystem.AssetBundleBuilder.BuildAssetBundles
+  isSpec: "True"
+  fullName: BundleSystem.AssetBundleBuilder.BuildAssetBundles
+  nameWithType: AssetBundleBuilder.BuildAssetBundles
+- uid: BundleSystem.AssetBundleBuilder.WriteExpectedSharedBundles(BundleSystem.AssetBundleBuildSetting)
+  name: WriteExpectedSharedBundles(AssetBundleBuildSetting)
+  href: api/BundleSystem.AssetBundleBuilder.html#BundleSystem_AssetBundleBuilder_WriteExpectedSharedBundles_BundleSystem_AssetBundleBuildSetting_
+  commentId: M:BundleSystem.AssetBundleBuilder.WriteExpectedSharedBundles(BundleSystem.AssetBundleBuildSetting)
+  fullName: BundleSystem.AssetBundleBuilder.WriteExpectedSharedBundles(BundleSystem.AssetBundleBuildSetting)
+  nameWithType: AssetBundleBuilder.WriteExpectedSharedBundles(AssetBundleBuildSetting)
+- uid: BundleSystem.AssetBundleBuilder.WriteExpectedSharedBundles*
+  name: WriteExpectedSharedBundles
+  href: api/BundleSystem.AssetBundleBuilder.html#BundleSystem_AssetBundleBuilder_WriteExpectedSharedBundles_
+  commentId: Overload:BundleSystem.AssetBundleBuilder.WriteExpectedSharedBundles
+  isSpec: "True"
+  fullName: BundleSystem.AssetBundleBuilder.WriteExpectedSharedBundles
+  nameWithType: AssetBundleBuilder.WriteExpectedSharedBundles
+- uid: BundleSystem.AssetBundleBuildManifest
+  name: AssetBundleBuildManifest
+  href: api/BundleSystem.AssetBundleBuildManifest.html
+  commentId: T:BundleSystem.AssetBundleBuildManifest
+  fullName: BundleSystem.AssetBundleBuildManifest
+  nameWithType: AssetBundleBuildManifest
+- uid: BundleSystem.AssetBundleBuildManifest.BuildTarget
+  name: BuildTarget
+  href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_BuildTarget
+  commentId: F:BundleSystem.AssetBundleBuildManifest.BuildTarget
+  fullName: BundleSystem.AssetBundleBuildManifest.BuildTarget
+  nameWithType: AssetBundleBuildManifest.BuildTarget
+- uid: BundleSystem.AssetBundleBuildManifest.BuildTime
+  name: BuildTime
+  href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_BuildTime
+  commentId: F:BundleSystem.AssetBundleBuildManifest.BuildTime
+  fullName: BundleSystem.AssetBundleBuildManifest.BuildTime
+  nameWithType: AssetBundleBuildManifest.BuildTime
+- uid: BundleSystem.AssetBundleBuildManifest.BundleInfo
+  name: AssetBundleBuildManifest.BundleInfo
+  href: api/BundleSystem.AssetBundleBuildManifest.BundleInfo.html
+  commentId: T:BundleSystem.AssetBundleBuildManifest.BundleInfo
+  fullName: BundleSystem.AssetBundleBuildManifest.BundleInfo
+  nameWithType: AssetBundleBuildManifest.BundleInfo
+- uid: BundleSystem.AssetBundleBuildManifest.BundleInfo.BundleName
+  name: BundleName
+  href: api/BundleSystem.AssetBundleBuildManifest.BundleInfo.html#BundleSystem_AssetBundleBuildManifest_BundleInfo_BundleName
+  commentId: F:BundleSystem.AssetBundleBuildManifest.BundleInfo.BundleName
+  fullName: BundleSystem.AssetBundleBuildManifest.BundleInfo.BundleName
+  nameWithType: AssetBundleBuildManifest.BundleInfo.BundleName
+- uid: BundleSystem.AssetBundleBuildManifest.BundleInfo.Dependencies
+  name: Dependencies
+  href: api/BundleSystem.AssetBundleBuildManifest.BundleInfo.html#BundleSystem_AssetBundleBuildManifest_BundleInfo_Dependencies
+  commentId: F:BundleSystem.AssetBundleBuildManifest.BundleInfo.Dependencies
+  fullName: BundleSystem.AssetBundleBuildManifest.BundleInfo.Dependencies
+  nameWithType: AssetBundleBuildManifest.BundleInfo.Dependencies
+- uid: BundleSystem.AssetBundleBuildManifest.BundleInfo.HashString
+  name: HashString
+  href: api/BundleSystem.AssetBundleBuildManifest.BundleInfo.html#BundleSystem_AssetBundleBuildManifest_BundleInfo_HashString
+  commentId: F:BundleSystem.AssetBundleBuildManifest.BundleInfo.HashString
+  fullName: BundleSystem.AssetBundleBuildManifest.BundleInfo.HashString
+  nameWithType: AssetBundleBuildManifest.BundleInfo.HashString
+- uid: BundleSystem.AssetBundleBuildManifest.BundleInfo.IsLocal
+  name: IsLocal
+  href: api/BundleSystem.AssetBundleBuildManifest.BundleInfo.html#BundleSystem_AssetBundleBuildManifest_BundleInfo_IsLocal
+  commentId: F:BundleSystem.AssetBundleBuildManifest.BundleInfo.IsLocal
+  fullName: BundleSystem.AssetBundleBuildManifest.BundleInfo.IsLocal
+  nameWithType: AssetBundleBuildManifest.BundleInfo.IsLocal
+- uid: BundleSystem.AssetBundleBuildManifest.BundleInfo.Size
+  name: Size
+  href: api/BundleSystem.AssetBundleBuildManifest.BundleInfo.html#BundleSystem_AssetBundleBuildManifest_BundleInfo_Size
+  commentId: F:BundleSystem.AssetBundleBuildManifest.BundleInfo.Size
+  fullName: BundleSystem.AssetBundleBuildManifest.BundleInfo.Size
+  nameWithType: AssetBundleBuildManifest.BundleInfo.Size
+- uid: BundleSystem.AssetBundleBuildManifest.BundleInfo.ToCachedBundle
+  name: ToCachedBundle()
+  href: api/BundleSystem.AssetBundleBuildManifest.BundleInfo.html#BundleSystem_AssetBundleBuildManifest_BundleInfo_ToCachedBundle
+  commentId: M:BundleSystem.AssetBundleBuildManifest.BundleInfo.ToCachedBundle
+  fullName: BundleSystem.AssetBundleBuildManifest.BundleInfo.ToCachedBundle()
+  nameWithType: AssetBundleBuildManifest.BundleInfo.ToCachedBundle()
+- uid: BundleSystem.AssetBundleBuildManifest.BundleInfo.ToCachedBundle*
+  name: ToCachedBundle
+  href: api/BundleSystem.AssetBundleBuildManifest.BundleInfo.html#BundleSystem_AssetBundleBuildManifest_BundleInfo_ToCachedBundle_
+  commentId: Overload:BundleSystem.AssetBundleBuildManifest.BundleInfo.ToCachedBundle
+  isSpec: "True"
+  fullName: BundleSystem.AssetBundleBuildManifest.BundleInfo.ToCachedBundle
+  nameWithType: AssetBundleBuildManifest.BundleInfo.ToCachedBundle
+- uid: BundleSystem.AssetBundleBuildManifest.BundleInfos
+  name: BundleInfos
+  href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_BundleInfos
+  commentId: F:BundleSystem.AssetBundleBuildManifest.BundleInfos
+  fullName: BundleSystem.AssetBundleBuildManifest.BundleInfos
+  nameWithType: AssetBundleBuildManifest.BundleInfos
+- uid: BundleSystem.AssetBundleBuildManifest.CollectSubsetBundleInfoes(System.Collections.Generic.IEnumerable{System.String})
+  name: CollectSubsetBundleInfoes(IEnumerable<String>)
+  href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_CollectSubsetBundleInfoes_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:BundleSystem.AssetBundleBuildManifest.CollectSubsetBundleInfoes(System.Collections.Generic.IEnumerable{System.String})
+  name.vb: CollectSubsetBundleInfoes(IEnumerable(Of String))
+  fullName: BundleSystem.AssetBundleBuildManifest.CollectSubsetBundleInfoes(System.Collections.Generic.IEnumerable<System.String>)
+  fullName.vb: BundleSystem.AssetBundleBuildManifest.CollectSubsetBundleInfoes(System.Collections.Generic.IEnumerable(Of System.String))
+  nameWithType: AssetBundleBuildManifest.CollectSubsetBundleInfoes(IEnumerable<String>)
+  nameWithType.vb: AssetBundleBuildManifest.CollectSubsetBundleInfoes(IEnumerable(Of String))
+- uid: BundleSystem.AssetBundleBuildManifest.CollectSubsetBundleInfoes*
+  name: CollectSubsetBundleInfoes
+  href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_CollectSubsetBundleInfoes_
+  commentId: Overload:BundleSystem.AssetBundleBuildManifest.CollectSubsetBundleInfoes
+  isSpec: "True"
+  fullName: BundleSystem.AssetBundleBuildManifest.CollectSubsetBundleInfoes
+  nameWithType: AssetBundleBuildManifest.CollectSubsetBundleInfoes
+- uid: BundleSystem.AssetBundleBuildManifest.GlobalHashString
+  name: GlobalHashString
+  href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_GlobalHashString
+  commentId: F:BundleSystem.AssetBundleBuildManifest.GlobalHashString
+  fullName: BundleSystem.AssetBundleBuildManifest.GlobalHashString
+  nameWithType: AssetBundleBuildManifest.GlobalHashString
+- uid: BundleSystem.AssetBundleBuildManifest.RemoteURL
+  name: RemoteURL
+  href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_RemoteURL
+  commentId: F:BundleSystem.AssetBundleBuildManifest.RemoteURL
+  fullName: BundleSystem.AssetBundleBuildManifest.RemoteURL
+  nameWithType: AssetBundleBuildManifest.RemoteURL
+- uid: BundleSystem.AssetBundleBuildManifest.TryGetBundleHash(System.String,Hash128@)
+  name: TryGetBundleHash(String, out Hash128)
+  href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_TryGetBundleHash_System_String_Hash128__
+  commentId: M:BundleSystem.AssetBundleBuildManifest.TryGetBundleHash(System.String,Hash128@)
+  name.vb: TryGetBundleHash(String, ByRef Hash128)
+  fullName: BundleSystem.AssetBundleBuildManifest.TryGetBundleHash(System.String, out Hash128)
+  fullName.vb: BundleSystem.AssetBundleBuildManifest.TryGetBundleHash(System.String, ByRef Hash128)
+  nameWithType: AssetBundleBuildManifest.TryGetBundleHash(String, out Hash128)
+  nameWithType.vb: AssetBundleBuildManifest.TryGetBundleHash(String, ByRef Hash128)
+- uid: BundleSystem.AssetBundleBuildManifest.TryGetBundleHash*
+  name: TryGetBundleHash
+  href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_TryGetBundleHash_
+  commentId: Overload:BundleSystem.AssetBundleBuildManifest.TryGetBundleHash
+  isSpec: "True"
+  fullName: BundleSystem.AssetBundleBuildManifest.TryGetBundleHash
+  nameWithType: AssetBundleBuildManifest.TryGetBundleHash
+- uid: BundleSystem.AssetBundleBuildManifest.TryGetBundleInfo(System.String,BundleSystem.AssetBundleBuildManifest.BundleInfo@)
+  name: TryGetBundleInfo(String, out AssetBundleBuildManifest.BundleInfo)
+  href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_TryGetBundleInfo_System_String_BundleSystem_AssetBundleBuildManifest_BundleInfo__
+  commentId: M:BundleSystem.AssetBundleBuildManifest.TryGetBundleInfo(System.String,BundleSystem.AssetBundleBuildManifest.BundleInfo@)
+  name.vb: TryGetBundleInfo(String, ByRef AssetBundleBuildManifest.BundleInfo)
+  fullName: BundleSystem.AssetBundleBuildManifest.TryGetBundleInfo(System.String, out BundleSystem.AssetBundleBuildManifest.BundleInfo)
+  fullName.vb: BundleSystem.AssetBundleBuildManifest.TryGetBundleInfo(System.String, ByRef BundleSystem.AssetBundleBuildManifest.BundleInfo)
+  nameWithType: AssetBundleBuildManifest.TryGetBundleInfo(String, out AssetBundleBuildManifest.BundleInfo)
+  nameWithType.vb: AssetBundleBuildManifest.TryGetBundleInfo(String, ByRef AssetBundleBuildManifest.BundleInfo)
+- uid: BundleSystem.AssetBundleBuildManifest.TryGetBundleInfo*
+  name: TryGetBundleInfo
+  href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_TryGetBundleInfo_
+  commentId: Overload:BundleSystem.AssetBundleBuildManifest.TryGetBundleInfo
+  isSpec: "True"
+  fullName: BundleSystem.AssetBundleBuildManifest.TryGetBundleInfo
+  nameWithType: AssetBundleBuildManifest.TryGetBundleInfo
+- uid: BundleSystem.AssetBundleBuildManifest.TryParse(System.String,BundleSystem.AssetBundleBuildManifest@)
+  name: TryParse(String, out AssetBundleBuildManifest)
+  href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_TryParse_System_String_BundleSystem_AssetBundleBuildManifest__
+  commentId: M:BundleSystem.AssetBundleBuildManifest.TryParse(System.String,BundleSystem.AssetBundleBuildManifest@)
+  name.vb: TryParse(String, ByRef AssetBundleBuildManifest)
+  fullName: BundleSystem.AssetBundleBuildManifest.TryParse(System.String, out BundleSystem.AssetBundleBuildManifest)
+  fullName.vb: BundleSystem.AssetBundleBuildManifest.TryParse(System.String, ByRef BundleSystem.AssetBundleBuildManifest)
+  nameWithType: AssetBundleBuildManifest.TryParse(String, out AssetBundleBuildManifest)
+  nameWithType.vb: AssetBundleBuildManifest.TryParse(String, ByRef AssetBundleBuildManifest)
+- uid: BundleSystem.AssetBundleBuildManifest.TryParse*
+  name: TryParse
+  href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_TryParse_
+  commentId: Overload:BundleSystem.AssetBundleBuildManifest.TryParse
+  isSpec: "True"
+  fullName: BundleSystem.AssetBundleBuildManifest.TryParse
+  nameWithType: AssetBundleBuildManifest.TryParse
+- uid: BundleSystem.AssetBundleBuildProcessors
+  name: AssetBundleBuildProcessors
+  href: api/BundleSystem.AssetBundleBuildProcessors.html
+  commentId: T:BundleSystem.AssetBundleBuildProcessors
+  fullName: BundleSystem.AssetBundleBuildProcessors
+  nameWithType: AssetBundleBuildProcessors
+- uid: BundleSystem.AssetBundleBuildProcessors.callbackOrder
+  name: callbackOrder
+  href: api/BundleSystem.AssetBundleBuildProcessors.html#BundleSystem_AssetBundleBuildProcessors_callbackOrder
+  commentId: P:BundleSystem.AssetBundleBuildProcessors.callbackOrder
+  fullName: BundleSystem.AssetBundleBuildProcessors.callbackOrder
+  nameWithType: AssetBundleBuildProcessors.callbackOrder
+- uid: BundleSystem.AssetBundleBuildProcessors.callbackOrder*
+  name: callbackOrder
+  href: api/BundleSystem.AssetBundleBuildProcessors.html#BundleSystem_AssetBundleBuildProcessors_callbackOrder_
+  commentId: Overload:BundleSystem.AssetBundleBuildProcessors.callbackOrder
+  isSpec: "True"
+  fullName: BundleSystem.AssetBundleBuildProcessors.callbackOrder
+  nameWithType: AssetBundleBuildProcessors.callbackOrder
+- uid: BundleSystem.AssetBundleBuildProcessors.OnPostprocessBuild(BuildReport)
+  name: OnPostprocessBuild(BuildReport)
+  href: api/BundleSystem.AssetBundleBuildProcessors.html#BundleSystem_AssetBundleBuildProcessors_OnPostprocessBuild_BuildReport_
+  commentId: M:BundleSystem.AssetBundleBuildProcessors.OnPostprocessBuild(BuildReport)
+  fullName: BundleSystem.AssetBundleBuildProcessors.OnPostprocessBuild(BuildReport)
+  nameWithType: AssetBundleBuildProcessors.OnPostprocessBuild(BuildReport)
+- uid: BundleSystem.AssetBundleBuildProcessors.OnPostprocessBuild*
+  name: OnPostprocessBuild
+  href: api/BundleSystem.AssetBundleBuildProcessors.html#BundleSystem_AssetBundleBuildProcessors_OnPostprocessBuild_
+  commentId: Overload:BundleSystem.AssetBundleBuildProcessors.OnPostprocessBuild
+  isSpec: "True"
+  fullName: BundleSystem.AssetBundleBuildProcessors.OnPostprocessBuild
+  nameWithType: AssetBundleBuildProcessors.OnPostprocessBuild
+- uid: BundleSystem.AssetBundleBuildProcessors.OnPreprocessBuild(BuildReport)
+  name: OnPreprocessBuild(BuildReport)
+  href: api/BundleSystem.AssetBundleBuildProcessors.html#BundleSystem_AssetBundleBuildProcessors_OnPreprocessBuild_BuildReport_
+  commentId: M:BundleSystem.AssetBundleBuildProcessors.OnPreprocessBuild(BuildReport)
+  fullName: BundleSystem.AssetBundleBuildProcessors.OnPreprocessBuild(BuildReport)
+  nameWithType: AssetBundleBuildProcessors.OnPreprocessBuild(BuildReport)
+- uid: BundleSystem.AssetBundleBuildProcessors.OnPreprocessBuild*
+  name: OnPreprocessBuild
+  href: api/BundleSystem.AssetBundleBuildProcessors.html#BundleSystem_AssetBundleBuildProcessors_OnPreprocessBuild_
+  commentId: Overload:BundleSystem.AssetBundleBuildProcessors.OnPreprocessBuild
+  isSpec: "True"
+  fullName: BundleSystem.AssetBundleBuildProcessors.OnPreprocessBuild
+  nameWithType: AssetBundleBuildProcessors.OnPreprocessBuild
+- uid: BundleSystem.AssetBundleBuildSetting
+  name: AssetBundleBuildSetting
+  href: api/BundleSystem.AssetBundleBuildSetting.html
+  commentId: T:BundleSystem.AssetBundleBuildSetting
+  fullName: BundleSystem.AssetBundleBuildSetting
+  nameWithType: AssetBundleBuildSetting
+- uid: BundleSystem.AssetBundleBuildSetting.CacheServerHost
+  name: CacheServerHost
+  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_CacheServerHost
+  commentId: F:BundleSystem.AssetBundleBuildSetting.CacheServerHost
+  fullName: BundleSystem.AssetBundleBuildSetting.CacheServerHost
+  nameWithType: AssetBundleBuildSetting.CacheServerHost
+- uid: BundleSystem.AssetBundleBuildSetting.CacheServerPort
+  name: CacheServerPort
+  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_CacheServerPort
+  commentId: F:BundleSystem.AssetBundleBuildSetting.CacheServerPort
+  fullName: BundleSystem.AssetBundleBuildSetting.CacheServerPort
+  nameWithType: AssetBundleBuildSetting.CacheServerPort
+- uid: BundleSystem.AssetBundleBuildSetting.CleanCacheInEditor
+  name: CleanCacheInEditor
+  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_CleanCacheInEditor
+  commentId: F:BundleSystem.AssetBundleBuildSetting.CleanCacheInEditor
+  fullName: BundleSystem.AssetBundleBuildSetting.CleanCacheInEditor
+  nameWithType: AssetBundleBuildSetting.CleanCacheInEditor
+- uid: BundleSystem.AssetBundleBuildSetting.EmulateInEditor
+  name: EmulateInEditor
+  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_EmulateInEditor
+  commentId: F:BundleSystem.AssetBundleBuildSetting.EmulateInEditor
+  fullName: BundleSystem.AssetBundleBuildSetting.EmulateInEditor
+  nameWithType: AssetBundleBuildSetting.EmulateInEditor
+- uid: BundleSystem.AssetBundleBuildSetting.EmulateWithoutRemoteURL
+  name: EmulateWithoutRemoteURL
+  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_EmulateWithoutRemoteURL
+  commentId: F:BundleSystem.AssetBundleBuildSetting.EmulateWithoutRemoteURL
+  fullName: BundleSystem.AssetBundleBuildSetting.EmulateWithoutRemoteURL
+  nameWithType: AssetBundleBuildSetting.EmulateWithoutRemoteURL
+- uid: BundleSystem.AssetBundleBuildSetting.ForceRebuild
+  name: ForceRebuild
+  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_ForceRebuild
+  commentId: F:BundleSystem.AssetBundleBuildSetting.ForceRebuild
+  fullName: BundleSystem.AssetBundleBuildSetting.ForceRebuild
+  nameWithType: AssetBundleBuildSetting.ForceRebuild
+- uid: BundleSystem.AssetBundleBuildSetting.GetBundleSettings
+  name: GetBundleSettings()
+  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_GetBundleSettings
+  commentId: M:BundleSystem.AssetBundleBuildSetting.GetBundleSettings
+  fullName: BundleSystem.AssetBundleBuildSetting.GetBundleSettings()
+  nameWithType: AssetBundleBuildSetting.GetBundleSettings()
+- uid: BundleSystem.AssetBundleBuildSetting.GetBundleSettings*
+  name: GetBundleSettings
+  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_GetBundleSettings_
+  commentId: Overload:BundleSystem.AssetBundleBuildSetting.GetBundleSettings
+  isSpec: "True"
+  fullName: BundleSystem.AssetBundleBuildSetting.GetBundleSettings
+  nameWithType: AssetBundleBuildSetting.GetBundleSettings
+- uid: BundleSystem.AssetBundleBuildSetting.IsValid
+  name: IsValid()
+  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_IsValid
+  commentId: M:BundleSystem.AssetBundleBuildSetting.IsValid
+  fullName: BundleSystem.AssetBundleBuildSetting.IsValid()
+  nameWithType: AssetBundleBuildSetting.IsValid()
+- uid: BundleSystem.AssetBundleBuildSetting.IsValid*
+  name: IsValid
+  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_IsValid_
+  commentId: Overload:BundleSystem.AssetBundleBuildSetting.IsValid
+  isSpec: "True"
+  fullName: BundleSystem.AssetBundleBuildSetting.IsValid
+  nameWithType: AssetBundleBuildSetting.IsValid
+- uid: BundleSystem.AssetBundleBuildSetting.OutputFolder
+  name: OutputFolder
+  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_OutputFolder
+  commentId: F:BundleSystem.AssetBundleBuildSetting.OutputFolder
+  fullName: BundleSystem.AssetBundleBuildSetting.OutputFolder
+  nameWithType: AssetBundleBuildSetting.OutputFolder
+- uid: BundleSystem.AssetBundleBuildSetting.RemoteURL
+  name: RemoteURL
+  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_RemoteURL
+  commentId: F:BundleSystem.AssetBundleBuildSetting.RemoteURL
+  fullName: BundleSystem.AssetBundleBuildSetting.RemoteURL
+  nameWithType: AssetBundleBuildSetting.RemoteURL
+- uid: BundleSystem.AssetBundleBuildSetting.UseCacheServer
+  name: UseCacheServer
+  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_UseCacheServer
+  commentId: F:BundleSystem.AssetBundleBuildSetting.UseCacheServer
+  fullName: BundleSystem.AssetBundleBuildSetting.UseCacheServer
+  nameWithType: AssetBundleBuildSetting.UseCacheServer
+- uid: BundleSystem.AssetBundleUploader
+  name: AssetBundleUploader
+  href: api/BundleSystem.AssetBundleUploader.html
+  commentId: T:BundleSystem.AssetBundleUploader
+  fullName: BundleSystem.AssetBundleUploader
+  nameWithType: AssetBundleUploader
+- uid: BundleSystem.AssetBundleUploader.UploadAllRemoteFiles(BundleSystem.FolderBasedAssetBundleBuildSetting)
+  name: UploadAllRemoteFiles(FolderBasedAssetBundleBuildSetting)
+  href: api/BundleSystem.AssetBundleUploader.html#BundleSystem_AssetBundleUploader_UploadAllRemoteFiles_BundleSystem_FolderBasedAssetBundleBuildSetting_
+  commentId: M:BundleSystem.AssetBundleUploader.UploadAllRemoteFiles(BundleSystem.FolderBasedAssetBundleBuildSetting)
+  fullName: BundleSystem.AssetBundleUploader.UploadAllRemoteFiles(BundleSystem.FolderBasedAssetBundleBuildSetting)
+  nameWithType: AssetBundleUploader.UploadAllRemoteFiles(FolderBasedAssetBundleBuildSetting)
+- uid: BundleSystem.AssetBundleUploader.UploadAllRemoteFiles*
+  name: UploadAllRemoteFiles
+  href: api/BundleSystem.AssetBundleUploader.html#BundleSystem_AssetBundleUploader_UploadAllRemoteFiles_
+  commentId: Overload:BundleSystem.AssetBundleUploader.UploadAllRemoteFiles
+  isSpec: "True"
+  fullName: BundleSystem.AssetBundleUploader.UploadAllRemoteFiles
+  nameWithType: AssetBundleUploader.UploadAllRemoteFiles
+- uid: BundleSystem.AssetDependencyTree
+  name: AssetDependencyTree
+  href: api/BundleSystem.AssetDependencyTree.html
+  commentId: T:BundleSystem.AssetDependencyTree
+  fullName: BundleSystem.AssetDependencyTree
+  nameWithType: AssetDependencyTree
+- uid: BundleSystem.AssetDependencyTree.Context
+  name: AssetDependencyTree.Context
+  href: api/BundleSystem.AssetDependencyTree.Context.html
+  commentId: T:BundleSystem.AssetDependencyTree.Context
+  fullName: BundleSystem.AssetDependencyTree.Context
+  nameWithType: AssetDependencyTree.Context
+- uid: BundleSystem.AssetDependencyTree.Context.DependencyDic
+  name: DependencyDic
+  href: api/BundleSystem.AssetDependencyTree.Context.html#BundleSystem_AssetDependencyTree_Context_DependencyDic
+  commentId: F:BundleSystem.AssetDependencyTree.Context.DependencyDic
+  fullName: BundleSystem.AssetDependencyTree.Context.DependencyDic
+  nameWithType: AssetDependencyTree.Context.DependencyDic
+- uid: BundleSystem.AssetDependencyTree.Context.IndirectNodes
+  name: IndirectNodes
+  href: api/BundleSystem.AssetDependencyTree.Context.html#BundleSystem_AssetDependencyTree_Context_IndirectNodes
+  commentId: F:BundleSystem.AssetDependencyTree.Context.IndirectNodes
+  fullName: BundleSystem.AssetDependencyTree.Context.IndirectNodes
+  nameWithType: AssetDependencyTree.Context.IndirectNodes
+- uid: BundleSystem.AssetDependencyTree.Context.ResultSharedNodes
+  name: ResultSharedNodes
+  href: api/BundleSystem.AssetDependencyTree.Context.html#BundleSystem_AssetDependencyTree_Context_ResultSharedNodes
+  commentId: F:BundleSystem.AssetDependencyTree.Context.ResultSharedNodes
+  fullName: BundleSystem.AssetDependencyTree.Context.ResultSharedNodes
+  nameWithType: AssetDependencyTree.Context.ResultSharedNodes
+- uid: BundleSystem.AssetDependencyTree.Context.RootNodes
+  name: RootNodes
+  href: api/BundleSystem.AssetDependencyTree.Context.html#BundleSystem_AssetDependencyTree_Context_RootNodes
+  commentId: F:BundleSystem.AssetDependencyTree.Context.RootNodes
+  fullName: BundleSystem.AssetDependencyTree.Context.RootNodes
+  nameWithType: AssetDependencyTree.Context.RootNodes
+- uid: BundleSystem.AssetDependencyTree.Node
+  name: AssetDependencyTree.Node
+  href: api/BundleSystem.AssetDependencyTree.Node.html
+  commentId: T:BundleSystem.AssetDependencyTree.Node
+  fullName: BundleSystem.AssetDependencyTree.Node
+  nameWithType: AssetDependencyTree.Node
+- uid: BundleSystem.AssetDependencyTree.Node.#ctor(System.String,BundleSystem.AssetDependencyTree.RootNode)
+  name: Node(String, AssetDependencyTree.RootNode)
+  href: api/BundleSystem.AssetDependencyTree.Node.html#BundleSystem_AssetDependencyTree_Node__ctor_System_String_BundleSystem_AssetDependencyTree_RootNode_
+  commentId: M:BundleSystem.AssetDependencyTree.Node.#ctor(System.String,BundleSystem.AssetDependencyTree.RootNode)
+  fullName: BundleSystem.AssetDependencyTree.Node.Node(System.String, BundleSystem.AssetDependencyTree.RootNode)
+  nameWithType: AssetDependencyTree.Node.Node(String, AssetDependencyTree.RootNode)
+- uid: BundleSystem.AssetDependencyTree.Node.#ctor*
+  name: Node
+  href: api/BundleSystem.AssetDependencyTree.Node.html#BundleSystem_AssetDependencyTree_Node__ctor_
+  commentId: Overload:BundleSystem.AssetDependencyTree.Node.#ctor
+  isSpec: "True"
+  fullName: BundleSystem.AssetDependencyTree.Node.Node
+  nameWithType: AssetDependencyTree.Node.Node
+- uid: BundleSystem.AssetDependencyTree.Node.Children
+  name: Children
+  href: api/BundleSystem.AssetDependencyTree.Node.html#BundleSystem_AssetDependencyTree_Node_Children
+  commentId: F:BundleSystem.AssetDependencyTree.Node.Children
+  fullName: BundleSystem.AssetDependencyTree.Node.Children
+  nameWithType: AssetDependencyTree.Node.Children
+- uid: BundleSystem.AssetDependencyTree.Node.CollectNodes(BundleSystem.AssetDependencyTree.Context)
+  name: CollectNodes(AssetDependencyTree.Context)
+  href: api/BundleSystem.AssetDependencyTree.Node.html#BundleSystem_AssetDependencyTree_Node_CollectNodes_BundleSystem_AssetDependencyTree_Context_
+  commentId: M:BundleSystem.AssetDependencyTree.Node.CollectNodes(BundleSystem.AssetDependencyTree.Context)
+  fullName: BundleSystem.AssetDependencyTree.Node.CollectNodes(BundleSystem.AssetDependencyTree.Context)
+  nameWithType: AssetDependencyTree.Node.CollectNodes(AssetDependencyTree.Context)
+- uid: BundleSystem.AssetDependencyTree.Node.CollectNodes*
+  name: CollectNodes
+  href: api/BundleSystem.AssetDependencyTree.Node.html#BundleSystem_AssetDependencyTree_Node_CollectNodes_
+  commentId: Overload:BundleSystem.AssetDependencyTree.Node.CollectNodes
+  isSpec: "True"
+  fullName: BundleSystem.AssetDependencyTree.Node.CollectNodes
+  nameWithType: AssetDependencyTree.Node.CollectNodes
+- uid: BundleSystem.AssetDependencyTree.Node.HasChild
+  name: HasChild
+  href: api/BundleSystem.AssetDependencyTree.Node.html#BundleSystem_AssetDependencyTree_Node_HasChild
+  commentId: P:BundleSystem.AssetDependencyTree.Node.HasChild
+  fullName: BundleSystem.AssetDependencyTree.Node.HasChild
+  nameWithType: AssetDependencyTree.Node.HasChild
+- uid: BundleSystem.AssetDependencyTree.Node.HasChild*
+  name: HasChild
+  href: api/BundleSystem.AssetDependencyTree.Node.html#BundleSystem_AssetDependencyTree_Node_HasChild_
+  commentId: Overload:BundleSystem.AssetDependencyTree.Node.HasChild
+  isSpec: "True"
+  fullName: BundleSystem.AssetDependencyTree.Node.HasChild
+  nameWithType: AssetDependencyTree.Node.HasChild
+- uid: BundleSystem.AssetDependencyTree.Node.IsRoot
+  name: IsRoot
+  href: api/BundleSystem.AssetDependencyTree.Node.html#BundleSystem_AssetDependencyTree_Node_IsRoot
+  commentId: P:BundleSystem.AssetDependencyTree.Node.IsRoot
+  fullName: BundleSystem.AssetDependencyTree.Node.IsRoot
+  nameWithType: AssetDependencyTree.Node.IsRoot
+- uid: BundleSystem.AssetDependencyTree.Node.IsRoot*
+  name: IsRoot
+  href: api/BundleSystem.AssetDependencyTree.Node.html#BundleSystem_AssetDependencyTree_Node_IsRoot_
+  commentId: Overload:BundleSystem.AssetDependencyTree.Node.IsRoot
+  isSpec: "True"
+  fullName: BundleSystem.AssetDependencyTree.Node.IsRoot
+  nameWithType: AssetDependencyTree.Node.IsRoot
+- uid: BundleSystem.AssetDependencyTree.Node.Path
+  name: Path
+  href: api/BundleSystem.AssetDependencyTree.Node.html#BundleSystem_AssetDependencyTree_Node_Path
+  commentId: P:BundleSystem.AssetDependencyTree.Node.Path
+  fullName: BundleSystem.AssetDependencyTree.Node.Path
+  nameWithType: AssetDependencyTree.Node.Path
+- uid: BundleSystem.AssetDependencyTree.Node.Path*
+  name: Path
+  href: api/BundleSystem.AssetDependencyTree.Node.html#BundleSystem_AssetDependencyTree_Node_Path_
+  commentId: Overload:BundleSystem.AssetDependencyTree.Node.Path
+  isSpec: "True"
+  fullName: BundleSystem.AssetDependencyTree.Node.Path
+  nameWithType: AssetDependencyTree.Node.Path
+- uid: BundleSystem.AssetDependencyTree.Node.RemoveFromTree(BundleSystem.AssetDependencyTree.Context)
+  name: RemoveFromTree(AssetDependencyTree.Context)
+  href: api/BundleSystem.AssetDependencyTree.Node.html#BundleSystem_AssetDependencyTree_Node_RemoveFromTree_BundleSystem_AssetDependencyTree_Context_
+  commentId: M:BundleSystem.AssetDependencyTree.Node.RemoveFromTree(BundleSystem.AssetDependencyTree.Context)
+  fullName: BundleSystem.AssetDependencyTree.Node.RemoveFromTree(BundleSystem.AssetDependencyTree.Context)
+  nameWithType: AssetDependencyTree.Node.RemoveFromTree(AssetDependencyTree.Context)
+- uid: BundleSystem.AssetDependencyTree.Node.RemoveFromTree*
+  name: RemoveFromTree
+  href: api/BundleSystem.AssetDependencyTree.Node.html#BundleSystem_AssetDependencyTree_Node_RemoveFromTree_
+  commentId: Overload:BundleSystem.AssetDependencyTree.Node.RemoveFromTree
+  isSpec: "True"
+  fullName: BundleSystem.AssetDependencyTree.Node.RemoveFromTree
+  nameWithType: AssetDependencyTree.Node.RemoveFromTree
+- uid: BundleSystem.AssetDependencyTree.Node.Root
+  name: Root
+  href: api/BundleSystem.AssetDependencyTree.Node.html#BundleSystem_AssetDependencyTree_Node_Root
+  commentId: P:BundleSystem.AssetDependencyTree.Node.Root
+  fullName: BundleSystem.AssetDependencyTree.Node.Root
+  nameWithType: AssetDependencyTree.Node.Root
+- uid: BundleSystem.AssetDependencyTree.Node.Root*
+  name: Root
+  href: api/BundleSystem.AssetDependencyTree.Node.html#BundleSystem_AssetDependencyTree_Node_Root_
+  commentId: Overload:BundleSystem.AssetDependencyTree.Node.Root
+  isSpec: "True"
+  fullName: BundleSystem.AssetDependencyTree.Node.Root
+  nameWithType: AssetDependencyTree.Node.Root
+- uid: BundleSystem.AssetDependencyTree.ProcessDependencyTree(System.Collections.Generic.List{BundleSystem.BundleSetting})
+  name: ProcessDependencyTree(List<BundleSetting>)
+  href: api/BundleSystem.AssetDependencyTree.html#BundleSystem_AssetDependencyTree_ProcessDependencyTree_System_Collections_Generic_List_BundleSystem_BundleSetting__
+  commentId: M:BundleSystem.AssetDependencyTree.ProcessDependencyTree(System.Collections.Generic.List{BundleSystem.BundleSetting})
+  name.vb: ProcessDependencyTree(List(Of BundleSetting))
+  fullName: BundleSystem.AssetDependencyTree.ProcessDependencyTree(System.Collections.Generic.List<BundleSystem.BundleSetting>)
+  fullName.vb: BundleSystem.AssetDependencyTree.ProcessDependencyTree(System.Collections.Generic.List(Of BundleSystem.BundleSetting))
+  nameWithType: AssetDependencyTree.ProcessDependencyTree(List<BundleSetting>)
+  nameWithType.vb: AssetDependencyTree.ProcessDependencyTree(List(Of BundleSetting))
+- uid: BundleSystem.AssetDependencyTree.ProcessDependencyTree*
+  name: ProcessDependencyTree
+  href: api/BundleSystem.AssetDependencyTree.html#BundleSystem_AssetDependencyTree_ProcessDependencyTree_
+  commentId: Overload:BundleSystem.AssetDependencyTree.ProcessDependencyTree
+  isSpec: "True"
+  fullName: BundleSystem.AssetDependencyTree.ProcessDependencyTree
+  nameWithType: AssetDependencyTree.ProcessDependencyTree
+- uid: BundleSystem.AssetDependencyTree.ProcessResult
+  name: AssetDependencyTree.ProcessResult
+  href: api/BundleSystem.AssetDependencyTree.ProcessResult.html
+  commentId: T:BundleSystem.AssetDependencyTree.ProcessResult
+  fullName: BundleSystem.AssetDependencyTree.ProcessResult
+  nameWithType: AssetDependencyTree.ProcessResult
+- uid: BundleSystem.AssetDependencyTree.ProcessResult.BundleDependencies
+  name: BundleDependencies
+  href: api/BundleSystem.AssetDependencyTree.ProcessResult.html#BundleSystem_AssetDependencyTree_ProcessResult_BundleDependencies
+  commentId: F:BundleSystem.AssetDependencyTree.ProcessResult.BundleDependencies
+  fullName: BundleSystem.AssetDependencyTree.ProcessResult.BundleDependencies
+  nameWithType: AssetDependencyTree.ProcessResult.BundleDependencies
+- uid: BundleSystem.AssetDependencyTree.ProcessResult.ResultBundles
+  name: ResultBundles
+  href: api/BundleSystem.AssetDependencyTree.ProcessResult.html#BundleSystem_AssetDependencyTree_ProcessResult_ResultBundles
+  commentId: F:BundleSystem.AssetDependencyTree.ProcessResult.ResultBundles
+  fullName: BundleSystem.AssetDependencyTree.ProcessResult.ResultBundles
+  nameWithType: AssetDependencyTree.ProcessResult.ResultBundles
+- uid: BundleSystem.AssetDependencyTree.ProcessResult.SharedBundles
+  name: SharedBundles
+  href: api/BundleSystem.AssetDependencyTree.ProcessResult.html#BundleSystem_AssetDependencyTree_ProcessResult_SharedBundles
+  commentId: F:BundleSystem.AssetDependencyTree.ProcessResult.SharedBundles
+  fullName: BundleSystem.AssetDependencyTree.ProcessResult.SharedBundles
+  nameWithType: AssetDependencyTree.ProcessResult.SharedBundles
+- uid: BundleSystem.AssetDependencyTree.RootNode
+  name: AssetDependencyTree.RootNode
+  href: api/BundleSystem.AssetDependencyTree.RootNode.html
+  commentId: T:BundleSystem.AssetDependencyTree.RootNode
+  fullName: BundleSystem.AssetDependencyTree.RootNode
+  nameWithType: AssetDependencyTree.RootNode
+- uid: BundleSystem.AssetDependencyTree.RootNode.#ctor(System.String,System.String,HashSet{System.String},System.Boolean,System.Boolean)
+  name: RootNode(String, String, HashSet<String>, Boolean, Boolean)
+  href: api/BundleSystem.AssetDependencyTree.RootNode.html#BundleSystem_AssetDependencyTree_RootNode__ctor_System_String_System_String_HashSet_System_String__System_Boolean_System_Boolean_
+  commentId: M:BundleSystem.AssetDependencyTree.RootNode.#ctor(System.String,System.String,HashSet{System.String},System.Boolean,System.Boolean)
+  name.vb: RootNode(String, String, HashSet(Of String), Boolean, Boolean)
+  fullName: BundleSystem.AssetDependencyTree.RootNode.RootNode(System.String, System.String, HashSet<System.String>, System.Boolean, System.Boolean)
+  fullName.vb: BundleSystem.AssetDependencyTree.RootNode.RootNode(System.String, System.String, HashSet(Of System.String), System.Boolean, System.Boolean)
+  nameWithType: AssetDependencyTree.RootNode.RootNode(String, String, HashSet<String>, Boolean, Boolean)
+  nameWithType.vb: AssetDependencyTree.RootNode.RootNode(String, String, HashSet(Of String), Boolean, Boolean)
+- uid: BundleSystem.AssetDependencyTree.RootNode.#ctor*
+  name: RootNode
+  href: api/BundleSystem.AssetDependencyTree.RootNode.html#BundleSystem_AssetDependencyTree_RootNode__ctor_
+  commentId: Overload:BundleSystem.AssetDependencyTree.RootNode.#ctor
+  isSpec: "True"
+  fullName: BundleSystem.AssetDependencyTree.RootNode.RootNode
+  nameWithType: AssetDependencyTree.RootNode.RootNode
+- uid: BundleSystem.AssetDependencyTree.RootNode.AllowCollect
+  name: AllowCollect
+  href: api/BundleSystem.AssetDependencyTree.RootNode.html#BundleSystem_AssetDependencyTree_RootNode_AllowCollect
+  commentId: P:BundleSystem.AssetDependencyTree.RootNode.AllowCollect
+  fullName: BundleSystem.AssetDependencyTree.RootNode.AllowCollect
+  nameWithType: AssetDependencyTree.RootNode.AllowCollect
+- uid: BundleSystem.AssetDependencyTree.RootNode.AllowCollect*
+  name: AllowCollect
+  href: api/BundleSystem.AssetDependencyTree.RootNode.html#BundleSystem_AssetDependencyTree_RootNode_AllowCollect_
+  commentId: Overload:BundleSystem.AssetDependencyTree.RootNode.AllowCollect
+  isSpec: "True"
+  fullName: BundleSystem.AssetDependencyTree.RootNode.AllowCollect
+  nameWithType: AssetDependencyTree.RootNode.AllowCollect
+- uid: BundleSystem.AssetDependencyTree.RootNode.BundleName
+  name: BundleName
+  href: api/BundleSystem.AssetDependencyTree.RootNode.html#BundleSystem_AssetDependencyTree_RootNode_BundleName
+  commentId: P:BundleSystem.AssetDependencyTree.RootNode.BundleName
+  fullName: BundleSystem.AssetDependencyTree.RootNode.BundleName
+  nameWithType: AssetDependencyTree.RootNode.BundleName
+- uid: BundleSystem.AssetDependencyTree.RootNode.BundleName*
+  name: BundleName
+  href: api/BundleSystem.AssetDependencyTree.RootNode.html#BundleSystem_AssetDependencyTree_RootNode_BundleName_
+  commentId: Overload:BundleSystem.AssetDependencyTree.RootNode.BundleName
+  isSpec: "True"
+  fullName: BundleSystem.AssetDependencyTree.RootNode.BundleName
+  nameWithType: AssetDependencyTree.RootNode.BundleName
+- uid: BundleSystem.AssetDependencyTree.RootNode.IsShared
+  name: IsShared
+  href: api/BundleSystem.AssetDependencyTree.RootNode.html#BundleSystem_AssetDependencyTree_RootNode_IsShared
+  commentId: P:BundleSystem.AssetDependencyTree.RootNode.IsShared
+  fullName: BundleSystem.AssetDependencyTree.RootNode.IsShared
+  nameWithType: AssetDependencyTree.RootNode.IsShared
+- uid: BundleSystem.AssetDependencyTree.RootNode.IsShared*
+  name: IsShared
+  href: api/BundleSystem.AssetDependencyTree.RootNode.html#BundleSystem_AssetDependencyTree_RootNode_IsShared_
+  commentId: Overload:BundleSystem.AssetDependencyTree.RootNode.IsShared
+  isSpec: "True"
+  fullName: BundleSystem.AssetDependencyTree.RootNode.IsShared
+  nameWithType: AssetDependencyTree.RootNode.IsShared
+- uid: BundleSystem.AssetDependencyTree.RootNode.ReferencedBundleNames
+  name: ReferencedBundleNames
+  href: api/BundleSystem.AssetDependencyTree.RootNode.html#BundleSystem_AssetDependencyTree_RootNode_ReferencedBundleNames
+  commentId: F:BundleSystem.AssetDependencyTree.RootNode.ReferencedBundleNames
+  fullName: BundleSystem.AssetDependencyTree.RootNode.ReferencedBundleNames
+  nameWithType: AssetDependencyTree.RootNode.ReferencedBundleNames
+- uid: BundleSystem.BundleAsyncOperation
+  name: BundleAsyncOperation
+  href: api/BundleSystem.BundleAsyncOperation.html
+  commentId: T:BundleSystem.BundleAsyncOperation
+  fullName: BundleSystem.BundleAsyncOperation
+  nameWithType: BundleAsyncOperation
+- uid: BundleSystem.BundleAsyncOperation.BundleSystem#IAwaiter{BundleSystem#BundleAsyncOperation}#GetResult
+  name: IAwaiter<BundleAsyncOperation>.GetResult()
+  href: api/BundleSystem.BundleAsyncOperation.html#BundleSystem_BundleAsyncOperation_BundleSystem_IAwaiter_BundleSystem_BundleAsyncOperation__GetResult
+  commentId: M:BundleSystem.BundleAsyncOperation.BundleSystem#IAwaiter{BundleSystem#BundleAsyncOperation}#GetResult
+  name.vb: BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation>.GetResult()
+  fullName: BundleSystem.BundleAsyncOperation.BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation>.GetResult()
+  nameWithType: BundleAsyncOperation.IAwaiter<BundleAsyncOperation>.GetResult()
+  nameWithType.vb: BundleAsyncOperation.BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation>.GetResult()
+- uid: BundleSystem.BundleAsyncOperation.BundleSystem#IAwaiter{BundleSystem#BundleAsyncOperation}#GetResult*
+  name: IAwaiter<BundleAsyncOperation>.GetResult
+  href: api/BundleSystem.BundleAsyncOperation.html#BundleSystem_BundleAsyncOperation_BundleSystem_IAwaiter_BundleSystem_BundleAsyncOperation__GetResult_
+  commentId: Overload:BundleSystem.BundleAsyncOperation.BundleSystem#IAwaiter{BundleSystem#BundleAsyncOperation}#GetResult
+  isSpec: "True"
+  name.vb: BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation>.GetResult
+  fullName: BundleSystem.BundleAsyncOperation.BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation>.GetResult
+  nameWithType: BundleAsyncOperation.IAwaiter<BundleAsyncOperation>.GetResult
+  nameWithType.vb: BundleAsyncOperation.BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation>.GetResult
+- uid: BundleSystem.BundleAsyncOperation.BundleSystem#IAwaiter{BundleSystem#BundleAsyncOperation}#IsCompleted
+  name: IAwaiter<BundleAsyncOperation>.IsCompleted
+  href: api/BundleSystem.BundleAsyncOperation.html#BundleSystem_BundleAsyncOperation_BundleSystem_IAwaiter_BundleSystem_BundleAsyncOperation__IsCompleted
+  commentId: P:BundleSystem.BundleAsyncOperation.BundleSystem#IAwaiter{BundleSystem#BundleAsyncOperation}#IsCompleted
+  name.vb: BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation>.IsCompleted
+  fullName: BundleSystem.BundleAsyncOperation.BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation>.IsCompleted
+  nameWithType: BundleAsyncOperation.IAwaiter<BundleAsyncOperation>.IsCompleted
+  nameWithType.vb: BundleAsyncOperation.BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation>.IsCompleted
+- uid: BundleSystem.BundleAsyncOperation.BundleSystem#IAwaiter{BundleSystem#BundleAsyncOperation}#IsCompleted*
+  name: IAwaiter<BundleAsyncOperation>.IsCompleted
+  href: api/BundleSystem.BundleAsyncOperation.html#BundleSystem_BundleAsyncOperation_BundleSystem_IAwaiter_BundleSystem_BundleAsyncOperation__IsCompleted_
+  commentId: Overload:BundleSystem.BundleAsyncOperation.BundleSystem#IAwaiter{BundleSystem#BundleAsyncOperation}#IsCompleted
+  isSpec: "True"
+  name.vb: BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation>.IsCompleted
+  fullName: BundleSystem.BundleAsyncOperation.BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation>.IsCompleted
+  nameWithType: BundleAsyncOperation.IAwaiter<BundleAsyncOperation>.IsCompleted
+  nameWithType.vb: BundleAsyncOperation.BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation>.IsCompleted
+- uid: BundleSystem.BundleAsyncOperation.GetAwaiter
+  name: GetAwaiter()
+  href: api/BundleSystem.BundleAsyncOperation.html#BundleSystem_BundleAsyncOperation_GetAwaiter
+  commentId: M:BundleSystem.BundleAsyncOperation.GetAwaiter
+  fullName: BundleSystem.BundleAsyncOperation.GetAwaiter()
+  nameWithType: BundleAsyncOperation.GetAwaiter()
+- uid: BundleSystem.BundleAsyncOperation.GetAwaiter*
+  name: GetAwaiter
+  href: api/BundleSystem.BundleAsyncOperation.html#BundleSystem_BundleAsyncOperation_GetAwaiter_
+  commentId: Overload:BundleSystem.BundleAsyncOperation.GetAwaiter
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncOperation.GetAwaiter
+  nameWithType: BundleAsyncOperation.GetAwaiter
+- uid: BundleSystem.BundleAsyncOperation`1
+  name: BundleAsyncOperation<T>
+  href: api/BundleSystem.BundleAsyncOperation-1.html
+  commentId: T:BundleSystem.BundleAsyncOperation`1
+  name.vb: BundleAsyncOperation(Of T)
+  fullName: BundleSystem.BundleAsyncOperation<T>
+  fullName.vb: BundleSystem.BundleAsyncOperation(Of T)
+  nameWithType: BundleAsyncOperation<T>
+  nameWithType.vb: BundleAsyncOperation(Of T)
+- uid: BundleSystem.BundleAsyncOperation`1.BundleSystem#IAwaiter{BundleSystem#BundleAsyncOperation{T}}#GetResult
+  name: IAwaiter<BundleAsyncOperation<T>>.GetResult()
+  href: api/BundleSystem.BundleAsyncOperation-1.html#BundleSystem_BundleAsyncOperation_1_BundleSystem_IAwaiter_BundleSystem_BundleAsyncOperation_T___GetResult
+  commentId: M:BundleSystem.BundleAsyncOperation`1.BundleSystem#IAwaiter{BundleSystem#BundleAsyncOperation{T}}#GetResult
+  name.vb: BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation<T>>.GetResult()
+  fullName: BundleSystem.BundleAsyncOperation<T>.BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation<T>>.GetResult()
+  fullName.vb: BundleSystem.BundleAsyncOperation(Of T).BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation<T>>.GetResult()
+  nameWithType: BundleAsyncOperation<T>.IAwaiter<BundleAsyncOperation<T>>.GetResult()
+  nameWithType.vb: BundleAsyncOperation(Of T).BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation<T>>.GetResult()
+- uid: BundleSystem.BundleAsyncOperation`1.BundleSystem#IAwaiter{BundleSystem#BundleAsyncOperation{T}}#GetResult*
+  name: IAwaiter<BundleAsyncOperation<T>>.GetResult
+  href: api/BundleSystem.BundleAsyncOperation-1.html#BundleSystem_BundleAsyncOperation_1_BundleSystem_IAwaiter_BundleSystem_BundleAsyncOperation_T___GetResult_
+  commentId: Overload:BundleSystem.BundleAsyncOperation`1.BundleSystem#IAwaiter{BundleSystem#BundleAsyncOperation{T}}#GetResult
+  isSpec: "True"
+  name.vb: BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation<T>>.GetResult
+  fullName: BundleSystem.BundleAsyncOperation<T>.BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation<T>>.GetResult
+  fullName.vb: BundleSystem.BundleAsyncOperation(Of T).BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation<T>>.GetResult
+  nameWithType: BundleAsyncOperation<T>.IAwaiter<BundleAsyncOperation<T>>.GetResult
+  nameWithType.vb: BundleAsyncOperation(Of T).BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation<T>>.GetResult
+- uid: BundleSystem.BundleAsyncOperation`1.BundleSystem#IAwaiter{BundleSystem#BundleAsyncOperation{T}}#IsCompleted
+  name: IAwaiter<BundleAsyncOperation<T>>.IsCompleted
+  href: api/BundleSystem.BundleAsyncOperation-1.html#BundleSystem_BundleAsyncOperation_1_BundleSystem_IAwaiter_BundleSystem_BundleAsyncOperation_T___IsCompleted
+  commentId: P:BundleSystem.BundleAsyncOperation`1.BundleSystem#IAwaiter{BundleSystem#BundleAsyncOperation{T}}#IsCompleted
+  name.vb: BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation<T>>.IsCompleted
+  fullName: BundleSystem.BundleAsyncOperation<T>.BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation<T>>.IsCompleted
+  fullName.vb: BundleSystem.BundleAsyncOperation(Of T).BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation<T>>.IsCompleted
+  nameWithType: BundleAsyncOperation<T>.IAwaiter<BundleAsyncOperation<T>>.IsCompleted
+  nameWithType.vb: BundleAsyncOperation(Of T).BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation<T>>.IsCompleted
+- uid: BundleSystem.BundleAsyncOperation`1.BundleSystem#IAwaiter{BundleSystem#BundleAsyncOperation{T}}#IsCompleted*
+  name: IAwaiter<BundleAsyncOperation<T>>.IsCompleted
+  href: api/BundleSystem.BundleAsyncOperation-1.html#BundleSystem_BundleAsyncOperation_1_BundleSystem_IAwaiter_BundleSystem_BundleAsyncOperation_T___IsCompleted_
+  commentId: Overload:BundleSystem.BundleAsyncOperation`1.BundleSystem#IAwaiter{BundleSystem#BundleAsyncOperation{T}}#IsCompleted
+  isSpec: "True"
+  name.vb: BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation<T>>.IsCompleted
+  fullName: BundleSystem.BundleAsyncOperation<T>.BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation<T>>.IsCompleted
+  fullName.vb: BundleSystem.BundleAsyncOperation(Of T).BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation<T>>.IsCompleted
+  nameWithType: BundleAsyncOperation<T>.IAwaiter<BundleAsyncOperation<T>>.IsCompleted
+  nameWithType.vb: BundleAsyncOperation(Of T).BundleSystem.IAwaiter<BundleSystem.BundleAsyncOperation<T>>.IsCompleted
+- uid: BundleSystem.BundleAsyncOperation`1.GetAwaiter
+  name: GetAwaiter()
+  href: api/BundleSystem.BundleAsyncOperation-1.html#BundleSystem_BundleAsyncOperation_1_GetAwaiter
+  commentId: M:BundleSystem.BundleAsyncOperation`1.GetAwaiter
+  fullName: BundleSystem.BundleAsyncOperation<T>.GetAwaiter()
+  fullName.vb: BundleSystem.BundleAsyncOperation(Of T).GetAwaiter()
+  nameWithType: BundleAsyncOperation<T>.GetAwaiter()
+  nameWithType.vb: BundleAsyncOperation(Of T).GetAwaiter()
+- uid: BundleSystem.BundleAsyncOperation`1.GetAwaiter*
+  name: GetAwaiter
+  href: api/BundleSystem.BundleAsyncOperation-1.html#BundleSystem_BundleAsyncOperation_1_GetAwaiter_
+  commentId: Overload:BundleSystem.BundleAsyncOperation`1.GetAwaiter
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncOperation<T>.GetAwaiter
+  fullName.vb: BundleSystem.BundleAsyncOperation(Of T).GetAwaiter
+  nameWithType: BundleAsyncOperation<T>.GetAwaiter
+  nameWithType.vb: BundleAsyncOperation(Of T).GetAwaiter
+- uid: BundleSystem.BundleAsyncOperation`1.Result
+  name: Result
+  href: api/BundleSystem.BundleAsyncOperation-1.html#BundleSystem_BundleAsyncOperation_1_Result
+  commentId: P:BundleSystem.BundleAsyncOperation`1.Result
+  fullName: BundleSystem.BundleAsyncOperation<T>.Result
+  fullName.vb: BundleSystem.BundleAsyncOperation(Of T).Result
+  nameWithType: BundleAsyncOperation<T>.Result
+  nameWithType.vb: BundleAsyncOperation(Of T).Result
+- uid: BundleSystem.BundleAsyncOperation`1.Result*
+  name: Result
+  href: api/BundleSystem.BundleAsyncOperation-1.html#BundleSystem_BundleAsyncOperation_1_Result_
+  commentId: Overload:BundleSystem.BundleAsyncOperation`1.Result
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncOperation<T>.Result
+  fullName.vb: BundleSystem.BundleAsyncOperation(Of T).Result
+  nameWithType: BundleAsyncOperation<T>.Result
+  nameWithType.vb: BundleAsyncOperation(Of T).Result
+- uid: BundleSystem.BundleAsyncOperationBase
+  name: BundleAsyncOperationBase
+  href: api/BundleSystem.BundleAsyncOperationBase.html
+  commentId: T:BundleSystem.BundleAsyncOperationBase
+  fullName: BundleSystem.BundleAsyncOperationBase
+  nameWithType: BundleAsyncOperationBase
+- uid: BundleSystem.BundleAsyncOperationBase.AwaiterOnComplete(System.Action)
+  name: AwaiterOnComplete(Action)
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_AwaiterOnComplete_System_Action_
+  commentId: M:BundleSystem.BundleAsyncOperationBase.AwaiterOnComplete(System.Action)
+  fullName: BundleSystem.BundleAsyncOperationBase.AwaiterOnComplete(System.Action)
+  nameWithType: BundleAsyncOperationBase.AwaiterOnComplete(Action)
+- uid: BundleSystem.BundleAsyncOperationBase.AwaiterOnComplete*
+  name: AwaiterOnComplete
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_AwaiterOnComplete_
+  commentId: Overload:BundleSystem.BundleAsyncOperationBase.AwaiterOnComplete
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncOperationBase.AwaiterOnComplete
+  nameWithType: BundleAsyncOperationBase.AwaiterOnComplete
+- uid: BundleSystem.BundleAsyncOperationBase.CurrentCount
+  name: CurrentCount
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_CurrentCount
+  commentId: P:BundleSystem.BundleAsyncOperationBase.CurrentCount
+  fullName: BundleSystem.BundleAsyncOperationBase.CurrentCount
+  nameWithType: BundleAsyncOperationBase.CurrentCount
+- uid: BundleSystem.BundleAsyncOperationBase.CurrentCount*
+  name: CurrentCount
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_CurrentCount_
+  commentId: Overload:BundleSystem.BundleAsyncOperationBase.CurrentCount
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncOperationBase.CurrentCount
+  nameWithType: BundleAsyncOperationBase.CurrentCount
+- uid: BundleSystem.BundleAsyncOperationBase.CurrentlyLoadingFromCache
+  name: CurrentlyLoadingFromCache
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_CurrentlyLoadingFromCache
+  commentId: P:BundleSystem.BundleAsyncOperationBase.CurrentlyLoadingFromCache
+  fullName: BundleSystem.BundleAsyncOperationBase.CurrentlyLoadingFromCache
+  nameWithType: BundleAsyncOperationBase.CurrentlyLoadingFromCache
+- uid: BundleSystem.BundleAsyncOperationBase.CurrentlyLoadingFromCache*
+  name: CurrentlyLoadingFromCache
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_CurrentlyLoadingFromCache_
+  commentId: Overload:BundleSystem.BundleAsyncOperationBase.CurrentlyLoadingFromCache
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncOperationBase.CurrentlyLoadingFromCache
+  nameWithType: BundleAsyncOperationBase.CurrentlyLoadingFromCache
+- uid: BundleSystem.BundleAsyncOperationBase.ErrorCode
+  name: ErrorCode
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_ErrorCode
+  commentId: P:BundleSystem.BundleAsyncOperationBase.ErrorCode
+  fullName: BundleSystem.BundleAsyncOperationBase.ErrorCode
+  nameWithType: BundleAsyncOperationBase.ErrorCode
+- uid: BundleSystem.BundleAsyncOperationBase.ErrorCode*
+  name: ErrorCode
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_ErrorCode_
+  commentId: Overload:BundleSystem.BundleAsyncOperationBase.ErrorCode
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncOperationBase.ErrorCode
+  nameWithType: BundleAsyncOperationBase.ErrorCode
+- uid: BundleSystem.BundleAsyncOperationBase.IsDone
+  name: IsDone
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_IsDone
+  commentId: P:BundleSystem.BundleAsyncOperationBase.IsDone
+  fullName: BundleSystem.BundleAsyncOperationBase.IsDone
+  nameWithType: BundleAsyncOperationBase.IsDone
+- uid: BundleSystem.BundleAsyncOperationBase.IsDone*
+  name: IsDone
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_IsDone_
+  commentId: Overload:BundleSystem.BundleAsyncOperationBase.IsDone
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncOperationBase.IsDone
+  nameWithType: BundleAsyncOperationBase.IsDone
+- uid: BundleSystem.BundleAsyncOperationBase.keepWaiting
+  name: keepWaiting
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_keepWaiting
+  commentId: P:BundleSystem.BundleAsyncOperationBase.keepWaiting
+  fullName: BundleSystem.BundleAsyncOperationBase.keepWaiting
+  nameWithType: BundleAsyncOperationBase.keepWaiting
+- uid: BundleSystem.BundleAsyncOperationBase.keepWaiting*
+  name: keepWaiting
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_keepWaiting_
+  commentId: Overload:BundleSystem.BundleAsyncOperationBase.keepWaiting
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncOperationBase.keepWaiting
+  nameWithType: BundleAsyncOperationBase.keepWaiting
+- uid: BundleSystem.BundleAsyncOperationBase.m_OnComplete
+  name: m_OnComplete
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_m_OnComplete
+  commentId: E:BundleSystem.BundleAsyncOperationBase.m_OnComplete
+  fullName: BundleSystem.BundleAsyncOperationBase.m_OnComplete
+  nameWithType: BundleAsyncOperationBase.m_OnComplete
+- uid: BundleSystem.BundleAsyncOperationBase.Progress
+  name: Progress
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_Progress
+  commentId: P:BundleSystem.BundleAsyncOperationBase.Progress
+  fullName: BundleSystem.BundleAsyncOperationBase.Progress
+  nameWithType: BundleAsyncOperationBase.Progress
+- uid: BundleSystem.BundleAsyncOperationBase.Progress*
+  name: Progress
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_Progress_
+  commentId: Overload:BundleSystem.BundleAsyncOperationBase.Progress
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncOperationBase.Progress
+  nameWithType: BundleAsyncOperationBase.Progress
+- uid: BundleSystem.BundleAsyncOperationBase.Succeeded
+  name: Succeeded
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_Succeeded
+  commentId: P:BundleSystem.BundleAsyncOperationBase.Succeeded
+  fullName: BundleSystem.BundleAsyncOperationBase.Succeeded
+  nameWithType: BundleAsyncOperationBase.Succeeded
+- uid: BundleSystem.BundleAsyncOperationBase.Succeeded*
+  name: Succeeded
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_Succeeded_
+  commentId: Overload:BundleSystem.BundleAsyncOperationBase.Succeeded
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncOperationBase.Succeeded
+  nameWithType: BundleAsyncOperationBase.Succeeded
+- uid: BundleSystem.BundleAsyncOperationBase.TotalCount
+  name: TotalCount
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_TotalCount
+  commentId: P:BundleSystem.BundleAsyncOperationBase.TotalCount
+  fullName: BundleSystem.BundleAsyncOperationBase.TotalCount
+  nameWithType: BundleAsyncOperationBase.TotalCount
+- uid: BundleSystem.BundleAsyncOperationBase.TotalCount*
+  name: TotalCount
+  href: api/BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_TotalCount_
+  commentId: Overload:BundleSystem.BundleAsyncOperationBase.TotalCount
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncOperationBase.TotalCount
+  nameWithType: BundleAsyncOperationBase.TotalCount
+- uid: BundleSystem.BundleAsyncRequest`1
+  name: BundleAsyncRequest<T>
+  href: api/BundleSystem.BundleAsyncRequest-1.html
+  commentId: T:BundleSystem.BundleAsyncRequest`1
+  name.vb: BundleAsyncRequest(Of T)
+  fullName: BundleSystem.BundleAsyncRequest<T>
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T)
+  nameWithType: BundleAsyncRequest<T>
+  nameWithType.vb: BundleAsyncRequest(Of T)
+- uid: BundleSystem.BundleAsyncRequest`1.#ctor(`0,BundleSystem.TrackHandle{`0})
+  name: BundleAsyncRequest(T, TrackHandle<T>)
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1__ctor__0_BundleSystem_TrackHandle__0__
+  commentId: M:BundleSystem.BundleAsyncRequest`1.#ctor(`0,BundleSystem.TrackHandle{`0})
+  name.vb: BundleAsyncRequest(T, TrackHandle(Of T))
+  fullName: BundleSystem.BundleAsyncRequest<T>.BundleAsyncRequest(T, BundleSystem.TrackHandle<T>)
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).BundleAsyncRequest(T, BundleSystem.TrackHandle(Of T))
+  nameWithType: BundleAsyncRequest<T>.BundleAsyncRequest(T, TrackHandle<T>)
+  nameWithType.vb: BundleAsyncRequest(Of T).BundleAsyncRequest(T, TrackHandle(Of T))
+- uid: BundleSystem.BundleAsyncRequest`1.#ctor(AssetBundleRequest,BundleSystem.TrackHandle{`0})
+  name: BundleAsyncRequest(AssetBundleRequest, TrackHandle<T>)
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1__ctor_AssetBundleRequest_BundleSystem_TrackHandle__0__
+  commentId: M:BundleSystem.BundleAsyncRequest`1.#ctor(AssetBundleRequest,BundleSystem.TrackHandle{`0})
+  name.vb: BundleAsyncRequest(AssetBundleRequest, TrackHandle(Of T))
+  fullName: BundleSystem.BundleAsyncRequest<T>.BundleAsyncRequest(AssetBundleRequest, BundleSystem.TrackHandle<T>)
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).BundleAsyncRequest(AssetBundleRequest, BundleSystem.TrackHandle(Of T))
+  nameWithType: BundleAsyncRequest<T>.BundleAsyncRequest(AssetBundleRequest, TrackHandle<T>)
+  nameWithType.vb: BundleAsyncRequest(Of T).BundleAsyncRequest(AssetBundleRequest, TrackHandle(Of T))
+- uid: BundleSystem.BundleAsyncRequest`1.#ctor*
+  name: BundleAsyncRequest
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1__ctor_
+  commentId: Overload:BundleSystem.BundleAsyncRequest`1.#ctor
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncRequest<T>.BundleAsyncRequest
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).BundleAsyncRequest
+  nameWithType: BundleAsyncRequest<T>.BundleAsyncRequest
+  nameWithType.vb: BundleAsyncRequest(Of T).BundleAsyncRequest
+- uid: BundleSystem.BundleAsyncRequest`1.Asset
+  name: Asset
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_Asset
+  commentId: P:BundleSystem.BundleAsyncRequest`1.Asset
+  fullName: BundleSystem.BundleAsyncRequest<T>.Asset
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).Asset
+  nameWithType: BundleAsyncRequest<T>.Asset
+  nameWithType.vb: BundleAsyncRequest(Of T).Asset
+- uid: BundleSystem.BundleAsyncRequest`1.Asset*
+  name: Asset
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_Asset_
+  commentId: Overload:BundleSystem.BundleAsyncRequest`1.Asset
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncRequest<T>.Asset
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).Asset
+  nameWithType: BundleAsyncRequest<T>.Asset
+  nameWithType.vb: BundleAsyncRequest(Of T).Asset
+- uid: BundleSystem.BundleAsyncRequest`1.BundleSystem#IAwaiter{BundleSystem#BundleAsyncRequest{T}}#GetResult
+  name: IAwaiter<BundleAsyncRequest<T>>.GetResult()
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_BundleSystem_IAwaiter_BundleSystem_BundleAsyncRequest_T___GetResult
+  commentId: M:BundleSystem.BundleAsyncRequest`1.BundleSystem#IAwaiter{BundleSystem#BundleAsyncRequest{T}}#GetResult
+  name.vb: BundleSystem.IAwaiter<BundleSystem.BundleAsyncRequest<T>>.GetResult()
+  fullName: BundleSystem.BundleAsyncRequest<T>.BundleSystem.IAwaiter<BundleSystem.BundleAsyncRequest<T>>.GetResult()
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).BundleSystem.IAwaiter<BundleSystem.BundleAsyncRequest<T>>.GetResult()
+  nameWithType: BundleAsyncRequest<T>.IAwaiter<BundleAsyncRequest<T>>.GetResult()
+  nameWithType.vb: BundleAsyncRequest(Of T).BundleSystem.IAwaiter<BundleSystem.BundleAsyncRequest<T>>.GetResult()
+- uid: BundleSystem.BundleAsyncRequest`1.BundleSystem#IAwaiter{BundleSystem#BundleAsyncRequest{T}}#GetResult*
+  name: IAwaiter<BundleAsyncRequest<T>>.GetResult
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_BundleSystem_IAwaiter_BundleSystem_BundleAsyncRequest_T___GetResult_
+  commentId: Overload:BundleSystem.BundleAsyncRequest`1.BundleSystem#IAwaiter{BundleSystem#BundleAsyncRequest{T}}#GetResult
+  isSpec: "True"
+  name.vb: BundleSystem.IAwaiter<BundleSystem.BundleAsyncRequest<T>>.GetResult
+  fullName: BundleSystem.BundleAsyncRequest<T>.BundleSystem.IAwaiter<BundleSystem.BundleAsyncRequest<T>>.GetResult
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).BundleSystem.IAwaiter<BundleSystem.BundleAsyncRequest<T>>.GetResult
+  nameWithType: BundleAsyncRequest<T>.IAwaiter<BundleAsyncRequest<T>>.GetResult
+  nameWithType.vb: BundleAsyncRequest(Of T).BundleSystem.IAwaiter<BundleSystem.BundleAsyncRequest<T>>.GetResult
+- uid: BundleSystem.BundleAsyncRequest`1.Dispose
+  name: Dispose()
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_Dispose
+  commentId: M:BundleSystem.BundleAsyncRequest`1.Dispose
+  fullName: BundleSystem.BundleAsyncRequest<T>.Dispose()
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).Dispose()
+  nameWithType: BundleAsyncRequest<T>.Dispose()
+  nameWithType.vb: BundleAsyncRequest(Of T).Dispose()
+- uid: BundleSystem.BundleAsyncRequest`1.Dispose*
+  name: Dispose
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_Dispose_
+  commentId: Overload:BundleSystem.BundleAsyncRequest`1.Dispose
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncRequest<T>.Dispose
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).Dispose
+  nameWithType: BundleAsyncRequest<T>.Dispose
+  nameWithType.vb: BundleAsyncRequest(Of T).Dispose
+- uid: BundleSystem.BundleAsyncRequest`1.Empty
+  name: Empty
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_Empty
+  commentId: F:BundleSystem.BundleAsyncRequest`1.Empty
+  fullName: BundleSystem.BundleAsyncRequest<T>.Empty
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).Empty
+  nameWithType: BundleAsyncRequest<T>.Empty
+  nameWithType.vb: BundleAsyncRequest(Of T).Empty
+- uid: BundleSystem.BundleAsyncRequest`1.GetAwaiter
+  name: GetAwaiter()
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_GetAwaiter
+  commentId: M:BundleSystem.BundleAsyncRequest`1.GetAwaiter
+  fullName: BundleSystem.BundleAsyncRequest<T>.GetAwaiter()
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).GetAwaiter()
+  nameWithType: BundleAsyncRequest<T>.GetAwaiter()
+  nameWithType.vb: BundleAsyncRequest(Of T).GetAwaiter()
+- uid: BundleSystem.BundleAsyncRequest`1.GetAwaiter*
+  name: GetAwaiter
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_GetAwaiter_
+  commentId: Overload:BundleSystem.BundleAsyncRequest`1.GetAwaiter
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncRequest<T>.GetAwaiter
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).GetAwaiter
+  nameWithType: BundleAsyncRequest<T>.GetAwaiter
+  nameWithType.vb: BundleAsyncRequest(Of T).GetAwaiter
+- uid: BundleSystem.BundleAsyncRequest`1.Handle
+  name: Handle
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_Handle
+  commentId: F:BundleSystem.BundleAsyncRequest`1.Handle
+  fullName: BundleSystem.BundleAsyncRequest<T>.Handle
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).Handle
+  nameWithType: BundleAsyncRequest<T>.Handle
+  nameWithType.vb: BundleAsyncRequest(Of T).Handle
+- uid: BundleSystem.BundleAsyncRequest`1.IsCompleted
+  name: IsCompleted
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_IsCompleted
+  commentId: P:BundleSystem.BundleAsyncRequest`1.IsCompleted
+  fullName: BundleSystem.BundleAsyncRequest<T>.IsCompleted
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).IsCompleted
+  nameWithType: BundleAsyncRequest<T>.IsCompleted
+  nameWithType.vb: BundleAsyncRequest(Of T).IsCompleted
+- uid: BundleSystem.BundleAsyncRequest`1.IsCompleted*
+  name: IsCompleted
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_IsCompleted_
+  commentId: Overload:BundleSystem.BundleAsyncRequest`1.IsCompleted
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncRequest<T>.IsCompleted
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).IsCompleted
+  nameWithType: BundleAsyncRequest<T>.IsCompleted
+  nameWithType.vb: BundleAsyncRequest(Of T).IsCompleted
+- uid: BundleSystem.BundleAsyncRequest`1.keepWaiting
+  name: keepWaiting
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_keepWaiting
+  commentId: P:BundleSystem.BundleAsyncRequest`1.keepWaiting
+  fullName: BundleSystem.BundleAsyncRequest<T>.keepWaiting
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).keepWaiting
+  nameWithType: BundleAsyncRequest<T>.keepWaiting
+  nameWithType.vb: BundleAsyncRequest(Of T).keepWaiting
+- uid: BundleSystem.BundleAsyncRequest`1.keepWaiting*
+  name: keepWaiting
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_keepWaiting_
+  commentId: Overload:BundleSystem.BundleAsyncRequest`1.keepWaiting
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncRequest<T>.keepWaiting
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).keepWaiting
+  nameWithType: BundleAsyncRequest<T>.keepWaiting
+  nameWithType.vb: BundleAsyncRequest(Of T).keepWaiting
+- uid: BundleSystem.BundleAsyncRequest`1.OnCompleted(System.Action)
+  name: OnCompleted(Action)
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_OnCompleted_System_Action_
+  commentId: M:BundleSystem.BundleAsyncRequest`1.OnCompleted(System.Action)
+  fullName: BundleSystem.BundleAsyncRequest<T>.OnCompleted(System.Action)
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).OnCompleted(System.Action)
+  nameWithType: BundleAsyncRequest<T>.OnCompleted(Action)
+  nameWithType.vb: BundleAsyncRequest(Of T).OnCompleted(Action)
+- uid: BundleSystem.BundleAsyncRequest`1.OnCompleted*
+  name: OnCompleted
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_OnCompleted_
+  commentId: Overload:BundleSystem.BundleAsyncRequest`1.OnCompleted
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncRequest<T>.OnCompleted
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).OnCompleted
+  nameWithType: BundleAsyncRequest<T>.OnCompleted
+  nameWithType.vb: BundleAsyncRequest(Of T).OnCompleted
+- uid: BundleSystem.BundleAsyncRequest`1.Progress
+  name: Progress
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_Progress
+  commentId: P:BundleSystem.BundleAsyncRequest`1.Progress
+  fullName: BundleSystem.BundleAsyncRequest<T>.Progress
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).Progress
+  nameWithType: BundleAsyncRequest<T>.Progress
+  nameWithType.vb: BundleAsyncRequest(Of T).Progress
+- uid: BundleSystem.BundleAsyncRequest`1.Progress*
+  name: Progress
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_Progress_
+  commentId: Overload:BundleSystem.BundleAsyncRequest`1.Progress
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncRequest<T>.Progress
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).Progress
+  nameWithType: BundleAsyncRequest<T>.Progress
+  nameWithType.vb: BundleAsyncRequest(Of T).Progress
+- uid: BundleSystem.BundleAsyncRequest`1.SuppressAutoRelease
+  name: SuppressAutoRelease()
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_SuppressAutoRelease
+  commentId: M:BundleSystem.BundleAsyncRequest`1.SuppressAutoRelease
+  fullName: BundleSystem.BundleAsyncRequest<T>.SuppressAutoRelease()
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).SuppressAutoRelease()
+  nameWithType: BundleAsyncRequest<T>.SuppressAutoRelease()
+  nameWithType.vb: BundleAsyncRequest(Of T).SuppressAutoRelease()
+- uid: BundleSystem.BundleAsyncRequest`1.SuppressAutoRelease*
+  name: SuppressAutoRelease
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_SuppressAutoRelease_
+  commentId: Overload:BundleSystem.BundleAsyncRequest`1.SuppressAutoRelease
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncRequest<T>.SuppressAutoRelease
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).SuppressAutoRelease
+  nameWithType: BundleAsyncRequest<T>.SuppressAutoRelease
+  nameWithType.vb: BundleAsyncRequest(Of T).SuppressAutoRelease
+- uid: BundleSystem.BundleAsyncRequest`1.UnsafeOnCompleted(System.Action)
+  name: UnsafeOnCompleted(Action)
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_UnsafeOnCompleted_System_Action_
+  commentId: M:BundleSystem.BundleAsyncRequest`1.UnsafeOnCompleted(System.Action)
+  fullName: BundleSystem.BundleAsyncRequest<T>.UnsafeOnCompleted(System.Action)
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).UnsafeOnCompleted(System.Action)
+  nameWithType: BundleAsyncRequest<T>.UnsafeOnCompleted(Action)
+  nameWithType.vb: BundleAsyncRequest(Of T).UnsafeOnCompleted(Action)
+- uid: BundleSystem.BundleAsyncRequest`1.UnsafeOnCompleted*
+  name: UnsafeOnCompleted
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_UnsafeOnCompleted_
+  commentId: Overload:BundleSystem.BundleAsyncRequest`1.UnsafeOnCompleted
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncRequest<T>.UnsafeOnCompleted
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).UnsafeOnCompleted
+  nameWithType: BundleAsyncRequest<T>.UnsafeOnCompleted
+  nameWithType.vb: BundleAsyncRequest(Of T).UnsafeOnCompleted
+- uid: BundleSystem.BundleAsyncSceneRequest
+  name: BundleAsyncSceneRequest
+  href: api/BundleSystem.BundleAsyncSceneRequest.html
+  commentId: T:BundleSystem.BundleAsyncSceneRequest
+  fullName: BundleSystem.BundleAsyncSceneRequest
+  nameWithType: BundleAsyncSceneRequest
+- uid: BundleSystem.BundleAsyncSceneRequest.#ctor(AsyncOperation)
+  name: BundleAsyncSceneRequest(AsyncOperation)
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest__ctor_AsyncOperation_
+  commentId: M:BundleSystem.BundleAsyncSceneRequest.#ctor(AsyncOperation)
+  fullName: BundleSystem.BundleAsyncSceneRequest.BundleAsyncSceneRequest(AsyncOperation)
+  nameWithType: BundleAsyncSceneRequest.BundleAsyncSceneRequest(AsyncOperation)
+- uid: BundleSystem.BundleAsyncSceneRequest.#ctor*
+  name: BundleAsyncSceneRequest
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest__ctor_
+  commentId: Overload:BundleSystem.BundleAsyncSceneRequest.#ctor
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncSceneRequest.BundleAsyncSceneRequest
+  nameWithType: BundleAsyncSceneRequest.BundleAsyncSceneRequest
+- uid: BundleSystem.BundleAsyncSceneRequest.BundleSystem#IAwaiter{BundleSystem#BundleAsyncSceneRequest}#GetResult
+  name: IAwaiter<BundleAsyncSceneRequest>.GetResult()
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_BundleSystem_IAwaiter_BundleSystem_BundleAsyncSceneRequest__GetResult
+  commentId: M:BundleSystem.BundleAsyncSceneRequest.BundleSystem#IAwaiter{BundleSystem#BundleAsyncSceneRequest}#GetResult
+  name.vb: BundleSystem.IAwaiter<BundleSystem.BundleAsyncSceneRequest>.GetResult()
+  fullName: BundleSystem.BundleAsyncSceneRequest.BundleSystem.IAwaiter<BundleSystem.BundleAsyncSceneRequest>.GetResult()
+  nameWithType: BundleAsyncSceneRequest.IAwaiter<BundleAsyncSceneRequest>.GetResult()
+  nameWithType.vb: BundleAsyncSceneRequest.BundleSystem.IAwaiter<BundleSystem.BundleAsyncSceneRequest>.GetResult()
+- uid: BundleSystem.BundleAsyncSceneRequest.BundleSystem#IAwaiter{BundleSystem#BundleAsyncSceneRequest}#GetResult*
+  name: IAwaiter<BundleAsyncSceneRequest>.GetResult
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_BundleSystem_IAwaiter_BundleSystem_BundleAsyncSceneRequest__GetResult_
+  commentId: Overload:BundleSystem.BundleAsyncSceneRequest.BundleSystem#IAwaiter{BundleSystem#BundleAsyncSceneRequest}#GetResult
+  isSpec: "True"
+  name.vb: BundleSystem.IAwaiter<BundleSystem.BundleAsyncSceneRequest>.GetResult
+  fullName: BundleSystem.BundleAsyncSceneRequest.BundleSystem.IAwaiter<BundleSystem.BundleAsyncSceneRequest>.GetResult
+  nameWithType: BundleAsyncSceneRequest.IAwaiter<BundleAsyncSceneRequest>.GetResult
+  nameWithType.vb: BundleAsyncSceneRequest.BundleSystem.IAwaiter<BundleSystem.BundleAsyncSceneRequest>.GetResult
+- uid: BundleSystem.BundleAsyncSceneRequest.BundleSystem#IAwaiter{BundleSystem#BundleAsyncSceneRequest}#IsCompleted
+  name: IAwaiter<BundleAsyncSceneRequest>.IsCompleted
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_BundleSystem_IAwaiter_BundleSystem_BundleAsyncSceneRequest__IsCompleted
+  commentId: P:BundleSystem.BundleAsyncSceneRequest.BundleSystem#IAwaiter{BundleSystem#BundleAsyncSceneRequest}#IsCompleted
+  name.vb: BundleSystem.IAwaiter<BundleSystem.BundleAsyncSceneRequest>.IsCompleted
+  fullName: BundleSystem.BundleAsyncSceneRequest.BundleSystem.IAwaiter<BundleSystem.BundleAsyncSceneRequest>.IsCompleted
+  nameWithType: BundleAsyncSceneRequest.IAwaiter<BundleAsyncSceneRequest>.IsCompleted
+  nameWithType.vb: BundleAsyncSceneRequest.BundleSystem.IAwaiter<BundleSystem.BundleAsyncSceneRequest>.IsCompleted
+- uid: BundleSystem.BundleAsyncSceneRequest.BundleSystem#IAwaiter{BundleSystem#BundleAsyncSceneRequest}#IsCompleted*
+  name: IAwaiter<BundleAsyncSceneRequest>.IsCompleted
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_BundleSystem_IAwaiter_BundleSystem_BundleAsyncSceneRequest__IsCompleted_
+  commentId: Overload:BundleSystem.BundleAsyncSceneRequest.BundleSystem#IAwaiter{BundleSystem#BundleAsyncSceneRequest}#IsCompleted
+  isSpec: "True"
+  name.vb: BundleSystem.IAwaiter<BundleSystem.BundleAsyncSceneRequest>.IsCompleted
+  fullName: BundleSystem.BundleAsyncSceneRequest.BundleSystem.IAwaiter<BundleSystem.BundleAsyncSceneRequest>.IsCompleted
+  nameWithType: BundleAsyncSceneRequest.IAwaiter<BundleAsyncSceneRequest>.IsCompleted
+  nameWithType.vb: BundleAsyncSceneRequest.BundleSystem.IAwaiter<BundleSystem.BundleAsyncSceneRequest>.IsCompleted
+- uid: BundleSystem.BundleAsyncSceneRequest.GetAwaiter
+  name: GetAwaiter()
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_GetAwaiter
+  commentId: M:BundleSystem.BundleAsyncSceneRequest.GetAwaiter
+  fullName: BundleSystem.BundleAsyncSceneRequest.GetAwaiter()
+  nameWithType: BundleAsyncSceneRequest.GetAwaiter()
+- uid: BundleSystem.BundleAsyncSceneRequest.GetAwaiter*
+  name: GetAwaiter
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_GetAwaiter_
+  commentId: Overload:BundleSystem.BundleAsyncSceneRequest.GetAwaiter
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncSceneRequest.GetAwaiter
+  nameWithType: BundleAsyncSceneRequest.GetAwaiter
+- uid: BundleSystem.BundleAsyncSceneRequest.keepWaiting
+  name: keepWaiting
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_keepWaiting
+  commentId: P:BundleSystem.BundleAsyncSceneRequest.keepWaiting
+  fullName: BundleSystem.BundleAsyncSceneRequest.keepWaiting
+  nameWithType: BundleAsyncSceneRequest.keepWaiting
+- uid: BundleSystem.BundleAsyncSceneRequest.keepWaiting*
+  name: keepWaiting
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_keepWaiting_
+  commentId: Overload:BundleSystem.BundleAsyncSceneRequest.keepWaiting
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncSceneRequest.keepWaiting
+  nameWithType: BundleAsyncSceneRequest.keepWaiting
+- uid: BundleSystem.BundleAsyncSceneRequest.OnCompleted(System.Action)
+  name: OnCompleted(Action)
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_OnCompleted_System_Action_
+  commentId: M:BundleSystem.BundleAsyncSceneRequest.OnCompleted(System.Action)
+  fullName: BundleSystem.BundleAsyncSceneRequest.OnCompleted(System.Action)
+  nameWithType: BundleAsyncSceneRequest.OnCompleted(Action)
+- uid: BundleSystem.BundleAsyncSceneRequest.OnCompleted*
+  name: OnCompleted
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_OnCompleted_
+  commentId: Overload:BundleSystem.BundleAsyncSceneRequest.OnCompleted
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncSceneRequest.OnCompleted
+  nameWithType: BundleAsyncSceneRequest.OnCompleted
+- uid: BundleSystem.BundleAsyncSceneRequest.Progress
+  name: Progress
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_Progress
+  commentId: P:BundleSystem.BundleAsyncSceneRequest.Progress
+  fullName: BundleSystem.BundleAsyncSceneRequest.Progress
+  nameWithType: BundleAsyncSceneRequest.Progress
+- uid: BundleSystem.BundleAsyncSceneRequest.Progress*
+  name: Progress
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_Progress_
+  commentId: Overload:BundleSystem.BundleAsyncSceneRequest.Progress
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncSceneRequest.Progress
+  nameWithType: BundleAsyncSceneRequest.Progress
+- uid: BundleSystem.BundleAsyncSceneRequest.UnsafeOnCompleted(System.Action)
+  name: UnsafeOnCompleted(Action)
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_UnsafeOnCompleted_System_Action_
+  commentId: M:BundleSystem.BundleAsyncSceneRequest.UnsafeOnCompleted(System.Action)
+  fullName: BundleSystem.BundleAsyncSceneRequest.UnsafeOnCompleted(System.Action)
+  nameWithType: BundleAsyncSceneRequest.UnsafeOnCompleted(Action)
+- uid: BundleSystem.BundleAsyncSceneRequest.UnsafeOnCompleted*
+  name: UnsafeOnCompleted
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_UnsafeOnCompleted_
+  commentId: Overload:BundleSystem.BundleAsyncSceneRequest.UnsafeOnCompleted
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncSceneRequest.UnsafeOnCompleted
+  nameWithType: BundleAsyncSceneRequest.UnsafeOnCompleted
+- uid: BundleSystem.BundleErrorCode
+  name: BundleErrorCode
+  href: api/BundleSystem.BundleErrorCode.html
+  commentId: T:BundleSystem.BundleErrorCode
+  fullName: BundleSystem.BundleErrorCode
+  nameWithType: BundleErrorCode
+- uid: BundleSystem.BundleErrorCode.ManifestParseError
+  name: ManifestParseError
+  href: api/BundleSystem.BundleErrorCode.html#BundleSystem_BundleErrorCode_ManifestParseError
+  commentId: F:BundleSystem.BundleErrorCode.ManifestParseError
+  fullName: BundleSystem.BundleErrorCode.ManifestParseError
+  nameWithType: BundleErrorCode.ManifestParseError
+- uid: BundleSystem.BundleErrorCode.NetworkError
+  name: NetworkError
+  href: api/BundleSystem.BundleErrorCode.html#BundleSystem_BundleErrorCode_NetworkError
+  commentId: F:BundleSystem.BundleErrorCode.NetworkError
+  fullName: BundleSystem.BundleErrorCode.NetworkError
+  nameWithType: BundleErrorCode.NetworkError
+- uid: BundleSystem.BundleErrorCode.NotFinished
+  name: NotFinished
+  href: api/BundleSystem.BundleErrorCode.html#BundleSystem_BundleErrorCode_NotFinished
+  commentId: F:BundleSystem.BundleErrorCode.NotFinished
+  fullName: BundleSystem.BundleErrorCode.NotFinished
+  nameWithType: BundleErrorCode.NotFinished
+- uid: BundleSystem.BundleErrorCode.NotInitialized
+  name: NotInitialized
+  href: api/BundleSystem.BundleErrorCode.html#BundleSystem_BundleErrorCode_NotInitialized
+  commentId: F:BundleSystem.BundleErrorCode.NotInitialized
+  fullName: BundleSystem.BundleErrorCode.NotInitialized
+  nameWithType: BundleErrorCode.NotInitialized
+- uid: BundleSystem.BundleErrorCode.Success
+  name: Success
+  href: api/BundleSystem.BundleErrorCode.html#BundleSystem_BundleErrorCode_Success
+  commentId: F:BundleSystem.BundleErrorCode.Success
+  fullName: BundleSystem.BundleErrorCode.Success
+  nameWithType: BundleErrorCode.Success
+- uid: BundleSystem.BundleManager
+  name: BundleManager
+  href: api/BundleSystem.BundleManager.html
+  commentId: T:BundleSystem.BundleManager
+  fullName: BundleSystem.BundleManager
+  nameWithType: BundleManager
+- uid: BundleSystem.BundleManager.ChangeOwner*
+  name: ChangeOwner
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_ChangeOwner_
+  commentId: Overload:BundleSystem.BundleManager.ChangeOwner
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.ChangeOwner
+  nameWithType: BundleManager.ChangeOwner
+- uid: BundleSystem.BundleManager.ChangeOwner``1(BundleSystem.TrackHandle{``0},Component)
+  name: ChangeOwner<T>(TrackHandle<T>, Component)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_ChangeOwner__1_BundleSystem_TrackHandle___0__Component_
+  commentId: M:BundleSystem.BundleManager.ChangeOwner``1(BundleSystem.TrackHandle{``0},Component)
+  name.vb: ChangeOwner(Of T)(TrackHandle(Of T), Component)
+  fullName: BundleSystem.BundleManager.ChangeOwner<T>(BundleSystem.TrackHandle<T>, Component)
+  fullName.vb: BundleSystem.BundleManager.ChangeOwner(Of T)(BundleSystem.TrackHandle(Of T), Component)
+  nameWithType: BundleManager.ChangeOwner<T>(TrackHandle<T>, Component)
+  nameWithType.vb: BundleManager.ChangeOwner(Of T)(TrackHandle(Of T), Component)
+- uid: BundleSystem.BundleManager.DownloadAssetBundles(BundleSystem.AssetBundleBuildManifest,System.Collections.Generic.IEnumerable{System.String})
+  name: DownloadAssetBundles(AssetBundleBuildManifest, IEnumerable<String>)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_DownloadAssetBundles_BundleSystem_AssetBundleBuildManifest_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:BundleSystem.BundleManager.DownloadAssetBundles(BundleSystem.AssetBundleBuildManifest,System.Collections.Generic.IEnumerable{System.String})
+  name.vb: DownloadAssetBundles(AssetBundleBuildManifest, IEnumerable(Of String))
+  fullName: BundleSystem.BundleManager.DownloadAssetBundles(BundleSystem.AssetBundleBuildManifest, System.Collections.Generic.IEnumerable<System.String>)
+  fullName.vb: BundleSystem.BundleManager.DownloadAssetBundles(BundleSystem.AssetBundleBuildManifest, System.Collections.Generic.IEnumerable(Of System.String))
+  nameWithType: BundleManager.DownloadAssetBundles(AssetBundleBuildManifest, IEnumerable<String>)
+  nameWithType.vb: BundleManager.DownloadAssetBundles(AssetBundleBuildManifest, IEnumerable(Of String))
+- uid: BundleSystem.BundleManager.DownloadAssetBundles*
+  name: DownloadAssetBundles
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_DownloadAssetBundles_
+  commentId: Overload:BundleSystem.BundleManager.DownloadAssetBundles
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.DownloadAssetBundles
+  nameWithType: BundleManager.DownloadAssetBundles
+- uid: BundleSystem.BundleManager.GetDownloadSize(BundleSystem.AssetBundleBuildManifest,System.Collections.Generic.IEnumerable{System.String})
+  name: GetDownloadSize(AssetBundleBuildManifest, IEnumerable<String>)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetDownloadSize_BundleSystem_AssetBundleBuildManifest_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:BundleSystem.BundleManager.GetDownloadSize(BundleSystem.AssetBundleBuildManifest,System.Collections.Generic.IEnumerable{System.String})
+  name.vb: GetDownloadSize(AssetBundleBuildManifest, IEnumerable(Of String))
+  fullName: BundleSystem.BundleManager.GetDownloadSize(BundleSystem.AssetBundleBuildManifest, System.Collections.Generic.IEnumerable<System.String>)
+  fullName.vb: BundleSystem.BundleManager.GetDownloadSize(BundleSystem.AssetBundleBuildManifest, System.Collections.Generic.IEnumerable(Of System.String))
+  nameWithType: BundleManager.GetDownloadSize(AssetBundleBuildManifest, IEnumerable<String>)
+  nameWithType.vb: BundleManager.GetDownloadSize(AssetBundleBuildManifest, IEnumerable(Of String))
+- uid: BundleSystem.BundleManager.GetDownloadSize*
+  name: GetDownloadSize
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetDownloadSize_
+  commentId: Overload:BundleSystem.BundleManager.GetDownloadSize
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.GetDownloadSize
+  nameWithType: BundleManager.GetDownloadSize
+- uid: BundleSystem.BundleManager.GetInstanceTrackHandle(GameObject)
+  name: GetInstanceTrackHandle(GameObject)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetInstanceTrackHandle_GameObject_
+  commentId: M:BundleSystem.BundleManager.GetInstanceTrackHandle(GameObject)
+  fullName: BundleSystem.BundleManager.GetInstanceTrackHandle(GameObject)
+  nameWithType: BundleManager.GetInstanceTrackHandle(GameObject)
+- uid: BundleSystem.BundleManager.GetInstanceTrackHandle*
+  name: GetInstanceTrackHandle
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetInstanceTrackHandle_
+  commentId: Overload:BundleSystem.BundleManager.GetInstanceTrackHandle
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.GetInstanceTrackHandle
+  nameWithType: BundleManager.GetInstanceTrackHandle
+- uid: BundleSystem.BundleManager.GetManifest
+  name: GetManifest()
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetManifest
+  commentId: M:BundleSystem.BundleManager.GetManifest
+  fullName: BundleSystem.BundleManager.GetManifest()
+  nameWithType: BundleManager.GetManifest()
+- uid: BundleSystem.BundleManager.GetManifest*
+  name: GetManifest
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetManifest_
+  commentId: Overload:BundleSystem.BundleManager.GetManifest
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.GetManifest
+  nameWithType: BundleManager.GetManifest
+- uid: BundleSystem.BundleManager.GetTrackingSnapshot(System.Collections.Generic.Dictionary{System.Int32,BundleSystem.BundleManager.TrackInfo})
+  name: GetTrackingSnapshot(Dictionary<Int32, BundleManager.TrackInfo>)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetTrackingSnapshot_System_Collections_Generic_Dictionary_System_Int32_BundleSystem_BundleManager_TrackInfo__
+  commentId: M:BundleSystem.BundleManager.GetTrackingSnapshot(System.Collections.Generic.Dictionary{System.Int32,BundleSystem.BundleManager.TrackInfo})
+  name.vb: GetTrackingSnapshot(Dictionary(Of Int32, BundleManager.TrackInfo))
+  fullName: BundleSystem.BundleManager.GetTrackingSnapshot(System.Collections.Generic.Dictionary<System.Int32, BundleSystem.BundleManager.TrackInfo>)
+  fullName.vb: BundleSystem.BundleManager.GetTrackingSnapshot(System.Collections.Generic.Dictionary(Of System.Int32, BundleSystem.BundleManager.TrackInfo))
+  nameWithType: BundleManager.GetTrackingSnapshot(Dictionary<Int32, BundleManager.TrackInfo>)
+  nameWithType.vb: BundleManager.GetTrackingSnapshot(Dictionary(Of Int32, BundleManager.TrackInfo))
+- uid: BundleSystem.BundleManager.GetTrackingSnapshot*
+  name: GetTrackingSnapshot
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetTrackingSnapshot_
+  commentId: Overload:BundleSystem.BundleManager.GetTrackingSnapshot
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.GetTrackingSnapshot
+  nameWithType: BundleManager.GetTrackingSnapshot
+- uid: BundleSystem.BundleManager.GlobalBundleHash
+  name: GlobalBundleHash
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GlobalBundleHash
+  commentId: P:BundleSystem.BundleManager.GlobalBundleHash
+  fullName: BundleSystem.BundleManager.GlobalBundleHash
+  nameWithType: BundleManager.GlobalBundleHash
+- uid: BundleSystem.BundleManager.GlobalBundleHash*
+  name: GlobalBundleHash
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GlobalBundleHash_
+  commentId: Overload:BundleSystem.BundleManager.GlobalBundleHash
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.GlobalBundleHash
+  nameWithType: BundleManager.GlobalBundleHash
+- uid: BundleSystem.BundleManager.Initialize(System.String)
+  name: Initialize(String)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Initialize_System_String_
+  commentId: M:BundleSystem.BundleManager.Initialize(System.String)
+  fullName: BundleSystem.BundleManager.Initialize(System.String)
+  nameWithType: BundleManager.Initialize(String)
+- uid: BundleSystem.BundleManager.Initialize*
+  name: Initialize
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Initialize_
+  commentId: Overload:BundleSystem.BundleManager.Initialize
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.Initialize
+  nameWithType: BundleManager.Initialize
+- uid: BundleSystem.BundleManager.Initialized
+  name: Initialized
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Initialized
+  commentId: P:BundleSystem.BundleManager.Initialized
+  fullName: BundleSystem.BundleManager.Initialized
+  nameWithType: BundleManager.Initialized
+- uid: BundleSystem.BundleManager.Initialized*
+  name: Initialized
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Initialized_
+  commentId: Overload:BundleSystem.BundleManager.Initialized
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.Initialized
+  nameWithType: BundleManager.Initialized
+- uid: BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle{GameObject})
+  name: Instantiate(TrackHandle<GameObject>)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Instantiate_BundleSystem_TrackHandle_GameObject__
+  commentId: M:BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle{GameObject})
+  name.vb: Instantiate(TrackHandle(Of GameObject))
+  fullName: BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle<GameObject>)
+  fullName.vb: BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle(Of GameObject))
+  nameWithType: BundleManager.Instantiate(TrackHandle<GameObject>)
+  nameWithType.vb: BundleManager.Instantiate(TrackHandle(Of GameObject))
+- uid: BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle{GameObject},Transform)
+  name: Instantiate(TrackHandle<GameObject>, Transform)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Instantiate_BundleSystem_TrackHandle_GameObject__Transform_
+  commentId: M:BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle{GameObject},Transform)
+  name.vb: Instantiate(TrackHandle(Of GameObject), Transform)
+  fullName: BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle<GameObject>, Transform)
+  fullName.vb: BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle(Of GameObject), Transform)
+  nameWithType: BundleManager.Instantiate(TrackHandle<GameObject>, Transform)
+  nameWithType.vb: BundleManager.Instantiate(TrackHandle(Of GameObject), Transform)
+- uid: BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle{GameObject},Transform,System.Boolean)
+  name: Instantiate(TrackHandle<GameObject>, Transform, Boolean)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Instantiate_BundleSystem_TrackHandle_GameObject__Transform_System_Boolean_
+  commentId: M:BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle{GameObject},Transform,System.Boolean)
+  name.vb: Instantiate(TrackHandle(Of GameObject), Transform, Boolean)
+  fullName: BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle<GameObject>, Transform, System.Boolean)
+  fullName.vb: BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle(Of GameObject), Transform, System.Boolean)
+  nameWithType: BundleManager.Instantiate(TrackHandle<GameObject>, Transform, Boolean)
+  nameWithType.vb: BundleManager.Instantiate(TrackHandle(Of GameObject), Transform, Boolean)
+- uid: BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle{GameObject},Vector3,Quaternion)
+  name: Instantiate(TrackHandle<GameObject>, Vector3, Quaternion)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Instantiate_BundleSystem_TrackHandle_GameObject__Vector3_Quaternion_
+  commentId: M:BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle{GameObject},Vector3,Quaternion)
+  name.vb: Instantiate(TrackHandle(Of GameObject), Vector3, Quaternion)
+  fullName: BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle<GameObject>, Vector3, Quaternion)
+  fullName.vb: BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle(Of GameObject), Vector3, Quaternion)
+  nameWithType: BundleManager.Instantiate(TrackHandle<GameObject>, Vector3, Quaternion)
+  nameWithType.vb: BundleManager.Instantiate(TrackHandle(Of GameObject), Vector3, Quaternion)
+- uid: BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle{GameObject},Vector3,Quaternion,Transform)
+  name: Instantiate(TrackHandle<GameObject>, Vector3, Quaternion, Transform)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Instantiate_BundleSystem_TrackHandle_GameObject__Vector3_Quaternion_Transform_
+  commentId: M:BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle{GameObject},Vector3,Quaternion,Transform)
+  name.vb: Instantiate(TrackHandle(Of GameObject), Vector3, Quaternion, Transform)
+  fullName: BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle<GameObject>, Vector3, Quaternion, Transform)
+  fullName.vb: BundleSystem.BundleManager.Instantiate(BundleSystem.TrackHandle(Of GameObject), Vector3, Quaternion, Transform)
+  nameWithType: BundleManager.Instantiate(TrackHandle<GameObject>, Vector3, Quaternion, Transform)
+  nameWithType.vb: BundleManager.Instantiate(TrackHandle(Of GameObject), Vector3, Quaternion, Transform)
+- uid: BundleSystem.BundleManager.Instantiate*
+  name: Instantiate
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Instantiate_
+  commentId: Overload:BundleSystem.BundleManager.Instantiate
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.Instantiate
+  nameWithType: BundleManager.Instantiate
+- uid: BundleSystem.BundleManager.IsAssetExist(System.String,System.String)
+  name: IsAssetExist(String, String)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_IsAssetExist_System_String_System_String_
+  commentId: M:BundleSystem.BundleManager.IsAssetExist(System.String,System.String)
+  fullName: BundleSystem.BundleManager.IsAssetExist(System.String, System.String)
+  nameWithType: BundleManager.IsAssetExist(String, String)
+- uid: BundleSystem.BundleManager.IsAssetExist*
+  name: IsAssetExist
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_IsAssetExist_
+  commentId: Overload:BundleSystem.BundleManager.IsAssetExist
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.IsAssetExist
+  nameWithType: BundleManager.IsAssetExist
+- uid: BundleSystem.BundleManager.Load*
+  name: Load
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Load_
+  commentId: Overload:BundleSystem.BundleManager.Load
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.Load
+  nameWithType: BundleManager.Load
+- uid: BundleSystem.BundleManager.Load``1(Component,System.String,System.String)
+  name: Load<T>(Component, String, String)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Load__1_Component_System_String_System_String_
+  commentId: M:BundleSystem.BundleManager.Load``1(Component,System.String,System.String)
+  name.vb: Load(Of T)(Component, String, String)
+  fullName: BundleSystem.BundleManager.Load<T>(Component, System.String, System.String)
+  fullName.vb: BundleSystem.BundleManager.Load(Of T)(Component, System.String, System.String)
+  nameWithType: BundleManager.Load<T>(Component, String, String)
+  nameWithType.vb: BundleManager.Load(Of T)(Component, String, String)
+- uid: BundleSystem.BundleManager.LoadAll*
+  name: LoadAll
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadAll_
+  commentId: Overload:BundleSystem.BundleManager.LoadAll
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.LoadAll
+  nameWithType: BundleManager.LoadAll
+- uid: BundleSystem.BundleManager.LoadAll``1(Component,System.String)
+  name: LoadAll<T>(Component, String)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadAll__1_Component_System_String_
+  commentId: M:BundleSystem.BundleManager.LoadAll``1(Component,System.String)
+  name.vb: LoadAll(Of T)(Component, String)
+  fullName: BundleSystem.BundleManager.LoadAll<T>(Component, System.String)
+  fullName.vb: BundleSystem.BundleManager.LoadAll(Of T)(Component, System.String)
+  nameWithType: BundleManager.LoadAll<T>(Component, String)
+  nameWithType.vb: BundleManager.LoadAll(Of T)(Component, String)
+- uid: BundleSystem.BundleManager.LoadAsync*
+  name: LoadAsync
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadAsync_
+  commentId: Overload:BundleSystem.BundleManager.LoadAsync
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.LoadAsync
+  nameWithType: BundleManager.LoadAsync
+- uid: BundleSystem.BundleManager.LoadAsync``1(Component,System.String,System.String)
+  name: LoadAsync<T>(Component, String, String)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadAsync__1_Component_System_String_System_String_
+  commentId: M:BundleSystem.BundleManager.LoadAsync``1(Component,System.String,System.String)
+  name.vb: LoadAsync(Of T)(Component, String, String)
+  fullName: BundleSystem.BundleManager.LoadAsync<T>(Component, System.String, System.String)
+  fullName.vb: BundleSystem.BundleManager.LoadAsync(Of T)(Component, System.String, System.String)
+  nameWithType: BundleManager.LoadAsync<T>(Component, String, String)
+  nameWithType.vb: BundleManager.LoadAsync(Of T)(Component, String, String)
+- uid: BundleSystem.BundleManager.LoadScene(System.String,System.String,LoadSceneMode)
+  name: LoadScene(String, String, LoadSceneMode)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadScene_System_String_System_String_LoadSceneMode_
+  commentId: M:BundleSystem.BundleManager.LoadScene(System.String,System.String,LoadSceneMode)
+  fullName: BundleSystem.BundleManager.LoadScene(System.String, System.String, LoadSceneMode)
+  nameWithType: BundleManager.LoadScene(String, String, LoadSceneMode)
+- uid: BundleSystem.BundleManager.LoadScene*
+  name: LoadScene
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadScene_
+  commentId: Overload:BundleSystem.BundleManager.LoadScene
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.LoadScene
+  nameWithType: BundleManager.LoadScene
+- uid: BundleSystem.BundleManager.LoadSceneAsync(System.String,System.String,LoadSceneMode)
+  name: LoadSceneAsync(String, String, LoadSceneMode)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadSceneAsync_System_String_System_String_LoadSceneMode_
+  commentId: M:BundleSystem.BundleManager.LoadSceneAsync(System.String,System.String,LoadSceneMode)
+  fullName: BundleSystem.BundleManager.LoadSceneAsync(System.String, System.String, LoadSceneMode)
+  nameWithType: BundleManager.LoadSceneAsync(String, String, LoadSceneMode)
+- uid: BundleSystem.BundleManager.LoadSceneAsync*
+  name: LoadSceneAsync
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadSceneAsync_
+  commentId: Overload:BundleSystem.BundleManager.LoadSceneAsync
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.LoadSceneAsync
+  nameWithType: BundleManager.LoadSceneAsync
+- uid: BundleSystem.BundleManager.LoadWithSubAssets*
+  name: LoadWithSubAssets
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadWithSubAssets_
+  commentId: Overload:BundleSystem.BundleManager.LoadWithSubAssets
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.LoadWithSubAssets
+  nameWithType: BundleManager.LoadWithSubAssets
+- uid: BundleSystem.BundleManager.LoadWithSubAssets``1(Component,System.String,System.String)
+  name: LoadWithSubAssets<T>(Component, String, String)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadWithSubAssets__1_Component_System_String_System_String_
+  commentId: M:BundleSystem.BundleManager.LoadWithSubAssets``1(Component,System.String,System.String)
+  name.vb: LoadWithSubAssets(Of T)(Component, String, String)
+  fullName: BundleSystem.BundleManager.LoadWithSubAssets<T>(Component, System.String, System.String)
+  fullName.vb: BundleSystem.BundleManager.LoadWithSubAssets(Of T)(Component, System.String, System.String)
+  nameWithType: BundleManager.LoadWithSubAssets<T>(Component, String, String)
+  nameWithType.vb: BundleManager.LoadWithSubAssets(Of T)(Component, String, String)
+- uid: BundleSystem.BundleManager.LocalBundleRuntimePath
+  name: LocalBundleRuntimePath
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LocalBundleRuntimePath
+  commentId: P:BundleSystem.BundleManager.LocalBundleRuntimePath
+  fullName: BundleSystem.BundleManager.LocalBundleRuntimePath
+  nameWithType: BundleManager.LocalBundleRuntimePath
+- uid: BundleSystem.BundleManager.LocalBundleRuntimePath*
+  name: LocalBundleRuntimePath
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LocalBundleRuntimePath_
+  commentId: Overload:BundleSystem.BundleManager.LocalBundleRuntimePath
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.LocalBundleRuntimePath
+  nameWithType: BundleManager.LocalBundleRuntimePath
+- uid: BundleSystem.BundleManager.LocalURL
+  name: LocalURL
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LocalURL
+  commentId: P:BundleSystem.BundleManager.LocalURL
+  fullName: BundleSystem.BundleManager.LocalURL
+  nameWithType: BundleManager.LocalURL
+- uid: BundleSystem.BundleManager.LocalURL*
+  name: LocalURL
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LocalURL_
+  commentId: Overload:BundleSystem.BundleManager.LocalURL
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.LocalURL
+  nameWithType: BundleManager.LocalURL
+- uid: BundleSystem.BundleManager.LogMessages
+  name: LogMessages
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LogMessages
+  commentId: P:BundleSystem.BundleManager.LogMessages
+  fullName: BundleSystem.BundleManager.LogMessages
+  nameWithType: BundleManager.LogMessages
+- uid: BundleSystem.BundleManager.LogMessages*
+  name: LogMessages
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LogMessages_
+  commentId: Overload:BundleSystem.BundleManager.LogMessages
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.LogMessages
+  nameWithType: BundleManager.LogMessages
+- uid: BundleSystem.BundleManager.ManifestFileName
+  name: ManifestFileName
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_ManifestFileName
+  commentId: F:BundleSystem.BundleManager.ManifestFileName
+  fullName: BundleSystem.BundleManager.ManifestFileName
+  nameWithType: BundleManager.ManifestFileName
+- uid: BundleSystem.BundleManager.Override*
+  name: Override
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Override_
+  commentId: Overload:BundleSystem.BundleManager.Override
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.Override
+  nameWithType: BundleManager.Override
+- uid: BundleSystem.BundleManager.Override``1(BundleSystem.TrackHandle{``0},BundleSystem.TrackHandle{``0}@)
+  name: Override<T>(TrackHandle<T>, ref TrackHandle<T>)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Override__1_BundleSystem_TrackHandle___0__BundleSystem_TrackHandle___0___
+  commentId: M:BundleSystem.BundleManager.Override``1(BundleSystem.TrackHandle{``0},BundleSystem.TrackHandle{``0}@)
+  name.vb: Override(Of T)(TrackHandle(Of T), ByRef TrackHandle(Of T))
+  fullName: BundleSystem.BundleManager.Override<T>(BundleSystem.TrackHandle<T>, ref BundleSystem.TrackHandle<T>)
+  fullName.vb: BundleSystem.BundleManager.Override(Of T)(BundleSystem.TrackHandle(Of T), ByRef BundleSystem.TrackHandle(Of T))
+  nameWithType: BundleManager.Override<T>(TrackHandle<T>, ref TrackHandle<T>)
+  nameWithType.vb: BundleManager.Override(Of T)(TrackHandle(Of T), ByRef TrackHandle(Of T))
+- uid: BundleSystem.BundleManager.RemoteURL
+  name: RemoteURL
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_RemoteURL
+  commentId: P:BundleSystem.BundleManager.RemoteURL
+  fullName: BundleSystem.BundleManager.RemoteURL
+  nameWithType: BundleManager.RemoteURL
+- uid: BundleSystem.BundleManager.RemoteURL*
+  name: RemoteURL
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_RemoteURL_
+  commentId: Overload:BundleSystem.BundleManager.RemoteURL
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.RemoteURL
+  nameWithType: BundleManager.RemoteURL
+- uid: BundleSystem.BundleManager.ShowDebugGUI
+  name: ShowDebugGUI
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_ShowDebugGUI
+  commentId: P:BundleSystem.BundleManager.ShowDebugGUI
+  fullName: BundleSystem.BundleManager.ShowDebugGUI
+  nameWithType: BundleManager.ShowDebugGUI
+- uid: BundleSystem.BundleManager.ShowDebugGUI*
+  name: ShowDebugGUI
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_ShowDebugGUI_
+  commentId: Overload:BundleSystem.BundleManager.ShowDebugGUI
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.ShowDebugGUI
+  nameWithType: BundleManager.ShowDebugGUI
+- uid: BundleSystem.BundleManager.TrackExplicit*
+  name: TrackExplicit
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_TrackExplicit_
+  commentId: Overload:BundleSystem.BundleManager.TrackExplicit
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.TrackExplicit
+  nameWithType: BundleManager.TrackExplicit
+- uid: BundleSystem.BundleManager.TrackExplicit``2(BundleSystem.TrackHandle{``0},``1,Component)
+  name: TrackExplicit<TRef, T>(TrackHandle<TRef>, T, Component)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_TrackExplicit__2_BundleSystem_TrackHandle___0____1_Component_
+  commentId: M:BundleSystem.BundleManager.TrackExplicit``2(BundleSystem.TrackHandle{``0},``1,Component)
+  name.vb: TrackExplicit(Of TRef, T)(TrackHandle(Of TRef), T, Component)
+  fullName: BundleSystem.BundleManager.TrackExplicit<TRef, T>(BundleSystem.TrackHandle<TRef>, T, Component)
+  fullName.vb: BundleSystem.BundleManager.TrackExplicit(Of TRef, T)(BundleSystem.TrackHandle(Of TRef), T, Component)
+  nameWithType: BundleManager.TrackExplicit<TRef, T>(TrackHandle<TRef>, T, Component)
+  nameWithType.vb: BundleManager.TrackExplicit(Of TRef, T)(TrackHandle(Of TRef), T, Component)
+- uid: BundleSystem.BundleManager.TrackInfo
+  name: BundleManager.TrackInfo
+  href: api/BundleSystem.BundleManager.TrackInfo.html
+  commentId: T:BundleSystem.BundleManager.TrackInfo
+  fullName: BundleSystem.BundleManager.TrackInfo
+  nameWithType: BundleManager.TrackInfo
+- uid: BundleSystem.BundleManager.TrackInfo.Asset
+  name: Asset
+  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_Asset
+  commentId: F:BundleSystem.BundleManager.TrackInfo.Asset
+  fullName: BundleSystem.BundleManager.TrackInfo.Asset
+  nameWithType: BundleManager.TrackInfo.Asset
+- uid: BundleSystem.BundleManager.TrackInfo.BundleName
+  name: BundleName
+  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_BundleName
+  commentId: F:BundleSystem.BundleManager.TrackInfo.BundleName
+  fullName: BundleSystem.BundleManager.TrackInfo.BundleName
+  nameWithType: BundleManager.TrackInfo.BundleName
+- uid: BundleSystem.BundleManager.TrackInfo.InstanceTrack
+  name: InstanceTrack
+  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_InstanceTrack
+  commentId: F:BundleSystem.BundleManager.TrackInfo.InstanceTrack
+  fullName: BundleSystem.BundleManager.TrackInfo.InstanceTrack
+  nameWithType: BundleManager.TrackInfo.InstanceTrack
+- uid: BundleSystem.BundleManager.TrackInfo.Owner
+  name: Owner
+  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_Owner
+  commentId: F:BundleSystem.BundleManager.TrackInfo.Owner
+  fullName: BundleSystem.BundleManager.TrackInfo.Owner
+  nameWithType: BundleManager.TrackInfo.Owner
+- uid: BundleSystem.BundleManager.TryGetCachedManifest(BundleSystem.AssetBundleBuildManifest@)
+  name: TryGetCachedManifest(out AssetBundleBuildManifest)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_TryGetCachedManifest_BundleSystem_AssetBundleBuildManifest__
+  commentId: M:BundleSystem.BundleManager.TryGetCachedManifest(BundleSystem.AssetBundleBuildManifest@)
+  name.vb: TryGetCachedManifest(ByRef AssetBundleBuildManifest)
+  fullName: BundleSystem.BundleManager.TryGetCachedManifest(out BundleSystem.AssetBundleBuildManifest)
+  fullName.vb: BundleSystem.BundleManager.TryGetCachedManifest(ByRef BundleSystem.AssetBundleBuildManifest)
+  nameWithType: BundleManager.TryGetCachedManifest(out AssetBundleBuildManifest)
+  nameWithType.vb: BundleManager.TryGetCachedManifest(ByRef AssetBundleBuildManifest)
+- uid: BundleSystem.BundleManager.TryGetCachedManifest*
+  name: TryGetCachedManifest
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_TryGetCachedManifest_
+  commentId: Overload:BundleSystem.BundleManager.TryGetCachedManifest
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.TryGetCachedManifest
+  nameWithType: BundleManager.TryGetCachedManifest
+- uid: BundleSystem.BundleSetting
+  name: BundleSetting
+  href: api/BundleSystem.BundleSetting.html
+  commentId: T:BundleSystem.BundleSetting
+  fullName: BundleSystem.BundleSetting
+  nameWithType: BundleSetting
+- uid: BundleSystem.BundleSetting.AddressableNames
+  name: AddressableNames
+  href: api/BundleSystem.BundleSetting.html#BundleSystem_BundleSetting_AddressableNames
+  commentId: F:BundleSystem.BundleSetting.AddressableNames
+  fullName: BundleSystem.BundleSetting.AddressableNames
+  nameWithType: BundleSetting.AddressableNames
+- uid: BundleSystem.BundleSetting.AssetNames
+  name: AssetNames
+  href: api/BundleSystem.BundleSetting.html#BundleSystem_BundleSetting_AssetNames
+  commentId: F:BundleSystem.BundleSetting.AssetNames
+  fullName: BundleSystem.BundleSetting.AssetNames
+  nameWithType: BundleSetting.AssetNames
+- uid: BundleSystem.BundleSetting.AutoSharedBundle
+  name: AutoSharedBundle
+  href: api/BundleSystem.BundleSetting.html#BundleSystem_BundleSetting_AutoSharedBundle
+  commentId: F:BundleSystem.BundleSetting.AutoSharedBundle
+  fullName: BundleSystem.BundleSetting.AutoSharedBundle
+  nameWithType: BundleSetting.AutoSharedBundle
+- uid: BundleSystem.BundleSetting.BundleName
+  name: BundleName
+  href: api/BundleSystem.BundleSetting.html#BundleSystem_BundleSetting_BundleName
+  commentId: F:BundleSystem.BundleSetting.BundleName
+  fullName: BundleSystem.BundleSetting.BundleName
+  nameWithType: BundleSetting.BundleName
+- uid: BundleSystem.BundleSetting.CompressBundle
+  name: CompressBundle
+  href: api/BundleSystem.BundleSetting.html#BundleSystem_BundleSetting_CompressBundle
+  commentId: F:BundleSystem.BundleSetting.CompressBundle
+  fullName: BundleSystem.BundleSetting.CompressBundle
+  nameWithType: BundleSetting.CompressBundle
+- uid: BundleSystem.BundleSetting.IncludedInPlayer
+  name: IncludedInPlayer
+  href: api/BundleSystem.BundleSetting.html#BundleSystem_BundleSetting_IncludedInPlayer
+  commentId: F:BundleSystem.BundleSetting.IncludedInPlayer
+  fullName: BundleSystem.BundleSetting.IncludedInPlayer
+  nameWithType: BundleSetting.IncludedInPlayer
+- uid: BundleSystem.BundleSyncRequest`1
+  name: BundleSyncRequest<T>
+  href: api/BundleSystem.BundleSyncRequest-1.html
+  commentId: T:BundleSystem.BundleSyncRequest`1
+  name.vb: BundleSyncRequest(Of T)
+  fullName: BundleSystem.BundleSyncRequest<T>
+  fullName.vb: BundleSystem.BundleSyncRequest(Of T)
+  nameWithType: BundleSyncRequest<T>
+  nameWithType.vb: BundleSyncRequest(Of T)
+- uid: BundleSystem.BundleSyncRequest`1.#ctor(`0,BundleSystem.TrackHandle{`0})
+  name: BundleSyncRequest(T, TrackHandle<T>)
+  href: api/BundleSystem.BundleSyncRequest-1.html#BundleSystem_BundleSyncRequest_1__ctor__0_BundleSystem_TrackHandle__0__
+  commentId: M:BundleSystem.BundleSyncRequest`1.#ctor(`0,BundleSystem.TrackHandle{`0})
+  name.vb: BundleSyncRequest(T, TrackHandle(Of T))
+  fullName: BundleSystem.BundleSyncRequest<T>.BundleSyncRequest(T, BundleSystem.TrackHandle<T>)
+  fullName.vb: BundleSystem.BundleSyncRequest(Of T).BundleSyncRequest(T, BundleSystem.TrackHandle(Of T))
+  nameWithType: BundleSyncRequest<T>.BundleSyncRequest(T, TrackHandle<T>)
+  nameWithType.vb: BundleSyncRequest(Of T).BundleSyncRequest(T, TrackHandle(Of T))
+- uid: BundleSystem.BundleSyncRequest`1.#ctor*
+  name: BundleSyncRequest
+  href: api/BundleSystem.BundleSyncRequest-1.html#BundleSystem_BundleSyncRequest_1__ctor_
+  commentId: Overload:BundleSystem.BundleSyncRequest`1.#ctor
+  isSpec: "True"
+  fullName: BundleSystem.BundleSyncRequest<T>.BundleSyncRequest
+  fullName.vb: BundleSystem.BundleSyncRequest(Of T).BundleSyncRequest
+  nameWithType: BundleSyncRequest<T>.BundleSyncRequest
+  nameWithType.vb: BundleSyncRequest(Of T).BundleSyncRequest
+- uid: BundleSystem.BundleSyncRequest`1.Asset
+  name: Asset
+  href: api/BundleSystem.BundleSyncRequest-1.html#BundleSystem_BundleSyncRequest_1_Asset
+  commentId: F:BundleSystem.BundleSyncRequest`1.Asset
+  fullName: BundleSystem.BundleSyncRequest<T>.Asset
+  fullName.vb: BundleSystem.BundleSyncRequest(Of T).Asset
+  nameWithType: BundleSyncRequest<T>.Asset
+  nameWithType.vb: BundleSyncRequest(Of T).Asset
+- uid: BundleSystem.BundleSyncRequest`1.Dispose
+  name: Dispose()
+  href: api/BundleSystem.BundleSyncRequest-1.html#BundleSystem_BundleSyncRequest_1_Dispose
+  commentId: M:BundleSystem.BundleSyncRequest`1.Dispose
+  fullName: BundleSystem.BundleSyncRequest<T>.Dispose()
+  fullName.vb: BundleSystem.BundleSyncRequest(Of T).Dispose()
+  nameWithType: BundleSyncRequest<T>.Dispose()
+  nameWithType.vb: BundleSyncRequest(Of T).Dispose()
+- uid: BundleSystem.BundleSyncRequest`1.Dispose*
+  name: Dispose
+  href: api/BundleSystem.BundleSyncRequest-1.html#BundleSystem_BundleSyncRequest_1_Dispose_
+  commentId: Overload:BundleSystem.BundleSyncRequest`1.Dispose
+  isSpec: "True"
+  fullName: BundleSystem.BundleSyncRequest<T>.Dispose
+  fullName.vb: BundleSystem.BundleSyncRequest(Of T).Dispose
+  nameWithType: BundleSyncRequest<T>.Dispose
+  nameWithType.vb: BundleSyncRequest(Of T).Dispose
+- uid: BundleSystem.BundleSyncRequest`1.Empty
+  name: Empty
+  href: api/BundleSystem.BundleSyncRequest-1.html#BundleSystem_BundleSyncRequest_1_Empty
+  commentId: F:BundleSystem.BundleSyncRequest`1.Empty
+  fullName: BundleSystem.BundleSyncRequest<T>.Empty
+  fullName.vb: BundleSystem.BundleSyncRequest(Of T).Empty
+  nameWithType: BundleSyncRequest<T>.Empty
+  nameWithType.vb: BundleSyncRequest(Of T).Empty
+- uid: BundleSystem.BundleSyncRequest`1.Handle
+  name: Handle
+  href: api/BundleSystem.BundleSyncRequest-1.html#BundleSystem_BundleSyncRequest_1_Handle
+  commentId: F:BundleSystem.BundleSyncRequest`1.Handle
+  fullName: BundleSystem.BundleSyncRequest<T>.Handle
+  fullName.vb: BundleSystem.BundleSyncRequest(Of T).Handle
+  nameWithType: BundleSyncRequest<T>.Handle
+  nameWithType.vb: BundleSyncRequest(Of T).Handle
+- uid: BundleSystem.BundleSyncRequests`1
+  name: BundleSyncRequests<T>
+  href: api/BundleSystem.BundleSyncRequests-1.html
+  commentId: T:BundleSystem.BundleSyncRequests`1
+  name.vb: BundleSyncRequests(Of T)
+  fullName: BundleSystem.BundleSyncRequests<T>
+  fullName.vb: BundleSystem.BundleSyncRequests(Of T)
+  nameWithType: BundleSyncRequests<T>
+  nameWithType.vb: BundleSyncRequests(Of T)
+- uid: BundleSystem.BundleSyncRequests`1.#ctor(`0[],BundleSystem.TrackHandle{`0}[])
+  name: BundleSyncRequests(T[], TrackHandle<T>[])
+  href: api/BundleSystem.BundleSyncRequests-1.html#BundleSystem_BundleSyncRequests_1__ctor__0___BundleSystem_TrackHandle__0____
+  commentId: M:BundleSystem.BundleSyncRequests`1.#ctor(`0[],BundleSystem.TrackHandle{`0}[])
+  name.vb: BundleSyncRequests(T(), TrackHandle(Of T)())
+  fullName: BundleSystem.BundleSyncRequests<T>.BundleSyncRequests(T[], BundleSystem.TrackHandle<T>[])
+  fullName.vb: BundleSystem.BundleSyncRequests(Of T).BundleSyncRequests(T(), BundleSystem.TrackHandle(Of T)())
+  nameWithType: BundleSyncRequests<T>.BundleSyncRequests(T[], TrackHandle<T>[])
+  nameWithType.vb: BundleSyncRequests(Of T).BundleSyncRequests(T(), TrackHandle(Of T)())
+- uid: BundleSystem.BundleSyncRequests`1.#ctor*
+  name: BundleSyncRequests
+  href: api/BundleSystem.BundleSyncRequests-1.html#BundleSystem_BundleSyncRequests_1__ctor_
+  commentId: Overload:BundleSystem.BundleSyncRequests`1.#ctor
+  isSpec: "True"
+  fullName: BundleSystem.BundleSyncRequests<T>.BundleSyncRequests
+  fullName.vb: BundleSystem.BundleSyncRequests(Of T).BundleSyncRequests
+  nameWithType: BundleSyncRequests<T>.BundleSyncRequests
+  nameWithType.vb: BundleSyncRequests(Of T).BundleSyncRequests
+- uid: BundleSystem.BundleSyncRequests`1.Assets
+  name: Assets
+  href: api/BundleSystem.BundleSyncRequests-1.html#BundleSystem_BundleSyncRequests_1_Assets
+  commentId: F:BundleSystem.BundleSyncRequests`1.Assets
+  fullName: BundleSystem.BundleSyncRequests<T>.Assets
+  fullName.vb: BundleSystem.BundleSyncRequests(Of T).Assets
+  nameWithType: BundleSyncRequests<T>.Assets
+  nameWithType.vb: BundleSyncRequests(Of T).Assets
+- uid: BundleSystem.BundleSyncRequests`1.Dispose
+  name: Dispose()
+  href: api/BundleSystem.BundleSyncRequests-1.html#BundleSystem_BundleSyncRequests_1_Dispose
+  commentId: M:BundleSystem.BundleSyncRequests`1.Dispose
+  fullName: BundleSystem.BundleSyncRequests<T>.Dispose()
+  fullName.vb: BundleSystem.BundleSyncRequests(Of T).Dispose()
+  nameWithType: BundleSyncRequests<T>.Dispose()
+  nameWithType.vb: BundleSyncRequests(Of T).Dispose()
+- uid: BundleSystem.BundleSyncRequests`1.Dispose*
+  name: Dispose
+  href: api/BundleSystem.BundleSyncRequests-1.html#BundleSystem_BundleSyncRequests_1_Dispose_
+  commentId: Overload:BundleSystem.BundleSyncRequests`1.Dispose
+  isSpec: "True"
+  fullName: BundleSystem.BundleSyncRequests<T>.Dispose
+  fullName.vb: BundleSystem.BundleSyncRequests(Of T).Dispose
+  nameWithType: BundleSyncRequests<T>.Dispose
+  nameWithType.vb: BundleSyncRequests(Of T).Dispose
+- uid: BundleSystem.BundleSyncRequests`1.Empty
+  name: Empty
+  href: api/BundleSystem.BundleSyncRequests-1.html#BundleSystem_BundleSyncRequests_1_Empty
+  commentId: F:BundleSystem.BundleSyncRequests`1.Empty
+  fullName: BundleSystem.BundleSyncRequests<T>.Empty
+  fullName.vb: BundleSystem.BundleSyncRequests(Of T).Empty
+  nameWithType: BundleSyncRequests<T>.Empty
+  nameWithType.vb: BundleSyncRequests(Of T).Empty
+- uid: BundleSystem.BundleSyncRequests`1.Handles
+  name: Handles
+  href: api/BundleSystem.BundleSyncRequests-1.html#BundleSystem_BundleSyncRequests_1_Handles
+  commentId: F:BundleSystem.BundleSyncRequests`1.Handles
+  fullName: BundleSystem.BundleSyncRequests<T>.Handles
+  fullName.vb: BundleSystem.BundleSyncRequests(Of T).Handles
+  nameWithType: BundleSyncRequests<T>.Handles
+  nameWithType.vb: BundleSyncRequests(Of T).Handles
+- uid: BundleSystem.FolderBasedAssetBundleBuildSetting
+  name: FolderBasedAssetBundleBuildSetting
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html
+  commentId: T:BundleSystem.FolderBasedAssetBundleBuildSetting
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting
+  nameWithType: FolderBasedAssetBundleBuildSetting
+- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting
+  name: FolderBasedAssetBundleBuildSetting.FolderSetting
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.html
+  commentId: T:BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting
+  nameWithType: FolderBasedAssetBundleBuildSetting.FolderSetting
+- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.AutoSharedBundle
+  name: AutoSharedBundle
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FolderSetting_AutoSharedBundle
+  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.AutoSharedBundle
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.AutoSharedBundle
+  nameWithType: FolderBasedAssetBundleBuildSetting.FolderSetting.AutoSharedBundle
+- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.BundleName
+  name: BundleName
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FolderSetting_BundleName
+  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.BundleName
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.BundleName
+  nameWithType: FolderBasedAssetBundleBuildSetting.FolderSetting.BundleName
+- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.CompressBundle
+  name: CompressBundle
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FolderSetting_CompressBundle
+  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.CompressBundle
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.CompressBundle
+  nameWithType: FolderBasedAssetBundleBuildSetting.FolderSetting.CompressBundle
+- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.Folder
+  name: Folder
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FolderSetting_Folder
+  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.Folder
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.Folder
+  nameWithType: FolderBasedAssetBundleBuildSetting.FolderSetting.Folder
+- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.IncludedInPlayer
+  name: IncludedInPlayer
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FolderSetting_IncludedInPlayer
+  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.IncludedInPlayer
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.IncludedInPlayer
+  nameWithType: FolderBasedAssetBundleBuildSetting.FolderSetting.IncludedInPlayer
+- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.IncludeSubfolder
+  name: IncludeSubfolder
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FolderSetting_IncludeSubfolder
+  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.IncludeSubfolder
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.IncludeSubfolder
+  nameWithType: FolderBasedAssetBundleBuildSetting.FolderSetting.IncludeSubfolder
+- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSettings
+  name: FolderSettings
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FolderSettings
+  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSettings
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSettings
+  nameWithType: FolderBasedAssetBundleBuildSetting.FolderSettings
+- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FtpHost
+  name: FtpHost
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FtpHost
+  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FtpHost
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FtpHost
+  nameWithType: FolderBasedAssetBundleBuildSetting.FtpHost
+- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FtpUserName
+  name: FtpUserName
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FtpUserName
+  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FtpUserName
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FtpUserName
+  nameWithType: FolderBasedAssetBundleBuildSetting.FtpUserName
+- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FtpUserPass
+  name: FtpUserPass
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FtpUserPass
+  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FtpUserPass
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FtpUserPass
+  nameWithType: FolderBasedAssetBundleBuildSetting.FtpUserPass
+- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.GetBundleSettings
+  name: GetBundleSettings()
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_GetBundleSettings
+  commentId: M:BundleSystem.FolderBasedAssetBundleBuildSetting.GetBundleSettings
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.GetBundleSettings()
+  nameWithType: FolderBasedAssetBundleBuildSetting.GetBundleSettings()
+- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.GetBundleSettings*
+  name: GetBundleSettings
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_GetBundleSettings_
+  commentId: Overload:BundleSystem.FolderBasedAssetBundleBuildSetting.GetBundleSettings
+  isSpec: "True"
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.GetBundleSettings
+  nameWithType: FolderBasedAssetBundleBuildSetting.GetBundleSettings
+- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.IsValid
+  name: IsValid()
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_IsValid
+  commentId: M:BundleSystem.FolderBasedAssetBundleBuildSetting.IsValid
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.IsValid()
+  nameWithType: FolderBasedAssetBundleBuildSetting.IsValid()
+- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.IsValid*
+  name: IsValid
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_IsValid_
+  commentId: Overload:BundleSystem.FolderBasedAssetBundleBuildSetting.IsValid
+  isSpec: "True"
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.IsValid
+  nameWithType: FolderBasedAssetBundleBuildSetting.IsValid
+- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.UseFtp
+  name: UseFtp
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_UseFtp
+  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.UseFtp
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.UseFtp
+  nameWithType: FolderBasedAssetBundleBuildSetting.UseFtp
+- uid: BundleSystem.FolderBasedAssetBundleBuildSettingInspector
+  name: FolderBasedAssetBundleBuildSettingInspector
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSettingInspector.html
+  commentId: T:BundleSystem.FolderBasedAssetBundleBuildSettingInspector
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSettingInspector
+  nameWithType: FolderBasedAssetBundleBuildSettingInspector
+- uid: BundleSystem.FolderBasedAssetBundleBuildSettingInspector.OnInspectorGUI
+  name: OnInspectorGUI()
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSettingInspector.html#BundleSystem_FolderBasedAssetBundleBuildSettingInspector_OnInspectorGUI
+  commentId: M:BundleSystem.FolderBasedAssetBundleBuildSettingInspector.OnInspectorGUI
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSettingInspector.OnInspectorGUI()
+  nameWithType: FolderBasedAssetBundleBuildSettingInspector.OnInspectorGUI()
+- uid: BundleSystem.FolderBasedAssetBundleBuildSettingInspector.OnInspectorGUI*
+  name: OnInspectorGUI
+  href: api/BundleSystem.FolderBasedAssetBundleBuildSettingInspector.html#BundleSystem_FolderBasedAssetBundleBuildSettingInspector_OnInspectorGUI_
+  commentId: Overload:BundleSystem.FolderBasedAssetBundleBuildSettingInspector.OnInspectorGUI
+  isSpec: "True"
+  fullName: BundleSystem.FolderBasedAssetBundleBuildSettingInspector.OnInspectorGUI
+  nameWithType: FolderBasedAssetBundleBuildSettingInspector.OnInspectorGUI
+- uid: BundleSystem.FolderReference
+  name: FolderReference
+  href: api/BundleSystem.FolderReference.html
+  commentId: T:BundleSystem.FolderReference
+  fullName: BundleSystem.FolderReference
+  nameWithType: FolderReference
+- uid: BundleSystem.FolderReference.guid
+  name: guid
+  href: api/BundleSystem.FolderReference.html#BundleSystem_FolderReference_guid
+  commentId: F:BundleSystem.FolderReference.guid
+  fullName: BundleSystem.FolderReference.guid
+  nameWithType: FolderReference.guid
+- uid: BundleSystem.IAwaiter`1
+  name: IAwaiter<TResult>
+  href: api/BundleSystem.IAwaiter-1.html
+  commentId: T:BundleSystem.IAwaiter`1
+  name.vb: IAwaiter(Of TResult)
+  fullName: BundleSystem.IAwaiter<TResult>
+  fullName.vb: BundleSystem.IAwaiter(Of TResult)
+  nameWithType: IAwaiter<TResult>
+  nameWithType.vb: IAwaiter(Of TResult)
+- uid: BundleSystem.IAwaiter`1.GetResult
+  name: GetResult()
+  href: api/BundleSystem.IAwaiter-1.html#BundleSystem_IAwaiter_1_GetResult
+  commentId: M:BundleSystem.IAwaiter`1.GetResult
+  fullName: BundleSystem.IAwaiter<TResult>.GetResult()
+  fullName.vb: BundleSystem.IAwaiter(Of TResult).GetResult()
+  nameWithType: IAwaiter<TResult>.GetResult()
+  nameWithType.vb: IAwaiter(Of TResult).GetResult()
+- uid: BundleSystem.IAwaiter`1.GetResult*
+  name: GetResult
+  href: api/BundleSystem.IAwaiter-1.html#BundleSystem_IAwaiter_1_GetResult_
+  commentId: Overload:BundleSystem.IAwaiter`1.GetResult
+  isSpec: "True"
+  fullName: BundleSystem.IAwaiter<TResult>.GetResult
+  fullName.vb: BundleSystem.IAwaiter(Of TResult).GetResult
+  nameWithType: IAwaiter<TResult>.GetResult
+  nameWithType.vb: IAwaiter(Of TResult).GetResult
+- uid: BundleSystem.IAwaiter`1.IsCompleted
+  name: IsCompleted
+  href: api/BundleSystem.IAwaiter-1.html#BundleSystem_IAwaiter_1_IsCompleted
+  commentId: P:BundleSystem.IAwaiter`1.IsCompleted
+  fullName: BundleSystem.IAwaiter<TResult>.IsCompleted
+  fullName.vb: BundleSystem.IAwaiter(Of TResult).IsCompleted
+  nameWithType: IAwaiter<TResult>.IsCompleted
+  nameWithType.vb: IAwaiter(Of TResult).IsCompleted
+- uid: BundleSystem.IAwaiter`1.IsCompleted*
+  name: IsCompleted
+  href: api/BundleSystem.IAwaiter-1.html#BundleSystem_IAwaiter_1_IsCompleted_
+  commentId: Overload:BundleSystem.IAwaiter`1.IsCompleted
+  isSpec: "True"
+  fullName: BundleSystem.IAwaiter<TResult>.IsCompleted
+  fullName.vb: BundleSystem.IAwaiter(Of TResult).IsCompleted
+  nameWithType: IAwaiter<TResult>.IsCompleted
+  nameWithType.vb: IAwaiter(Of TResult).IsCompleted
+- uid: BundleSystem.TrackHandle`1
+  name: TrackHandle<T>
+  href: api/BundleSystem.TrackHandle-1.html
+  commentId: T:BundleSystem.TrackHandle`1
+  name.vb: TrackHandle(Of T)
+  fullName: BundleSystem.TrackHandle<T>
+  fullName.vb: BundleSystem.TrackHandle(Of T)
+  nameWithType: TrackHandle<T>
+  nameWithType.vb: TrackHandle(Of T)
+- uid: BundleSystem.TrackHandle`1.#ctor(System.Int32)
+  name: TrackHandle(Int32)
+  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1__ctor_System_Int32_
+  commentId: M:BundleSystem.TrackHandle`1.#ctor(System.Int32)
+  fullName: BundleSystem.TrackHandle<T>.TrackHandle(System.Int32)
+  fullName.vb: BundleSystem.TrackHandle(Of T).TrackHandle(System.Int32)
+  nameWithType: TrackHandle<T>.TrackHandle(Int32)
+  nameWithType.vb: TrackHandle(Of T).TrackHandle(Int32)
+- uid: BundleSystem.TrackHandle`1.#ctor*
+  name: TrackHandle
+  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1__ctor_
+  commentId: Overload:BundleSystem.TrackHandle`1.#ctor
+  isSpec: "True"
+  fullName: BundleSystem.TrackHandle<T>.TrackHandle
+  fullName.vb: BundleSystem.TrackHandle(Of T).TrackHandle
+  nameWithType: TrackHandle<T>.TrackHandle
+  nameWithType.vb: TrackHandle(Of T).TrackHandle
+- uid: BundleSystem.TrackHandle`1.Id
+  name: Id
+  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_Id
+  commentId: P:BundleSystem.TrackHandle`1.Id
+  fullName: BundleSystem.TrackHandle<T>.Id
+  fullName.vb: BundleSystem.TrackHandle(Of T).Id
+  nameWithType: TrackHandle<T>.Id
+  nameWithType.vb: TrackHandle(Of T).Id
+- uid: BundleSystem.TrackHandle`1.Id*
+  name: Id
+  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_Id_
+  commentId: Overload:BundleSystem.TrackHandle`1.Id
+  isSpec: "True"
+  fullName: BundleSystem.TrackHandle<T>.Id
+  fullName.vb: BundleSystem.TrackHandle(Of T).Id
+  nameWithType: TrackHandle<T>.Id
+  nameWithType.vb: TrackHandle(Of T).Id
+- uid: BundleSystem.TrackHandle`1.Invalid
+  name: Invalid
+  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_Invalid
+  commentId: P:BundleSystem.TrackHandle`1.Invalid
+  fullName: BundleSystem.TrackHandle<T>.Invalid
+  fullName.vb: BundleSystem.TrackHandle(Of T).Invalid
+  nameWithType: TrackHandle<T>.Invalid
+  nameWithType.vb: TrackHandle(Of T).Invalid
+- uid: BundleSystem.TrackHandle`1.Invalid*
+  name: Invalid
+  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_Invalid_
+  commentId: Overload:BundleSystem.TrackHandle`1.Invalid
+  isSpec: "True"
+  fullName: BundleSystem.TrackHandle<T>.Invalid
+  fullName.vb: BundleSystem.TrackHandle(Of T).Invalid
+  nameWithType: TrackHandle<T>.Invalid
+  nameWithType.vb: TrackHandle(Of T).Invalid
+- uid: BundleSystem.TrackHandle`1.IsAlive
+  name: IsAlive()
+  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_IsAlive
+  commentId: M:BundleSystem.TrackHandle`1.IsAlive
+  fullName: BundleSystem.TrackHandle<T>.IsAlive()
+  fullName.vb: BundleSystem.TrackHandle(Of T).IsAlive()
+  nameWithType: TrackHandle<T>.IsAlive()
+  nameWithType.vb: TrackHandle(Of T).IsAlive()
+- uid: BundleSystem.TrackHandle`1.IsAlive*
+  name: IsAlive
+  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_IsAlive_
+  commentId: Overload:BundleSystem.TrackHandle`1.IsAlive
+  isSpec: "True"
+  fullName: BundleSystem.TrackHandle<T>.IsAlive
+  fullName.vb: BundleSystem.TrackHandle(Of T).IsAlive
+  nameWithType: TrackHandle<T>.IsAlive
+  nameWithType.vb: TrackHandle(Of T).IsAlive
+- uid: BundleSystem.TrackHandle`1.IsValid
+  name: IsValid()
+  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_IsValid
+  commentId: M:BundleSystem.TrackHandle`1.IsValid
+  fullName: BundleSystem.TrackHandle<T>.IsValid()
+  fullName.vb: BundleSystem.TrackHandle(Of T).IsValid()
+  nameWithType: TrackHandle<T>.IsValid()
+  nameWithType.vb: TrackHandle(Of T).IsValid()
+- uid: BundleSystem.TrackHandle`1.IsValid*
+  name: IsValid
+  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_IsValid_
+  commentId: Overload:BundleSystem.TrackHandle`1.IsValid
+  isSpec: "True"
+  fullName: BundleSystem.TrackHandle<T>.IsValid
+  fullName.vb: BundleSystem.TrackHandle(Of T).IsValid
+  nameWithType: TrackHandle<T>.IsValid
+  nameWithType.vb: TrackHandle(Of T).IsValid
+- uid: BundleSystem.TrackHandle`1.IsValidAndAlive
+  name: IsValidAndAlive()
+  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_IsValidAndAlive
+  commentId: M:BundleSystem.TrackHandle`1.IsValidAndAlive
+  fullName: BundleSystem.TrackHandle<T>.IsValidAndAlive()
+  fullName.vb: BundleSystem.TrackHandle(Of T).IsValidAndAlive()
+  nameWithType: TrackHandle<T>.IsValidAndAlive()
+  nameWithType.vb: TrackHandle(Of T).IsValidAndAlive()
+- uid: BundleSystem.TrackHandle`1.IsValidAndAlive*
+  name: IsValidAndAlive
+  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_IsValidAndAlive_
+  commentId: Overload:BundleSystem.TrackHandle`1.IsValidAndAlive
+  isSpec: "True"
+  fullName: BundleSystem.TrackHandle<T>.IsValidAndAlive
+  fullName.vb: BundleSystem.TrackHandle(Of T).IsValidAndAlive
+  nameWithType: TrackHandle<T>.IsValidAndAlive
+  nameWithType.vb: TrackHandle(Of T).IsValidAndAlive
+- uid: BundleSystem.TrackHandle`1.Release
+  name: Release()
+  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_Release
+  commentId: M:BundleSystem.TrackHandle`1.Release
+  fullName: BundleSystem.TrackHandle<T>.Release()
+  fullName.vb: BundleSystem.TrackHandle(Of T).Release()
+  nameWithType: TrackHandle<T>.Release()
+  nameWithType.vb: TrackHandle(Of T).Release()
+- uid: BundleSystem.TrackHandle`1.Release*
+  name: Release
+  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_Release_
+  commentId: Overload:BundleSystem.TrackHandle`1.Release
+  isSpec: "True"
+  fullName: BundleSystem.TrackHandle<T>.Release
+  fullName.vb: BundleSystem.TrackHandle(Of T).Release
+  nameWithType: TrackHandle<T>.Release
+  nameWithType.vb: TrackHandle(Of T).Release
+- uid: BundleSystem.Utility
+  name: Utility
+  href: api/BundleSystem.Utility.html
+  commentId: T:BundleSystem.Utility
+  fullName: BundleSystem.Utility
+  nameWithType: Utility
+- uid: BundleSystem.Utility.CombinePath(System.String[])
+  name: CombinePath(String[])
+  href: api/BundleSystem.Utility.html#BundleSystem_Utility_CombinePath_System_String___
+  commentId: M:BundleSystem.Utility.CombinePath(System.String[])
+  name.vb: CombinePath(String())
+  fullName: BundleSystem.Utility.CombinePath(System.String[])
+  fullName.vb: BundleSystem.Utility.CombinePath(System.String())
+  nameWithType: Utility.CombinePath(String[])
+  nameWithType.vb: Utility.CombinePath(String())
+- uid: BundleSystem.Utility.CombinePath*
+  name: CombinePath
+  href: api/BundleSystem.Utility.html#BundleSystem_Utility_CombinePath_
+  commentId: Overload:BundleSystem.Utility.CombinePath
+  isSpec: "True"
+  fullName: BundleSystem.Utility.CombinePath
+  nameWithType: Utility.CombinePath

@@ -1,0 +1,536 @@
+{
+  "sitemap": {
+    "fileOptions": {
+      "api/*": {
+        "baseUrl": "https://locus84.github.io/Locus-Bundle-System-v2/",
+        "changefreq": "daily"
+      }
+    },
+    "baseUrl": "https://locus84.github.io/Locus-Bundle-System-v2/",
+    "changefreq": "weekly"
+  },
+  "homepages": [],
+  "source_base_path": "D:/a/Locus-Bundle-System-v2/Locus-Bundle-System-v2/Documentation",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.AssetBundleBuildManifest.BundleInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.AssetBundleBuildManifest.BundleInfo.html",
+          "hash": "3qiXloqmApzVltwCc3pRQ1u1MCi7MXN9FVrb1KFDZ8w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.AssetBundleBuildManifest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.AssetBundleBuildManifest.html",
+          "hash": "b8XLZ8Qr3VqOn8apcLpclPuD4IZ6DcurgYVLGsieNx4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.AssetBundleBuildProcessors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.AssetBundleBuildProcessors.html",
+          "hash": "nhAPMbDcD3T1SmaleF22905zyjUxASJ7wq/tPJ9qI7s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.AssetBundleBuildSetting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.AssetBundleBuildSetting.html",
+          "hash": "dq8k3yZpFPNVUkAItsmNwrRC0w8oznvSHDqEw/yTIRc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.AssetBundleBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.AssetBundleBuilder.html",
+          "hash": "Nmsm8CNTafWLtfdis3iQHImnlnjdv+qIQV+WEpuhct0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.AssetBundleUploader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.AssetBundleUploader.html",
+          "hash": "W2W7sapB6KN7XOvRXye/1S8IoT8oCPtJAiyFV5eopgM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.AssetDependencyTree.Context.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.AssetDependencyTree.Context.html",
+          "hash": "BqvcUHzg8JJlWNd9yKp4eaSwYPvH6obBT0eaZvos5k4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.AssetDependencyTree.Node.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.AssetDependencyTree.Node.html",
+          "hash": "sfmndQJfhSqsbMO9MPX7CYrHKpRfp4b/Wlplu5i/nw8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.AssetDependencyTree.ProcessResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.AssetDependencyTree.ProcessResult.html",
+          "hash": "EpU4qE60oVL4DqqCjCirH3MEy3zOCXtDP9HdNWu82rs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.AssetDependencyTree.RootNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.AssetDependencyTree.RootNode.html",
+          "hash": "LCWxVidbyAy7yQI7p0+6u+fhBnZEQHVxamF4l4ttq0Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.AssetDependencyTree.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.AssetDependencyTree.html",
+          "hash": "K4vUcKGiWGmaccl0sgL76o+XbFsbSBU9Y/jPYLVXVuc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.BundleAsyncOperation-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.BundleAsyncOperation-1.html",
+          "hash": "f7T6VXl4sMlnlfaFj1a3g3ISAX33IUge618l4fm7yB0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.BundleAsyncOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.BundleAsyncOperation.html",
+          "hash": "8jz4X6C9ra458OB3eplLnFrCAheYz1AvZJyYZ6kSltE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.BundleAsyncOperationBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.BundleAsyncOperationBase.html",
+          "hash": "WFynQN/jgqryzuF4qTsXAEAVEiwNbiYzFh1HgLFSn6c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.BundleAsyncRequest-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.BundleAsyncRequest-1.html",
+          "hash": "GdKfQQnCdz8WvuBH0cPCHuJV9HMrC5iSheTu/PhB6wg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.BundleAsyncSceneRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.BundleAsyncSceneRequest.html",
+          "hash": "bLdhBuFDh55UdyvsFw/RRfF3Skp6GwpBokOxjc8yez8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.BundleErrorCode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.BundleErrorCode.html",
+          "hash": "QvTGdaC7joqbpw8mXUrlH2LSwcLHh+Ulx/xz183HGGM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.BundleManager.TrackInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.BundleManager.TrackInfo.html",
+          "hash": "/Q9c5x4/GDH2KZ6swPQ5AedJeP50EWXtw7FEA6/PnoI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.BundleManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.BundleManager.html",
+          "hash": "Ssny4DaLqmALdjzuaSdad9C5Irq1ig3NHqiX4Pfh1ns="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.BundleSetting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.BundleSetting.html",
+          "hash": "exkn1j0dkX5G7KDk+qC/Lpj7n4vEKSO/48pBTyuIRWk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.BundleSyncRequest-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.BundleSyncRequest-1.html",
+          "hash": "3kjRlvJmFe0ntj9+oBuO2omTn43B0qzqwCsD2AruO24="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.BundleSyncRequests-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.BundleSyncRequests-1.html",
+          "hash": "ZFqf/Fw3DGfJw1Rdp9pS5D9IDuHEgHCZVab8Da3kJMQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.html",
+          "hash": "efGUCowOJo81AflEEHbSwlxVwTsXJAI5BYdnBOccHy8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.FolderBasedAssetBundleBuildSetting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.FolderBasedAssetBundleBuildSetting.html",
+          "hash": "SmXDrjBpfyfA1xf8VyOnLj+pa1e/maK0dRt9k6W3iSM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.FolderBasedAssetBundleBuildSettingInspector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.FolderBasedAssetBundleBuildSettingInspector.html",
+          "hash": "M5cIqph+w07ap8h4ZMR5vxO1RlsGUMV4D5v5HMV43lg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.FolderReference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.FolderReference.html",
+          "hash": "yJe77X9CdzvrQVWm90R8HxyGxLiLFT3uQa4EAFv7fqU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.IAwaiter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.IAwaiter-1.html",
+          "hash": "h03SfRX31kJe9dAq2EZibKsuS1278U+9W8unw2YQ2cw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.TrackHandle-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.TrackHandle-1.html",
+          "hash": "Z0Zr2Lsmg6I21JLZsu1Mf72B+chbi9y4JV4gIbF9K8s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.Utility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.Utility.html",
+          "hash": "uNkXUAh8oklINV5ZggQeaPyjdgXZ+xnVvRrM5niEEQk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.html",
+          "hash": "U1Q5YYxFgsitHpqzh+zBUFj37u2AKlSVnU50EuZDQ7Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "3xVp8mPeWUJV6jb1UYuvkfAime59W8Gy/iy5Eb1gIpQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "b6MksWNZVzjBZW/YsdwaJtJVr76x6OYT1jggL5REWoE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/coniunctis.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/coniunctis.html",
+          "hash": "YPieilRMrCZPrCdZm5Kuka8FzbUz/nTKbrJegZtTZFA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/etiam.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/etiam.html",
+          "hash": "/PTiT3pXyWDM5StT/K2ME/o+lTwk7sZa1zGfccx8K5s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "manual/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "manual/toc.html",
+          "hash": "rP+c9KPLMLO+q5u7rC7ci/iMYXqbmZC8g5PeGCEXGU4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/ExampleManual.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/ExampleManual.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/ExampleScriptingApi.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/ExampleScriptingApi.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "v3RWaPolQ7sN/rXD+nCrLmPOZtRVZc12N9FPMC8au/g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 30,
+          "skipped_file_count": 0
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
