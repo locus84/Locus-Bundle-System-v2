@@ -10,7 +10,7 @@
     "changefreq": "weekly"
   },
   "homepages": [],
-  "source_base_path": "D:/a/Locus-Bundle-System-v2/Locus-Bundle-System-v2/Documentation",
+  "source_base_path": "D:/a/Locus-Bundle-System-v2/Locus-Bundle-System-v2/Docs",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -400,7 +400,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "b6MksWNZVzjBZW/YsdwaJtJVr76x6OYT1jggL5REWoE="
+          "hash": "zuQc7FbJNiujngQpKt26MMWdu2lVem08eD3HK3yTXvk="
         }
       },
       "is_incremental": false,
@@ -412,7 +412,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/coniunctis.html",
-          "hash": "YPieilRMrCZPrCdZm5Kuka8FzbUz/nTKbrJegZtTZFA="
+          "hash": "LiiONRkrmZRlKS69e6NXafKIVjjlw7JODSUMixrh3GA="
         }
       },
       "is_incremental": false,
@@ -424,7 +424,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/etiam.html",
-          "hash": "/PTiT3pXyWDM5StT/K2ME/o+lTwk7sZa1zGfccx8K5s="
+          "hash": "4ZnNITs69aiaeYP6GdJWiy9n6/FdVOGJ43zxfXdEUDE="
         }
       },
       "is_incremental": false,
