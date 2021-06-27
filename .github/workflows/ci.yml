@@ -19,13 +19,13 @@ jobs:
         git log -1
         echo '### copy samples'
         cp -R "$SAMPLE_SOURCE" "$SAMPLE_DEST"
-        echo '### split upm branch'
-        git subtree split -P "$PKG_ROOT" -b upm
-        echo '### update remote upm branch'
         git config user.email "automation@sample.com"
         git config user.name "automation"
         git add -A
         git commit -m "CopySamples"
+        echo '### split upm branch'
+        git subtree split -P "$PKG_ROOT" -b upm
+        echo '### update remote upm branch'
         git push origin upm
       env:
         PKG_ROOT: Packages/LocusBundleSystem
