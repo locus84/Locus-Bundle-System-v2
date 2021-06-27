@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using BundleSystem;
 
-#if UNITY_EDITOR
 [CreateAssetMenu(fileName = "AssetBundleBuildSetting.asset", menuName = "Create Custom AssetBundle Build Setting", order = 999)]
 public class CustomAssetBundleBuildSetting : AssetBundleBuildSetting 
 {
@@ -26,7 +24,7 @@ public class CustomAssetBundleBuildSetting : AssetBundleBuildSetting
         var loadPath = new List<string>();
 
         Utility.GetFilesInDirectory(assetPath, loadPath, folderPath, includeSubfolder);
-
+        
         targetList.Add(new BundleSetting(){
             AssetNames = assetPath.ToArray(),
             AddressableNames = loadPath.ToArray(),
@@ -39,5 +37,3 @@ public class CustomAssetBundleBuildSetting : AssetBundleBuildSetting
 
     public override bool IsValid() => true;
 }
-
-#endif

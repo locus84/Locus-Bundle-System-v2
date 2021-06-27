@@ -24,6 +24,7 @@ namespace BundleSystem
         {
             var bundleSettingList = new List<BundleSetting>();
 
+#if UNITY_EDITOR
             foreach (var folderSetting in FolderSettings)
             {
                 //find folder
@@ -46,6 +47,7 @@ namespace BundleSystem
                 newBundle.CompressBundle = folderSetting.CompressBundle;
                 bundleSettingList.Add(newBundle);
             }
+#endif
 
             return bundleSettingList;
         }
