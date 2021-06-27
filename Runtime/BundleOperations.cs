@@ -18,6 +18,11 @@ namespace BundleSystem{
             Handle = handle;
         }
 
+        public BundleSyncRequest<T> Pin()
+        {
+            BundleManager.SupressAutoReleaseInternal(Handle.Id);
+            return this;
+        }
 
         public void Dispose()
         {
@@ -35,6 +40,15 @@ namespace BundleSystem{
         {
             Assets = assets;
             Handles = handles;
+        }
+        
+        public BundleSyncRequests<T> Pin()
+        {
+            for(int i = 0; i < Handles.Length; i++)
+            {
+                BundleManager.SupressAutoReleaseInternal(Handles[i].Id);
+            }
+            return this;
         }
 
         public void Dispose()
@@ -56,7 +70,6 @@ namespace BundleSystem{
         public readonly TrackHandle<T> Handle;
         AssetBundleRequest m_Request;
         T m_LoadedAsset;
-        bool m_AutoRelease = true;
 
         /// <summary>
         /// actual assetbundle request warpper
@@ -93,21 +106,10 @@ namespace BundleSystem{
             OnCompleted(continuation);
         }
 
-        public BundleAsyncRequest<T> SuppressAutoRelease()
+        public BundleAsyncRequest<T> Pin()
         {
-            //we already suppressed
-            if(!m_AutoRelease) return this;
-
-            //set value false, if already tracking, try untrack
-            m_AutoRelease = false;
-            if(IsCompleted) BundleManager.UntrackAutoReleaseInternal(Handle.Id);
-
+            BundleManager.SupressAutoReleaseInternal(Handle.Id);
             return this;
-        }
-
-        internal void OnTrackAutoRelease()
-        { 
-            if(m_AutoRelease) BundleManager.TrackAutoReleaseInternal(Handle.Id);
         }
 
         public void OnCompleted(System.Action continuation)
