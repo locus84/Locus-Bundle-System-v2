@@ -319,25 +319,6 @@ references:
   commentId: F:BundleSystem.AssetBundleBuildSetting.UseCacheServer
   fullName: BundleSystem.AssetBundleBuildSetting.UseCacheServer
   nameWithType: AssetBundleBuildSetting.UseCacheServer
-- uid: BundleSystem.AssetBundleUploader
-  name: AssetBundleUploader
-  href: api/BundleSystem.AssetBundleUploader.html
-  commentId: T:BundleSystem.AssetBundleUploader
-  fullName: BundleSystem.AssetBundleUploader
-  nameWithType: AssetBundleUploader
-- uid: BundleSystem.AssetBundleUploader.UploadAllRemoteFiles(BundleSystem.FolderBasedAssetBundleBuildSetting)
-  name: UploadAllRemoteFiles(FolderBasedAssetBundleBuildSetting)
-  href: api/BundleSystem.AssetBundleUploader.html#BundleSystem_AssetBundleUploader_UploadAllRemoteFiles_BundleSystem_FolderBasedAssetBundleBuildSetting_
-  commentId: M:BundleSystem.AssetBundleUploader.UploadAllRemoteFiles(BundleSystem.FolderBasedAssetBundleBuildSetting)
-  fullName: BundleSystem.AssetBundleUploader.UploadAllRemoteFiles(BundleSystem.FolderBasedAssetBundleBuildSetting)
-  nameWithType: AssetBundleUploader.UploadAllRemoteFiles(FolderBasedAssetBundleBuildSetting)
-- uid: BundleSystem.AssetBundleUploader.UploadAllRemoteFiles*
-  name: UploadAllRemoteFiles
-  href: api/BundleSystem.AssetBundleUploader.html#BundleSystem_AssetBundleUploader_UploadAllRemoteFiles_
-  commentId: Overload:BundleSystem.AssetBundleUploader.UploadAllRemoteFiles
-  isSpec: "True"
-  fullName: BundleSystem.AssetBundleUploader.UploadAllRemoteFiles
-  nameWithType: AssetBundleUploader.UploadAllRemoteFiles
 - uid: BundleSystem.AssetDependencyTree
   name: AssetDependencyTree
   href: api/BundleSystem.AssetDependencyTree.html
@@ -1934,141 +1915,6 @@ references:
   fullName.vb: BundleSystem.BundleSyncRequests(Of T).Pin
   nameWithType: BundleSyncRequests<T>.Pin
   nameWithType.vb: BundleSyncRequests(Of T).Pin
-- uid: BundleSystem.FolderBasedAssetBundleBuildSetting
-  name: FolderBasedAssetBundleBuildSetting
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html
-  commentId: T:BundleSystem.FolderBasedAssetBundleBuildSetting
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting
-  nameWithType: FolderBasedAssetBundleBuildSetting
-- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting
-  name: FolderBasedAssetBundleBuildSetting.FolderSetting
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.html
-  commentId: T:BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting
-  nameWithType: FolderBasedAssetBundleBuildSetting.FolderSetting
-- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.AutoSharedBundle
-  name: AutoSharedBundle
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FolderSetting_AutoSharedBundle
-  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.AutoSharedBundle
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.AutoSharedBundle
-  nameWithType: FolderBasedAssetBundleBuildSetting.FolderSetting.AutoSharedBundle
-- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.BundleName
-  name: BundleName
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FolderSetting_BundleName
-  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.BundleName
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.BundleName
-  nameWithType: FolderBasedAssetBundleBuildSetting.FolderSetting.BundleName
-- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.CompressBundle
-  name: CompressBundle
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FolderSetting_CompressBundle
-  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.CompressBundle
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.CompressBundle
-  nameWithType: FolderBasedAssetBundleBuildSetting.FolderSetting.CompressBundle
-- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.Folder
-  name: Folder
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FolderSetting_Folder
-  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.Folder
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.Folder
-  nameWithType: FolderBasedAssetBundleBuildSetting.FolderSetting.Folder
-- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.IncludedInPlayer
-  name: IncludedInPlayer
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FolderSetting_IncludedInPlayer
-  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.IncludedInPlayer
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.IncludedInPlayer
-  nameWithType: FolderBasedAssetBundleBuildSetting.FolderSetting.IncludedInPlayer
-- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.IncludeSubfolder
-  name: IncludeSubfolder
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FolderSetting_IncludeSubfolder
-  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.IncludeSubfolder
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSetting.IncludeSubfolder
-  nameWithType: FolderBasedAssetBundleBuildSetting.FolderSetting.IncludeSubfolder
-- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSettings
-  name: FolderSettings
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FolderSettings
-  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSettings
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FolderSettings
-  nameWithType: FolderBasedAssetBundleBuildSetting.FolderSettings
-- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FtpHost
-  name: FtpHost
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FtpHost
-  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FtpHost
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FtpHost
-  nameWithType: FolderBasedAssetBundleBuildSetting.FtpHost
-- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FtpUserName
-  name: FtpUserName
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FtpUserName
-  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FtpUserName
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FtpUserName
-  nameWithType: FolderBasedAssetBundleBuildSetting.FtpUserName
-- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.FtpUserPass
-  name: FtpUserPass
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_FtpUserPass
-  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.FtpUserPass
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.FtpUserPass
-  nameWithType: FolderBasedAssetBundleBuildSetting.FtpUserPass
-- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.GetBundleSettings
-  name: GetBundleSettings()
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_GetBundleSettings
-  commentId: M:BundleSystem.FolderBasedAssetBundleBuildSetting.GetBundleSettings
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.GetBundleSettings()
-  nameWithType: FolderBasedAssetBundleBuildSetting.GetBundleSettings()
-- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.GetBundleSettings*
-  name: GetBundleSettings
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_GetBundleSettings_
-  commentId: Overload:BundleSystem.FolderBasedAssetBundleBuildSetting.GetBundleSettings
-  isSpec: "True"
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.GetBundleSettings
-  nameWithType: FolderBasedAssetBundleBuildSetting.GetBundleSettings
-- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.IsValid
-  name: IsValid()
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_IsValid
-  commentId: M:BundleSystem.FolderBasedAssetBundleBuildSetting.IsValid
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.IsValid()
-  nameWithType: FolderBasedAssetBundleBuildSetting.IsValid()
-- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.IsValid*
-  name: IsValid
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_IsValid_
-  commentId: Overload:BundleSystem.FolderBasedAssetBundleBuildSetting.IsValid
-  isSpec: "True"
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.IsValid
-  nameWithType: FolderBasedAssetBundleBuildSetting.IsValid
-- uid: BundleSystem.FolderBasedAssetBundleBuildSetting.UseFtp
-  name: UseFtp
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html#BundleSystem_FolderBasedAssetBundleBuildSetting_UseFtp
-  commentId: F:BundleSystem.FolderBasedAssetBundleBuildSetting.UseFtp
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSetting.UseFtp
-  nameWithType: FolderBasedAssetBundleBuildSetting.UseFtp
-- uid: BundleSystem.FolderBasedAssetBundleBuildSettingInspector
-  name: FolderBasedAssetBundleBuildSettingInspector
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSettingInspector.html
-  commentId: T:BundleSystem.FolderBasedAssetBundleBuildSettingInspector
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSettingInspector
-  nameWithType: FolderBasedAssetBundleBuildSettingInspector
-- uid: BundleSystem.FolderBasedAssetBundleBuildSettingInspector.OnInspectorGUI
-  name: OnInspectorGUI()
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSettingInspector.html#BundleSystem_FolderBasedAssetBundleBuildSettingInspector_OnInspectorGUI
-  commentId: M:BundleSystem.FolderBasedAssetBundleBuildSettingInspector.OnInspectorGUI
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSettingInspector.OnInspectorGUI()
-  nameWithType: FolderBasedAssetBundleBuildSettingInspector.OnInspectorGUI()
-- uid: BundleSystem.FolderBasedAssetBundleBuildSettingInspector.OnInspectorGUI*
-  name: OnInspectorGUI
-  href: api/BundleSystem.FolderBasedAssetBundleBuildSettingInspector.html#BundleSystem_FolderBasedAssetBundleBuildSettingInspector_OnInspectorGUI_
-  commentId: Overload:BundleSystem.FolderBasedAssetBundleBuildSettingInspector.OnInspectorGUI
-  isSpec: "True"
-  fullName: BundleSystem.FolderBasedAssetBundleBuildSettingInspector.OnInspectorGUI
-  nameWithType: FolderBasedAssetBundleBuildSettingInspector.OnInspectorGUI
-- uid: BundleSystem.FolderReference
-  name: FolderReference
-  href: api/BundleSystem.FolderReference.html
-  commentId: T:BundleSystem.FolderReference
-  fullName: BundleSystem.FolderReference
-  nameWithType: FolderReference
-- uid: BundleSystem.FolderReference.guid
-  name: guid
-  href: api/BundleSystem.FolderReference.html#BundleSystem_FolderReference_guid
-  commentId: F:BundleSystem.FolderReference.guid
-  fullName: BundleSystem.FolderReference.guid
-  nameWithType: FolderReference.guid
 - uid: BundleSystem.IAwaiter`1
   name: IAwaiter<TResult>
   href: api/BundleSystem.IAwaiter-1.html
@@ -2211,3 +2057,19 @@ references:
   isSpec: "True"
   fullName: BundleSystem.Utility.CombinePath
   nameWithType: Utility.CombinePath
+- uid: BundleSystem.Utility.GetFilesInDirectory(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Boolean)
+  name: GetFilesInDirectory(List<String>, List<String>, String, Boolean)
+  href: api/BundleSystem.Utility.html#BundleSystem_Utility_GetFilesInDirectory_System_Collections_Generic_List_System_String__System_Collections_Generic_List_System_String__System_String_System_Boolean_
+  commentId: M:BundleSystem.Utility.GetFilesInDirectory(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Boolean)
+  name.vb: GetFilesInDirectory(List(Of String), List(Of String), String, Boolean)
+  fullName: BundleSystem.Utility.GetFilesInDirectory(System.Collections.Generic.List<System.String>, System.Collections.Generic.List<System.String>, System.String, System.Boolean)
+  fullName.vb: BundleSystem.Utility.GetFilesInDirectory(System.Collections.Generic.List(Of System.String), System.Collections.Generic.List(Of System.String), System.String, System.Boolean)
+  nameWithType: Utility.GetFilesInDirectory(List<String>, List<String>, String, Boolean)
+  nameWithType.vb: Utility.GetFilesInDirectory(List(Of String), List(Of String), String, Boolean)
+- uid: BundleSystem.Utility.GetFilesInDirectory*
+  name: GetFilesInDirectory
+  href: api/BundleSystem.Utility.html#BundleSystem_Utility_GetFilesInDirectory_
+  commentId: Overload:BundleSystem.Utility.GetFilesInDirectory
+  isSpec: "True"
+  fullName: BundleSystem.Utility.GetFilesInDirectory
+  nameWithType: Utility.GetFilesInDirectory
