@@ -26,7 +26,7 @@ jobs:
         echo '### split upm branch'
         git subtree split -P "$PKG_ROOT" -b upm
         echo '### update remote upm branch'
-        git push origin upm
+        git push -f origin upm
       env:
         PKG_ROOT: Packages/LocusBundleSystem
         SAMPLE_SOURCE: Assets/Sample
