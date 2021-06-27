@@ -19,36 +19,32 @@ namespace BundleSystem
         public const string ManifestFileName = "Manifest.json";
         public static string LocalBundleRuntimePath => Utility.CombinePath(Application.streamingAssetsPath, "localbundles");
 
-        class LoadedBundle
-        {
-            public string Name;
-            public AssetBundle Bundle;
-            public Hash128 Hash;
-            public List<string> Dependencies; //including self
-            public bool IsLocalBundle;
-            public string LoadPath;
-            public UnityWebRequest RequestForReload;
-            public bool IsReloading = false;
-            public LoadedBundle(AssetBundleBuildManifest.BundleInfo info, string loadPath, AssetBundle bundle, bool isLocal)
-            {
-                Name = info.BundleName;
-                IsLocalBundle = isLocal;
-                LoadPath = loadPath;
-                Bundle = bundle; 
-                Hash = Hash128.Parse(info.HashString);
-                Dependencies = info.Dependencies;
-                Dependencies.Add(Name);
-            }
-        }
-
         //Asset bundles that is loaded keep it static so we can easily call this in static method
-        static Dictionary<string, LoadedBundle> s_AssetBundles = new Dictionary<string, LoadedBundle>();
-        static Dictionary<string, Hash128> s_LocalBundles = new Dictionary<string, Hash128>();
-        static Dictionary<string, LoadedBundle> s_SceneNames = new Dictionary<string, LoadedBundle>();
+        private static Dictionary<string, LoadedBundle> s_AssetBundles = new Dictionary<string, LoadedBundle>();
+        private static Dictionary<string, Hash128> s_LocalBundles = new Dictionary<string, Hash128>();
+        private static Dictionary<string, LoadedBundle> s_SceneNames = new Dictionary<string, LoadedBundle>();
+
 
 #if UNITY_EDITOR
         public static bool UseAssetDatabaseMap { get; private set; } = true;
-        public static void SetEditorDatabase(EditorDatabaseMap map) => s_EditorDatabaseMap = map;
+        public static void SetEditorDatabase(EditorDatabaseMap map)
+        {
+            s_EditorDatabaseMap = map;
+            //here we fill assetbundleDictionary into fake bundles
+            if(s_EditorDatabaseMap.UseAssetDatabase)
+            {
+                s_AssetBundles.Clear();
+                foreach(var bundleName in s_EditorDatabaseMap.GetBundleNames())
+                {
+                    s_AssetBundles.Add(bundleName, new LoadedBundle(bundleName));
+                } 
+                s_SceneNames.Clear();
+                foreach(var kv in s_EditorDatabaseMap.GetSceneToBundleName())
+                {
+                    s_SceneNames.Add(kv.Key, new LoadedBundle(kv.Value));
+                } 
+            }
+        }
         private static EditorDatabaseMap s_EditorDatabaseMap;
         private static void EnsureAssetDatabase()
         {
@@ -88,7 +84,7 @@ namespace BundleSystem
         private static void OnDestroy()
         {
             foreach (var kv in s_AssetBundles)
-                kv.Value.Bundle.Unload(false);
+                kv.Value.Dispose();
             s_AssetBundles.Clear();
         }
 
@@ -142,7 +138,7 @@ namespace BundleSystem
             if(LogMessages) Debug.Log($"LocalURL : {LocalURL}");
 
             foreach (var kv in s_AssetBundles)
-                kv.Value.Bundle.Unload(false);
+                kv.Value.Dispose();
 
             s_SceneNames.Clear();
             s_AssetBundles.Clear();
@@ -423,12 +419,53 @@ namespace BundleSystem
             result.Done(BundleErrorCode.Success);
         }
 
+        /// <summary>
+        /// representation of loaded bundle
+        /// </summary>
+        private class LoadedBundle
+        {
+            public string Name;
+            public AssetBundle Bundle;
+            public Hash128 Hash;
+            public List<string> Dependencies; //including self
+            public bool IsLocalBundle;
+            public string LoadPath;
+            public UnityWebRequest RequestForReload;
+            public bool IsReloading = false;
+            public bool IsDisposed { get; private set; } = false;
+            public int ReferenceCount = 0;
+            
+            //constructor for editor
+            public LoadedBundle(string name) => Name = name;
+
+            public LoadedBundle(AssetBundleBuildManifest.BundleInfo info, string loadPath, AssetBundle bundle, bool isLocal)
+            {
+                Name = info.BundleName;
+                IsLocalBundle = isLocal;
+                LoadPath = loadPath;
+                Bundle = bundle; 
+                Hash = Hash128.Parse(info.HashString);
+                Dependencies = info.Dependencies;
+                Dependencies.Add(Name);
+            }
+
+            public void Dispose() 
+            {
+                if(!IsDisposed)
+                {
+                    Bundle?.Unload(false);
+                    RequestForReload?.Dispose();
+                    IsDisposed = true;
+                }
+            }
+        }
+
         //helper class for coroutine and callbacks
         private class BundleManagerHelper : MonoBehaviour
         {
-            private void Update()
+            private void LateUpdate()
             {
-                BundleManager.Update();
+                BundleManager.Update(false);
             }
 
             private void OnDestroy()

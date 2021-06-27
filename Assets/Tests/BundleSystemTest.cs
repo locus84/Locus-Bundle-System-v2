@@ -75,9 +75,58 @@ namespace Tests
             yield return spriteReq;
             m_Image.sprite = spriteReq.Pin().Asset;
             spriteReq.Handle.Override(ref m_SpriteHandle);
-
-            yield return new WaitForSeconds(10);
+            BundleManager.UpdateImmediate();
+            Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 1);
+            m_SpriteHandle.Release();
+            BundleManager.UpdateImmediate();
+            Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
         }
+        
+        [UnityTest]
+        public IEnumerator PinTest()
+        {
+            //auto release
+            {
+                var spriteReq = m_Owner.LoadAsync<Sprite>("Object", "TestSprite");
+                yield return spriteReq;
+                Assert.NotNull(spriteReq.Asset);
+                yield return new WaitForSecondsRealtime(2);
+                Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+            }
+
+            //pin request
+            {
+                var spriteReq = m_Owner.LoadAsync<Sprite>("Object", "TestSprite");
+                yield return spriteReq;
+                Assert.NotNull(spriteReq.Pin().Asset);
+                yield return new WaitForSecondsRealtime(2);
+                Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 1);
+                spriteReq.Dispose();
+                BundleManager.UpdateImmediate();
+                Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+            }
+            
+            //dispose
+            {
+                var spriteReq = m_Owner.LoadAsync<Sprite>("Object", "TestSprite");
+                yield return spriteReq;
+                Assert.NotNull(spriteReq.Asset);
+                spriteReq.Dispose();
+                BundleManager.UpdateImmediate();
+                Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+            }
+            
+            //handle release
+            {
+                var spriteReq = m_Owner.LoadAsync<Sprite>("Object", "TestSprite");
+                yield return spriteReq;
+                Assert.NotNull(spriteReq.Asset);
+                spriteReq.Handle.Release();
+                BundleManager.UpdateImmediate();
+                Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+            }
+        }
+
 
         [UnityTest]
         public IEnumerator TaskAsyncApiTest()

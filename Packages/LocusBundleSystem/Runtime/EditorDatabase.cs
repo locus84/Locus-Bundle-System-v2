@@ -15,6 +15,9 @@ namespace BundleSystem
         private Dictionary<string, Dictionary<string, List<string>>> m_Map = new Dictionary<string, Dictionary<string, List<string>>>();
         private Dictionary<string, string> m_ScenePathToBundleName = new Dictionary<string, string>();
         static List<string> s_EmptyStringList = new List<string>();
+
+        public IEnumerable<string> GetBundleNames() => m_Map.Keys;
+        public Dictionary<string, string> GetSceneToBundleName() => new Dictionary<string, string>(m_ScenePathToBundleName);
         
         public void Append(string bundleName, string[] assetNames, string[] addressableNames)
         {
