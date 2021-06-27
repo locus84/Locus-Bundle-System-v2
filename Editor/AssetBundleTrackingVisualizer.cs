@@ -13,7 +13,7 @@ public class AssetBundleTrackingVisualizer : EditorWindow
     
     void OnGUI()
     {
-        BundleSystem.BundleManager.GetTrackingSnapshot(s_TrackInfoCache);
+        BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc(s_TrackInfoCache);
         m_ScrollPosition = EditorGUILayout.BeginScrollView(m_ScrollPosition, false, true);
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField($"Key", GUILayout.Width(200));

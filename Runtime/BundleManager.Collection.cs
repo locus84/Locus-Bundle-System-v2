@@ -172,8 +172,8 @@ namespace BundleSystem
                     value = default;
                     return false;
                 }
-                CurrentIndex++;
-                if (CurrentIndex >= Count) CurrentIndex = 0;
+
+                CurrentIndex = ++CurrentIndex % m_InnerList.Count;
                 value = m_InnerList[CurrentIndex];
                 return true;
             }

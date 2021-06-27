@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,7 @@ namespace BundleSystem
             if (UseAssetDatabaseMap)
             {
                 EnsureAssetDatabase();
+                if (!s_AssetBundles.TryGetValue(bundleName, out var foundBundle)) return BundleSyncRequests<T>.Empty;
                 var assets = s_EditorDatabaseMap.GetAssetPaths(bundleName);
                 if (assets.Count == 0) return BundleSyncRequests<T>.Empty;
 
@@ -28,7 +30,7 @@ namespace BundleSystem
                 }
                 
                 var loadedAssets = foundList.ToArray();
-                var handles = TrackObjectsEditor<T>(owner, loadedAssets, bundleName);
+                var handles = TrackObjects<T>(owner, loadedAssets, foundBundle);
                 return new BundleSyncRequests<T>(loadedAssets, handles);
             }
             else
@@ -49,11 +51,12 @@ namespace BundleSystem
             if (UseAssetDatabaseMap) 
             {
                 EnsureAssetDatabase();
+                if (!s_AssetBundles.TryGetValue(bundleName, out var foundBundle)) return BundleSyncRequest<T>.Empty;
                 var assetPath = s_EditorDatabaseMap.GetAssetPath<T>(bundleName, assetName);
                 if(string.IsNullOrEmpty(assetPath)) return BundleSyncRequest<T>.Empty; //asset not exist
                 var loadedAsset = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(assetPath);
                 if(loadedAsset == null) return BundleSyncRequest<T>.Empty;
-                return new BundleSyncRequest<T>(loadedAsset, TrackObjectEditor<T>(owner, loadedAsset, bundleName));
+                return new BundleSyncRequest<T>(loadedAsset, TrackObject<T>(owner, loadedAsset, foundBundle));
             }
             else
 #endif
@@ -73,11 +76,12 @@ namespace BundleSystem
             if (UseAssetDatabaseMap) 
             {
                 EnsureAssetDatabase();
+                if (!s_AssetBundles.TryGetValue(bundleName, out var foundBundle)) return BundleSyncRequests<T>.Empty;
                 var assetPath = s_EditorDatabaseMap.GetAssetPath<T>(bundleName, assetName);
                 if(string.IsNullOrEmpty(assetPath)) return BundleSyncRequests<T>.Empty;
                 var assets = UnityEditor.AssetDatabase.LoadAllAssetsAtPath(assetPath);
                 var loadedAssets = assets.Select(a => a as T).Where(a => a != null).ToArray();
-                var handles = TrackObjectsEditor<T>(owner, loadedAssets, bundleName);
+                var handles = TrackObjects<T>(owner, loadedAssets, foundBundle);
                 return new BundleSyncRequests<T>(loadedAssets, handles);
             }
             else
@@ -98,11 +102,12 @@ namespace BundleSystem
             if (UseAssetDatabaseMap) 
             {
                 EnsureAssetDatabase();
+                if (!s_AssetBundles.TryGetValue(bundleName, out var foundBundle)) return BundleAsyncRequest<T>.Empty; //asset not exist
                 var assetPath = s_EditorDatabaseMap.GetAssetPath<T>(bundleName, assetName);
                 if(string.IsNullOrEmpty(assetPath)) return BundleAsyncRequest<T>.Empty; //asset not exist
                 var loadedAsset = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(assetPath);
                 if(loadedAsset == null) return BundleAsyncRequest<T>.Empty; //asset not exist
-                var handle = TrackObjectEditor<T>(owner, loadedAsset, bundleName);
+                var handle = TrackObject<T>(owner, loadedAsset, foundBundle);
                 return new BundleAsyncRequest<T>(loadedAsset, handle);
             }
             else
@@ -163,12 +168,20 @@ namespace BundleSystem
             if (UseAssetDatabaseMap)
             {
                 EnsureAssetDatabase();
+                //like default scene load functionality, we return null if something went wrong
+                if (!s_AssetBundles.TryGetValue(bundleName, out var foundBundle)) 
+                {
+                    Debug.LogError("Bundle you requested could not be found");
+                    return null;
+                }
                 var scenePath = s_EditorDatabaseMap.GetScenePath(bundleName, sceneName);
                 if(string.IsNullOrEmpty(scenePath)) return null; // scene does not exist
                 var aop = UnityEditor.SceneManagement.EditorSceneManager.LoadSceneAsyncInPlayMode(scenePath, new LoadSceneParameters(mode));
                 if(aop == null) return null; // scene cannot be loaded
-                RetainBundleEditor(bundleName);
-                aop.completed += op => ReleaseBundleEditor(bundleName);
+
+                RetainBundle(foundBundle);
+                aop.completed += op => ReleaseBundle(foundBundle);
+
                 return new BundleAsyncSceneRequest(aop);
             }
             else
@@ -211,53 +224,62 @@ namespace BundleSystem
             }
         }
         
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static TrackInfo GetInstantiableTrackInfo(int trackId, out LoadedBundle bundle)
+        {
+            if(!s_TrackInfoDict.TryGetValue(trackId, out var info)) throw new System.Exception("Handle is not valid");
+            if (!s_AssetBundles.TryGetValue(info.BundleName, out bundle)) throw new System.Exception("Bundle is not found");
+            if(info.Asset == s_LoadingObjectDummy) throw new System.Exception("Asset is currently loading");
+            return info;
+        }
+        
         public static GameObject Instantiate(this TrackHandle<GameObject> handle)
         {
-            if(!s_TrackInfoDict.TryGetValue(handle.Id, out var info)) throw new System.Exception("Handle is notValid");
-            if(info.Asset == s_LoadingObjectDummy) throw new System.Exception("Asset is currently loading");
+            var info = GetInstantiableTrackInfo(handle.Id, out var bundle);
             var instance = GameObject.Instantiate(info.Asset as GameObject);
             
-            TrackInstance(info, instance);
+            var newHandle = TrackObject<GameObject>(instance.transform, info.Asset, bundle);
+            s_TrackInstanceTransformDict.Add(instance.transform.GetInstanceID(), newHandle.Id);
             return instance;
         }
 
         public static GameObject Instantiate(this TrackHandle<GameObject> handle, Transform parent)
         {
-            if(!s_TrackInfoDict.TryGetValue(handle.Id, out var info)) throw new System.Exception("Handle is notValid");
-            if(info.Asset == s_LoadingObjectDummy) throw new System.Exception("Asset is currently loading");
+            var info = GetInstantiableTrackInfo(handle.Id, out var bundle);
             var instance = GameObject.Instantiate(info.Asset as GameObject, parent);
             
-            TrackInstance(info, instance);
+            var newHandle = TrackObject<GameObject>(instance.transform, info.Asset, bundle);
+            s_TrackInstanceTransformDict.Add(instance.transform.GetInstanceID(), newHandle.Id);
             return instance;
         }
 
         public static GameObject Instantiate(this TrackHandle<GameObject> handle, Transform parent, bool instantiateInWorldSpace)
         {
-            if(!s_TrackInfoDict.TryGetValue(handle.Id, out var info)) throw new System.Exception("Handle is notValid");
-            if(info.Asset == s_LoadingObjectDummy) throw new System.Exception("Asset is currently loading");
+            var info = GetInstantiableTrackInfo(handle.Id, out var bundle);
             var instance = GameObject.Instantiate(info.Asset as GameObject, parent, instantiateInWorldSpace);
             
-            TrackInstance(info, instance);
+            var newHandle = TrackObject<GameObject>(instance.transform, info.Asset, bundle);
+            s_TrackInstanceTransformDict.Add(instance.transform.GetInstanceID(), newHandle.Id);
             return instance;
         }
 
         public static GameObject Instantiate(this TrackHandle<GameObject> handle, Vector3 position, Quaternion rotation)
         {
-            if(!s_TrackInfoDict.TryGetValue(handle.Id, out var info)) throw new System.Exception("Handle is notValid");
-            if(info.Asset == s_LoadingObjectDummy) throw new System.Exception("Asset is currently loading");
+            var info = GetInstantiableTrackInfo(handle.Id, out var bundle);
             var instance = GameObject.Instantiate(info.Asset as GameObject, position, rotation);
-            
-            TrackInstance(info, instance);
+
+            var newHandle = TrackObject<GameObject>(instance.transform, info.Asset, bundle);
+            s_TrackInstanceTransformDict.Add(instance.transform.GetInstanceID(), newHandle.Id);
             return instance;
         }
 
         public static GameObject Instantiate(this TrackHandle<GameObject> handle, Vector3 position, Quaternion rotation, Transform parent)
         {
-            if(!s_TrackInfoDict.TryGetValue(handle.Id, out var info)) throw new System.Exception("Handle is notValid");
-            if(info.Asset == s_LoadingObjectDummy) throw new System.Exception("Asset is currently loading");
+            var info = GetInstantiableTrackInfo(handle.Id, out var bundle);
             var instance = GameObject.Instantiate(info.Asset as GameObject, position, rotation, parent);
-
-            TrackInstance(info, instance);
+            
+            var newHandle = TrackObject<GameObject>(instance.transform, info.Asset, bundle);
+            s_TrackInstanceTransformDict.Add(instance.transform.GetInstanceID(), newHandle.Id);
             return instance;
         }
     }
