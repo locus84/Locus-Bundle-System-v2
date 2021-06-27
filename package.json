@@ -19,9 +19,9 @@
   },
   "samples": [
     {
-      "displayName": "Sample",
-      "description": "Basic functionaly samples.",
-      "path": "Samples~/Sample"
+      "displayName": "Folder Based Settings",
+      "description": "AssetBundleBuildSetting that utilizes directory structure",
+      "path": "Samples~/ForlderBased"
     }
   ]
 }
