@@ -307,7 +307,8 @@ Also works in editor</p>
   
   <a id="BundleSystem_BundleManager_ChangeOwner_" data-uid="BundleSystem.BundleManager.ChangeOwner*"></a>
   <h4 id="BundleSystem_BundleManager_ChangeOwner__1_BundleSystem_TrackHandle___0__Component_" data-uid="BundleSystem.BundleManager.ChangeOwner``1(BundleSystem.TrackHandle{``0},Component)">ChangeOwner&lt;T&gt;(TrackHandle&lt;T&gt;, Component)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Assign new owner of track handle</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -326,12 +327,14 @@ Also works in editor</p>
       <tr>
         <td><a class="xref" href="BundleSystem.TrackHandle-1.html">TrackHandle</a>&lt;T&gt;</td>
         <td><span class="parametername">handle</span></td>
-        <td></td>
+        <td><p>Target handle</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">Component</span></td>
         <td><span class="parametername">newOwner</span></td>
-        <td></td>
+        <td><p>New owner</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -454,7 +457,8 @@ Also works in editor</p>
   
   <a id="BundleSystem_BundleManager_GetInstanceTrackHandle_" data-uid="BundleSystem.BundleManager.GetInstanceTrackHandle*"></a>
   <h4 id="BundleSystem_BundleManager_GetInstanceTrackHandle_GameObject_" data-uid="BundleSystem.BundleManager.GetInstanceTrackHandle(GameObject)">GetInstanceTrackHandle(GameObject)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get instance track handle associated privided gameobject and it&apos;s parents</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -473,7 +477,8 @@ Also works in editor</p>
       <tr>
         <td><span class="xref">GameObject</span></td>
         <td><span class="parametername">gameObject</span></td>
-        <td></td>
+        <td><p>input game object</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -488,7 +493,8 @@ Also works in editor</p>
     <tbody>
       <tr>
         <td><a class="xref" href="BundleSystem.TrackHandle-1.html">TrackHandle</a>&lt;<span class="xref">GameObject</span>&gt;</td>
-        <td></td>
+        <td><p>returns found track handle, invalid handle if not found</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -520,12 +526,40 @@ Also works in editor</p>
   
   
   <a id="BundleSystem_BundleManager_GetTrackingSnapshot_" data-uid="BundleSystem.BundleManager.GetTrackingSnapshot*"></a>
-  <h4 id="BundleSystem_BundleManager_GetTrackingSnapshot_System_Collections_Generic_Dictionary_System_Int32_BundleSystem_BundleManager_TrackInfo__" data-uid="BundleSystem.BundleManager.GetTrackingSnapshot(System.Collections.Generic.Dictionary{System.Int32,BundleSystem.BundleManager.TrackInfo})">GetTrackingSnapshot(Dictionary&lt;Int32, BundleManager.TrackInfo&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BundleSystem_BundleManager_GetTrackingSnapshot" data-uid="BundleSystem.BundleManager.GetTrackingSnapshot">GetTrackingSnapshot()</h4>
+  <div class="markdown level1 summary"><p>Get current tracking information dictionary</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void GetTrackingSnapshot(Dictionary&lt;int, BundleManager.TrackInfo&gt; targetDict)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Dictionary&lt;int, BundleManager.TrackInfo&gt; GetTrackingSnapshot()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>, <a class="xref" href="BundleSystem.BundleManager.TrackInfo.html">BundleManager.TrackInfo</a>&gt;</td>
+        <td><p>Tracking information dictionary</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="BundleSystem_BundleManager_GetTrackingSnapshotNonAlloc_" data-uid="BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc*"></a>
+  <h4 id="BundleSystem_BundleManager_GetTrackingSnapshotNonAlloc_System_Collections_Generic_Dictionary_System_Int32_BundleSystem_BundleManager_TrackInfo__" data-uid="BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc(System.Collections.Generic.Dictionary{System.Int32,BundleSystem.BundleManager.TrackInfo})">GetTrackingSnapshotNonAlloc(Dictionary&lt;Int32, BundleManager.TrackInfo&gt;)</h4>
+  <div class="markdown level1 summary"><p>Get current tracking information dictionary, without allocation</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void GetTrackingSnapshotNonAlloc(Dictionary&lt;int, BundleManager.TrackInfo&gt; targetDict)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -540,7 +574,8 @@ Also works in editor</p>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>, <a class="xref" href="BundleSystem.BundleManager.TrackInfo.html">BundleManager.TrackInfo</a>&gt;</td>
         <td><span class="parametername">targetDict</span></td>
-        <td></td>
+        <td><p>Dictionary to fill</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1245,7 +1280,8 @@ Also works in editor</p>
   
   <a id="BundleSystem_BundleManager_Override_" data-uid="BundleSystem.BundleManager.Override*"></a>
   <h4 id="BundleSystem_BundleManager_Override__1_BundleSystem_TrackHandle___0__BundleSystem_TrackHandle___0___" data-uid="BundleSystem.BundleManager.Override``1(BundleSystem.TrackHandle{``0},BundleSystem.TrackHandle{``0}@)">Override&lt;T&gt;(TrackHandle&lt;T&gt;, ref TrackHandle&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Release old track handle and assign new handle.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1264,12 +1300,14 @@ Also works in editor</p>
       <tr>
         <td><a class="xref" href="BundleSystem.TrackHandle-1.html">TrackHandle</a>&lt;T&gt;</td>
         <td><span class="parametername">newHandle</span></td>
-        <td></td>
+        <td><p>New handle</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="BundleSystem.TrackHandle-1.html">TrackHandle</a>&lt;T&gt;</td>
         <td><span class="parametername">oldHandle</span></td>
-        <td></td>
+        <td><p>Old handle to release</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1292,7 +1330,9 @@ Also works in editor</p>
   
   <a id="BundleSystem_BundleManager_TrackExplicit_" data-uid="BundleSystem.BundleManager.TrackExplicit*"></a>
   <h4 id="BundleSystem_BundleManager_TrackExplicit__2_BundleSystem_TrackHandle___0____1_Component_" data-uid="BundleSystem.BundleManager.TrackExplicit``2(BundleSystem.TrackHandle{``0},``1,Component)">TrackExplicit&lt;TRef, T&gt;(TrackHandle&lt;TRef&gt;, T, Component)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Track part of loaded asset.
+Used when you explicitely track an asset which does not directly loaded from bundle system.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1311,17 +1351,20 @@ Also works in editor</p>
       <tr>
         <td><a class="xref" href="BundleSystem.TrackHandle-1.html">TrackHandle</a>&lt;TRef&gt;</td>
         <td><span class="parametername">referenceHandle</span></td>
-        <td></td>
+        <td><p>Reference handle that loaded from same bundle</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">T</span></td>
         <td><span class="parametername">asset</span></td>
-        <td></td>
+        <td><p>Asset to track</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">Component</span></td>
         <td><span class="parametername">newOwner</span></td>
-        <td></td>
+        <td><p>New owner if specified, shares same owner if not specified</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1336,7 +1379,8 @@ Also works in editor</p>
     <tbody>
       <tr>
         <td><a class="xref" href="BundleSystem.TrackHandle-1.html">TrackHandle</a>&lt;T&gt;</td>
-        <td></td>
+        <td><p>Returns newly created track handle</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1403,6 +1447,16 @@ Also works in editor</p>
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="BundleSystem_BundleManager_UpdateImmediate_" data-uid="BundleSystem.BundleManager.UpdateImmediate*"></a>
+  <h4 id="BundleSystem_BundleManager_UpdateImmediate" data-uid="BundleSystem.BundleManager.UpdateImmediate">UpdateImmediate()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void UpdateImmediate()</code></pre>
+  </div>
 </article>
           </div>
           

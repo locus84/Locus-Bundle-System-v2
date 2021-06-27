@@ -1305,15 +1305,12 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.GetManifest
   nameWithType: BundleManager.GetManifest
-- uid: BundleSystem.BundleManager.GetTrackingSnapshot(System.Collections.Generic.Dictionary{System.Int32,BundleSystem.BundleManager.TrackInfo})
-  name: GetTrackingSnapshot(Dictionary<Int32, BundleManager.TrackInfo>)
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetTrackingSnapshot_System_Collections_Generic_Dictionary_System_Int32_BundleSystem_BundleManager_TrackInfo__
-  commentId: M:BundleSystem.BundleManager.GetTrackingSnapshot(System.Collections.Generic.Dictionary{System.Int32,BundleSystem.BundleManager.TrackInfo})
-  name.vb: GetTrackingSnapshot(Dictionary(Of Int32, BundleManager.TrackInfo))
-  fullName: BundleSystem.BundleManager.GetTrackingSnapshot(System.Collections.Generic.Dictionary<System.Int32, BundleSystem.BundleManager.TrackInfo>)
-  fullName.vb: BundleSystem.BundleManager.GetTrackingSnapshot(System.Collections.Generic.Dictionary(Of System.Int32, BundleSystem.BundleManager.TrackInfo))
-  nameWithType: BundleManager.GetTrackingSnapshot(Dictionary<Int32, BundleManager.TrackInfo>)
-  nameWithType.vb: BundleManager.GetTrackingSnapshot(Dictionary(Of Int32, BundleManager.TrackInfo))
+- uid: BundleSystem.BundleManager.GetTrackingSnapshot
+  name: GetTrackingSnapshot()
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetTrackingSnapshot
+  commentId: M:BundleSystem.BundleManager.GetTrackingSnapshot
+  fullName: BundleSystem.BundleManager.GetTrackingSnapshot()
+  nameWithType: BundleManager.GetTrackingSnapshot()
 - uid: BundleSystem.BundleManager.GetTrackingSnapshot*
   name: GetTrackingSnapshot
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetTrackingSnapshot_
@@ -1321,6 +1318,22 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.GetTrackingSnapshot
   nameWithType: BundleManager.GetTrackingSnapshot
+- uid: BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc(System.Collections.Generic.Dictionary{System.Int32,BundleSystem.BundleManager.TrackInfo})
+  name: GetTrackingSnapshotNonAlloc(Dictionary<Int32, BundleManager.TrackInfo>)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetTrackingSnapshotNonAlloc_System_Collections_Generic_Dictionary_System_Int32_BundleSystem_BundleManager_TrackInfo__
+  commentId: M:BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc(System.Collections.Generic.Dictionary{System.Int32,BundleSystem.BundleManager.TrackInfo})
+  name.vb: GetTrackingSnapshotNonAlloc(Dictionary(Of Int32, BundleManager.TrackInfo))
+  fullName: BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc(System.Collections.Generic.Dictionary<System.Int32, BundleSystem.BundleManager.TrackInfo>)
+  fullName.vb: BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc(System.Collections.Generic.Dictionary(Of System.Int32, BundleSystem.BundleManager.TrackInfo))
+  nameWithType: BundleManager.GetTrackingSnapshotNonAlloc(Dictionary<Int32, BundleManager.TrackInfo>)
+  nameWithType.vb: BundleManager.GetTrackingSnapshotNonAlloc(Dictionary(Of Int32, BundleManager.TrackInfo))
+- uid: BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc*
+  name: GetTrackingSnapshotNonAlloc
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetTrackingSnapshotNonAlloc_
+  commentId: Overload:BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc
+  nameWithType: BundleManager.GetTrackingSnapshotNonAlloc
 - uid: BundleSystem.BundleManager.GlobalBundleHash
   name: GlobalBundleHash
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GlobalBundleHash
@@ -1674,19 +1687,6 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.TrackInfo.Pin
   nameWithType: BundleManager.TrackInfo.Pin
-- uid: BundleSystem.BundleManager.TrackInfo.Releaseable
-  name: Releaseable()
-  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_Releaseable
-  commentId: M:BundleSystem.BundleManager.TrackInfo.Releaseable
-  fullName: BundleSystem.BundleManager.TrackInfo.Releaseable()
-  nameWithType: BundleManager.TrackInfo.Releaseable()
-- uid: BundleSystem.BundleManager.TrackInfo.Releaseable*
-  name: Releaseable
-  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_Releaseable_
-  commentId: Overload:BundleSystem.BundleManager.TrackInfo.Releaseable
-  isSpec: "True"
-  fullName: BundleSystem.BundleManager.TrackInfo.Releaseable
-  nameWithType: BundleManager.TrackInfo.Releaseable
 - uid: BundleSystem.BundleManager.TrackInfo.ReleaseRequested
   name: ReleaseRequested
   href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_ReleaseRequested
@@ -1709,6 +1709,19 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.TryGetCachedManifest
   nameWithType: BundleManager.TryGetCachedManifest
+- uid: BundleSystem.BundleManager.UpdateImmediate
+  name: UpdateImmediate()
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_UpdateImmediate
+  commentId: M:BundleSystem.BundleManager.UpdateImmediate
+  fullName: BundleSystem.BundleManager.UpdateImmediate()
+  nameWithType: BundleManager.UpdateImmediate()
+- uid: BundleSystem.BundleManager.UpdateImmediate*
+  name: UpdateImmediate
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_UpdateImmediate_
+  commentId: Overload:BundleSystem.BundleManager.UpdateImmediate
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.UpdateImmediate
+  nameWithType: BundleManager.UpdateImmediate
 - uid: BundleSystem.BundleSetting
   name: BundleSetting
   href: api/BundleSystem.BundleSetting.html
@@ -2108,23 +2121,6 @@ references:
   fullName.vb: BundleSystem.TrackHandle(Of T)
   nameWithType: TrackHandle<T>
   nameWithType.vb: TrackHandle(Of T)
-- uid: BundleSystem.TrackHandle`1.#ctor(System.Int32)
-  name: TrackHandle(Int32)
-  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1__ctor_System_Int32_
-  commentId: M:BundleSystem.TrackHandle`1.#ctor(System.Int32)
-  fullName: BundleSystem.TrackHandle<T>.TrackHandle(System.Int32)
-  fullName.vb: BundleSystem.TrackHandle(Of T).TrackHandle(System.Int32)
-  nameWithType: TrackHandle<T>.TrackHandle(Int32)
-  nameWithType.vb: TrackHandle(Of T).TrackHandle(Int32)
-- uid: BundleSystem.TrackHandle`1.#ctor*
-  name: TrackHandle
-  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1__ctor_
-  commentId: Overload:BundleSystem.TrackHandle`1.#ctor
-  isSpec: "True"
-  fullName: BundleSystem.TrackHandle<T>.TrackHandle
-  fullName.vb: BundleSystem.TrackHandle(Of T).TrackHandle
-  nameWithType: TrackHandle<T>.TrackHandle
-  nameWithType.vb: TrackHandle(Of T).TrackHandle
 - uid: BundleSystem.TrackHandle`1.Id
   name: Id
   href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_Id
@@ -2159,23 +2155,6 @@ references:
   fullName.vb: BundleSystem.TrackHandle(Of T).Invalid
   nameWithType: TrackHandle<T>.Invalid
   nameWithType.vb: TrackHandle(Of T).Invalid
-- uid: BundleSystem.TrackHandle`1.IsAlive
-  name: IsAlive()
-  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_IsAlive
-  commentId: M:BundleSystem.TrackHandle`1.IsAlive
-  fullName: BundleSystem.TrackHandle<T>.IsAlive()
-  fullName.vb: BundleSystem.TrackHandle(Of T).IsAlive()
-  nameWithType: TrackHandle<T>.IsAlive()
-  nameWithType.vb: TrackHandle(Of T).IsAlive()
-- uid: BundleSystem.TrackHandle`1.IsAlive*
-  name: IsAlive
-  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_IsAlive_
-  commentId: Overload:BundleSystem.TrackHandle`1.IsAlive
-  isSpec: "True"
-  fullName: BundleSystem.TrackHandle<T>.IsAlive
-  fullName.vb: BundleSystem.TrackHandle(Of T).IsAlive
-  nameWithType: TrackHandle<T>.IsAlive
-  nameWithType.vb: TrackHandle(Of T).IsAlive
 - uid: BundleSystem.TrackHandle`1.IsValid
   name: IsValid()
   href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_IsValid
@@ -2193,23 +2172,6 @@ references:
   fullName.vb: BundleSystem.TrackHandle(Of T).IsValid
   nameWithType: TrackHandle<T>.IsValid
   nameWithType.vb: TrackHandle(Of T).IsValid
-- uid: BundleSystem.TrackHandle`1.IsValidAndAlive
-  name: IsValidAndAlive()
-  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_IsValidAndAlive
-  commentId: M:BundleSystem.TrackHandle`1.IsValidAndAlive
-  fullName: BundleSystem.TrackHandle<T>.IsValidAndAlive()
-  fullName.vb: BundleSystem.TrackHandle(Of T).IsValidAndAlive()
-  nameWithType: TrackHandle<T>.IsValidAndAlive()
-  nameWithType.vb: TrackHandle(Of T).IsValidAndAlive()
-- uid: BundleSystem.TrackHandle`1.IsValidAndAlive*
-  name: IsValidAndAlive
-  href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_IsValidAndAlive_
-  commentId: Overload:BundleSystem.TrackHandle`1.IsValidAndAlive
-  isSpec: "True"
-  fullName: BundleSystem.TrackHandle<T>.IsValidAndAlive
-  fullName.vb: BundleSystem.TrackHandle(Of T).IsValidAndAlive
-  nameWithType: TrackHandle<T>.IsValidAndAlive
-  nameWithType.vb: TrackHandle(Of T).IsValidAndAlive
 - uid: BundleSystem.TrackHandle`1.Release
   name: Release()
   href: api/BundleSystem.TrackHandle-1.html#BundleSystem_TrackHandle_1_Release

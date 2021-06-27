@@ -106,42 +106,14 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="constructors">Constructors
-  </h3>
-  
-  
-  <a id="BundleSystem_TrackHandle_1__ctor_" data-uid="BundleSystem.TrackHandle`1.#ctor*"></a>
-  <h4 id="BundleSystem_TrackHandle_1__ctor_System_Int32_" data-uid="BundleSystem.TrackHandle`1.#ctor(System.Int32)">TrackHandle(Int32)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TrackHandle(int id)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><span class="parametername">id</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="properties">Properties
   </h3>
   
   
   <a id="BundleSystem_TrackHandle_1_Id_" data-uid="BundleSystem.TrackHandle`1.Id*"></a>
   <h4 id="BundleSystem_TrackHandle_1_Id" data-uid="BundleSystem.TrackHandle`1.Id">Id</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Track handle id for internal usage</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -166,7 +138,8 @@
   
   <a id="BundleSystem_TrackHandle_1_Invalid_" data-uid="BundleSystem.TrackHandle`1.Invalid*"></a>
   <h4 id="BundleSystem_TrackHandle_1_Invalid" data-uid="BundleSystem.TrackHandle`1.Invalid">Invalid</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Invalid track handle</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -191,34 +164,10 @@
   </h3>
   
   
-  <a id="BundleSystem_TrackHandle_1_IsAlive_" data-uid="BundleSystem.TrackHandle`1.IsAlive*"></a>
-  <h4 id="BundleSystem_TrackHandle_1_IsAlive" data-uid="BundleSystem.TrackHandle`1.IsAlive">IsAlive()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsAlive()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <a id="BundleSystem_TrackHandle_1_IsValid_" data-uid="BundleSystem.TrackHandle`1.IsValid*"></a>
   <h4 id="BundleSystem_TrackHandle_1_IsValid" data-uid="BundleSystem.TrackHandle`1.IsValid">IsValid()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Is this handle valid and tracked by bundle manager?</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -241,34 +190,11 @@
   </table>
   
   
-  <a id="BundleSystem_TrackHandle_1_IsValidAndAlive_" data-uid="BundleSystem.TrackHandle`1.IsValidAndAlive*"></a>
-  <h4 id="BundleSystem_TrackHandle_1_IsValidAndAlive" data-uid="BundleSystem.TrackHandle`1.IsValidAndAlive">IsValidAndAlive()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsValidAndAlive()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <a id="BundleSystem_TrackHandle_1_Release_" data-uid="BundleSystem.TrackHandle`1.Release*"></a>
   <h4 id="BundleSystem_TrackHandle_1_Release" data-uid="BundleSystem.TrackHandle`1.Release">Release()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Release this handle. Does not immediately release related bundles.
+Use BundleManager.UpdateImmediate() for immediate bundle reloading.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
