@@ -22,6 +22,8 @@ jobs:
         echo '### split upm branch'
         git subtree split -P "$PKG_ROOT" -b upm
         echo '### update remote upm branch'
+        git config user.email "automation@sample.com"
+        git config user.name "automation"
         git add -A
         git commit -m "CopySamples"
         git push origin upm
