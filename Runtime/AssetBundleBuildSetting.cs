@@ -136,12 +136,12 @@ namespace BundleSystem
         public int CacheServerPort;
 
         /// <summary>
-        /// provide actual assets to bundle
+        /// Provide actual assets to bundle
         /// </summary>
         public abstract List<BundleSetting> GetBundleSettings();
-        
+
         /// <summary>
-        /// check setting is valid
+        /// Check setting is valid
         /// </summary>
         public virtual bool IsValid() => true;
     }
