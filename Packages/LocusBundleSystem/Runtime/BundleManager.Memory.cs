@@ -15,7 +15,7 @@ namespace BundleSystem
         public static TrackHandle<T> Invalid => new TrackHandle<T>(0);
         public void Release()
         {
-            BundleManager.ReleaseHandleInternal(Id);
+            BundleManager.RequestReleaseHandleInternal(Id);
             Id = 0;
         }
     }
@@ -24,8 +24,8 @@ namespace BundleSystem
     {
         static int s_LastTrackId = 0;
         static Object s_SceneObjectDummy = new Object();
+        static Object s_LoadingObjectDummy = new Object();
         static IndexedDictionary<int, TrackInfo> s_TrackInfoDict = new IndexedDictionary<int, TrackInfo>(10);
-        static IndexedDictionary<int, float> s_LoadingAssetsDict = new IndexedDictionary<int, float>(10);
         static Dictionary<int, int> s_TrackInstanceTransformDict = new Dictionary<int, int>(10);
 
         //bundle ref count
@@ -47,11 +47,17 @@ namespace BundleSystem
             s_TrackInfoDict[handle.Id] = exitingTrackInfo;
         }
 
-        internal static void TrackAutoReleaseInternal(int trackId) => s_LoadingAssetsDict.Add(trackId, Time.realtimeSinceStartup);
-        internal static void UntrackAutoReleaseInternal(int trackId) => s_LoadingAssetsDict.Remove(trackId);
         internal static bool IsTrackHandleAliveInternal(int id) => id != 0 && s_TrackInfoDict.ContainsKey(id);
+        internal static void SupressAutoReleaseInternal(int id)
+        {
+            if(id != 0 && s_TrackInfoDict.TryGetValue(id, out var info) && !info.IsPinned)
+            {
+                info.Pin();
+                s_TrackInfoDict[id] = info;
+            }
+        } 
 
-        public static TrackHandle<T> TrackExplicit<TRef, T>(this TrackHandle<TRef> referenceHandle, T objectToTrack,  Component newOwner = null)
+        public static TrackHandle<T> TrackExplicit<TRef, T>(this TrackHandle<TRef> referenceHandle, T asset,  Component newOwner = null)
         where TRef : Object where T : Object
         {
             if(!referenceHandle.IsValidAndAlive()) throw new System.Exception("Handle is not valid or already not tracked");
@@ -63,8 +69,9 @@ namespace BundleSystem
             s_TrackInfoDict.Add(newTrackId, new TrackInfo()
             {
                 BundleName = exitingTrackInfo.BundleName,
-                Asset = objectToTrack,
-                Owner = newOwner
+                Asset = asset,
+                Owner = newOwner,
+                LoadTime = float.MaxValue
             });
 
             return new TrackHandle<T>(newTrackId);
@@ -103,26 +110,28 @@ namespace BundleSystem
             public Component Owner;
             public Object Asset;
             public string BundleName;
-            public bool InstanceTrack;
+            public float LoadTime;
+            public bool ReleaseRequested;
+            public bool IsPinned => LoadTime < float.MaxValue;
+            public void Pin() => LoadTime = float.MaxValue;
+            public bool Releaseable() => ReleaseRequested || LoadTime < Time.realtimeSinceStartup - 1;
         }
 
-        private static TrackHandle<T> TrackObject<T>(Component owner, T asset, LoadedBundle loadedBundle, bool instanceTracking) where T : Object
+        private static TrackHandle<T> TrackObject<T>(Component owner, Object asset, LoadedBundle loadedBundle) where T : Object
         {
             var trackId = ++s_LastTrackId;
             s_TrackInfoDict.Add(trackId, new TrackInfo(){
                 BundleName = loadedBundle.Name,
                 Owner = owner,
                 Asset = asset,
-                InstanceTrack = instanceTracking
+                LoadTime = Time.realtimeSinceStartup
             });
-
-            if(instanceTracking) s_TrackInstanceTransformDict.Add(owner.GetInstanceID(), trackId);
 
             RetainBundle(loadedBundle);
             return new TrackHandle<T>(trackId);
         }
 
-        private static TrackHandle<T>[] TrackObjects<T>(Component owner, T[] assets, LoadedBundle loadedBundle) where T : Object
+        private static TrackHandle<T>[] TrackObjects<T>(Component owner, Object[] assets, LoadedBundle loadedBundle) where T : Object
         {
             var result = new TrackHandle<T>[assets.Length];
             for(int i = 0; i < assets.Length; i++)
@@ -134,7 +143,7 @@ namespace BundleSystem
                     BundleName = loadedBundle.Name,
                     Owner = owner,
                     Asset = assets[i],
-                    InstanceTrack = false
+                    LoadTime = Time.realtimeSinceStartup
                 });
             }
 
@@ -147,7 +156,6 @@ namespace BundleSystem
         {
             var trackId = ++s_LastTrackId;
             info.Owner = instance.transform;
-            info.InstanceTrack = true;
             s_TrackInfoDict.Add(trackId, info);
 
             //retain
@@ -167,29 +175,12 @@ namespace BundleSystem
             s_TrackInstanceTransformDict.Add(instance.transform.GetInstanceID(), trackId);
         }
 
-        internal static void ReleaseHandleInternal(int trackId)
+        internal static void RequestReleaseHandleInternal(int trackId)
         {
             if(trackId == 0) return;
-            if(!s_TrackInfoDict.TryGetValue(trackId, out var trackInfo)) return;
-
-            //remove anyway
-            s_TrackInfoDict.Remove(trackId);
-
-            if(trackInfo.InstanceTrack) s_TrackInstanceTransformDict.Remove(trackInfo.Owner.GetInstanceID());
-
-            //release
-#if UNITY_EDITOR
-            if(UseAssetDatabaseMap)
-            {
-                ReleaseBundleEditor(trackInfo.BundleName);
-            }
-            else
-#endif
-            //find related bundle
-            if(!s_AssetBundles.TryGetValue(trackInfo.BundleName, out var loadedBundle))
-            {
-                ReleaseBundle(loadedBundle);
-            }
+            if(!s_TrackInfoDict.TryGetValue(trackId, out var info)) return;
+            info.ReleaseRequested = true;
+            s_TrackInfoDict[trackId] = info;
         }
 
 
@@ -221,24 +212,22 @@ namespace BundleSystem
         }
 
 #if UNITY_EDITOR
-        private static TrackHandle<T> TrackObjectEditor<T>(Component owner, T asset, string bundleName, bool instanceTracking) where T : Object
+        private static TrackHandle<T> TrackObjectEditor<T>(Component owner, Object asset, string bundleName) where T : Object
         {
             var trackId = ++s_LastTrackId;
             s_TrackInfoDict.Add(trackId, new TrackInfo(){
                 BundleName = bundleName,
                 Owner = owner,
                 Asset = asset,
-                InstanceTrack = instanceTracking
+                LoadTime = Time.realtimeSinceStartup
             });
-
-            if(instanceTracking) s_TrackInstanceTransformDict.Add(owner.GetInstanceID(), trackId);
 
             RetainBundleEditor(bundleName);
 
             return new TrackHandle<T>(trackId);
         }
 
-        private static TrackHandle<T>[] TrackObjectsEditor<T>(Component owner, T[] objs, string bundleName) where T : Object
+        private static TrackHandle<T>[] TrackObjectsEditor<T>(Component owner, Object[] objs, string bundleName) where T : Object
         {
             var result = new TrackHandle<T>[objs.Length];
             for(int i = 0; i < objs.Length; i++)
@@ -250,11 +239,11 @@ namespace BundleSystem
                     BundleName = bundleName,
                     Owner = owner,
                     Asset = objs[i],
-                    InstanceTrack = false
+                    LoadTime = Time.realtimeSinceStartup
                 });
             }
 
-            if(objs.Length > 0) ReleaseBundleEditor(bundleName, objs.Length);
+            if(objs.Length > 0) RetainBundleEditor(bundleName, objs.Length);
             return result;
         }
 
@@ -283,7 +272,8 @@ namespace BundleSystem
                 for (int i = 0; i < s_SceneRootObjectCache.Count; i++)
                 {
                     var owner = s_SceneRootObjectCache[i].transform;
-                    TrackObjectEditor(owner, s_SceneObjectDummy, bundleName, true);
+                    var handle = TrackObjectEditor<Object>(owner, s_SceneObjectDummy, bundleName);
+                    s_TrackInstanceTransformDict.Add(owner.GetInstanceID(), handle.Id);
                 }
                 s_SceneRootObjectCache.Clear();
             }
@@ -296,7 +286,8 @@ namespace BundleSystem
                 for (int i = 0; i < s_SceneRootObjectCache.Count; i++)
                 {
                     var owner = s_SceneRootObjectCache[i].transform;
-                    TrackObject(owner, s_SceneObjectDummy, loadedBundle, true);
+                    var handle = TrackObject<Object>(owner, s_SceneObjectDummy, loadedBundle);
+                    s_TrackInstanceTransformDict.Add(owner.GetInstanceID(), handle.Id);
                 }
                 s_SceneRootObjectCache.Clear();
             }
@@ -326,9 +317,17 @@ namespace BundleSystem
                 for(int i = 0; i < trackCount; i++)
                 {
                     if (!s_TrackInfoDict.TryGetNext(out var kv)) continue;
-                    if (kv.Value.Owner != null) continue;
-
+                    //we don't want to release bundle while we're loading from it
+                    if (kv.Value.Asset == s_LoadingObjectDummy) continue;
+                    //pinned, and owner is not null - valid
+                    if (!kv.Value.Releaseable() && kv.Value.Owner != null) continue; 
+                    
                     s_TrackInfoDict.Remove(kv.Key);
+                    var instanceId = kv.Value.Owner.GetInstanceID();
+                    if(s_TrackInstanceTransformDict.TryGetValue(instanceId, out var foundId) && foundId == kv.Key) 
+                    {
+                        s_TrackInstanceTransformDict.Remove(instanceId);
+                    }
 
                     //release bundle
 #if UNITY_EDITOR
@@ -342,24 +341,6 @@ namespace BundleSystem
                     {
                         ReleaseBundle(loadedBundle);
                     }
-                }
-            }
-
-            {
-                //we should check entire collection at least in 5 seconds, calculate trackCount for that purpose
-                int trackCount = Mathf.CeilToInt(Time.unscaledDeltaTime * 0.2f * s_LoadingAssetsDict.Count);
-                var time = Time.realtimeSinceStartup;
-
-                for(int i = 0; i < trackCount; i++)
-                {
-                    if (!s_LoadingAssetsDict.TryGetNext(out var kv)) continue;
-                    
-                    //not loaded yet or not yet over 1sec
-                    if (time - kv.Value < 1f) continue;
-
-                    s_LoadingAssetsDict.Remove(kv.Key);
-                    //release it
-                    ReleaseHandleInternal(kv.Key);
                 }
             }
         }

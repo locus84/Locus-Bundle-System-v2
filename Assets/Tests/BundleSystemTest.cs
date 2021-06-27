@@ -73,7 +73,7 @@ namespace Tests
             var spriteReq = m_Image.LoadAsync<Sprite>("Object", "TestSprite");
             //disabled
             yield return spriteReq;
-            m_Image.sprite = spriteReq.SuppressAutoRelease().Asset;
+            m_Image.sprite = spriteReq.Pin().Asset;
             spriteReq.Handle.Override(ref m_SpriteHandle);
 
             yield return new WaitForSeconds(10);

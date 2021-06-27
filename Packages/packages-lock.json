@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.locus.bundlesystem_v2": {
+    "com.locus.bundlesystem-v2": {
       "version": "file:LocusBundleSystem",
       "depth": 0,
       "source": "embedded",

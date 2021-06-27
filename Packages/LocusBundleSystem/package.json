@@ -1,5 +1,5 @@
 {
-  "name": "com.locus.bundlesystem_v2",
+  "name": "com.locus.bundlesystem-v2",
   "displayName": "Locus Bundle System 2",
   "version": "0.1.0",
   "description": "Simpler AssetBundle Build System using Scriptable Build Pipeline. Alternative to Unity Addressables. \n Visit https://github.com/locus84/Locus-Bundle-System-v2 for more informations.",
