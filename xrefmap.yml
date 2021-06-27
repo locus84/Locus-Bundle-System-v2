@@ -1020,6 +1020,23 @@ references:
   fullName.vb: BundleSystem.BundleAsyncRequest(Of T).OnCompleted
   nameWithType: BundleAsyncRequest<T>.OnCompleted
   nameWithType.vb: BundleAsyncRequest(Of T).OnCompleted
+- uid: BundleSystem.BundleAsyncRequest`1.Pin
+  name: Pin()
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_Pin
+  commentId: M:BundleSystem.BundleAsyncRequest`1.Pin
+  fullName: BundleSystem.BundleAsyncRequest<T>.Pin()
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).Pin()
+  nameWithType: BundleAsyncRequest<T>.Pin()
+  nameWithType.vb: BundleAsyncRequest(Of T).Pin()
+- uid: BundleSystem.BundleAsyncRequest`1.Pin*
+  name: Pin
+  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_Pin_
+  commentId: Overload:BundleSystem.BundleAsyncRequest`1.Pin
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncRequest<T>.Pin
+  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).Pin
+  nameWithType: BundleAsyncRequest<T>.Pin
+  nameWithType.vb: BundleAsyncRequest(Of T).Pin
 - uid: BundleSystem.BundleAsyncRequest`1.Progress
   name: Progress
   href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_Progress
@@ -1037,23 +1054,6 @@ references:
   fullName.vb: BundleSystem.BundleAsyncRequest(Of T).Progress
   nameWithType: BundleAsyncRequest<T>.Progress
   nameWithType.vb: BundleAsyncRequest(Of T).Progress
-- uid: BundleSystem.BundleAsyncRequest`1.SuppressAutoRelease
-  name: SuppressAutoRelease()
-  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_SuppressAutoRelease
-  commentId: M:BundleSystem.BundleAsyncRequest`1.SuppressAutoRelease
-  fullName: BundleSystem.BundleAsyncRequest<T>.SuppressAutoRelease()
-  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).SuppressAutoRelease()
-  nameWithType: BundleAsyncRequest<T>.SuppressAutoRelease()
-  nameWithType.vb: BundleAsyncRequest(Of T).SuppressAutoRelease()
-- uid: BundleSystem.BundleAsyncRequest`1.SuppressAutoRelease*
-  name: SuppressAutoRelease
-  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_SuppressAutoRelease_
-  commentId: Overload:BundleSystem.BundleAsyncRequest`1.SuppressAutoRelease
-  isSpec: "True"
-  fullName: BundleSystem.BundleAsyncRequest<T>.SuppressAutoRelease
-  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).SuppressAutoRelease
-  nameWithType: BundleAsyncRequest<T>.SuppressAutoRelease
-  nameWithType.vb: BundleAsyncRequest(Of T).SuppressAutoRelease
 - uid: BundleSystem.BundleAsyncRequest`1.UnsafeOnCompleted(System.Action)
   name: UnsafeOnCompleted(Action)
   href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_UnsafeOnCompleted_System_Action_
@@ -1636,18 +1636,63 @@ references:
   commentId: F:BundleSystem.BundleManager.TrackInfo.BundleName
   fullName: BundleSystem.BundleManager.TrackInfo.BundleName
   nameWithType: BundleManager.TrackInfo.BundleName
-- uid: BundleSystem.BundleManager.TrackInfo.InstanceTrack
-  name: InstanceTrack
-  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_InstanceTrack
-  commentId: F:BundleSystem.BundleManager.TrackInfo.InstanceTrack
-  fullName: BundleSystem.BundleManager.TrackInfo.InstanceTrack
-  nameWithType: BundleManager.TrackInfo.InstanceTrack
+- uid: BundleSystem.BundleManager.TrackInfo.IsPinned
+  name: IsPinned
+  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_IsPinned
+  commentId: P:BundleSystem.BundleManager.TrackInfo.IsPinned
+  fullName: BundleSystem.BundleManager.TrackInfo.IsPinned
+  nameWithType: BundleManager.TrackInfo.IsPinned
+- uid: BundleSystem.BundleManager.TrackInfo.IsPinned*
+  name: IsPinned
+  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_IsPinned_
+  commentId: Overload:BundleSystem.BundleManager.TrackInfo.IsPinned
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.TrackInfo.IsPinned
+  nameWithType: BundleManager.TrackInfo.IsPinned
+- uid: BundleSystem.BundleManager.TrackInfo.LoadTime
+  name: LoadTime
+  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_LoadTime
+  commentId: F:BundleSystem.BundleManager.TrackInfo.LoadTime
+  fullName: BundleSystem.BundleManager.TrackInfo.LoadTime
+  nameWithType: BundleManager.TrackInfo.LoadTime
 - uid: BundleSystem.BundleManager.TrackInfo.Owner
   name: Owner
   href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_Owner
   commentId: F:BundleSystem.BundleManager.TrackInfo.Owner
   fullName: BundleSystem.BundleManager.TrackInfo.Owner
   nameWithType: BundleManager.TrackInfo.Owner
+- uid: BundleSystem.BundleManager.TrackInfo.Pin
+  name: Pin()
+  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_Pin
+  commentId: M:BundleSystem.BundleManager.TrackInfo.Pin
+  fullName: BundleSystem.BundleManager.TrackInfo.Pin()
+  nameWithType: BundleManager.TrackInfo.Pin()
+- uid: BundleSystem.BundleManager.TrackInfo.Pin*
+  name: Pin
+  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_Pin_
+  commentId: Overload:BundleSystem.BundleManager.TrackInfo.Pin
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.TrackInfo.Pin
+  nameWithType: BundleManager.TrackInfo.Pin
+- uid: BundleSystem.BundleManager.TrackInfo.Releaseable
+  name: Releaseable()
+  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_Releaseable
+  commentId: M:BundleSystem.BundleManager.TrackInfo.Releaseable
+  fullName: BundleSystem.BundleManager.TrackInfo.Releaseable()
+  nameWithType: BundleManager.TrackInfo.Releaseable()
+- uid: BundleSystem.BundleManager.TrackInfo.Releaseable*
+  name: Releaseable
+  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_Releaseable_
+  commentId: Overload:BundleSystem.BundleManager.TrackInfo.Releaseable
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.TrackInfo.Releaseable
+  nameWithType: BundleManager.TrackInfo.Releaseable
+- uid: BundleSystem.BundleManager.TrackInfo.ReleaseRequested
+  name: ReleaseRequested
+  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_ReleaseRequested
+  commentId: F:BundleSystem.BundleManager.TrackInfo.ReleaseRequested
+  fullName: BundleSystem.BundleManager.TrackInfo.ReleaseRequested
+  nameWithType: BundleManager.TrackInfo.ReleaseRequested
 - uid: BundleSystem.BundleManager.TryGetCachedManifest(BundleSystem.AssetBundleBuildManifest@)
   name: TryGetCachedManifest(out AssetBundleBuildManifest)
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_TryGetCachedManifest_BundleSystem_AssetBundleBuildManifest__
@@ -1774,6 +1819,23 @@ references:
   fullName.vb: BundleSystem.BundleSyncRequest(Of T).Handle
   nameWithType: BundleSyncRequest<T>.Handle
   nameWithType.vb: BundleSyncRequest(Of T).Handle
+- uid: BundleSystem.BundleSyncRequest`1.Pin
+  name: Pin()
+  href: api/BundleSystem.BundleSyncRequest-1.html#BundleSystem_BundleSyncRequest_1_Pin
+  commentId: M:BundleSystem.BundleSyncRequest`1.Pin
+  fullName: BundleSystem.BundleSyncRequest<T>.Pin()
+  fullName.vb: BundleSystem.BundleSyncRequest(Of T).Pin()
+  nameWithType: BundleSyncRequest<T>.Pin()
+  nameWithType.vb: BundleSyncRequest(Of T).Pin()
+- uid: BundleSystem.BundleSyncRequest`1.Pin*
+  name: Pin
+  href: api/BundleSystem.BundleSyncRequest-1.html#BundleSystem_BundleSyncRequest_1_Pin_
+  commentId: Overload:BundleSystem.BundleSyncRequest`1.Pin
+  isSpec: "True"
+  fullName: BundleSystem.BundleSyncRequest<T>.Pin
+  fullName.vb: BundleSystem.BundleSyncRequest(Of T).Pin
+  nameWithType: BundleSyncRequest<T>.Pin
+  nameWithType.vb: BundleSyncRequest(Of T).Pin
 - uid: BundleSystem.BundleSyncRequests`1
   name: BundleSyncRequests<T>
   href: api/BundleSystem.BundleSyncRequests-1.html
@@ -1842,6 +1904,23 @@ references:
   fullName.vb: BundleSystem.BundleSyncRequests(Of T).Handles
   nameWithType: BundleSyncRequests<T>.Handles
   nameWithType.vb: BundleSyncRequests(Of T).Handles
+- uid: BundleSystem.BundleSyncRequests`1.Pin
+  name: Pin()
+  href: api/BundleSystem.BundleSyncRequests-1.html#BundleSystem_BundleSyncRequests_1_Pin
+  commentId: M:BundleSystem.BundleSyncRequests`1.Pin
+  fullName: BundleSystem.BundleSyncRequests<T>.Pin()
+  fullName.vb: BundleSystem.BundleSyncRequests(Of T).Pin()
+  nameWithType: BundleSyncRequests<T>.Pin()
+  nameWithType.vb: BundleSyncRequests(Of T).Pin()
+- uid: BundleSystem.BundleSyncRequests`1.Pin*
+  name: Pin
+  href: api/BundleSystem.BundleSyncRequests-1.html#BundleSystem_BundleSyncRequests_1_Pin_
+  commentId: Overload:BundleSystem.BundleSyncRequests`1.Pin
+  isSpec: "True"
+  fullName: BundleSystem.BundleSyncRequests<T>.Pin
+  fullName.vb: BundleSystem.BundleSyncRequests(Of T).Pin
+  nameWithType: BundleSyncRequests<T>.Pin
+  nameWithType.vb: BundleSyncRequests(Of T).Pin
 - uid: BundleSystem.FolderBasedAssetBundleBuildSetting
   name: FolderBasedAssetBundleBuildSetting
   href: api/BundleSystem.FolderBasedAssetBundleBuildSetting.html

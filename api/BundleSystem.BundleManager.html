@@ -597,7 +597,7 @@ Also works in editor</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static GameObject Instantiate(TrackHandle&lt;GameObject&gt; handle)</code></pre>
+    <pre><code class="lang-csharp hljs">public static GameObject Instantiate(this TrackHandle&lt;GameObject&gt; handle)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -639,7 +639,7 @@ Also works in editor</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static GameObject Instantiate(TrackHandle&lt;GameObject&gt; handle, Transform parent)</code></pre>
+    <pre><code class="lang-csharp hljs">public static GameObject Instantiate(this TrackHandle&lt;GameObject&gt; handle, Transform parent)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -686,7 +686,7 @@ Also works in editor</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static GameObject Instantiate(TrackHandle&lt;GameObject&gt; handle, Transform parent, bool instantiateInWorldSpace)</code></pre>
+    <pre><code class="lang-csharp hljs">public static GameObject Instantiate(this TrackHandle&lt;GameObject&gt; handle, Transform parent, bool instantiateInWorldSpace)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -738,7 +738,7 @@ Also works in editor</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static GameObject Instantiate(TrackHandle&lt;GameObject&gt; handle, Vector3 position, Quaternion rotation)</code></pre>
+    <pre><code class="lang-csharp hljs">public static GameObject Instantiate(this TrackHandle&lt;GameObject&gt; handle, Vector3 position, Quaternion rotation)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -790,7 +790,7 @@ Also works in editor</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static GameObject Instantiate(TrackHandle&lt;GameObject&gt; handle, Vector3 position, Quaternion rotation, Transform parent)</code></pre>
+    <pre><code class="lang-csharp hljs">public static GameObject Instantiate(this TrackHandle&lt;GameObject&gt; handle, Vector3 position, Quaternion rotation, Transform parent)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1296,7 +1296,7 @@ Also works in editor</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TrackHandle&lt;T&gt; TrackExplicit&lt;TRef, T&gt;(this TrackHandle&lt;TRef&gt; referenceHandle, T objectToTrack, Component newOwner = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static TrackHandle&lt;T&gt; TrackExplicit&lt;TRef, T&gt;(this TrackHandle&lt;TRef&gt; referenceHandle, T asset, Component newOwner = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1315,7 +1315,7 @@ Also works in editor</p>
       </tr>
       <tr>
         <td><span class="xref">T</span></td>
-        <td><span class="parametername">objectToTrack</span></td>
+        <td><span class="parametername">asset</span></td>
         <td></td>
       </tr>
       <tr>
