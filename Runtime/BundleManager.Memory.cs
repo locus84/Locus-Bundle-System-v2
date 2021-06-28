@@ -38,8 +38,8 @@ namespace BundleSystem
     public static partial class BundleManager
     {
         static int s_LastTrackId = 0;
-        static Object s_SceneObjectDummy = new Object();
-        static Object s_LoadingObjectDummy = new Object();
+        static Object s_SceneObjectDummy = new Texture2D(0,0) { name = "SceneDummy" };
+        static Object s_LoadingObjectDummy = new Texture2D(0,0) { name = "LoadingDummy" };
         static IndexedDictionary<int, TrackInfo> s_TrackInfoDict = new IndexedDictionary<int, TrackInfo>(10);
         static Dictionary<int, int> s_TrackInstanceTransformDict = new Dictionary<int, int>(10);
 
@@ -170,7 +170,7 @@ namespace BundleSystem
             public void Pin() => LoadTime = float.MaxValue;
         }
 
-        private static TrackHandle<T> TrackObject<T>(Component owner, Object asset, LoadedBundle loadedBundle) where T : Object
+        private static TrackHandle<T> TrackObject<T>(Component owner, Object asset, LoadedBundle loadedBundle, bool pinInitially = false) where T : Object
         {
             if(!owner.gameObject.scene.IsValid()) throw new System.Exception("Owner must be scene object");
             var trackId = ++s_LastTrackId;
@@ -178,7 +178,7 @@ namespace BundleSystem
                 BundleName = loadedBundle.Name,
                 Owner = owner,
                 Asset = asset,
-                LoadTime = Time.realtimeSinceStartup
+                LoadTime = pinInitially? float.MaxValue : Time.realtimeSinceStartup
             });
 
             RetainBundle(loadedBundle);
@@ -274,7 +274,7 @@ namespace BundleSystem
                 for (int i = 0; i < s_SceneRootObjectCache.Count; i++)
                 {
                     var owner = s_SceneRootObjectCache[i].transform;
-                    var handle = TrackObject<Object>(owner, s_SceneObjectDummy, loadedBundle);
+                    var handle = TrackObject<Object>(owner, s_SceneObjectDummy, loadedBundle, true);
                     s_TrackInstanceTransformDict.Add(owner.GetInstanceID(), handle.Id);
                 }
                 s_SceneRootObjectCache.Clear();

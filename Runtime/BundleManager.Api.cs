@@ -238,7 +238,7 @@ namespace BundleSystem
             var info = GetInstantiableTrackInfo(handle.Id, out var bundle);
             var instance = GameObject.Instantiate(info.Asset as GameObject);
             
-            var newHandle = TrackObject<GameObject>(instance.transform, info.Asset, bundle);
+            var newHandle = TrackObject<GameObject>(instance.transform, info.Asset, bundle, true);
             s_TrackInstanceTransformDict.Add(instance.transform.GetInstanceID(), newHandle.Id);
             return instance;
         }
@@ -248,7 +248,7 @@ namespace BundleSystem
             var info = GetInstantiableTrackInfo(handle.Id, out var bundle);
             var instance = GameObject.Instantiate(info.Asset as GameObject, parent);
             
-            var newHandle = TrackObject<GameObject>(instance.transform, info.Asset, bundle);
+            var newHandle = TrackObject<GameObject>(instance.transform, info.Asset, bundle, true);
             s_TrackInstanceTransformDict.Add(instance.transform.GetInstanceID(), newHandle.Id);
             return instance;
         }
@@ -258,7 +258,7 @@ namespace BundleSystem
             var info = GetInstantiableTrackInfo(handle.Id, out var bundle);
             var instance = GameObject.Instantiate(info.Asset as GameObject, parent, instantiateInWorldSpace);
             
-            var newHandle = TrackObject<GameObject>(instance.transform, info.Asset, bundle);
+            var newHandle = TrackObject<GameObject>(instance.transform, info.Asset, bundle, true);
             s_TrackInstanceTransformDict.Add(instance.transform.GetInstanceID(), newHandle.Id);
             return instance;
         }
@@ -268,7 +268,7 @@ namespace BundleSystem
             var info = GetInstantiableTrackInfo(handle.Id, out var bundle);
             var instance = GameObject.Instantiate(info.Asset as GameObject, position, rotation);
 
-            var newHandle = TrackObject<GameObject>(instance.transform, info.Asset, bundle);
+            var newHandle = TrackObject<GameObject>(instance.transform, info.Asset, bundle, true);
             s_TrackInstanceTransformDict.Add(instance.transform.GetInstanceID(), newHandle.Id);
             return instance;
         }
@@ -278,7 +278,7 @@ namespace BundleSystem
             var info = GetInstantiableTrackInfo(handle.Id, out var bundle);
             var instance = GameObject.Instantiate(info.Asset as GameObject, position, rotation, parent);
             
-            var newHandle = TrackObject<GameObject>(instance.transform, info.Asset, bundle);
+            var newHandle = TrackObject<GameObject>(instance.transform, info.Asset, bundle, true);
             s_TrackInstanceTransformDict.Add(instance.transform.GetInstanceID(), newHandle.Id);
             return instance;
         }
