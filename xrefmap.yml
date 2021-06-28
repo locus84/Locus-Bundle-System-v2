@@ -1674,6 +1674,22 @@ references:
   commentId: F:BundleSystem.BundleManager.TrackInfo.ReleaseRequested
   fullName: BundleSystem.BundleManager.TrackInfo.ReleaseRequested
   nameWithType: BundleManager.TrackInfo.ReleaseRequested
+- uid: BundleSystem.BundleManager.TrackInstanceExplicit*
+  name: TrackInstanceExplicit
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_TrackInstanceExplicit_
+  commentId: Overload:BundleSystem.BundleManager.TrackInstanceExplicit
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.TrackInstanceExplicit
+  nameWithType: BundleManager.TrackInstanceExplicit
+- uid: BundleSystem.BundleManager.TrackInstanceExplicit``1(BundleSystem.TrackHandle{``0},GameObject)
+  name: TrackInstanceExplicit<T>(TrackHandle<T>, GameObject)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_TrackInstanceExplicit__1_BundleSystem_TrackHandle___0__GameObject_
+  commentId: M:BundleSystem.BundleManager.TrackInstanceExplicit``1(BundleSystem.TrackHandle{``0},GameObject)
+  name.vb: TrackInstanceExplicit(Of T)(TrackHandle(Of T), GameObject)
+  fullName: BundleSystem.BundleManager.TrackInstanceExplicit<T>(BundleSystem.TrackHandle<T>, GameObject)
+  fullName.vb: BundleSystem.BundleManager.TrackInstanceExplicit(Of T)(BundleSystem.TrackHandle(Of T), GameObject)
+  nameWithType: BundleManager.TrackInstanceExplicit<T>(TrackHandle<T>, GameObject)
+  nameWithType.vb: BundleManager.TrackInstanceExplicit(Of T)(TrackHandle(Of T), GameObject)
 - uid: BundleSystem.BundleManager.TryGetCachedManifest(BundleSystem.AssetBundleBuildManifest@)
   name: TryGetCachedManifest(out AssetBundleBuildManifest)
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_TryGetCachedManifest_BundleSystem_AssetBundleBuildManifest__

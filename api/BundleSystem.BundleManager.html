@@ -1405,6 +1405,73 @@ Used when you explicitely track an asset which does not directly loaded from bun
   </table>
   
   
+  <a id="BundleSystem_BundleManager_TrackInstanceExplicit_" data-uid="BundleSystem.BundleManager.TrackInstanceExplicit*"></a>
+  <h4 id="BundleSystem_BundleManager_TrackInstanceExplicit__1_BundleSystem_TrackHandle___0__GameObject_" data-uid="BundleSystem.BundleManager.TrackInstanceExplicit``1(BundleSystem.TrackHandle{``0},GameObject)">TrackInstanceExplicit&lt;T&gt;(TrackHandle&lt;T&gt;, GameObject)</h4>
+  <div class="markdown level1 summary"><p>Track part of loaded gameobjecgt.
+Used when you explicitely track an gameobject which does not directly loaded from bundle system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TrackHandle&lt;GameObject&gt; TrackInstanceExplicit&lt;T&gt;(this TrackHandle&lt;T&gt; referenceHandle, GameObject gameObjectToTrack)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BundleSystem.TrackHandle-1.html">TrackHandle</a>&lt;T&gt;</td>
+        <td><span class="parametername">referenceHandle</span></td>
+        <td><p>Reference handle that loaded from same bundle</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">gameObjectToTrack</span></td>
+        <td><p>GameObject to track, forexample, child GameObject of Instantiated Prefab</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BundleSystem.TrackHandle-1.html">TrackHandle</a>&lt;<span class="xref">GameObject</span>&gt;</td>
+        <td><p>Returns newly created track handle</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="BundleSystem_BundleManager_TryGetCachedManifest_" data-uid="BundleSystem.BundleManager.TryGetCachedManifest*"></a>
   <h4 id="BundleSystem_BundleManager_TryGetCachedManifest_BundleSystem_AssetBundleBuildManifest__" data-uid="BundleSystem.BundleManager.TryGetCachedManifest(BundleSystem.AssetBundleBuildManifest@)">TryGetCachedManifest(out AssetBundleBuildManifest)</h4>
   <div class="markdown level1 summary"><p>get last cached manifest, to support offline play</p>
