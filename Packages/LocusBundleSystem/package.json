@@ -21,7 +21,7 @@
     {
       "displayName": "Folder Based Settings",
       "description": "AssetBundleBuildSetting that utilizes directory structure",
-      "path": "Samples~/ForlderBased"
+      "path": "Samples~/FolderBased"
     }
   ]
 }
