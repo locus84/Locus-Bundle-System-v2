@@ -103,21 +103,30 @@ namespace BundleSystem
         where TRef : Object where T : Object
         {
             if(newOwner != null && !newOwner.gameObject.scene.IsValid()) throw new System.Exception("Owner must be scene object");
-            if(!referenceHandle.IsValid()) throw new System.Exception("Handle is not valid or already not tracked");
+            if(!s_TrackInfoDict.TryGetValue(referenceHandle.Id, out var info)) throw new System.Exception("Handle is not valid or already not tracked");
+            if(!s_AssetBundles.TryGetValue(info.BundleName, out var loadedBundle)) throw new System.Exception("Bundle does not exist");
 
-            var exitingTrackInfo = s_TrackInfoDict[referenceHandle.Id];
             var newTrackId = ++s_LastTrackId;
-            if(newOwner == null) newOwner = exitingTrackInfo.Owner;
+            if(newOwner == null) newOwner = info.Owner;
+            return TrackObject<T>(newOwner, asset, loadedBundle);
+        }
 
-            s_TrackInfoDict.Add(newTrackId, new TrackInfo()
-            {
-                BundleName = exitingTrackInfo.BundleName,
-                Asset = asset,
-                Owner = newOwner,
-                LoadTime = float.MaxValue
-            });
-
-            return new TrackHandle<T>(newTrackId);
+        /// <summary>
+        /// Track part of loaded gameobjecgt.
+        /// Used when you explicitely track an gameobject which does not directly loaded from bundle system.
+        /// </summary>
+        /// <param name="referenceHandle">Reference handle that loaded from same bundle</param>
+        /// <param name="gameObjectToTrack">GameObject to track, forexample, child GameObject of Instantiated Prefab</param>
+        /// <returns>Returns newly created track handle</returns>
+        public static TrackHandle<GameObject> TrackInstanceExplicit<T>(this TrackHandle<T> referenceHandle, GameObject gameObjectToTrack)
+        where T : Object
+        {
+            if(gameObjectToTrack != null && !gameObjectToTrack.scene.IsValid()) throw new System.Exception("Owner must be scene object");
+            if(!s_TrackInfoDict.TryGetValue(referenceHandle.Id, out var info)) throw new System.Exception("Handle is not valid or already not tracked");
+            if(!s_AssetBundles.TryGetValue(info.BundleName, out var loadedBundle)) throw new System.Exception("Bundle does not exist");
+            var newOwner = gameObjectToTrack.transform;
+            if(s_TrackInstanceTransformDict.ContainsKey(newOwner.GetInstanceID())) throw new System.Exception("GameObject is already tracked");
+            return TrackInstanceObject<GameObject>(newOwner, gameObjectToTrack, loadedBundle);
         }
 
         /// <summary>
@@ -170,7 +179,7 @@ namespace BundleSystem
             public void Pin() => LoadTime = float.MaxValue;
         }
 
-        private static TrackHandle<T> TrackObject<T>(Component owner, Object asset, LoadedBundle loadedBundle, bool pinInitially = false) where T : Object
+        private static TrackHandle<T> TrackObject<T>(Component owner, Object asset, LoadedBundle loadedBundle) where T : Object
         {
             if(!owner.gameObject.scene.IsValid()) throw new System.Exception("Owner must be scene object");
             var trackId = ++s_LastTrackId;
@@ -178,8 +187,26 @@ namespace BundleSystem
                 BundleName = loadedBundle.Name,
                 Owner = owner,
                 Asset = asset,
-                LoadTime = pinInitially? float.MaxValue : Time.realtimeSinceStartup
+                LoadTime = Time.realtimeSinceStartup
             });
+
+            RetainBundle(loadedBundle);
+            return new TrackHandle<T>(trackId);
+        }
+
+        private static TrackHandle<T> TrackInstanceObject<T>(Component owner, Object asset, LoadedBundle loadedBundle) where T : Object
+        {
+            if(!owner.gameObject.scene.IsValid()) throw new System.Exception("Owner must be scene object");
+            var trackId = ++s_LastTrackId;
+            s_TrackInfoDict.Add(trackId, new TrackInfo(){
+                BundleName = loadedBundle.Name,
+                Owner = owner,
+                Asset = asset,
+                LoadTime = float.MaxValue //pinned initially
+            });
+
+            //track instance id
+            s_TrackInstanceTransformDict.Add(owner.GetInstanceID(), trackId);
 
             RetainBundle(loadedBundle);
             return new TrackHandle<T>(trackId);
@@ -274,8 +301,7 @@ namespace BundleSystem
                 for (int i = 0; i < s_SceneRootObjectCache.Count; i++)
                 {
                     var owner = s_SceneRootObjectCache[i].transform;
-                    var handle = TrackObject<Object>(owner, s_SceneObjectDummy, loadedBundle, true);
-                    s_TrackInstanceTransformDict.Add(owner.GetInstanceID(), handle.Id);
+                    TrackInstanceObject<Object>(owner, s_SceneObjectDummy, loadedBundle);
                 }
                 s_SceneRootObjectCache.Clear();
             }
