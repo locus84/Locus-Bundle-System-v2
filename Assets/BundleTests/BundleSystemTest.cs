@@ -5,6 +5,7 @@ using UnityEngine.TestTools;
 using BundleSystem;
 using UnityEditor;
 using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 namespace Tests
 {
@@ -78,6 +79,42 @@ namespace Tests
             BundleManager.UpdateImmediate();
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 1);
             m_SpriteHandle.Release();
+            BundleManager.UpdateImmediate();
+            Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+        }
+
+        [UnityTest]
+        public IEnumerator SceneApiTest()
+        {
+            var loadReq = BundleManager.LoadSceneAsync("Scene", "TestScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+            yield return loadReq;
+
+            //the scene have 3 root game object
+            Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 3);
+
+            yield return new WaitForSecondsRealtime(2); 
+            Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 3); // does not auto released (pinned)
+
+            //the game objects must be there
+            var parentGo = GameObject.Find("TestSceneObject");
+            var childGo = GameObject.Find("TestSceneObjectChild");
+            Assert.NotNull(parentGo);
+            Assert.NotNull(childGo);
+
+            //track handle searches parent object
+            Assert.IsTrue(childGo.GetInstanceTrackHandle().IsValid());
+            //so handle id must be same                            
+            Assert.IsTrue(childGo.GetInstanceTrackHandle().Id == parentGo.GetInstanceTrackHandle().Id);
+
+            var childHandle = parentGo.GetInstanceTrackHandle().TrackInstanceExplicit(childGo);
+            Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 4); // added child handle
+
+            Assert.IsTrue(childHandle.IsValid());
+            Assert.IsTrue(childHandle.Id == childGo.GetInstanceTrackHandle().Id);
+            Assert.IsTrue(childHandle.Id != parentGo.GetInstanceTrackHandle().Id);
+
+            //after unload(destroyed) track cound should be zero
+            yield return SceneManager.UnloadSceneAsync("TestScene");
             BundleManager.UpdateImmediate();
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
         }
