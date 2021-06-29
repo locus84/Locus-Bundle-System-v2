@@ -35,6 +35,7 @@ public class AssetBundleTrackingVisualizer : EditorWindow
         EditorGUILayout.LabelField($"Track ID", GUILayout.Width(100));
         EditorGUILayout.LabelField($"Track Owner", GUILayout.Width(200));
         EditorGUILayout.LabelField($"Loaded Asset", GUILayout.Width(200));
+        EditorGUILayout.LabelField($"Loaded Time", GUILayout.Width(100));
         EditorGUI.indentLevel --;
         EditorGUILayout.EndHorizontal();
         
@@ -66,6 +67,7 @@ public class AssetBundleTrackingVisualizer : EditorWindow
                     EditorGUILayout.LabelField($"{trackKv.Key}", GUILayout.Width(100));
                     EditorGUILayout.ObjectField(trackKv.Value.Owner, typeof(UnityEngine.Object), true, GUILayout.Width(200));
                     EditorGUILayout.ObjectField(trackKv.Value.Asset, typeof(UnityEngine.Object), false, GUILayout.Width(200));
+                    EditorGUILayout.LabelField(trackKv.Value.LoadTime.ToString("0.0"), GUILayout.Width(100));
                     EditorGUILayout.EndHorizontal();
                 }
                 EditorGUI.indentLevel --;
