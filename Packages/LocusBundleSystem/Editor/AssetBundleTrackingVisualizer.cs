@@ -31,12 +31,13 @@ public class AssetBundleTrackingVisualizer : EditorWindow
         DrawUILine(Color.gray);
 
         EditorGUILayout.BeginHorizontal();
-        EditorGUI.indentLevel ++;
-        EditorGUILayout.LabelField($"Track ID", GUILayout.Width(100));
-        EditorGUILayout.LabelField($"Track Owner", GUILayout.Width(200));
-        EditorGUILayout.LabelField($"Loaded Asset", GUILayout.Width(200));
-        EditorGUILayout.LabelField($"Loaded Time", GUILayout.Width(100));
-        EditorGUI.indentLevel --;
+        EditorGUI.indentLevel++;
+        EditorGUILayout.LabelField($"Track ID", GUILayout.Width(80));
+        EditorGUILayout.LabelField($"Track Owner", GUILayout.Width(150));
+        EditorGUILayout.LabelField($"Loaded Asset", GUILayout.Width(150));
+        EditorGUILayout.LabelField($"Status", GUILayout.Width(140));
+        EditorGUILayout.LabelField($"Loaded Time", GUILayout.Width(120));
+        EditorGUI.indentLevel--;
         EditorGUILayout.EndHorizontal();
         
         DrawUILine(Color.gray);
@@ -60,17 +61,18 @@ public class AssetBundleTrackingVisualizer : EditorWindow
             
             if(foldOut)
             {
-                EditorGUI.indentLevel ++;
+                EditorGUI.indentLevel++;
                 foreach(var trackKv in kv.Value)
                 {
                     EditorGUILayout.BeginHorizontal();
-                    EditorGUILayout.LabelField($"{trackKv.Key}", GUILayout.Width(100));
-                    EditorGUILayout.ObjectField(trackKv.Value.Owner, typeof(UnityEngine.Object), true, GUILayout.Width(200));
-                    EditorGUILayout.ObjectField(trackKv.Value.Asset, typeof(UnityEngine.Object), false, GUILayout.Width(200));
-                    EditorGUILayout.LabelField(trackKv.Value.LoadTime.ToString("0.0"), GUILayout.Width(100));
+                    EditorGUILayout.LabelField($"{trackKv.Key}", GUILayout.Width(80));
+                    EditorGUILayout.ObjectField(trackKv.Value.Owner, typeof(UnityEngine.Object), true, GUILayout.Width(150));
+                    EditorGUILayout.ObjectField(trackKv.Value.Asset, typeof(UnityEngine.Object), false, GUILayout.Width(150));
+                    EditorGUILayout.LabelField(trackKv.Value.Status.ToString(), GUILayout.Width(140));
+                    EditorGUILayout.LabelField(trackKv.Value.LoadTime.ToString("0.0"), GUILayout.Width(120));
                     EditorGUILayout.EndHorizontal();
                 }
-                EditorGUI.indentLevel --;
+                EditorGUI.indentLevel--;
             } 
         }
         EditorGUILayout.EndScrollView();
