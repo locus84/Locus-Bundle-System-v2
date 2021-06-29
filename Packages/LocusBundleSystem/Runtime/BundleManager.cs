@@ -65,8 +65,8 @@ namespace BundleSystem
         static void Setup()
         {
             UnityMainThreadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
-            UnityEngine.SceneManagement.SceneManager.sceneLoaded += TrackOnSceneLoaded;
-            UnityEngine.SceneManagement.SceneManager.sceneUnloaded += TrackOnSceneUnLoaded;
+            UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
+            UnityEngine.SceneManagement.SceneManager.sceneUnloaded += OnSceneUnloaded;
 
             var managerGo = new GameObject("_BundleManager");
             GameObject.DontDestroyOnLoad(managerGo);
