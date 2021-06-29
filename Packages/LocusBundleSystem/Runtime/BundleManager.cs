@@ -91,7 +91,7 @@ namespace BundleSystem
         /// <summary>
         /// Initialize bundle system and load local bundles
         /// </summary>
-        /// <param name="altRemoteUrl">alternative remote url, local manifest will be used as default</param>
+        /// <param name="altRemoteUrl">alternative remote url, local manifest's RemoteUrl field will be used as default</param>
         /// <returns>async operation that can be yield return</returns>
         public static BundleAsyncOperation Initialize(string altRemoteUrl = null)
         {

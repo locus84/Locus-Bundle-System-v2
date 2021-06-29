@@ -17,6 +17,7 @@ namespace Tests
         [UnitySetUp]
         public IEnumerator InitializeTestSetup()
         {
+#if UNITY_EDITOR
             //no setting
             if(!AssetBundleBuildSetting.TryGetActiveSetting(out var setting)) yield break;
 
@@ -30,17 +31,21 @@ namespace Tests
                 //make it active setting
                 AssetBundleBuildSetting.SetActiveSetting(toTest, true);
             }
-
+#endif
             //log messages
             BundleManager.LogMessages = true;
             BundleManager.ShowDebugGUI = true;
 
             //actual initialize function
             yield return BundleManager.Initialize();
-            var manifestReq = BundleManager.GetManifest();
 
-            yield return manifestReq;
-            yield return BundleManager.DownloadAssetBundles(manifestReq.Result);
+            //skip remote bundle download test in build
+            if(Application.isEditor)
+            {
+                var manifestReq = BundleManager.GetManifest();
+                yield return manifestReq;
+                yield return BundleManager.DownloadAssetBundles(manifestReq.Result);
+            }
 
             m_Owner = new GameObject("Owner").transform;
         }
@@ -48,11 +53,13 @@ namespace Tests
         [TearDown]
         public void RestoreActiveSetting()
         {
+#if UNITY_EDITOR
             if(m_PrevActiveSettingCache != null)
             {
                 //restore setting
                 AssetBundleBuildSetting.SetActiveSetting(m_PrevActiveSettingCache);
             }
+#endif
         }
 
         [Test]
