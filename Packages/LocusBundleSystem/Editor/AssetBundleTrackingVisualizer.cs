@@ -42,7 +42,7 @@ public class AssetBundleTrackingVisualizer : EditorWindow
         
         DrawUILine(Color.gray);
 
-        m_ScrollPosition = EditorGUILayout.BeginScrollView(m_ScrollPosition, false, true);
+        m_ScrollPosition = EditorGUILayout.BeginScrollView(m_ScrollPosition, false, false);
 
         foreach(var kv in m_ProcessedDict)
         {
