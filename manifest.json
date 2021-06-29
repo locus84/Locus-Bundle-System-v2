@@ -216,11 +216,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.BundleManager.TrackInfo.TrackStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.BundleManager.TrackInfo.TrackStatus.html",
+          "hash": "wiKR7z3PXXmiAokSD2HX0I6gvMxIYasgcdj5D9YQefQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/BundleSystem.BundleManager.TrackInfo.yml",
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.BundleManager.TrackInfo.html",
-          "hash": "28d/X0KU+UUplu1sng73CrZCY1rGT5KsHrJFn3pp1FE="
+          "hash": "SuVbixaKbwwF6cFNeS3ExykDPgfYgeh2f0LnGjQj0yk="
         }
       },
       "is_incremental": false,
@@ -316,7 +328,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.html",
-          "hash": "e6RRGyBSr7b6+jy3RzJbnaoP6a2grbtruwvy5ia0yb0="
+          "hash": "nQ5T80TPiGzYxJmD7rzjUbFGHfhaDb2fyVaYykzxbwE="
         }
       },
       "is_incremental": false,
@@ -328,7 +340,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "2TvWWaVupIR8S15KQ8+yIZWvPp10mWRxM5Y4wrL3CCQ="
+          "hash": "JhPWRHGiKa2X78v2CozHZWZRJjk2MABFnsAtUJojaNk="
         }
       },
       "is_incremental": false,
@@ -437,7 +449,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 25,
+          "total_file_count": 26,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

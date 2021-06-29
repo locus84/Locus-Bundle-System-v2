@@ -87,7 +87,12 @@
   "api/BundleSystem.BundleManager.TrackInfo.html": {
     "href": "api/BundleSystem.BundleManager.TrackInfo.html",
     "title": "Struct BundleManager.TrackInfo | LocusBundleSystemV2 documentation",
-    "keywords": "Struct BundleManager.TrackInfo Namespace : BundleSystem Assembly : cs.temp.dll.dll Syntax public struct TrackInfo Fields Asset Declaration public object Asset Field Value Type Description Object BundleName Declaration public string BundleName Field Value Type Description String LoadTime Declaration public float LoadTime Field Value Type Description Single Owner Declaration public Component Owner Field Value Type Description Component ReleaseRequested Declaration public bool ReleaseRequested Field Value Type Description Boolean Properties IsPinned Declaration public readonly bool IsPinned { get; } Property Value Type Description Boolean Methods Pin() Declaration public void Pin()"
+    "keywords": "Struct BundleManager.TrackInfo Namespace : BundleSystem Assembly : cs.temp.dll.dll Syntax public struct TrackInfo Fields Asset Declaration public object Asset Field Value Type Description Object BundleName Declaration public string BundleName Field Value Type Description String LoadTime Declaration public float LoadTime Field Value Type Description Single Owner Declaration public Component Owner Field Value Type Description Component Status Declaration public BundleManager.TrackInfo.TrackStatus Status Field Value Type Description BundleManager.TrackInfo.TrackStatus"
+  },
+  "api/BundleSystem.BundleManager.TrackInfo.TrackStatus.html": {
+    "href": "api/BundleSystem.BundleManager.TrackInfo.TrackStatus.html",
+    "title": "Enum BundleManager.TrackInfo.TrackStatus | LocusBundleSystemV2 documentation",
+    "keywords": "Enum BundleManager.TrackInfo.TrackStatus Namespace : BundleSystem Assembly : cs.temp.dll.dll Syntax public enum TrackStatus Fields Name Description AutoReleasable Pinned ReleaseRequested"
   },
   "api/BundleSystem.BundleSetting.html": {
     "href": "api/BundleSystem.BundleSetting.html",
@@ -107,7 +112,7 @@
   "api/BundleSystem.html": {
     "href": "api/BundleSystem.html",
     "title": "Namespace BundleSystem | LocusBundleSystemV2 documentation",
-    "keywords": "Namespace BundleSystem Classes AssetBundleBuilder class that contains actual build functionalities AssetBundleBuildManifest AssetBundleBuildProcessors AssetBundleBuildSetting AssetDependencyTree this class finds out duplicated topmost assets and make them into one single shared bundle one by one(to reduce bundle rebuild) so that there would be no asset duplicated AssetDependencyTree.Context AssetDependencyTree.Node AssetDependencyTree.ProcessResult AssetDependencyTree.RootNode BundleAsyncOperation BundleAsyncOperation<T> assetbundle update BundleAsyncOperationBase BundleAsyncRequest<T> this class is for simulating assetbundle request in editor. using this class we can provide unified structure. BundleAsyncSceneRequest BundleManager Handle Resources expecially assetbundles. Also works in editor Utility Structs AssetBundleBuildManifest.BundleInfo BundleManager.TrackInfo BundleSetting BundleSyncRequest<T> BundleSyncRequests<T> TrackHandle<T> Interfaces IAwaiter<TResult> Enums BundleErrorCode"
+    "keywords": "Namespace BundleSystem Classes AssetBundleBuilder class that contains actual build functionalities AssetBundleBuildManifest AssetBundleBuildProcessors AssetBundleBuildSetting AssetDependencyTree this class finds out duplicated topmost assets and make them into one single shared bundle one by one(to reduce bundle rebuild) so that there would be no asset duplicated AssetDependencyTree.Context AssetDependencyTree.Node AssetDependencyTree.ProcessResult AssetDependencyTree.RootNode BundleAsyncOperation BundleAsyncOperation<T> assetbundle update BundleAsyncOperationBase BundleAsyncRequest<T> this class is for simulating assetbundle request in editor. using this class we can provide unified structure. BundleAsyncSceneRequest BundleManager Handle Resources expecially assetbundles. Also works in editor Utility Structs AssetBundleBuildManifest.BundleInfo BundleManager.TrackInfo BundleSetting BundleSyncRequest<T> BundleSyncRequests<T> TrackHandle<T> Interfaces IAwaiter<TResult> Enums BundleErrorCode BundleManager.TrackInfo.TrackStatus"
   },
   "api/BundleSystem.IAwaiter-1.html": {
     "href": "api/BundleSystem.IAwaiter-1.html",

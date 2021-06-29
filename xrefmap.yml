@@ -1630,19 +1630,6 @@ references:
   commentId: F:BundleSystem.BundleManager.TrackInfo.BundleName
   fullName: BundleSystem.BundleManager.TrackInfo.BundleName
   nameWithType: BundleManager.TrackInfo.BundleName
-- uid: BundleSystem.BundleManager.TrackInfo.IsPinned
-  name: IsPinned
-  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_IsPinned
-  commentId: P:BundleSystem.BundleManager.TrackInfo.IsPinned
-  fullName: BundleSystem.BundleManager.TrackInfo.IsPinned
-  nameWithType: BundleManager.TrackInfo.IsPinned
-- uid: BundleSystem.BundleManager.TrackInfo.IsPinned*
-  name: IsPinned
-  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_IsPinned_
-  commentId: Overload:BundleSystem.BundleManager.TrackInfo.IsPinned
-  isSpec: "True"
-  fullName: BundleSystem.BundleManager.TrackInfo.IsPinned
-  nameWithType: BundleManager.TrackInfo.IsPinned
 - uid: BundleSystem.BundleManager.TrackInfo.LoadTime
   name: LoadTime
   href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_LoadTime
@@ -1655,25 +1642,36 @@ references:
   commentId: F:BundleSystem.BundleManager.TrackInfo.Owner
   fullName: BundleSystem.BundleManager.TrackInfo.Owner
   nameWithType: BundleManager.TrackInfo.Owner
-- uid: BundleSystem.BundleManager.TrackInfo.Pin
-  name: Pin()
-  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_Pin
-  commentId: M:BundleSystem.BundleManager.TrackInfo.Pin
-  fullName: BundleSystem.BundleManager.TrackInfo.Pin()
-  nameWithType: BundleManager.TrackInfo.Pin()
-- uid: BundleSystem.BundleManager.TrackInfo.Pin*
-  name: Pin
-  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_Pin_
-  commentId: Overload:BundleSystem.BundleManager.TrackInfo.Pin
-  isSpec: "True"
-  fullName: BundleSystem.BundleManager.TrackInfo.Pin
-  nameWithType: BundleManager.TrackInfo.Pin
-- uid: BundleSystem.BundleManager.TrackInfo.ReleaseRequested
+- uid: BundleSystem.BundleManager.TrackInfo.Status
+  name: Status
+  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_Status
+  commentId: F:BundleSystem.BundleManager.TrackInfo.Status
+  fullName: BundleSystem.BundleManager.TrackInfo.Status
+  nameWithType: BundleManager.TrackInfo.Status
+- uid: BundleSystem.BundleManager.TrackInfo.TrackStatus
+  name: BundleManager.TrackInfo.TrackStatus
+  href: api/BundleSystem.BundleManager.TrackInfo.TrackStatus.html
+  commentId: T:BundleSystem.BundleManager.TrackInfo.TrackStatus
+  fullName: BundleSystem.BundleManager.TrackInfo.TrackStatus
+  nameWithType: BundleManager.TrackInfo.TrackStatus
+- uid: BundleSystem.BundleManager.TrackInfo.TrackStatus.AutoReleasable
+  name: AutoReleasable
+  href: api/BundleSystem.BundleManager.TrackInfo.TrackStatus.html#BundleSystem_BundleManager_TrackInfo_TrackStatus_AutoReleasable
+  commentId: F:BundleSystem.BundleManager.TrackInfo.TrackStatus.AutoReleasable
+  fullName: BundleSystem.BundleManager.TrackInfo.TrackStatus.AutoReleasable
+  nameWithType: BundleManager.TrackInfo.TrackStatus.AutoReleasable
+- uid: BundleSystem.BundleManager.TrackInfo.TrackStatus.Pinned
+  name: Pinned
+  href: api/BundleSystem.BundleManager.TrackInfo.TrackStatus.html#BundleSystem_BundleManager_TrackInfo_TrackStatus_Pinned
+  commentId: F:BundleSystem.BundleManager.TrackInfo.TrackStatus.Pinned
+  fullName: BundleSystem.BundleManager.TrackInfo.TrackStatus.Pinned
+  nameWithType: BundleManager.TrackInfo.TrackStatus.Pinned
+- uid: BundleSystem.BundleManager.TrackInfo.TrackStatus.ReleaseRequested
   name: ReleaseRequested
-  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_ReleaseRequested
-  commentId: F:BundleSystem.BundleManager.TrackInfo.ReleaseRequested
-  fullName: BundleSystem.BundleManager.TrackInfo.ReleaseRequested
-  nameWithType: BundleManager.TrackInfo.ReleaseRequested
+  href: api/BundleSystem.BundleManager.TrackInfo.TrackStatus.html#BundleSystem_BundleManager_TrackInfo_TrackStatus_ReleaseRequested
+  commentId: F:BundleSystem.BundleManager.TrackInfo.TrackStatus.ReleaseRequested
+  fullName: BundleSystem.BundleManager.TrackInfo.TrackStatus.ReleaseRequested
+  nameWithType: BundleManager.TrackInfo.TrackStatus.ReleaseRequested
 - uid: BundleSystem.BundleManager.TrackInstanceExplicit*
   name: TrackInstanceExplicit
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_TrackInstanceExplicit_
