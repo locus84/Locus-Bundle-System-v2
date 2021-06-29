@@ -225,17 +225,16 @@ namespace BundleSystem
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static TrackInfo GetInstantiableTrackInfo(int trackId, out LoadedBundle bundle)
+        private static void CheckInstantiableHandle(int trackId, out LoadedBundle bundle, out TrackInfo info)
         {
-            if(!s_TrackInfoDict.TryGetValue(trackId, out var info)) throw new System.Exception("Handle is not valid");
+            if(!s_TrackInfoDict.TryGetValue(trackId, out info)) throw new System.Exception("Handle is not valid");
             if (!s_AssetBundles.TryGetValue(info.BundleName, out bundle)) throw new System.Exception("Bundle is not found");
             if(info.Asset == s_LoadingObjectDummy) throw new System.Exception("Asset is currently loading");
-            return info;
         }
         
         public static GameObject Instantiate(this TrackHandle<GameObject> handle)
         {
-            var info = GetInstantiableTrackInfo(handle.Id, out var bundle);
+            CheckInstantiableHandle(handle.Id, out var bundle, out var info);
             var instance = GameObject.Instantiate(info.Asset as GameObject);
             TrackInstanceObject<GameObject>(instance.transform, info.Asset, bundle);
             return instance;
@@ -243,7 +242,7 @@ namespace BundleSystem
 
         public static GameObject Instantiate(this TrackHandle<GameObject> handle, Transform parent)
         {
-            var info = GetInstantiableTrackInfo(handle.Id, out var bundle);
+            CheckInstantiableHandle(handle.Id, out var bundle, out var info);
             var instance = GameObject.Instantiate(info.Asset as GameObject, parent);
             TrackInstanceObject<GameObject>(instance.transform, info.Asset, bundle);
             return instance;
@@ -251,7 +250,7 @@ namespace BundleSystem
 
         public static GameObject Instantiate(this TrackHandle<GameObject> handle, Transform parent, bool instantiateInWorldSpace)
         {
-            var info = GetInstantiableTrackInfo(handle.Id, out var bundle);
+            CheckInstantiableHandle(handle.Id, out var bundle, out var info);
             var instance = GameObject.Instantiate(info.Asset as GameObject, parent, instantiateInWorldSpace);
             TrackInstanceObject<GameObject>(instance.transform, info.Asset, bundle);
             return instance;
@@ -259,7 +258,7 @@ namespace BundleSystem
 
         public static GameObject Instantiate(this TrackHandle<GameObject> handle, Vector3 position, Quaternion rotation)
         {
-            var info = GetInstantiableTrackInfo(handle.Id, out var bundle);
+            CheckInstantiableHandle(handle.Id, out var bundle, out var info);
             var instance = GameObject.Instantiate(info.Asset as GameObject, position, rotation);
             TrackInstanceObject<GameObject>(instance.transform, info.Asset, bundle);
             return instance;
@@ -267,7 +266,7 @@ namespace BundleSystem
 
         public static GameObject Instantiate(this TrackHandle<GameObject> handle, Vector3 position, Quaternion rotation, Transform parent)
         {
-            var info = GetInstantiableTrackInfo(handle.Id, out var bundle);
+            CheckInstantiableHandle(handle.Id, out var bundle, out var info);
             var instance = GameObject.Instantiate(info.Asset as GameObject, position, rotation, parent);
             TrackInstanceObject<GameObject>(instance.transform, info.Asset, bundle);
             return instance;
