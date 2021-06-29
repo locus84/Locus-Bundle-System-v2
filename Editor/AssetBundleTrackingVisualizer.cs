@@ -9,7 +9,7 @@ public class AssetBundleTrackingVisualizer : EditorWindow
 {
     [MenuItem("Window/Asset Management/AssetBundle Tracking Visualizer")]
     static void Init() => EditorWindow.GetWindow<AssetBundleTrackingVisualizer>(false, "AssetBundle TrackInfos").Show();
-    static Dictionary<int, TrackInfo> s_TrackInfoCache = new Dictionary<int, TrackInfo>();
+    Dictionary<string, List<KeyValuePair<int, TrackInfo>>> m_ProcessedDict = null;
     Vector2 m_ScrollPosition;
     Dictionary<string, bool> m_Foldout = new Dictionary<string, bool>();
     bool m_LiveUpdate = true;
@@ -17,8 +17,11 @@ public class AssetBundleTrackingVisualizer : EditorWindow
     
     void OnGUI()
     {
-        if(m_LiveUpdate) BundleManager.GetTrackingSnapshotNonAlloc(s_TrackInfoCache);
-        var dict = s_TrackInfoCache.GroupBy(kv => kv.Value.BundleName).OrderByDescending(grp => grp.Count()).ToDictionary(grp => grp.Key, grp => grp.ToList());
+        if(m_LiveUpdate || m_ProcessedDict == null) 
+        {
+            var snapShot = BundleManager.GetTrackingSnapshot();
+            m_ProcessedDict = snapShot.GroupBy(kv => kv.Value.BundleName).OrderByDescending(grp => grp.Count()).ToDictionary(grp => grp.Key, grp => grp.ToList());
+        }
 
         EditorGUILayout.BeginHorizontal();
         m_LiveUpdate = EditorGUILayout.Toggle("Live Update", m_LiveUpdate);
@@ -39,7 +42,7 @@ public class AssetBundleTrackingVisualizer : EditorWindow
 
         m_ScrollPosition = EditorGUILayout.BeginScrollView(m_ScrollPosition, false, true);
 
-        foreach(var kv in dict)
+        foreach(var kv in m_ProcessedDict)
         {
             var foldOut = default(bool);
 
