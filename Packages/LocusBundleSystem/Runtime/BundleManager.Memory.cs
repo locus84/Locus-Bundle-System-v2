@@ -84,9 +84,9 @@ namespace BundleSystem
         internal static bool IsTrackHandleValidInternal(int id) => id != 0 && s_TrackInfoDict.ContainsKey(id);
         internal static void SupressAutoReleaseInternal(int id)
         {
-            if(id != 0 && s_TrackInfoDict.TryGetValue(id, out var info) && !info.IsPinned)
+            if(id != 0 && s_TrackInfoDict.TryGetValue(id, out var info) && info.Status == TrackInfo.TrackStatus.AutoReleasable)
             {
-                info.Pin();
+                info.Status = TrackInfo.TrackStatus.Pinned;
                 s_TrackInfoDict[id] = info;
             }
         } 
@@ -170,13 +170,12 @@ namespace BundleSystem
 
         public struct TrackInfo
         {
+            public enum TrackStatus { AutoReleasable, Pinned, ReleaseRequested }
             public Component Owner;
             public Object Asset;
             public string BundleName;
             public float LoadTime;
-            public bool ReleaseRequested;
-            public bool IsPinned => LoadTime >= float.MaxValue;
-            public void Pin() => LoadTime = float.MaxValue;
+            public TrackStatus Status;
         }
 
         private static TrackHandle<T> TrackObject<T>(Component owner, Object asset, LoadedBundle loadedBundle) where T : Object
@@ -187,7 +186,8 @@ namespace BundleSystem
                 BundleName = loadedBundle.Name,
                 Owner = owner,
                 Asset = asset,
-                LoadTime = Time.realtimeSinceStartup
+                LoadTime = Time.realtimeSinceStartup,
+                Status = TrackInfo.TrackStatus.AutoReleasable
             });
 
             RetainBundle(loadedBundle);
@@ -202,7 +202,8 @@ namespace BundleSystem
                 BundleName = loadedBundle.Name,
                 Owner = owner,
                 Asset = asset,
-                LoadTime = float.MaxValue //pinned initially
+                LoadTime = Time.realtimeSinceStartup,
+                Status = TrackInfo.TrackStatus.Pinned  //pinned initially
             });
 
             //track instance id
@@ -225,7 +226,8 @@ namespace BundleSystem
                     BundleName = loadedBundle.Name,
                     Owner = owner,
                     Asset = assets[i],
-                    LoadTime = Time.realtimeSinceStartup
+                    LoadTime = Time.realtimeSinceStartup,
+                    Status = TrackInfo.TrackStatus.AutoReleasable
                 });
             }
 
@@ -238,7 +240,7 @@ namespace BundleSystem
         {
             if(trackId == 0) return;
             if(!s_TrackInfoDict.TryGetValue(trackId, out var info)) return;
-            info.ReleaseRequested = true;
+            info.Status = TrackInfo.TrackStatus.ReleaseRequested;
             s_TrackInfoDict[trackId] = info;
         }
 
@@ -341,13 +343,19 @@ namespace BundleSystem
                 if (!s_TrackInfoDict.TryGetNext(out var kv)) break;
                 //we don't want to release bundle while we're loading from it
                 if (kv.Value.Asset == s_LoadingObjectDummy) continue;
+                
+                //release requested or owner  is null
+                var shouldRelease = kv.Value.Owner == null || kv.Value.Status == TrackInfo.TrackStatus.ReleaseRequested;
 
-                //calculate time
-                var timePassed = kv.Value.LoadTime <= Time.realtimeSinceStartup - (immediate? 0f: 1f);
-                
-                //not valid cases
-                if (!kv.Value.ReleaseRequested && !timePassed && kv.Value.Owner != null) continue;
-                
+                //not abrove but autoreleasetime passed
+                if(!shouldRelease && kv.Value.Status == TrackInfo.TrackStatus.AutoReleasable)
+                {
+                    shouldRelease = kv.Value.LoadTime <= Time.realtimeSinceStartup - (immediate? 0f: 1f);
+                }
+
+                //continue when it does not need to be released
+                if(!shouldRelease) continue;
+
                 s_TrackInfoDict.Remove(kv.Key);
                 var instanceId = kv.Value.Owner.GetInstanceID();
                 if(s_TrackInstanceTransformDict.TryGetValue(instanceId, out var foundId) && foundId == kv.Key) 
