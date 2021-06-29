@@ -3,6 +3,7 @@ using UnityEditor;
 using TrackInfo = BundleSystem.BundleManager.TrackInfo;
 using System.Collections.Generic;
 using BundleSystem;
+using System.Linq;
 
 public class AssetBundleTrackingVisualizer : EditorWindow
 {
@@ -10,29 +11,78 @@ public class AssetBundleTrackingVisualizer : EditorWindow
     static void Init() => EditorWindow.GetWindow<AssetBundleTrackingVisualizer>(false, "AssetBundle TrackInfos").Show();
     static Dictionary<int, TrackInfo> s_TrackInfoCache = new Dictionary<int, TrackInfo>();
     Vector2 m_ScrollPosition;
+    Dictionary<string, bool> m_Foldout = new Dictionary<string, bool>();
+    bool m_LiveUpdate = true;
+    bool m_ForceExpend = false;
     
     void OnGUI()
     {
-        BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc(s_TrackInfoCache);
-        m_ScrollPosition = EditorGUILayout.BeginScrollView(m_ScrollPosition, false, true);
+        if(m_LiveUpdate) BundleManager.GetTrackingSnapshotNonAlloc(s_TrackInfoCache);
+        var dict = s_TrackInfoCache.GroupBy(kv => kv.Value.BundleName).OrderByDescending(grp => grp.Count()).ToDictionary(grp => grp.Key, grp => grp.ToList());
+
         EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField($"Key", GUILayout.Width(200));
-        EditorGUILayout.LabelField($"Owner", GUILayout.Width(200));
-        EditorGUILayout.LabelField($"Asset", GUILayout.Width(200));
+        m_LiveUpdate = EditorGUILayout.Toggle("Live Update", m_LiveUpdate);
+        m_ForceExpend = EditorGUILayout.Toggle("Force Expend", m_ForceExpend);
         EditorGUILayout.EndHorizontal();
-        foreach(var kv in s_TrackInfoCache)
+
+        DrawUILine(Color.gray);
+
+        EditorGUILayout.BeginHorizontal();
+        EditorGUI.indentLevel ++;
+        EditorGUILayout.LabelField($"Track ID", GUILayout.Width(100));
+        EditorGUILayout.LabelField($"Track Owner", GUILayout.Width(200));
+        EditorGUILayout.LabelField($"Loaded Asset", GUILayout.Width(200));
+        EditorGUI.indentLevel --;
+        EditorGUILayout.EndHorizontal();
+        
+        DrawUILine(Color.gray);
+
+        m_ScrollPosition = EditorGUILayout.BeginScrollView(m_ScrollPosition, false, true);
+
+        foreach(var kv in dict)
         {
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField($"{kv.Key} - {kv.Value.BundleName.ToString()}", GUILayout.Width(200));
-            EditorGUILayout.ObjectField(kv.Value.Owner, typeof(UnityEngine.Object), true, GUILayout.Width(200));
-            EditorGUILayout.ObjectField(kv.Value.Asset, typeof(UnityEngine.Object), false, GUILayout.Width(200));
-            EditorGUILayout.EndHorizontal();
+            var foldOut = default(bool);
+
+            if(m_ForceExpend)
+            {
+                EditorGUILayout.Foldout(true, $"{kv.Key} - {kv.Value.Count}");
+                foldOut = true;
+            }
+            else
+            {
+                foldOut = EditorGUILayout.Foldout(m_Foldout.TryGetValue(kv.Key, out var value) && value, $"BundleName - {kv.Key}, TrackCount - {kv.Value.Count}");
+                m_Foldout[kv.Key] = foldOut;
+            }
+            
+            if(foldOut)
+            {
+                EditorGUI.indentLevel ++;
+                foreach(var trackKv in kv.Value)
+                {
+                    EditorGUILayout.BeginHorizontal();
+                    EditorGUILayout.LabelField($"{trackKv.Key}", GUILayout.Width(100));
+                    EditorGUILayout.ObjectField(trackKv.Value.Owner, typeof(UnityEngine.Object), true, GUILayout.Width(200));
+                    EditorGUILayout.ObjectField(trackKv.Value.Asset, typeof(UnityEngine.Object), false, GUILayout.Width(200));
+                    EditorGUILayout.EndHorizontal();
+                }
+                EditorGUI.indentLevel --;
+            } 
         }
         EditorGUILayout.EndScrollView();
     }
 
     private void Update()
     {
-        Repaint();
+        if(m_LiveUpdate) Repaint();
+    }
+
+    static void DrawUILine(Color color, int thickness = 2, int padding = 10)
+    {
+        Rect r = EditorGUILayout.GetControlRect(GUILayout.Height(padding+thickness));
+        r.height = thickness;
+        r.y+=padding/2;
+        r.x-=2;
+        r.width +=6;
+        EditorGUI.DrawRect(r, color);
     }
 }
