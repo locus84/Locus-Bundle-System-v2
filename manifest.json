@@ -216,35 +216,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BundleSystem.BundleManager.TrackInfo.TrackStatus.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/BundleSystem.BundleManager.TrackInfo.TrackStatus.html",
-          "hash": "wiKR7z3PXXmiAokSD2HX0I6gvMxIYasgcdj5D9YQefQ="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/BundleSystem.BundleManager.TrackInfo.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/BundleSystem.BundleManager.TrackInfo.html",
-          "hash": "SuVbixaKbwwF6cFNeS3ExykDPgfYgeh2f0LnGjQj0yk="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/BundleSystem.BundleManager.yml",
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.BundleManager.html",
-          "hash": "AHJVMQ2Xy0W98FGNFD1tSULyJVuBmtZ5aECRQzCJr6U="
+          "hash": "9mPP6NTGh1WYEedRBukLpZB02IUY3d38hPrVcmkUPCk="
         }
       },
       "is_incremental": false,
@@ -312,6 +288,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.TrackInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.TrackInfo.html",
+          "hash": "XZts5h+3KXKJQylnD/VRtpehq6jFmFC6qdbObL599co="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.TrackStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.TrackStatus.html",
+          "hash": "33col37a7XJ7wVX6FvUSRmy9h/6rP95QpeTgQrPszpg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/BundleSystem.Utility.yml",
       "output": {
         ".html": {
@@ -328,7 +328,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.html",
-          "hash": "nQ5T80TPiGzYxJmD7rzjUbFGHfhaDb2fyVaYykzxbwE="
+          "hash": "PPIoXSO4Mj/HbHGGKqmzN5WsE760kywDaLnuTV8E9Qw="
         }
       },
       "is_incremental": false,
@@ -340,7 +340,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "JhPWRHGiKa2X78v2CozHZWZRJjk2MABFnsAtUJojaNk="
+          "hash": "LQ8bHV0TyxKtG9O2WWnpIk23zCEVCDZLV5TXIxW/+n4="
         }
       },
       "is_incremental": false,

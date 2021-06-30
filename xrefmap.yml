@@ -1253,15 +1253,15 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.GetTrackingSnapshot
   nameWithType: BundleManager.GetTrackingSnapshot
-- uid: BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc(System.Collections.Generic.Dictionary{System.Int32,BundleSystem.BundleManager.TrackInfo})
-  name: GetTrackingSnapshotNonAlloc(Dictionary<Int32, BundleManager.TrackInfo>)
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetTrackingSnapshotNonAlloc_System_Collections_Generic_Dictionary_System_Int32_BundleSystem_BundleManager_TrackInfo__
-  commentId: M:BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc(System.Collections.Generic.Dictionary{System.Int32,BundleSystem.BundleManager.TrackInfo})
-  name.vb: GetTrackingSnapshotNonAlloc(Dictionary(Of Int32, BundleManager.TrackInfo))
-  fullName: BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc(System.Collections.Generic.Dictionary<System.Int32, BundleSystem.BundleManager.TrackInfo>)
-  fullName.vb: BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc(System.Collections.Generic.Dictionary(Of System.Int32, BundleSystem.BundleManager.TrackInfo))
-  nameWithType: BundleManager.GetTrackingSnapshotNonAlloc(Dictionary<Int32, BundleManager.TrackInfo>)
-  nameWithType.vb: BundleManager.GetTrackingSnapshotNonAlloc(Dictionary(Of Int32, BundleManager.TrackInfo))
+- uid: BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc(System.Collections.Generic.Dictionary{System.Int32,BundleSystem.TrackInfo})
+  name: GetTrackingSnapshotNonAlloc(Dictionary<Int32, TrackInfo>)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetTrackingSnapshotNonAlloc_System_Collections_Generic_Dictionary_System_Int32_BundleSystem_TrackInfo__
+  commentId: M:BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc(System.Collections.Generic.Dictionary{System.Int32,BundleSystem.TrackInfo})
+  name.vb: GetTrackingSnapshotNonAlloc(Dictionary(Of Int32, TrackInfo))
+  fullName: BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc(System.Collections.Generic.Dictionary<System.Int32, BundleSystem.TrackInfo>)
+  fullName.vb: BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc(System.Collections.Generic.Dictionary(Of System.Int32, BundleSystem.TrackInfo))
+  nameWithType: BundleManager.GetTrackingSnapshotNonAlloc(Dictionary<Int32, TrackInfo>)
+  nameWithType.vb: BundleManager.GetTrackingSnapshotNonAlloc(Dictionary(Of Int32, TrackInfo))
 - uid: BundleSystem.BundleManager.GetTrackingSnapshotNonAlloc*
   name: GetTrackingSnapshotNonAlloc
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetTrackingSnapshotNonAlloc_
@@ -1553,66 +1553,6 @@ references:
   fullName.vb: BundleSystem.BundleManager.TrackExplicit(Of TRef, T)(BundleSystem.TrackHandle(Of TRef), T, Component)
   nameWithType: BundleManager.TrackExplicit<TRef, T>(TrackHandle<TRef>, T, Component)
   nameWithType.vb: BundleManager.TrackExplicit(Of TRef, T)(TrackHandle(Of TRef), T, Component)
-- uid: BundleSystem.BundleManager.TrackInfo
-  name: BundleManager.TrackInfo
-  href: api/BundleSystem.BundleManager.TrackInfo.html
-  commentId: T:BundleSystem.BundleManager.TrackInfo
-  fullName: BundleSystem.BundleManager.TrackInfo
-  nameWithType: BundleManager.TrackInfo
-- uid: BundleSystem.BundleManager.TrackInfo.Asset
-  name: Asset
-  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_Asset
-  commentId: F:BundleSystem.BundleManager.TrackInfo.Asset
-  fullName: BundleSystem.BundleManager.TrackInfo.Asset
-  nameWithType: BundleManager.TrackInfo.Asset
-- uid: BundleSystem.BundleManager.TrackInfo.BundleName
-  name: BundleName
-  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_BundleName
-  commentId: F:BundleSystem.BundleManager.TrackInfo.BundleName
-  fullName: BundleSystem.BundleManager.TrackInfo.BundleName
-  nameWithType: BundleManager.TrackInfo.BundleName
-- uid: BundleSystem.BundleManager.TrackInfo.LoadTime
-  name: LoadTime
-  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_LoadTime
-  commentId: F:BundleSystem.BundleManager.TrackInfo.LoadTime
-  fullName: BundleSystem.BundleManager.TrackInfo.LoadTime
-  nameWithType: BundleManager.TrackInfo.LoadTime
-- uid: BundleSystem.BundleManager.TrackInfo.Owner
-  name: Owner
-  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_Owner
-  commentId: F:BundleSystem.BundleManager.TrackInfo.Owner
-  fullName: BundleSystem.BundleManager.TrackInfo.Owner
-  nameWithType: BundleManager.TrackInfo.Owner
-- uid: BundleSystem.BundleManager.TrackInfo.Status
-  name: Status
-  href: api/BundleSystem.BundleManager.TrackInfo.html#BundleSystem_BundleManager_TrackInfo_Status
-  commentId: F:BundleSystem.BundleManager.TrackInfo.Status
-  fullName: BundleSystem.BundleManager.TrackInfo.Status
-  nameWithType: BundleManager.TrackInfo.Status
-- uid: BundleSystem.BundleManager.TrackInfo.TrackStatus
-  name: BundleManager.TrackInfo.TrackStatus
-  href: api/BundleSystem.BundleManager.TrackInfo.TrackStatus.html
-  commentId: T:BundleSystem.BundleManager.TrackInfo.TrackStatus
-  fullName: BundleSystem.BundleManager.TrackInfo.TrackStatus
-  nameWithType: BundleManager.TrackInfo.TrackStatus
-- uid: BundleSystem.BundleManager.TrackInfo.TrackStatus.AutoReleasable
-  name: AutoReleasable
-  href: api/BundleSystem.BundleManager.TrackInfo.TrackStatus.html#BundleSystem_BundleManager_TrackInfo_TrackStatus_AutoReleasable
-  commentId: F:BundleSystem.BundleManager.TrackInfo.TrackStatus.AutoReleasable
-  fullName: BundleSystem.BundleManager.TrackInfo.TrackStatus.AutoReleasable
-  nameWithType: BundleManager.TrackInfo.TrackStatus.AutoReleasable
-- uid: BundleSystem.BundleManager.TrackInfo.TrackStatus.Pinned
-  name: Pinned
-  href: api/BundleSystem.BundleManager.TrackInfo.TrackStatus.html#BundleSystem_BundleManager_TrackInfo_TrackStatus_Pinned
-  commentId: F:BundleSystem.BundleManager.TrackInfo.TrackStatus.Pinned
-  fullName: BundleSystem.BundleManager.TrackInfo.TrackStatus.Pinned
-  nameWithType: BundleManager.TrackInfo.TrackStatus.Pinned
-- uid: BundleSystem.BundleManager.TrackInfo.TrackStatus.ReleaseRequested
-  name: ReleaseRequested
-  href: api/BundleSystem.BundleManager.TrackInfo.TrackStatus.html#BundleSystem_BundleManager_TrackInfo_TrackStatus_ReleaseRequested
-  commentId: F:BundleSystem.BundleManager.TrackInfo.TrackStatus.ReleaseRequested
-  fullName: BundleSystem.BundleManager.TrackInfo.TrackStatus.ReleaseRequested
-  nameWithType: BundleManager.TrackInfo.TrackStatus.ReleaseRequested
 - uid: BundleSystem.BundleManager.TrackInstanceExplicit*
   name: TrackInstanceExplicit
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_TrackInstanceExplicit_
@@ -2007,6 +1947,73 @@ references:
   fullName.vb: BundleSystem.TrackHandle(Of T).Release
   nameWithType: TrackHandle<T>.Release
   nameWithType.vb: TrackHandle(Of T).Release
+- uid: BundleSystem.TrackInfo
+  name: TrackInfo
+  href: api/BundleSystem.TrackInfo.html
+  commentId: T:BundleSystem.TrackInfo
+  fullName: BundleSystem.TrackInfo
+  nameWithType: TrackInfo
+- uid: BundleSystem.TrackInfo.Asset
+  name: Asset
+  href: api/BundleSystem.TrackInfo.html#BundleSystem_TrackInfo_Asset
+  commentId: F:BundleSystem.TrackInfo.Asset
+  fullName: BundleSystem.TrackInfo.Asset
+  nameWithType: TrackInfo.Asset
+- uid: BundleSystem.TrackInfo.BundleName
+  name: BundleName
+  href: api/BundleSystem.TrackInfo.html#BundleSystem_TrackInfo_BundleName
+  commentId: P:BundleSystem.TrackInfo.BundleName
+  fullName: BundleSystem.TrackInfo.BundleName
+  nameWithType: TrackInfo.BundleName
+- uid: BundleSystem.TrackInfo.BundleName*
+  name: BundleName
+  href: api/BundleSystem.TrackInfo.html#BundleSystem_TrackInfo_BundleName_
+  commentId: Overload:BundleSystem.TrackInfo.BundleName
+  isSpec: "True"
+  fullName: BundleSystem.TrackInfo.BundleName
+  nameWithType: TrackInfo.BundleName
+- uid: BundleSystem.TrackInfo.LoadTime
+  name: LoadTime
+  href: api/BundleSystem.TrackInfo.html#BundleSystem_TrackInfo_LoadTime
+  commentId: F:BundleSystem.TrackInfo.LoadTime
+  fullName: BundleSystem.TrackInfo.LoadTime
+  nameWithType: TrackInfo.LoadTime
+- uid: BundleSystem.TrackInfo.Owner
+  name: Owner
+  href: api/BundleSystem.TrackInfo.html#BundleSystem_TrackInfo_Owner
+  commentId: F:BundleSystem.TrackInfo.Owner
+  fullName: BundleSystem.TrackInfo.Owner
+  nameWithType: TrackInfo.Owner
+- uid: BundleSystem.TrackInfo.Status
+  name: Status
+  href: api/BundleSystem.TrackInfo.html#BundleSystem_TrackInfo_Status
+  commentId: F:BundleSystem.TrackInfo.Status
+  fullName: BundleSystem.TrackInfo.Status
+  nameWithType: TrackInfo.Status
+- uid: BundleSystem.TrackStatus
+  name: TrackStatus
+  href: api/BundleSystem.TrackStatus.html
+  commentId: T:BundleSystem.TrackStatus
+  fullName: BundleSystem.TrackStatus
+  nameWithType: TrackStatus
+- uid: BundleSystem.TrackStatus.AutoReleasable
+  name: AutoReleasable
+  href: api/BundleSystem.TrackStatus.html#BundleSystem_TrackStatus_AutoReleasable
+  commentId: F:BundleSystem.TrackStatus.AutoReleasable
+  fullName: BundleSystem.TrackStatus.AutoReleasable
+  nameWithType: TrackStatus.AutoReleasable
+- uid: BundleSystem.TrackStatus.Pinned
+  name: Pinned
+  href: api/BundleSystem.TrackStatus.html#BundleSystem_TrackStatus_Pinned
+  commentId: F:BundleSystem.TrackStatus.Pinned
+  fullName: BundleSystem.TrackStatus.Pinned
+  nameWithType: TrackStatus.Pinned
+- uid: BundleSystem.TrackStatus.ReleaseRequested
+  name: ReleaseRequested
+  href: api/BundleSystem.TrackStatus.html#BundleSystem_TrackStatus_ReleaseRequested
+  commentId: F:BundleSystem.TrackStatus.ReleaseRequested
+  fullName: BundleSystem.TrackStatus.ReleaseRequested
+  nameWithType: TrackStatus.ReleaseRequested
 - uid: BundleSystem.Utility
   name: Utility
   href: api/BundleSystem.Utility.html
