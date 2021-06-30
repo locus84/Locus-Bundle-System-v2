@@ -92,21 +92,21 @@ namespace BundleSystem
 
             //we do care only prefab
             var hashSet = new HashSet<string>();
-            foreach(var objInfo in sceneInfo.referencedObjects)
+            foreach (var objInfo in sceneInfo.referencedObjects)
             {
-                if(objInfo.fileType != UnityEditor.Build.Content.FileType.MetaAssetType) continue;
+                if (objInfo.fileType != UnityEditor.Build.Content.FileType.MetaAssetType) continue;
                 var path = AssetDatabase.GUIDToAssetPath(objInfo.guid.ToString());
-                if(!path.EndsWith(".prefab")) continue;
+                if (!path.EndsWith(".prefab")) continue;
                 hashSet.Add(path);
             }
-            
+
             //remove direct reference of the prefab and append the deps of the prefab we removed
             var appendList = new List<string>();
-            for(int i = list.Count - 1; i >= 0; i--)
+            for (int i = list.Count - 1; i >= 0; i--)
             {
                 var child = list[i];
-                if(AssetDatabase.GetMainAssetTypeAtPath(child) != typeof(UnityEngine.GameObject)) continue;
-                if(hashSet.Contains(child)) continue;
+                if (AssetDatabase.GetMainAssetTypeAtPath(child) != typeof(UnityEngine.GameObject)) continue;
+                if (hashSet.Contains(child)) continue;
                 list.RemoveAt(i);
                 var deps = AssetDatabase.GetDependencies(child, false);
                 appendList.AddRange(deps);
@@ -116,7 +116,7 @@ namespace BundleSystem
             list.AddRange(appendList);
 
             //remove duplicates and return
-            return list.Distinct().ToArray(); 
+            return list.Distinct().ToArray();
         }
     }
 #endif
@@ -137,7 +137,7 @@ namespace BundleSystem
         public static string CombinePath(params string[] args)
         {
             var combined = Path.Combine(args);
-            if(Path.DirectorySeparatorChar == '\\') combined = combined.Replace('\\', '/');
+            if (Path.DirectorySeparatorChar == '\\') combined = combined.Replace('\\', '/');
             return combined;
         }
     }

@@ -17,30 +17,32 @@ namespace Tests
         [UnitySetUp]
         public IEnumerator InitializeTestSetup()
         {
+            var downloadBundles = true;
 #if UNITY_EDITOR
             //no setting
-            if(!AssetBundleBuildSetting.TryGetActiveSetting(out var setting)) yield break;
+            if (!AssetBundleBuildSetting.TryGetActiveSetting(out var setting)) yield break;
 
             //load target test setting
             var toTest = AssetDatabase.LoadAssetAtPath<AssetBundleBuildSetting>("Assets/TestRemoteResources/AssetBundleBuildSetting.asset");
 
-            if(toTest != setting)
+            if (toTest != setting)
             {
                 //cache prev setting to recover
                 m_PrevActiveSettingCache = setting;
                 //make it active setting
                 AssetBundleBuildSetting.SetActiveSetting(toTest, true);
+                //do not download bundles if not emulation in editor
+                downloadBundles = !BundleManager.UseAssetDatabaseMap;
             }
 #endif
             //log messages
             BundleManager.LogMessages = true;
-            BundleManager.ShowDebugGUI = true;
 
             //actual initialize function
             yield return BundleManager.Initialize();
 
             //skip remote bundle download test in build
-            if(Application.isEditor)
+            if (downloadBundles)
             {
                 var manifestReq = BundleManager.GetManifest();
                 yield return manifestReq;
@@ -54,12 +56,15 @@ namespace Tests
         public void RestoreActiveSetting()
         {
 #if UNITY_EDITOR
-            if(m_PrevActiveSettingCache != null)
+            if (m_PrevActiveSettingCache != null)
             {
                 //restore setting
                 AssetBundleBuildSetting.SetActiveSetting(m_PrevActiveSettingCache);
             }
 #endif
+            //when cleaning up, if m_owner 
+            //has additional component inside a test, this will be re-created
+            GameObject.Destroy(m_Owner.gameObject);
         }
 
         [Test]
@@ -70,22 +75,20 @@ namespace Tests
             Assert.NotNull(texReq.Asset);
         }
 
-        UnityEngine.UI.Image m_Image;
-
-        TrackHandle<Sprite> m_SpriteHandle;
 
         [UnityTest]
         public IEnumerator AsyncApiTest()
         {
-            m_Image = m_Owner.gameObject.AddComponent<UnityEngine.UI.Image>();
-            var spriteReq = m_Image.LoadAsync<Sprite>("Object", "TestSprite");
-            //disabled
+            var go = new GameObject("Go");
+            var image = go.AddComponent<UnityEngine.UI.Image>();
+            var spriteReq = image.LoadAsync<Sprite>("Object", "TestSprite");
             yield return spriteReq;
-            m_Image.sprite = spriteReq.Pin().Asset;
-            spriteReq.Handle.Override(ref m_SpriteHandle);
+            image.sprite = spriteReq.Pin().Asset;
+            var handle = default(TrackHandle<Sprite>);
+            spriteReq.Handle.Override(ref handle);
             BundleManager.UpdateImmediate();
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 1);
-            m_SpriteHandle.Release();
+            handle.Release();
             BundleManager.UpdateImmediate();
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
         }
@@ -93,18 +96,46 @@ namespace Tests
         [UnityTest]
         public IEnumerator SceneApiTest()
         {
-            var loadReq = BundleManager.LoadSceneAsync("Scene", "TestScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
-            yield return loadReq;
+            //scene load test
+            {
+                var loadReq1 = BundleManager.LoadSceneAsync("TestScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+                yield return loadReq1;
+                Assert.IsTrue(loadReq1.Scene.IsValid() && loadReq1.Succeeded);
 
-            //the scene have 3 root game object
-            Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 3);
+                //load subscene which contains two gameobjects
+                var loadReq2 = BundleManager.LoadSceneAsync("TestScene_SubDir", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+                yield return loadReq2;
 
-            yield return new WaitForSecondsRealtime(2); 
-            Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 3); // does not auto released (pinned)
+                var loadReq3 = BundleManager.LoadSceneAsync("TestScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+                yield return loadReq3;
 
-            //the game objects must be there
+                //allow error message
+                LogAssert.ignoreFailingMessages = true;
+                var loadReq4 = BundleManager.LoadSceneAsync("TestSceneUnknown", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+                yield return loadReq4;
+                Assert.IsTrue(!loadReq4.Scene.IsValid() && !loadReq4.Succeeded);
+                LogAssert.ignoreFailingMessages = false;
+
+                //there are two same scene loaded with 3 objects + 2 for subscene -> 3 * 2 + 2 = 8
+                Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 8);
+
+                //unload two scene (total 5 objects)
+                yield return SceneManager.UnloadSceneAsync(loadReq1.Scene);
+                yield return SceneManager.UnloadSceneAsync(loadReq2.Scene);
+
+                //letmanager update destryed
+                BundleManager.UpdateImmediate();
+                Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 3);
+
+                //check the scene objects are propery pinned
+                yield return new WaitForSecondsRealtime(2);
+                Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 3);
+            }
+
+            //the game objects must be there(in TestScene)
             var parentGo = GameObject.Find("TestSceneObject");
             var childGo = GameObject.Find("TestSceneObjectChild");
+
             Assert.NotNull(parentGo);
             Assert.NotNull(childGo);
 
@@ -125,7 +156,7 @@ namespace Tests
             BundleManager.UpdateImmediate();
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
         }
-        
+
         [UnityTest]
         public IEnumerator PinTest()
         {
@@ -135,6 +166,8 @@ namespace Tests
                 yield return spriteReq;
                 Assert.NotNull(spriteReq.Asset);
                 yield return new WaitForSecondsRealtime(2);
+
+                //after two seconds, it must be auto-released
                 Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
             }
 
@@ -144,46 +177,61 @@ namespace Tests
                 yield return spriteReq;
                 Assert.NotNull(spriteReq.Pin().Asset);
                 yield return new WaitForSecondsRealtime(2);
+
+                //it must not be auto-released as it's pinned 
                 Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 1);
                 spriteReq.Dispose();
                 BundleManager.UpdateImmediate();
                 Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
             }
-            
+
             //dispose
             {
                 var spriteReq = m_Owner.LoadAsync<Sprite>("Object", "TestSprite");
                 yield return spriteReq;
                 Assert.NotNull(spriteReq.Asset);
+
+                //dispose function releases handle so it should be released
                 spriteReq.Dispose();
                 BundleManager.UpdateImmediate();
                 Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
             }
-            
+
             //handle release
             {
                 var spriteReq = m_Owner.LoadAsync<Sprite>("Object", "TestSprite");
                 yield return spriteReq;
                 Assert.NotNull(spriteReq.Asset);
+
+                //release function explicitely release a handle
                 spriteReq.Handle.Release();
                 BundleManager.UpdateImmediate();
                 Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
             }
         }
 
-
         [UnityTest]
         public IEnumerator TaskAsyncApiTest()
         {
             var task = TaskAsyncApiTestFunction();
-            while(!task.IsCompleted) yield return null;
+            while (!task.IsCompleted) yield return null;
         }
 
         private async Task TaskAsyncApiTestFunction()
         {
-            var req = await m_Owner.LoadAsync<Sprite>("Object", "TestSprite");
-            m_Image.sprite = req.Asset;
-            req.Handle.Override(ref m_SpriteHandle);
+            var go = new GameObject("Go");
+            var image = go.AddComponent<UnityEngine.UI.Image>();
+            var req = await image.LoadAsync<Sprite>("Object", "TestSprite");
+            image.sprite = req.Pin().Asset;
+            var prevHandle = req.Handle;
+            var otherReq = await image.LoadAsync<Sprite>("Object", "TestSprite");
+            image.sprite = otherReq.Pin().Asset;
+            otherReq.Handle.Override(ref prevHandle);
+            BundleManager.UpdateImmediate();
+            Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 1);
+            prevHandle.Release(); //it's overriden and pointing new handle
+            BundleManager.UpdateImmediate();
+            Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
         }
     }
 }

@@ -19,9 +19,9 @@ namespace BundleSystem
 
             //there should be a local bundle
             var localBundleSourcePath = Utility.CombinePath(setting.OutputPath, EditorUserBuildSettings.activeBuildTarget.ToString());
-            if(!Directory.Exists(localBundleSourcePath))
+            if (!Directory.Exists(localBundleSourcePath))
             {
-                if(Application.isBatchMode)
+                if (Application.isBatchMode)
                 {
                     Debug.LogError("Missing built local bundle directory, Locus bundle system won't work properly.");
                     return; //we can't build now as it's in batchmode
@@ -29,7 +29,7 @@ namespace BundleSystem
                 else
                 {
                     var buildNow = EditorUtility.DisplayDialog("LocusBundleSystem", "Warning - Missing built bundle directory, would you like to build now?", "Yes", "Not now");
-                    if(!buildNow) return; //user declined
+                    if (!buildNow) return; //user declined
                     AssetBundleBuilder.BuildAssetBundles(setting);
                 }
             }
@@ -41,9 +41,9 @@ namespace BundleSystem
             Directory.CreateDirectory(BundleManager.LocalBundleRuntimePath);
 
             //copy only manifest and local bundles                        
-            foreach(var file in new DirectoryInfo(localBundleSourcePath).GetFiles())
+            foreach (var file in new DirectoryInfo(localBundleSourcePath).GetFiles())
             {
-                if(!localBundleNames.Contains(file.Name) && BundleManager.ManifestFileName != file.Name) continue;
+                if (!localBundleNames.Contains(file.Name) && BundleManager.ManifestFileName != file.Name) continue;
                 FileUtil.CopyFileOrDirectory(file.FullName, Utility.CombinePath(BundleManager.LocalBundleRuntimePath, file.Name));
             }
 
@@ -53,7 +53,7 @@ namespace BundleSystem
         public void OnPostprocessBuild(BuildReport report)
         {
             //delete directory and meta file
-            if(FileUtil.DeleteFileOrDirectory(BundleManager.LocalBundleRuntimePath) || 
+            if (FileUtil.DeleteFileOrDirectory(BundleManager.LocalBundleRuntimePath) ||
                 FileUtil.DeleteFileOrDirectory(BundleManager.LocalBundleRuntimePath + ".meta"))
             {
                 AssetDatabase.Refresh();

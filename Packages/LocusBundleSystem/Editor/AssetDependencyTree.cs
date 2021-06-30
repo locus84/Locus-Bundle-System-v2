@@ -26,7 +26,7 @@ namespace BundleSystem
 
             //collecting reference should be done after adding all root nodes
             //if not, there might be false positive shared bundle that already exist in bundle defines
-            foreach(var setting in bundleSettings)
+            foreach (var setting in bundleSettings)
             {
                 var bundle = new AssetBundleBuild();
                 bundle.assetBundleName = setting.BundleName;
@@ -36,7 +36,7 @@ namespace BundleSystem
 
                 var depsHash = new HashSet<string>();
                 context.DependencyDic.Add(bundle.assetBundleName, depsHash);
-                foreach(var asset in bundle.assetNames)
+                foreach (var asset in bundle.assetNames)
                 {
                     var rootNode = new RootNode(asset, bundle.assetBundleName, depsHash, false, setting.AutoSharedBundle);
                     context.RootNodes.Add(asset, rootNode);
@@ -47,13 +47,13 @@ namespace BundleSystem
             //actually analize and create shared bundles
             foreach (var node in rootNodesToProcess)
             {
-                if(!node.AllowCollect) continue;
+                if (!node.AllowCollect) continue;
                 node.CollectNodes(context);
-            } 
+            }
 
             var sharedBundles = new List<AssetBundleBuild>();
             //convert found shared node proper struct
-            foreach(var sharedRootNode in context.ResultSharedNodes)
+            foreach (var sharedRootNode in context.ResultSharedNodes)
             {
                 var assetNames = new string[] { sharedRootNode.Path };
                 var bundleDefinition = new AssetBundleBuild()
@@ -121,7 +121,7 @@ namespace BundleSystem
                 var childDeps = AssetDatabase.GetDependencies(Path, false);
 
                 //if it's a scene unwarp placed prefab directly into the scene
-                if(Path.EndsWith(".unity")) childDeps = Utility.UnwarpSceneEncodedPrefabs(Path, childDeps);
+                if (Path.EndsWith(".unity")) childDeps = Utility.UnwarpSceneEncodedPrefabs(Path, childDeps);
 
                 foreach (var child in childDeps)
                 {

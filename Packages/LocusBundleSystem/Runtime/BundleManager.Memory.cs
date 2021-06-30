@@ -292,29 +292,24 @@ namespace BundleSystem
             }
         }
 
+        static Dictionary<int, LoadedBundle> s_SceneHandles = new Dictionary<int, LoadedBundle>(); 
         static List<GameObject> s_SceneRootObjectCache = new List<GameObject>();
-        private static void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
+        private static void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadedBundle loadedBundle)
         {
-            //ignore initial scene as it shouln't be loaded by bundle system
-            if(scene.buildIndex == 0) return;
-            //if scene is from assetbundle, path will be assetpath inside bundle
-            if (s_SceneNames.TryGetValue(scene.path, out var loadedBundle))
+            s_SceneHandles.Add(scene.handle, loadedBundle);
+            scene.GetRootGameObjects(s_SceneRootObjectCache);
+            for (int i = 0; i < s_SceneRootObjectCache.Count; i++)
             {
-                RetainBundle(loadedBundle);
-                scene.GetRootGameObjects(s_SceneRootObjectCache);
-                for (int i = 0; i < s_SceneRootObjectCache.Count; i++)
-                {
-                    var owner = s_SceneRootObjectCache[i].transform;
-                    TrackInstanceObject<Object>(owner, s_SceneObjectDummy, loadedBundle);
-                }
-                s_SceneRootObjectCache.Clear();
+                var owner = s_SceneRootObjectCache[i].transform;
+                TrackInstanceObject<Object>(owner, s_SceneObjectDummy, loadedBundle);
             }
+            s_SceneRootObjectCache.Clear();
         }
 
         private static void OnSceneUnloaded(UnityEngine.SceneManagement.Scene scene)
         {
             //if scene is from assetbundle, path will be assetpath inside bundle
-            if (s_SceneNames.TryGetValue(scene.path, out var loadedBundle))
+            if (s_SceneHandles.TryGetValue(scene.handle, out var loadedBundle))
             {
                 ReleaseBundle(loadedBundle);
             }

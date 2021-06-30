@@ -38,9 +38,6 @@ namespace BundleSystem
             m_RemoteURL = serializedObject.FindProperty("RemoteURL");
 
             m_ForceRebuld = serializedObject.FindProperty("ForceRebuild");
-            m_UseCacheServer = serializedObject.FindProperty("UseCacheServer");
-            m_CacheServerHost = serializedObject.FindProperty("CacheServerHost");
-            m_CacheServerPort = serializedObject.FindProperty("CacheServerPort");
 
             m_UseFtp = serializedObject.FindProperty("UseFtp");
             m_FtpHost = serializedObject.FindProperty("FtpHost");
@@ -96,15 +93,6 @@ namespace BundleSystem
             EditorGUILayout.PropertyField(m_CleanCache);
             EditorGUILayout.PropertyField(m_ForceRebuld);
             
-            EditorGUILayout.PropertyField(m_UseCacheServer);
-            if(m_UseCacheServer.boolValue)
-            {
-                EditorGUI.indentLevel ++;
-                EditorGUILayout.PropertyField(m_CacheServerHost);
-                EditorGUILayout.PropertyField(m_CacheServerPort);
-                EditorGUI.indentLevel --;
-            }
-
             EditorGUILayout.PropertyField(m_UseFtp);
             if(m_UseFtp.boolValue)
             {

@@ -17,7 +17,11 @@ namespace BundleSystem
         static List<string> s_EmptyStringList = new List<string>();
 
         public IEnumerable<string> GetBundleNames() => m_Map.Keys;
-        public Dictionary<string, string> GetSceneToBundleName() => new Dictionary<string, string>(m_ScenePathToBundleName);
+
+        /// <summary>
+        /// Scene path to bundle name mapping dictionary, used to feed bundle manager while using AssetDatabase
+        /// </summary>
+        public Dictionary<string, string> GetScenePathToBundleName() => new Dictionary<string, string>(m_ScenePathToBundleName);
         
         public void Append(string bundleName, string[] assetNames, string[] addressableNames)
         {
@@ -61,7 +65,6 @@ namespace BundleSystem
             return assets.Count > 0;
         }
 
-
         public string GetAssetPath<T>(string bundleName, string assetName) where T : UnityEngine.Object
         {
             var assets = GetAssetPaths(bundleName, assetName);
@@ -81,29 +84,6 @@ namespace BundleSystem
             }
 
             return assets[foundIndex];
-        }
-
-        public bool TryGetBundleNameFromSceneAssetPath(string sceneAssetPath, out string bundleName)
-        {
-            return m_ScenePathToBundleName.TryGetValue(sceneAssetPath, out bundleName);
-        }
-
-        public string GetScenePath(string bundleName, string sceneName)
-        {
-            var assets = GetAssetPaths(bundleName, sceneName);
-            if (assets.Count == 0 || UnityEditor.AssetDatabase.GetMainAssetTypeAtPath(assets[0]) == typeof(UnityEngine.SceneManagement.Scene))
-            {
-                Debug.LogError("Request scene name does not exist in streamed scenes : " + sceneName);
-                return string.Empty;
-            }
-
-            if (!Application.isPlaying)
-            {
-                Debug.LogError("Can't load scene while not playing : " + sceneName);
-                return string.Empty;
-            }
-        
-            return assets[0];
         }
     }
 }

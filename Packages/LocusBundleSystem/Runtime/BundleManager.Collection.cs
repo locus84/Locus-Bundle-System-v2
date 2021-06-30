@@ -112,7 +112,7 @@ namespace BundleSystem
 
             public void FillNormalDictionary(Dictionary<TKey, TValue> targetDict)
             {
-                for(int i = 0; i < m_InnerList.Count; i++)
+                for (int i = 0; i < m_InnerList.Count; i++)
                 {
                     targetDict.Add(m_InnerList[i].Key, m_InnerList[i].Value);
                 }

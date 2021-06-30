@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace BundleSystem
 {
-    [CreateAssetMenu(fileName = "AssetBundleBuildSetting.asset", menuName = "Create AssetBundle Build Setting", order = 999)]
+    [CreateAssetMenu(fileName = "FolderBasedAssetBundleBuildSetting.asset", menuName = "Create Folder Based AssetBundle Build Setting", order = 999)]
     public class FolderBasedAssetBundleBuildSetting : AssetBundleBuildSetting
     {
         /// <summary>

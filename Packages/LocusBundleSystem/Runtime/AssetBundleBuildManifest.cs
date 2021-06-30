@@ -9,7 +9,7 @@ namespace BundleSystem
     {
         public static bool TryParse(string json, out AssetBundleBuildManifest manifest)
         {
-            if(string.IsNullOrEmpty(json))
+            if (string.IsNullOrEmpty(json))
             {
                 manifest = default;
                 return false;
@@ -20,7 +20,7 @@ namespace BundleSystem
                 manifest = JsonUtility.FromJson<AssetBundleBuildManifest>(json);
                 return true;
             }
-            catch 
+            catch
             {
                 manifest = default;
                 return false;
@@ -59,7 +59,7 @@ namespace BundleSystem
 
         public bool TryGetBundleHash(string name, out Hash128 hash)
         {
-            if(TryGetBundleInfo(name, out var info))
+            if (TryGetBundleInfo(name, out var info))
             {
                 hash = Hash128.Parse(info.HashString);
                 return true;
@@ -78,9 +78,9 @@ namespace BundleSystem
         {
             var bundleInfoDic = BundleInfos.ToDictionary(info => info.BundleName);
             var resultDic = new Dictionary<string, BundleInfo>();
-            foreach(var name in subsetNames)
+            foreach (var name in subsetNames)
             {
-                if(!bundleInfoDic.TryGetValue(name, out var bundle))
+                if (!bundleInfoDic.TryGetValue(name, out var bundle))
                 {
                     if (BundleManager.LogMessages) Debug.LogWarning($"Name you provided ({name}) could not be found");
                     continue;
@@ -90,8 +90,8 @@ namespace BundleSystem
                 {
                     resultDic.Add(bundle.BundleName, bundle);
                 }
-                
-                for(int i = 0; i < bundle.Dependencies.Count; i++)
+
+                for (int i = 0; i < bundle.Dependencies.Count; i++)
                 {
                     var depName = bundle.Dependencies[i];
                     if (!resultDic.ContainsKey(depName)) resultDic.Add(depName, bundleInfoDic[depName]);

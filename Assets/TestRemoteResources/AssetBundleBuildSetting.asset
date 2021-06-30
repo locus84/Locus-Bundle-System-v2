@@ -18,6 +18,3 @@ MonoBehaviour:
   EmulateWithoutRemoteURL: 1
   CleanCacheInEditor: 0
   ForceRebuild: 0
-  UseCacheServer: 0
-  CacheServerHost: 
-  CacheServerPort: 0
