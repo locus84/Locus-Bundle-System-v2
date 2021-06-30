@@ -7,6 +7,46 @@ using System.Linq;
 namespace BundleSystem
 {
     /// <summary>
+    /// representation of loaded bundle
+    /// </summary>
+    internal class LoadedBundle
+    {
+        public string Name;
+        public AssetBundle Bundle;
+        public Hash128 Hash;
+        public List<string> Dependencies; //including self
+        public bool IsLocalBundle;
+        public string LoadPath;
+        public UnityWebRequest RequestForReload;
+        public bool IsReloading = false;
+        public bool IsDisposed { get; private set; } = false;
+
+        //constructor for editor
+        public LoadedBundle(string name) => Name = name;
+
+        public LoadedBundle(AssetBundleBuildManifest.BundleInfo info, string loadPath, AssetBundle bundle, bool isLocal)
+        {
+            Name = info.BundleName;
+            IsLocalBundle = isLocal;
+            LoadPath = loadPath;
+            Bundle = bundle;
+            Hash = Hash128.Parse(info.HashString);
+            Dependencies = info.Dependencies;
+            Dependencies.Add(Name);
+        }
+
+        public void Dispose()
+        {
+            if (!IsDisposed)
+            {
+                Bundle?.Unload(false);
+                RequestForReload?.Dispose();
+                IsDisposed = true;
+            }
+        }
+    }
+
+    /// <summary>
     /// Handle Resources expecially assetbundles.
     /// Also works in editor
     /// </summary>
@@ -385,9 +425,7 @@ namespace BundleSystem
                     if (s_AssetBundles.TryGetValue(bundleInfo.BundleName, out previousBundle))
                     {
                         bundleReplaced = true;
-                        previousBundle.Bundle.Unload(false);
-                        if (previousBundle.RequestForReload != null)
-                            previousBundle.RequestForReload.Dispose(); //dispose reload bundle
+                        previousBundle.Dispose();
                         s_AssetBundles.Remove(bundleInfo.BundleName);
                     }
 
@@ -427,45 +465,6 @@ namespace BundleSystem
             result.Done(BundleErrorCode.Success);
         }
 
-        /// <summary>
-        /// representation of loaded bundle
-        /// </summary>
-        private class LoadedBundle
-        {
-            public string Name;
-            public AssetBundle Bundle;
-            public Hash128 Hash;
-            public List<string> Dependencies; //including self
-            public bool IsLocalBundle;
-            public string LoadPath;
-            public UnityWebRequest RequestForReload;
-            public bool IsReloading = false;
-            public bool IsDisposed { get; private set; } = false;
-
-            //constructor for editor
-            public LoadedBundle(string name) => Name = name;
-
-            public LoadedBundle(AssetBundleBuildManifest.BundleInfo info, string loadPath, AssetBundle bundle, bool isLocal)
-            {
-                Name = info.BundleName;
-                IsLocalBundle = isLocal;
-                LoadPath = loadPath;
-                Bundle = bundle;
-                Hash = Hash128.Parse(info.HashString);
-                Dependencies = info.Dependencies;
-                Dependencies.Add(Name);
-            }
-
-            public void Dispose()
-            {
-                if (!IsDisposed)
-                {
-                    Bundle?.Unload(false);
-                    RequestForReload?.Dispose();
-                    IsDisposed = true;
-                }
-            }
-        }
 
         private struct SceneInfo {
             public string Name;

@@ -8,9 +8,10 @@ namespace BundleSystem
     public enum TrackStatus { AutoReleasable, Pinned, ReleaseRequested }
     public struct TrackInfo
     {
+        internal LoadedBundle LoadedBundle;
+        public string BundleName => LoadedBundle.Name;
         public Component Owner;
         public Object Asset;
-        public string BundleName;
         public float LoadTime;
         public TrackStatus Status;
     }
@@ -113,11 +114,10 @@ namespace BundleSystem
         {
             if(newOwner != null && !newOwner.gameObject.scene.IsValid()) throw new System.Exception("Owner must be scene object");
             if(!s_TrackInfoDict.TryGetValue(referenceHandle.Id, out var info)) throw new System.Exception("Handle is not valid or already not tracked");
-            if(!s_AssetBundles.TryGetValue(info.BundleName, out var loadedBundle)) throw new System.Exception("Bundle does not exist");
 
             var newTrackId = ++s_LastTrackId;
             if(newOwner == null) newOwner = info.Owner;
-            return TrackObject<T>(newOwner, asset, loadedBundle);
+            return TrackObject<T>(newOwner, asset, info.LoadedBundle);
         }
 
         /// <summary>
@@ -132,10 +132,9 @@ namespace BundleSystem
         {
             if(gameObjectToTrack != null && !gameObjectToTrack.scene.IsValid()) throw new System.Exception("Owner must be scene object");
             if(!s_TrackInfoDict.TryGetValue(referenceHandle.Id, out var info)) throw new System.Exception("Handle is not valid or already not tracked");
-            if(!s_AssetBundles.TryGetValue(info.BundleName, out var loadedBundle)) throw new System.Exception("Bundle does not exist");
             var newOwner = gameObjectToTrack.transform;
             if(s_TrackInstanceTransformDict.ContainsKey(newOwner.GetInstanceID())) throw new System.Exception("GameObject is already tracked");
-            return TrackInstanceObject<GameObject>(newOwner, gameObjectToTrack, loadedBundle);
+            return TrackInstanceObject<GameObject>(newOwner, gameObjectToTrack, info.LoadedBundle);
         }
 
         /// <summary>
@@ -183,7 +182,7 @@ namespace BundleSystem
             if(!owner.gameObject.scene.IsValid()) throw new System.Exception("Owner must be scene object");
             var trackId = ++s_LastTrackId;
             s_TrackInfoDict.Add(trackId, new TrackInfo(){
-                BundleName = loadedBundle.Name,
+                LoadedBundle = loadedBundle,
                 Owner = owner,
                 Asset = asset,
                 LoadTime = Time.realtimeSinceStartup,
@@ -199,7 +198,7 @@ namespace BundleSystem
             if(!owner.gameObject.scene.IsValid()) throw new System.Exception("Owner must be scene object");
             var trackId = ++s_LastTrackId;
             s_TrackInfoDict.Add(trackId, new TrackInfo(){
-                BundleName = loadedBundle.Name,
+                LoadedBundle = loadedBundle,
                 Owner = owner,
                 Asset = asset,
                 LoadTime = Time.realtimeSinceStartup,
@@ -223,7 +222,7 @@ namespace BundleSystem
                 var trackId = ++s_LastTrackId;
                 s_TrackInfoDict.Add(trackId, new TrackInfo()
                 {
-                    BundleName = loadedBundle.Name,
+                    LoadedBundle = loadedBundle,
                     Owner = owner,
                     Asset = assets[i],
                     LoadTime = Time.realtimeSinceStartup,
@@ -360,18 +359,16 @@ namespace BundleSystem
                     s_TrackInstanceTransformDict.Remove(instanceId);
                 }
 
-                if (s_AssetBundles.TryGetValue(kv.Value.BundleName, out var loadedBundle)) 
-                {
-                    ReleaseBundle(loadedBundle);
-                }
+                ReleaseBundle(kv.Value.LoadedBundle);
             }
         }
 
         private static void ReloadBundle(string bundleName)
         {
-            if (!s_AssetBundles.TryGetValue(bundleName, out var loadedBundle))
+            //find current active bundle and try reload
+            if(!s_AssetBundles.TryGetValue(bundleName, out var loadedBundle))
             {
-                if (LogMessages) Debug.Log("Bundle To Reload does not exist");
+                if (LogMessages) Debug.Log("Bundle is no longer exist");
                 return;
             }
 
@@ -391,12 +388,13 @@ namespace BundleSystem
             }
             else
             {
-                s_Helper.StartCoroutine(CoReloadBundle(bundleName, loadedBundle));
+                s_Helper.StartCoroutine(CoReloadBundle(loadedBundle));
             }
         }
 
-        static IEnumerator CoReloadBundle(string bundleName, LoadedBundle loadedBundle)
+        static IEnumerator CoReloadBundle(LoadedBundle loadedBundle)
         {
+            var bundleName = loadedBundle.Name;
             if (LogMessages) Debug.Log($"Start Reloading Bundle {bundleName}");
             var bundleReq = loadedBundle.IsLocalBundle? UnityWebRequestAssetBundle.GetAssetBundle(loadedBundle.LoadPath) : 
                 UnityWebRequestAssetBundle.GetAssetBundle(loadedBundle.LoadPath, new CachedAssetBundle(bundleName, loadedBundle.Hash));

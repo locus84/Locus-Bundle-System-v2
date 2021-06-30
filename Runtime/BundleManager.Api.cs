@@ -266,7 +266,15 @@ namespace BundleSystem
         private static void CheckInstantiableHandle(int trackId, out LoadedBundle bundle, out TrackInfo info)
         {
             if (!s_TrackInfoDict.TryGetValue(trackId, out info)) throw new System.Exception("Handle is not valid");
-            if (!s_AssetBundles.TryGetValue(info.BundleName, out bundle)) throw new System.Exception("Bundle is not found");
+            //it's needed as the bundle might be dispoedand we need new one
+            if (info.LoadedBundle.IsDisposed)
+            {
+                if (!s_AssetBundles.TryGetValue(info.LoadedBundle.Name, out bundle)) throw new System.Exception("Bundle is not found");
+            }
+            else
+            {
+                bundle = info.LoadedBundle;
+            }
             if (info.Asset == s_LoadingObjectDummy) throw new System.Exception("Asset is currently loading");
         }
 
