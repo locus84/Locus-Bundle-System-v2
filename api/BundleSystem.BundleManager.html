@@ -276,31 +276,6 @@ Also works in editor</p>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="BundleSystem_BundleManager_ShowDebugGUI_" data-uid="BundleSystem.BundleManager.ShowDebugGUI*"></a>
-  <h4 id="BundleSystem_BundleManager_ShowDebugGUI" data-uid="BundleSystem.BundleManager.ShowDebugGUI">ShowDebugGUI</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool ShowDebugGUI { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
   </h3>
   
@@ -1122,12 +1097,12 @@ Also works in editor</p>
   
   
   <a id="BundleSystem_BundleManager_LoadScene_" data-uid="BundleSystem.BundleManager.LoadScene*"></a>
-  <h4 id="BundleSystem_BundleManager_LoadScene_System_String_System_String_LoadSceneMode_" data-uid="BundleSystem.BundleManager.LoadScene(System.String,System.String,LoadSceneMode)">LoadScene(String, String, LoadSceneMode)</h4>
+  <h4 id="BundleSystem_BundleManager_LoadScene_System_String_LoadSceneMode_" data-uid="BundleSystem.BundleManager.LoadScene(System.String,LoadSceneMode)">LoadScene(String, LoadSceneMode)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void LoadScene(string bundleName, string sceneName, LoadSceneMode mode)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Scene LoadScene(string sceneNameOrPath, LoadSceneMode mode)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1141,12 +1116,7 @@ Also works in editor</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">bundleName</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">sceneName</span></td>
+        <td><span class="parametername">sceneNameOrPath</span></td>
         <td></td>
       </tr>
       <tr>
@@ -1156,15 +1126,30 @@ Also works in editor</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Scene</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="BundleSystem_BundleManager_LoadSceneAsync_" data-uid="BundleSystem.BundleManager.LoadSceneAsync*"></a>
-  <h4 id="BundleSystem_BundleManager_LoadSceneAsync_System_String_System_String_LoadSceneMode_" data-uid="BundleSystem.BundleManager.LoadSceneAsync(System.String,System.String,LoadSceneMode)">LoadSceneAsync(String, String, LoadSceneMode)</h4>
+  <h4 id="BundleSystem_BundleManager_LoadSceneAsync_System_String_LoadSceneMode_" data-uid="BundleSystem.BundleManager.LoadSceneAsync(System.String,LoadSceneMode)">LoadSceneAsync(String, LoadSceneMode)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static BundleAsyncSceneRequest LoadSceneAsync(string bundleName, string sceneName, LoadSceneMode mode)</code></pre>
+    <pre><code class="lang-csharp hljs">public static BundleAsyncSceneRequest LoadSceneAsync(string sceneNameOrPath, LoadSceneMode mode)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1178,12 +1163,7 @@ Also works in editor</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">bundleName</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">sceneName</span></td>
+        <td><span class="parametername">sceneNameOrPath</span></td>
         <td></td>
       </tr>
       <tr>

@@ -239,18 +239,6 @@ references:
   commentId: T:BundleSystem.AssetBundleBuildSetting
   fullName: BundleSystem.AssetBundleBuildSetting
   nameWithType: AssetBundleBuildSetting
-- uid: BundleSystem.AssetBundleBuildSetting.CacheServerHost
-  name: CacheServerHost
-  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_CacheServerHost
-  commentId: F:BundleSystem.AssetBundleBuildSetting.CacheServerHost
-  fullName: BundleSystem.AssetBundleBuildSetting.CacheServerHost
-  nameWithType: AssetBundleBuildSetting.CacheServerHost
-- uid: BundleSystem.AssetBundleBuildSetting.CacheServerPort
-  name: CacheServerPort
-  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_CacheServerPort
-  commentId: F:BundleSystem.AssetBundleBuildSetting.CacheServerPort
-  fullName: BundleSystem.AssetBundleBuildSetting.CacheServerPort
-  nameWithType: AssetBundleBuildSetting.CacheServerPort
 - uid: BundleSystem.AssetBundleBuildSetting.CleanCacheInEditor
   name: CleanCacheInEditor
   href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_CleanCacheInEditor
@@ -313,12 +301,6 @@ references:
   commentId: F:BundleSystem.AssetBundleBuildSetting.RemoteURL
   fullName: BundleSystem.AssetBundleBuildSetting.RemoteURL
   nameWithType: AssetBundleBuildSetting.RemoteURL
-- uid: BundleSystem.AssetBundleBuildSetting.UseCacheServer
-  name: UseCacheServer
-  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_UseCacheServer
-  commentId: F:BundleSystem.AssetBundleBuildSetting.UseCacheServer
-  fullName: BundleSystem.AssetBundleBuildSetting.UseCacheServer
-  nameWithType: AssetBundleBuildSetting.UseCacheServer
 - uid: BundleSystem.AssetDependencyTree
   name: AssetDependencyTree
   href: api/BundleSystem.AssetDependencyTree.html
@@ -984,23 +966,6 @@ references:
   fullName.vb: BundleSystem.BundleAsyncRequest(Of T).keepWaiting
   nameWithType: BundleAsyncRequest<T>.keepWaiting
   nameWithType.vb: BundleAsyncRequest(Of T).keepWaiting
-- uid: BundleSystem.BundleAsyncRequest`1.OnCompleted(System.Action)
-  name: OnCompleted(Action)
-  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_OnCompleted_System_Action_
-  commentId: M:BundleSystem.BundleAsyncRequest`1.OnCompleted(System.Action)
-  fullName: BundleSystem.BundleAsyncRequest<T>.OnCompleted(System.Action)
-  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).OnCompleted(System.Action)
-  nameWithType: BundleAsyncRequest<T>.OnCompleted(Action)
-  nameWithType.vb: BundleAsyncRequest(Of T).OnCompleted(Action)
-- uid: BundleSystem.BundleAsyncRequest`1.OnCompleted*
-  name: OnCompleted
-  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_OnCompleted_
-  commentId: Overload:BundleSystem.BundleAsyncRequest`1.OnCompleted
-  isSpec: "True"
-  fullName: BundleSystem.BundleAsyncRequest<T>.OnCompleted
-  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).OnCompleted
-  nameWithType: BundleAsyncRequest<T>.OnCompleted
-  nameWithType.vb: BundleAsyncRequest(Of T).OnCompleted
 - uid: BundleSystem.BundleAsyncRequest`1.Pin
   name: Pin()
   href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_Pin
@@ -1035,23 +1000,6 @@ references:
   fullName.vb: BundleSystem.BundleAsyncRequest(Of T).Progress
   nameWithType: BundleAsyncRequest<T>.Progress
   nameWithType.vb: BundleAsyncRequest(Of T).Progress
-- uid: BundleSystem.BundleAsyncRequest`1.UnsafeOnCompleted(System.Action)
-  name: UnsafeOnCompleted(Action)
-  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_UnsafeOnCompleted_System_Action_
-  commentId: M:BundleSystem.BundleAsyncRequest`1.UnsafeOnCompleted(System.Action)
-  fullName: BundleSystem.BundleAsyncRequest<T>.UnsafeOnCompleted(System.Action)
-  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).UnsafeOnCompleted(System.Action)
-  nameWithType: BundleAsyncRequest<T>.UnsafeOnCompleted(Action)
-  nameWithType.vb: BundleAsyncRequest(Of T).UnsafeOnCompleted(Action)
-- uid: BundleSystem.BundleAsyncRequest`1.UnsafeOnCompleted*
-  name: UnsafeOnCompleted
-  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_UnsafeOnCompleted_
-  commentId: Overload:BundleSystem.BundleAsyncRequest`1.UnsafeOnCompleted
-  isSpec: "True"
-  fullName: BundleSystem.BundleAsyncRequest<T>.UnsafeOnCompleted
-  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).UnsafeOnCompleted
-  nameWithType: BundleAsyncRequest<T>.UnsafeOnCompleted
-  nameWithType.vb: BundleAsyncRequest(Of T).UnsafeOnCompleted
 - uid: BundleSystem.BundleAsyncSceneRequest
   name: BundleAsyncSceneRequest
   href: api/BundleSystem.BundleAsyncSceneRequest.html
@@ -1105,6 +1053,12 @@ references:
   fullName: BundleSystem.BundleAsyncSceneRequest.BundleSystem.IAwaiter<BundleSystem.BundleAsyncSceneRequest>.IsCompleted
   nameWithType: BundleAsyncSceneRequest.IAwaiter<BundleAsyncSceneRequest>.IsCompleted
   nameWithType.vb: BundleAsyncSceneRequest.BundleSystem.IAwaiter<BundleSystem.BundleAsyncSceneRequest>.IsCompleted
+- uid: BundleSystem.BundleAsyncSceneRequest.Failed
+  name: Failed
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_Failed
+  commentId: F:BundleSystem.BundleAsyncSceneRequest.Failed
+  fullName: BundleSystem.BundleAsyncSceneRequest.Failed
+  nameWithType: BundleAsyncSceneRequest.Failed
 - uid: BundleSystem.BundleAsyncSceneRequest.GetAwaiter
   name: GetAwaiter()
   href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_GetAwaiter
@@ -1131,19 +1085,6 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleAsyncSceneRequest.keepWaiting
   nameWithType: BundleAsyncSceneRequest.keepWaiting
-- uid: BundleSystem.BundleAsyncSceneRequest.OnCompleted(System.Action)
-  name: OnCompleted(Action)
-  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_OnCompleted_System_Action_
-  commentId: M:BundleSystem.BundleAsyncSceneRequest.OnCompleted(System.Action)
-  fullName: BundleSystem.BundleAsyncSceneRequest.OnCompleted(System.Action)
-  nameWithType: BundleAsyncSceneRequest.OnCompleted(Action)
-- uid: BundleSystem.BundleAsyncSceneRequest.OnCompleted*
-  name: OnCompleted
-  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_OnCompleted_
-  commentId: Overload:BundleSystem.BundleAsyncSceneRequest.OnCompleted
-  isSpec: "True"
-  fullName: BundleSystem.BundleAsyncSceneRequest.OnCompleted
-  nameWithType: BundleAsyncSceneRequest.OnCompleted
 - uid: BundleSystem.BundleAsyncSceneRequest.Progress
   name: Progress
   href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_Progress
@@ -1157,19 +1098,32 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleAsyncSceneRequest.Progress
   nameWithType: BundleAsyncSceneRequest.Progress
-- uid: BundleSystem.BundleAsyncSceneRequest.UnsafeOnCompleted(System.Action)
-  name: UnsafeOnCompleted(Action)
-  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_UnsafeOnCompleted_System_Action_
-  commentId: M:BundleSystem.BundleAsyncSceneRequest.UnsafeOnCompleted(System.Action)
-  fullName: BundleSystem.BundleAsyncSceneRequest.UnsafeOnCompleted(System.Action)
-  nameWithType: BundleAsyncSceneRequest.UnsafeOnCompleted(Action)
-- uid: BundleSystem.BundleAsyncSceneRequest.UnsafeOnCompleted*
-  name: UnsafeOnCompleted
-  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_UnsafeOnCompleted_
-  commentId: Overload:BundleSystem.BundleAsyncSceneRequest.UnsafeOnCompleted
+- uid: BundleSystem.BundleAsyncSceneRequest.Scene
+  name: Scene
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_Scene
+  commentId: P:BundleSystem.BundleAsyncSceneRequest.Scene
+  fullName: BundleSystem.BundleAsyncSceneRequest.Scene
+  nameWithType: BundleAsyncSceneRequest.Scene
+- uid: BundleSystem.BundleAsyncSceneRequest.Scene*
+  name: Scene
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_Scene_
+  commentId: Overload:BundleSystem.BundleAsyncSceneRequest.Scene
   isSpec: "True"
-  fullName: BundleSystem.BundleAsyncSceneRequest.UnsafeOnCompleted
-  nameWithType: BundleAsyncSceneRequest.UnsafeOnCompleted
+  fullName: BundleSystem.BundleAsyncSceneRequest.Scene
+  nameWithType: BundleAsyncSceneRequest.Scene
+- uid: BundleSystem.BundleAsyncSceneRequest.Succeeded
+  name: Succeeded
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_Succeeded
+  commentId: P:BundleSystem.BundleAsyncSceneRequest.Succeeded
+  fullName: BundleSystem.BundleAsyncSceneRequest.Succeeded
+  nameWithType: BundleAsyncSceneRequest.Succeeded
+- uid: BundleSystem.BundleAsyncSceneRequest.Succeeded*
+  name: Succeeded
+  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_Succeeded_
+  commentId: Overload:BundleSystem.BundleAsyncSceneRequest.Succeeded
+  isSpec: "True"
+  fullName: BundleSystem.BundleAsyncSceneRequest.Succeeded
+  nameWithType: BundleAsyncSceneRequest.Succeeded
 - uid: BundleSystem.BundleErrorCode
   name: BundleErrorCode
   href: api/BundleSystem.BundleErrorCode.html
@@ -1467,12 +1421,12 @@ references:
   fullName.vb: BundleSystem.BundleManager.LoadAsync(Of T)(Component, System.String, System.String)
   nameWithType: BundleManager.LoadAsync<T>(Component, String, String)
   nameWithType.vb: BundleManager.LoadAsync(Of T)(Component, String, String)
-- uid: BundleSystem.BundleManager.LoadScene(System.String,System.String,LoadSceneMode)
-  name: LoadScene(String, String, LoadSceneMode)
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadScene_System_String_System_String_LoadSceneMode_
-  commentId: M:BundleSystem.BundleManager.LoadScene(System.String,System.String,LoadSceneMode)
-  fullName: BundleSystem.BundleManager.LoadScene(System.String, System.String, LoadSceneMode)
-  nameWithType: BundleManager.LoadScene(String, String, LoadSceneMode)
+- uid: BundleSystem.BundleManager.LoadScene(System.String,LoadSceneMode)
+  name: LoadScene(String, LoadSceneMode)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadScene_System_String_LoadSceneMode_
+  commentId: M:BundleSystem.BundleManager.LoadScene(System.String,LoadSceneMode)
+  fullName: BundleSystem.BundleManager.LoadScene(System.String, LoadSceneMode)
+  nameWithType: BundleManager.LoadScene(String, LoadSceneMode)
 - uid: BundleSystem.BundleManager.LoadScene*
   name: LoadScene
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadScene_
@@ -1480,12 +1434,12 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.LoadScene
   nameWithType: BundleManager.LoadScene
-- uid: BundleSystem.BundleManager.LoadSceneAsync(System.String,System.String,LoadSceneMode)
-  name: LoadSceneAsync(String, String, LoadSceneMode)
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadSceneAsync_System_String_System_String_LoadSceneMode_
-  commentId: M:BundleSystem.BundleManager.LoadSceneAsync(System.String,System.String,LoadSceneMode)
-  fullName: BundleSystem.BundleManager.LoadSceneAsync(System.String, System.String, LoadSceneMode)
-  nameWithType: BundleManager.LoadSceneAsync(String, String, LoadSceneMode)
+- uid: BundleSystem.BundleManager.LoadSceneAsync(System.String,LoadSceneMode)
+  name: LoadSceneAsync(String, LoadSceneMode)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadSceneAsync_System_String_LoadSceneMode_
+  commentId: M:BundleSystem.BundleManager.LoadSceneAsync(System.String,LoadSceneMode)
+  fullName: BundleSystem.BundleManager.LoadSceneAsync(System.String, LoadSceneMode)
+  nameWithType: BundleManager.LoadSceneAsync(String, LoadSceneMode)
 - uid: BundleSystem.BundleManager.LoadSceneAsync*
   name: LoadSceneAsync
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadSceneAsync_
@@ -1583,19 +1537,6 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.RemoteURL
   nameWithType: BundleManager.RemoteURL
-- uid: BundleSystem.BundleManager.ShowDebugGUI
-  name: ShowDebugGUI
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_ShowDebugGUI
-  commentId: P:BundleSystem.BundleManager.ShowDebugGUI
-  fullName: BundleSystem.BundleManager.ShowDebugGUI
-  nameWithType: BundleManager.ShowDebugGUI
-- uid: BundleSystem.BundleManager.ShowDebugGUI*
-  name: ShowDebugGUI
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_ShowDebugGUI_
-  commentId: Overload:BundleSystem.BundleManager.ShowDebugGUI
-  isSpec: "True"
-  fullName: BundleSystem.BundleManager.ShowDebugGUI
-  nameWithType: BundleManager.ShowDebugGUI
 - uid: BundleSystem.BundleManager.TrackExplicit*
   name: TrackExplicit
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_TrackExplicit_
@@ -1938,6 +1879,23 @@ references:
   fullName.vb: BundleSystem.IAwaiter(Of TResult)
   nameWithType: IAwaiter<TResult>
   nameWithType.vb: IAwaiter(Of TResult)
+- uid: BundleSystem.IAwaiter`1.GetAwaiter
+  name: GetAwaiter()
+  href: api/BundleSystem.IAwaiter-1.html#BundleSystem_IAwaiter_1_GetAwaiter
+  commentId: M:BundleSystem.IAwaiter`1.GetAwaiter
+  fullName: BundleSystem.IAwaiter<TResult>.GetAwaiter()
+  fullName.vb: BundleSystem.IAwaiter(Of TResult).GetAwaiter()
+  nameWithType: IAwaiter<TResult>.GetAwaiter()
+  nameWithType.vb: IAwaiter(Of TResult).GetAwaiter()
+- uid: BundleSystem.IAwaiter`1.GetAwaiter*
+  name: GetAwaiter
+  href: api/BundleSystem.IAwaiter-1.html#BundleSystem_IAwaiter_1_GetAwaiter_
+  commentId: Overload:BundleSystem.IAwaiter`1.GetAwaiter
+  isSpec: "True"
+  fullName: BundleSystem.IAwaiter<TResult>.GetAwaiter
+  fullName.vb: BundleSystem.IAwaiter(Of TResult).GetAwaiter
+  nameWithType: IAwaiter<TResult>.GetAwaiter
+  nameWithType.vb: IAwaiter(Of TResult).GetAwaiter
 - uid: BundleSystem.IAwaiter`1.GetResult
   name: GetResult()
   href: api/BundleSystem.IAwaiter-1.html#BundleSystem_IAwaiter_1_GetResult
