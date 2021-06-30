@@ -67,12 +67,26 @@ namespace Tests
             GameObject.Destroy(m_Owner.gameObject);
         }
 
-        [Test]
-        public void SyncApiTest()
+        [UnityTest]
+        public IEnumerator SyncApiTest()
         {
+            //simple load
             var texReq = m_Owner.Load<Texture>("Local", "TestTexture_Local");
-
             Assert.NotNull(texReq.Asset);
+            texReq.Dispose();
+            BundleManager.UpdateImmediate();
+            Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+
+            //simple scene load, unload
+            var scene = BundleManager.LoadScene("TestScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+            yield return new WaitForSeconds(1);
+            Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 3);
+            yield return SceneManager.UnloadSceneAsync(scene);
+            BundleManager.UpdateImmediate();
+            Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+
+            //should be clean
+            Assert.IsTrue(BundleManager.GetBundleReferenceSnapshot().Count == 0);
         }
 
 
@@ -210,6 +224,8 @@ namespace Tests
                 BundleManager.UpdateImmediate();
                 Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
             }
+
+            //should be clean
             Assert.IsTrue(BundleManager.GetBundleReferenceSnapshot().Count == 0);
         }
 
@@ -222,19 +238,26 @@ namespace Tests
 
         private async Task TaskAsyncApiTestFunction()
         {
+            //simple async function
             var go = new GameObject("Go");
             var image = go.AddComponent<UnityEngine.UI.Image>();
             var req = await image.LoadAsync<Sprite>("Object", "TestSprite");
             image.sprite = req.Pin().Asset;
             var prevHandle = req.Handle;
+
+            //load second and override existing handle
             var otherReq = await image.LoadAsync<Sprite>("Object", "TestSprite");
             image.sprite = otherReq.Pin().Asset;
             otherReq.Handle.Override(ref prevHandle);
             BundleManager.UpdateImmediate();
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 1);
-            prevHandle.Release(); //it's overriden and pointing new handle
+
+            //it's overriden and pointing new handle
+            prevHandle.Release(); 
             BundleManager.UpdateImmediate();
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+
+            //should be clean
             Assert.IsTrue(BundleManager.GetBundleReferenceSnapshot().Count == 0);
         }
     }
