@@ -91,6 +91,7 @@ namespace Tests
             handle.Release();
             BundleManager.UpdateImmediate();
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+            Assert.IsTrue(BundleManager.GetBundleReferenceSnapshot().Count == 0);
         }
 
         [UnityTest]
@@ -155,6 +156,7 @@ namespace Tests
             yield return SceneManager.UnloadSceneAsync("TestScene");
             BundleManager.UpdateImmediate();
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+            Assert.IsTrue(BundleManager.GetBundleReferenceSnapshot().Count == 0);
         }
 
         [UnityTest]
@@ -208,6 +210,7 @@ namespace Tests
                 BundleManager.UpdateImmediate();
                 Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
             }
+            Assert.IsTrue(BundleManager.GetBundleReferenceSnapshot().Count == 0);
         }
 
         [UnityTest]
@@ -232,6 +235,7 @@ namespace Tests
             prevHandle.Release(); //it's overriden and pointing new handle
             BundleManager.UpdateImmediate();
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+            Assert.IsTrue(BundleManager.GetBundleReferenceSnapshot().Count == 0);
         }
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OutputFolder: AssetBundles
   RemoteURL: http://localhost/
-  EmulateInEditor: 1
-  EmulateWithoutRemoteURL: 1
+  EmulateInEditor: 0
+  EmulateWithoutRemoteURL: 0
   CleanCacheInEditor: 0
   ForceRebuild: 0
