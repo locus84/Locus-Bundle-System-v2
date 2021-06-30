@@ -39,8 +39,16 @@ namespace BundleSystem
         {
             if (!IsDisposed)
             {
-                Bundle?.Unload(false);
-                RequestForReload?.Dispose();
+                if(Bundle != null)
+                {
+                    Bundle.Unload(false);
+                    Bundle = null;
+                }
+                if(RequestForReload != null)
+                {
+                    RequestForReload.Dispose();
+                    RequestForReload = null;
+                }
                 IsDisposed = true;
             }
         }
