@@ -78,6 +78,30 @@ namespace BundleSystem
         } 
 
         /// <summary>
+        /// Get current bundle references dictionary
+        /// </summary>
+        /// <returns>bundle references dictionary</returns>
+        public static Dictionary<string, int> GetBundleReferenceSnapshot()
+        {
+            var targetDict = new Dictionary<string, int>();
+            if(Application.isPlaying) GetBundleReferenceSnapshotNonAlloc(targetDict);
+            return targetDict;
+        } 
+
+        /// <summary>
+        /// Get current bundle references dictionary, without allocation
+        /// </summary>
+        /// <param name="targetDict">Dictionary to fill</param>
+        public static void GetBundleReferenceSnapshotNonAlloc(Dictionary<string, int> targetDict)
+        {
+            targetDict.Clear();
+            if(Application.isPlaying) 
+            {
+                foreach(var kv in s_BundleRefCounts) targetDict.Add(kv.Key, kv.Value);
+            }
+        } 
+
+        /// <summary>
         /// Assign new owner of track handle
         /// </summary>
         /// <param name="handle">Target handle</param>
