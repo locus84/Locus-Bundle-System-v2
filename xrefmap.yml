@@ -1198,6 +1198,35 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.DownloadAssetBundles
   nameWithType: BundleManager.DownloadAssetBundles
+- uid: BundleSystem.BundleManager.GetBundleReferenceSnapshot
+  name: GetBundleReferenceSnapshot()
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetBundleReferenceSnapshot
+  commentId: M:BundleSystem.BundleManager.GetBundleReferenceSnapshot
+  fullName: BundleSystem.BundleManager.GetBundleReferenceSnapshot()
+  nameWithType: BundleManager.GetBundleReferenceSnapshot()
+- uid: BundleSystem.BundleManager.GetBundleReferenceSnapshot*
+  name: GetBundleReferenceSnapshot
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetBundleReferenceSnapshot_
+  commentId: Overload:BundleSystem.BundleManager.GetBundleReferenceSnapshot
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.GetBundleReferenceSnapshot
+  nameWithType: BundleManager.GetBundleReferenceSnapshot
+- uid: BundleSystem.BundleManager.GetBundleReferenceSnapshotNonAlloc(System.Collections.Generic.Dictionary{System.String,System.Int32})
+  name: GetBundleReferenceSnapshotNonAlloc(Dictionary<String, Int32>)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetBundleReferenceSnapshotNonAlloc_System_Collections_Generic_Dictionary_System_String_System_Int32__
+  commentId: M:BundleSystem.BundleManager.GetBundleReferenceSnapshotNonAlloc(System.Collections.Generic.Dictionary{System.String,System.Int32})
+  name.vb: GetBundleReferenceSnapshotNonAlloc(Dictionary(Of String, Int32))
+  fullName: BundleSystem.BundleManager.GetBundleReferenceSnapshotNonAlloc(System.Collections.Generic.Dictionary<System.String, System.Int32>)
+  fullName.vb: BundleSystem.BundleManager.GetBundleReferenceSnapshotNonAlloc(System.Collections.Generic.Dictionary(Of System.String, System.Int32))
+  nameWithType: BundleManager.GetBundleReferenceSnapshotNonAlloc(Dictionary<String, Int32>)
+  nameWithType.vb: BundleManager.GetBundleReferenceSnapshotNonAlloc(Dictionary(Of String, Int32))
+- uid: BundleSystem.BundleManager.GetBundleReferenceSnapshotNonAlloc*
+  name: GetBundleReferenceSnapshotNonAlloc
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetBundleReferenceSnapshotNonAlloc_
+  commentId: Overload:BundleSystem.BundleManager.GetBundleReferenceSnapshotNonAlloc
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.GetBundleReferenceSnapshotNonAlloc
+  nameWithType: BundleManager.GetBundleReferenceSnapshotNonAlloc
 - uid: BundleSystem.BundleManager.GetDownloadSize(BundleSystem.AssetBundleBuildManifest,System.Collections.Generic.IEnumerable{System.String})
   name: GetDownloadSize(AssetBundleBuildManifest, IEnumerable<String>)
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetDownloadSize_BundleSystem_AssetBundleBuildManifest_System_Collections_Generic_IEnumerable_System_String__
