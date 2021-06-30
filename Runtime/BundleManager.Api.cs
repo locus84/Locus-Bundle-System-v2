@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -155,12 +156,7 @@ namespace BundleSystem
                     return default;
                 }
                 var scene = UnityEditor.SceneManagement.EditorSceneManager.LoadSceneInPlayMode(info.Path, new LoadSceneParameters(mode));
-                if(scene.IsValid())
-                {
-                    //this retain released at scene unload
-                    RetainBundle(info.LoadedBundle);
-                    OnSceneLoaded(scene, info.LoadedBundle);
-                } 
+                if(scene.IsValid()) s_Helper.StartCoroutine(WaitAndRetain(scene, info.LoadedBundle));
                 return scene;
             }
             else
@@ -174,13 +170,15 @@ namespace BundleSystem
                     return default;
                 }
                 var scene = SceneManager.LoadScene(sceneNameOrPath, new LoadSceneParameters(mode));
-                if(scene.IsValid())
-                {
-                    //this retain released at scene unload
-                    RetainBundle(info.LoadedBundle);
-                    OnSceneLoaded(scene, info.LoadedBundle);
-                } 
+                if(scene.IsValid()) s_Helper.StartCoroutine(WaitAndRetain(scene, info.LoadedBundle));
                 return scene;
+            }
+
+            IEnumerator WaitAndRetain(Scene scene, LoadedBundle loadedBundle)
+            {
+                RetainBundle(loadedBundle);
+                while(!scene.isLoaded) yield return null;
+                OnSceneLoaded(scene, loadedBundle);
             }
         }
 
