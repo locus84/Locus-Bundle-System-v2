@@ -131,9 +131,6 @@ namespace BundleSystem
 
         //build cache server settings
         public bool ForceRebuild = false;
-        public bool UseCacheServer = false;
-        public string CacheServerHost;
-        public int CacheServerPort;
 
         /// <summary>
         /// Provide actual assets to bundle
@@ -146,6 +143,7 @@ namespace BundleSystem
         public virtual bool IsValid() => true;
     }
 
+    [System.Serializable]
     public struct BundleSetting
     {
         public string BundleName;

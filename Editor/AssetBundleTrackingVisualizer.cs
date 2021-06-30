@@ -14,10 +14,10 @@ public class AssetBundleTrackingVisualizer : EditorWindow
     Dictionary<string, bool> m_Foldout = new Dictionary<string, bool>();
     bool m_LiveUpdate = true;
     bool m_ForceExpend = false;
-    
+
     void OnGUI()
     {
-        if(m_LiveUpdate || m_ProcessedDict == null) 
+        if (m_LiveUpdate || m_ProcessedDict == null)
         {
             var snapShot = BundleManager.GetTrackingSnapshot();
             m_ProcessedDict = snapShot.GroupBy(kv => kv.Value.BundleName).OrderByDescending(grp => grp.Count()).ToDictionary(grp => grp.Key, grp => grp.ToList());
@@ -39,16 +39,16 @@ public class AssetBundleTrackingVisualizer : EditorWindow
         EditorGUILayout.LabelField($"Loaded Time", GUILayout.Width(120));
         EditorGUI.indentLevel--;
         EditorGUILayout.EndHorizontal();
-        
+
         DrawUILine(Color.gray);
 
         m_ScrollPosition = EditorGUILayout.BeginScrollView(m_ScrollPosition, false, false);
 
-        foreach(var kv in m_ProcessedDict)
+        foreach (var kv in m_ProcessedDict)
         {
             var foldOut = default(bool);
 
-            if(m_ForceExpend)
+            if (m_ForceExpend)
             {
                 EditorGUILayout.Foldout(true, $"{kv.Key} - {kv.Value.Count}");
                 foldOut = true;
@@ -58,11 +58,11 @@ public class AssetBundleTrackingVisualizer : EditorWindow
                 foldOut = EditorGUILayout.Foldout(m_Foldout.TryGetValue(kv.Key, out var value) && value, $"BundleName - {kv.Key}, TrackCount - {kv.Value.Count}");
                 m_Foldout[kv.Key] = foldOut;
             }
-            
-            if(foldOut)
+
+            if (foldOut)
             {
                 EditorGUI.indentLevel++;
-                foreach(var trackKv in kv.Value)
+                foreach (var trackKv in kv.Value)
                 {
                     EditorGUILayout.BeginHorizontal();
                     EditorGUILayout.LabelField($"{trackKv.Key}", GUILayout.Width(80));
@@ -73,23 +73,23 @@ public class AssetBundleTrackingVisualizer : EditorWindow
                     EditorGUILayout.EndHorizontal();
                 }
                 EditorGUI.indentLevel--;
-            } 
+            }
         }
         EditorGUILayout.EndScrollView();
     }
 
     private void Update()
     {
-        if(m_LiveUpdate) Repaint();
+        if (m_LiveUpdate) Repaint();
     }
 
     static void DrawUILine(Color color, int thickness = 2, int padding = 10)
     {
-        Rect r = EditorGUILayout.GetControlRect(GUILayout.Height(padding+thickness));
+        Rect r = EditorGUILayout.GetControlRect(GUILayout.Height(padding + thickness));
         r.height = thickness;
-        r.y+=padding/2;
-        r.x-=2;
-        r.width +=6;
+        r.y += padding / 2;
+        r.x -= 2;
+        r.width += 6;
         EditorGUI.DrawRect(r, color);
     }
 }

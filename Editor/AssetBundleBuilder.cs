@@ -88,12 +88,6 @@ namespace BundleSystem
             buildParams.UseCache = !setting.ForceRebuild;
             buildParams.WriteLinkXML = true;
 
-            if (buildParams.UseCache && setting.UseCacheServer)
-            {
-                buildParams.CacheServerHost = setting.CacheServerHost;
-                buildParams.CacheServerPort = setting.CacheServerPort;
-            }
-
             var returnCode = ContentPipeline.BuildAssetBundles(buildParams, new BundleBuildContent(treeResult.ResultBundles.ToArray()), out var results);
 
             if (returnCode == ReturnCode.Success)

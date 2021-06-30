@@ -15,14 +15,13 @@ namespace BundleSystem
         //instance is almost only for coroutines
         internal static int UnityMainThreadId { get; private set; }
         private static BundleManagerHelper s_Helper { get; set; }
-        private static DebugGuiHelper s_DebugGUI { get; set; }
         public const string ManifestFileName = "Manifest.json";
         public static string LocalBundleRuntimePath => Utility.CombinePath(Application.streamingAssetsPath, "localbundles");
 
         //Asset bundles that is loaded keep it static so we can easily call this in static method
         private static Dictionary<string, LoadedBundle> s_AssetBundles = new Dictionary<string, LoadedBundle>();
         private static Dictionary<string, Hash128> s_LocalBundles = new Dictionary<string, Hash128>();
-        private static Dictionary<string, LoadedBundle> s_SceneNames = new Dictionary<string, LoadedBundle>();
+        private static Dictionary<string, SceneInfo> s_SceneInfos = new Dictionary<string, SceneInfo>();
 
 
 #if UNITY_EDITOR
@@ -31,24 +30,27 @@ namespace BundleSystem
         {
             s_EditorDatabaseMap = map;
             //here we fill assetbundleDictionary into fake bundles
-            if(s_EditorDatabaseMap.UseAssetDatabase)
+            if (s_EditorDatabaseMap.UseAssetDatabase)
             {
-                s_AssetBundles.Clear();
-                foreach(var bundleName in s_EditorDatabaseMap.GetBundleNames())
+                s_AssetBundles = s_EditorDatabaseMap.GetBundleNames().ToDictionary(name => name, name => new LoadedBundle(name));
+                s_SceneInfos.Clear();
+                foreach(var kv in s_EditorDatabaseMap.GetScenePathToBundleName())
                 {
-                    s_AssetBundles.Add(bundleName, new LoadedBundle(bundleName));
-                } 
-                s_SceneNames.Clear();
-                foreach(var kv in s_EditorDatabaseMap.GetSceneToBundleName())
-                {
-                    s_SceneNames.Add(kv.Key, new LoadedBundle(kv.Value));
-                } 
+                    var info = new SceneInfo 
+                    {
+                        Name = System.IO.Path.GetFileNameWithoutExtension(kv.Key),
+                        Path = kv.Key,
+                        LoadedBundle = new LoadedBundle(kv.Value),
+                    };
+                    s_SceneInfos[info.Name] = info;
+                    s_SceneInfos[info.Path] = info;
+                }
             }
         }
         private static EditorDatabaseMap s_EditorDatabaseMap;
         private static void EnsureAssetDatabase()
         {
-            if(!Application.isPlaying && s_EditorDatabaseMap == null) 
+            if (!Application.isPlaying && s_EditorDatabaseMap == null)
             {
                 throw new System.Exception("EditorDatabase is null, try call SetEditorDatabase before calling actual api in non-play mode");
             }
@@ -60,25 +62,31 @@ namespace BundleSystem
         public static string RemoteURL { get; private set; }
         public static string GlobalBundleHash { get; private set; }
         public static bool LogMessages { get; set; }
-        
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         static void Setup()
         {
             UnityMainThreadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
-            UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
+            //only unload callback is necessary
             UnityEngine.SceneManagement.SceneManager.sceneUnloaded += OnSceneUnloaded;
-
             var managerGo = new GameObject("_BundleManager");
             GameObject.DontDestroyOnLoad(managerGo);
             s_Helper = managerGo.AddComponent<BundleManagerHelper>();
-            s_DebugGUI = managerGo.AddComponent<DebugGuiHelper>();
-            s_DebugGUI.enabled = s_ShowDebugGUI;
         }
 
         static void CollectSceneNames(LoadedBundle loadedBundle)
         {
-            var scenes = loadedBundle.Bundle.GetAllScenePaths();
-            foreach (var scene in scenes) s_SceneNames[scene] = loadedBundle;
+            var scenePathes = loadedBundle.Bundle.GetAllScenePaths();
+            foreach (var path in scenePathes)
+            {
+                var info = new SceneInfo{
+                    Name = System.IO.Path.GetFileNameWithoutExtension(path),
+                    Path = path,
+                    LoadedBundle = loadedBundle
+                };
+                s_SceneInfos[info.Name] = info;
+                s_SceneInfos[info.Path] = info;
+            }
         }
 
         private static void OnDestroy()
@@ -102,7 +110,7 @@ namespace BundleSystem
 
         static IEnumerator CoInitalizeLocalBundles(BundleAsyncOperation result, string altRemoteUrl)
         {
-            if(Initialized)
+            if (Initialized)
             {
                 result.Done(BundleErrorCode.Success);
                 yield break;
@@ -129,18 +137,18 @@ namespace BundleSystem
 #endif
 
             //platform specific path setting
-            if (Application.platform != RuntimePlatform.Android && 
-                Application.platform != RuntimePlatform.WebGLPlayer) 
+            if (Application.platform != RuntimePlatform.Android &&
+                Application.platform != RuntimePlatform.WebGLPlayer)
             {
                 LocalURL = "file://" + LocalURL;
             }
 
-            if(LogMessages) Debug.Log($"LocalURL : {LocalURL}");
+            if (LogMessages) Debug.Log($"LocalURL : {LocalURL}");
 
             foreach (var kv in s_AssetBundles)
                 kv.Value.Dispose();
 
-            s_SceneNames.Clear();
+            s_SceneInfos.Clear();
             s_AssetBundles.Clear();
             s_LocalBundles.Clear();
 
@@ -152,19 +160,19 @@ namespace BundleSystem
                 yield break;
             }
 
-            if(!AssetBundleBuildManifest.TryParse(manifestReq.downloadHandler.text, out var localManifest))
+            if (!AssetBundleBuildManifest.TryParse(manifestReq.downloadHandler.text, out var localManifest))
             {
                 result.Done(BundleErrorCode.ManifestParseError);
                 yield break;
             }
 
             //cached version is recent one.
-            var cacheIsValid = AssetBundleBuildManifest.TryParse(PlayerPrefs.GetString("CachedManifest", string.Empty), out var cachedManifest) 
+            var cacheIsValid = AssetBundleBuildManifest.TryParse(PlayerPrefs.GetString("CachedManifest", string.Empty), out var cachedManifest)
                 && cachedManifest.BuildTime > localManifest.BuildTime;
 
             var localBundleInfos = localManifest.BundleInfos.Where(bi => bi.IsLocal).ToArray();
             result.SetIndexLength(localBundleInfos.Length);
-            for(int i = 0; i < localBundleInfos.Length; i++)
+            for (int i = 0; i < localBundleInfos.Length; i++)
             {
                 result.SetCurrentIndex(i);
                 result.SetCachedBundle(true);
@@ -206,7 +214,7 @@ namespace BundleSystem
                 s_LocalBundles.Add(localBundleInfo.BundleName, Hash128.Parse(localBundleInfo.HashString));
             }
 
-            var remoteUrl = string.IsNullOrEmpty(altRemoteUrl)? localManifest.RemoteURL : altRemoteUrl;
+            var remoteUrl = string.IsNullOrEmpty(altRemoteUrl) ? localManifest.RemoteURL : altRemoteUrl;
             RemoteURL = Utility.CombinePath(remoteUrl, localManifest.BuildTarget);
 #if UNITY_EDITOR
             if (s_EditorDatabaseMap.UseOuputAsRemote)
@@ -324,7 +332,7 @@ namespace BundleSystem
             }
 
 #if UNITY_EDITOR
-            if(UseAssetDatabaseMap)
+            if (UseAssetDatabaseMap)
             {
                 result.Done(BundleErrorCode.Success);
                 yield break;
@@ -336,7 +344,7 @@ namespace BundleSystem
             var bundleReplaced = false; //bundle has been replaced
 
             result.SetIndexLength(downloadBundleList.Count);
-            
+
             for (int i = 0; i < downloadBundleList.Count; i++)
             {
                 result.SetCurrentIndex(i);
@@ -378,7 +386,7 @@ namespace BundleSystem
                     {
                         bundleReplaced = true;
                         previousBundle.Bundle.Unload(false);
-                        if (previousBundle.RequestForReload != null) 
+                        if (previousBundle.RequestForReload != null)
                             previousBundle.RequestForReload.Dispose(); //dispose reload bundle
                         s_AssetBundles.Remove(bundleInfo.BundleName);
                     }
@@ -392,7 +400,7 @@ namespace BundleSystem
             }
 
             //let's drop unknown bundles loaded
-            foreach(var name in bundlesToUnload)
+            foreach (var name in bundlesToUnload)
             {
                 var bundleInfo = s_AssetBundles[name];
                 bundleInfo.Bundle.Unload(false);
@@ -433,8 +441,7 @@ namespace BundleSystem
             public UnityWebRequest RequestForReload;
             public bool IsReloading = false;
             public bool IsDisposed { get; private set; } = false;
-            public int ReferenceCount = 0;
-            
+
             //constructor for editor
             public LoadedBundle(string name) => Name = name;
 
@@ -443,21 +450,27 @@ namespace BundleSystem
                 Name = info.BundleName;
                 IsLocalBundle = isLocal;
                 LoadPath = loadPath;
-                Bundle = bundle; 
+                Bundle = bundle;
                 Hash = Hash128.Parse(info.HashString);
                 Dependencies = info.Dependencies;
                 Dependencies.Add(Name);
             }
 
-            public void Dispose() 
+            public void Dispose()
             {
-                if(!IsDisposed)
+                if (!IsDisposed)
                 {
                     Bundle?.Unload(false);
                     RequestForReload?.Dispose();
                     IsDisposed = true;
                 }
             }
+        }
+
+        private struct SceneInfo {
+            public string Name;
+            public string Path;
+            public LoadedBundle LoadedBundle;
         }
 
         //helper class for coroutine and callbacks

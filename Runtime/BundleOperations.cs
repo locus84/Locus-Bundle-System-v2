@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace BundleSystem{
 
@@ -101,18 +102,13 @@ namespace BundleSystem{
         BundleAsyncRequest<T> IAwaiter<BundleAsyncRequest<T>>.GetResult() => this;
         public IAwaiter<BundleAsyncRequest<T>> GetAwaiter() => this;
 
-        public void UnsafeOnCompleted(System.Action continuation)
-        {
-            OnCompleted(continuation);
-        }
-
         public BundleAsyncRequest<T> Pin()
         {
             BundleManager.SupressAutoReleaseInternal(Handle.Id);
             return this;
         }
 
-        public void OnCompleted(System.Action continuation)
+        void INotifyCompletion.OnCompleted(System.Action continuation)
         {
             if(Thread.CurrentThread.ManagedThreadId != BundleManager.UnityMainThreadId) 
             {
@@ -122,11 +118,16 @@ namespace BundleSystem{
             if(IsCompleted) continuation.Invoke();
             else m_Request.completed += op => continuation.Invoke();
         }
+
+        void ICriticalNotifyCompletion.UnsafeOnCompleted(System.Action continuation) => ((INotifyCompletion)this).OnCompleted(continuation);
     }
 
     public class BundleAsyncSceneRequest : CustomYieldInstruction, IAwaiter<BundleAsyncSceneRequest>
     {
+        public readonly static BundleAsyncSceneRequest Failed = new BundleAsyncSceneRequest(null); 
         AsyncOperation m_AsyncOperation;
+
+        public Scene Scene { get; internal set; }
 
         /// <summary>
         /// actual assetbundle request warpper
@@ -137,15 +138,16 @@ namespace BundleSystem{
             m_AsyncOperation = operation;
         }
 
-        bool IAwaiter<BundleAsyncSceneRequest>.IsCompleted => m_AsyncOperation.isDone;
+        bool IAwaiter<BundleAsyncSceneRequest>.IsCompleted => !keepWaiting;
 
-        public override bool keepWaiting => !m_AsyncOperation.isDone;
-        public float Progress => m_AsyncOperation.progress;
+        public bool Succeeded => !keepWaiting && m_AsyncOperation != null;
+        public override bool keepWaiting => m_AsyncOperation != null && !m_AsyncOperation.isDone;
+        public float Progress =>  m_AsyncOperation != null? m_AsyncOperation.progress : 1f;
 
         BundleAsyncSceneRequest IAwaiter<BundleAsyncSceneRequest>.GetResult() => this;
         public IAwaiter<BundleAsyncSceneRequest> GetAwaiter() => this;
 
-        public void OnCompleted(System.Action continuation)
+        void INotifyCompletion.OnCompleted(System.Action continuation)
         {
             if(Thread.CurrentThread.ManagedThreadId != BundleManager.UnityMainThreadId) 
             {
@@ -156,9 +158,8 @@ namespace BundleSystem{
             else m_AsyncOperation.completed += op => continuation.Invoke();
         }
 
-        public void UnsafeOnCompleted(System.Action continuation) => OnCompleted(continuation);
+        void ICriticalNotifyCompletion.UnsafeOnCompleted(System.Action continuation) => ((INotifyCompletion)this).OnCompleted(continuation);
     }
-
 
     /// <summary>
     /// assetbundle update
@@ -254,5 +255,7 @@ namespace BundleSystem{
         bool IsCompleted { get; }
 
         TResult GetResult();
+
+        IAwaiter<TResult> GetAwaiter();
     }
 }
