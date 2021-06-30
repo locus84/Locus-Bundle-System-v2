@@ -5,6 +5,15 @@ using UnityEngine.Networking;
 
 namespace BundleSystem
 {
+    public enum TrackStatus { AutoReleasable, Pinned, ReleaseRequested }
+    public struct TrackInfo
+    {
+        public Component Owner;
+        public Object Asset;
+        public string BundleName;
+        public float LoadTime;
+        public TrackStatus Status;
+    }
     public struct TrackHandle<T> where T : Object
     {
         /// <summary>
@@ -84,9 +93,9 @@ namespace BundleSystem
         internal static bool IsTrackHandleValidInternal(int id) => id != 0 && s_TrackInfoDict.ContainsKey(id);
         internal static void SupressAutoReleaseInternal(int id)
         {
-            if(id != 0 && s_TrackInfoDict.TryGetValue(id, out var info) && info.Status == TrackInfo.TrackStatus.AutoReleasable)
+            if(id != 0 && s_TrackInfoDict.TryGetValue(id, out var info) && info.Status == TrackStatus.AutoReleasable)
             {
-                info.Status = TrackInfo.TrackStatus.Pinned;
+                info.Status = TrackStatus.Pinned;
                 s_TrackInfoDict[id] = info;
             }
         } 
@@ -168,15 +177,6 @@ namespace BundleSystem
             return false;
         }
 
-        public struct TrackInfo
-        {
-            public enum TrackStatus { AutoReleasable, Pinned, ReleaseRequested }
-            public Component Owner;
-            public Object Asset;
-            public string BundleName;
-            public float LoadTime;
-            public TrackStatus Status;
-        }
 
         private static TrackHandle<T> TrackObject<T>(Component owner, Object asset, LoadedBundle loadedBundle) where T : Object
         {
@@ -187,7 +187,7 @@ namespace BundleSystem
                 Owner = owner,
                 Asset = asset,
                 LoadTime = Time.realtimeSinceStartup,
-                Status = TrackInfo.TrackStatus.AutoReleasable
+                Status = TrackStatus.AutoReleasable
             });
 
             RetainBundle(loadedBundle);
@@ -203,7 +203,7 @@ namespace BundleSystem
                 Owner = owner,
                 Asset = asset,
                 LoadTime = Time.realtimeSinceStartup,
-                Status = TrackInfo.TrackStatus.Pinned  //pinned initially
+                Status = TrackStatus.Pinned  //pinned initially
             });
 
             //track instance id
@@ -227,7 +227,7 @@ namespace BundleSystem
                     Owner = owner,
                     Asset = assets[i],
                     LoadTime = Time.realtimeSinceStartup,
-                    Status = TrackInfo.TrackStatus.AutoReleasable
+                    Status = TrackStatus.AutoReleasable
                 });
             }
 
@@ -240,7 +240,7 @@ namespace BundleSystem
         {
             if(trackId == 0) return;
             if(!s_TrackInfoDict.TryGetValue(trackId, out var info)) return;
-            info.Status = TrackInfo.TrackStatus.ReleaseRequested;
+            info.Status = TrackStatus.ReleaseRequested;
             s_TrackInfoDict[trackId] = info;
         }
 
@@ -342,10 +342,10 @@ namespace BundleSystem
                 if (kv.Value.Asset == s_LoadingObjectDummy) continue;
                 
                 //release requested or owner  is null
-                var shouldRelease = kv.Value.Owner == null || kv.Value.Status == TrackInfo.TrackStatus.ReleaseRequested;
+                var shouldRelease = kv.Value.Owner == null || kv.Value.Status == TrackStatus.ReleaseRequested;
 
                 //not abrove but autoreleasetime passed
-                if(!shouldRelease && kv.Value.Status == TrackInfo.TrackStatus.AutoReleasable)
+                if(!shouldRelease && kv.Value.Status == TrackStatus.AutoReleasable)
                 {
                     shouldRelease = kv.Value.LoadTime <= Time.realtimeSinceStartup - (immediate? 0f: 1f);
                 }

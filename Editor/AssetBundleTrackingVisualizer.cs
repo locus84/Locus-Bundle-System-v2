@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEditor;
-using TrackInfo = BundleSystem.BundleManager.TrackInfo;
 using System.Collections.Generic;
 using BundleSystem;
 using System.Linq;
