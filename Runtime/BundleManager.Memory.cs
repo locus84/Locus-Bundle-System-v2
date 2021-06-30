@@ -317,16 +317,20 @@ namespace BundleSystem
 
         static Dictionary<int, LoadedBundle> s_SceneHandles = new Dictionary<int, LoadedBundle>(); 
         static List<GameObject> s_SceneRootObjectCache = new List<GameObject>();
-        private static void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadedBundle loadedBundle)
+        private static void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
         {
-            s_SceneHandles.Add(scene.handle, loadedBundle);
-            scene.GetRootGameObjects(s_SceneRootObjectCache);
-            for (int i = 0; i < s_SceneRootObjectCache.Count; i++)
+            //async load will failed initially,
+            //but will explicitely call this function after setting scene handle
+            if(s_SceneHandles.TryGetValue(scene.handle, out var loadedBundle))
             {
-                var owner = s_SceneRootObjectCache[i].transform;
-                TrackInstanceObject<Object>(owner, s_SceneObjectDummy, loadedBundle);
+                scene.GetRootGameObjects(s_SceneRootObjectCache);
+                for (int i = 0; i < s_SceneRootObjectCache.Count; i++)
+                {
+                    var owner = s_SceneRootObjectCache[i].transform;
+                    TrackInstanceObject<Object>(owner, s_SceneObjectDummy, loadedBundle);
+                }
+                s_SceneRootObjectCache.Clear();
             }
-            s_SceneRootObjectCache.Clear();
         }
 
         private static void OnSceneUnloaded(UnityEngine.SceneManagement.Scene scene)
@@ -334,6 +338,7 @@ namespace BundleSystem
             //if scene is from assetbundle, path will be assetpath inside bundle
             if (s_SceneHandles.TryGetValue(scene.handle, out var loadedBundle))
             {
+                s_SceneHandles.Remove(scene.handle);
                 ReleaseBundle(loadedBundle);
             }
         }
