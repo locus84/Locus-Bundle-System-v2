@@ -13,6 +13,7 @@ namespace BundleSystem
         public override List<BundleSetting> GetBundleSettings()
         {
             var result = new List<BundleSetting>();
+#if UNITY_EDITOR
             var builds = UnityEditor.Build.Content.ContentBuildInterface.GenerateAssetBundleBuilds();
             foreach(var abBuild in builds)
             {
@@ -26,6 +27,7 @@ namespace BundleSystem
                     IncludedInPlayer = abBuild.assetBundleName.IndexOf("local", System.StringComparison.OrdinalIgnoreCase) >= 0
                 });
             }
+#endif
             return result;
         }
     }

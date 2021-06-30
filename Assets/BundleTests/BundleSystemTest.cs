@@ -79,7 +79,7 @@ namespace Tests
 
             //simple scene load, unload
             var scene = BundleManager.LoadScene("TestScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
-            yield return new WaitForSeconds(1);
+            while(!scene.isLoaded) yield return null;
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 3);
             yield return SceneManager.UnloadSceneAsync(scene);
             BundleManager.UpdateImmediate();

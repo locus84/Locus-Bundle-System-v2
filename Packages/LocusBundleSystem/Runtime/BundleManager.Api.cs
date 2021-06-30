@@ -156,7 +156,11 @@ namespace BundleSystem
                     return default;
                 }
                 var scene = UnityEditor.SceneManagement.EditorSceneManager.LoadSceneInPlayMode(info.Path, new LoadSceneParameters(mode));
-                if(scene.IsValid()) s_Helper.StartCoroutine(WaitAndRetain(scene, info.LoadedBundle));
+                if(scene.IsValid()) 
+                {
+                    RetainBundle(info.LoadedBundle);
+                    s_SceneHandles.Add(scene.handle, info.LoadedBundle);
+                }
                 return scene;
             }
             else
@@ -170,15 +174,12 @@ namespace BundleSystem
                     return default;
                 }
                 var scene = SceneManager.LoadScene(sceneNameOrPath, new LoadSceneParameters(mode));
-                if(scene.IsValid()) s_Helper.StartCoroutine(WaitAndRetain(scene, info.LoadedBundle));
+                if(scene.IsValid()) 
+                {
+                    RetainBundle(info.LoadedBundle);
+                    s_SceneHandles.Add(scene.handle, info.LoadedBundle);
+                }
                 return scene;
-            }
-
-            IEnumerator WaitAndRetain(Scene scene, LoadedBundle loadedBundle)
-            {
-                RetainBundle(loadedBundle);
-                while(!scene.isLoaded) yield return null;
-                OnSceneLoaded(scene, loadedBundle);
             }
         }
 
@@ -206,7 +207,8 @@ namespace BundleSystem
                 {
                     var sceneIndex = mode == LoadSceneMode.Single? 0 : SceneManager.sceneCount - 1;
                     var scene = SceneManager.GetSceneAt(sceneIndex);
-                    OnSceneLoaded(scene, info.LoadedBundle);
+                    s_SceneHandles.Add(scene.handle, info.LoadedBundle);
+                    OnSceneLoaded(scene, mode);
                     result.Scene = scene;
                 };
 
@@ -233,11 +235,14 @@ namespace BundleSystem
                 RetainBundle(info.LoadedBundle);
                 aop.completed += op => 
                 {
+                    Debug.Log("completed");
                     var sceneIndex = mode == LoadSceneMode.Single? 0 : SceneManager.sceneCount - 1;
                     var scene = SceneManager.GetSceneAt(sceneIndex);
-                    OnSceneLoaded(scene, info.LoadedBundle);
+                    s_SceneHandles.Add(scene.handle, info.LoadedBundle);
+                    OnSceneLoaded(scene, mode);
                     result.Scene = scene;
                 };
+
 
                 return result;
             }
