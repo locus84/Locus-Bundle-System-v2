@@ -273,14 +273,6 @@ namespace BundleSystem
             result.Done(BundleErrorCode.Success);
         }
 
-        /// <summary>
-        /// get last cached manifest, to support offline play
-        /// </summary>
-        /// <returns>returns true if found, false otherwise</returns>
-        public static bool TryGetCachedManifest(out AssetBundleBuildManifest manifest)
-        {
-            return AssetBundleBuildManifest.TryParse(PlayerPrefs.GetString("CachedManifest", string.Empty), out manifest);
-        }
 
         public static BundleAsyncOperation<AssetBundleBuildManifest> GetManifest()
         {

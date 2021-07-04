@@ -7,10 +7,21 @@ using UnityEditor.Build.Reporting;
 
 namespace BundleSystem
 {
+    /// <summary>
+    /// Pre/Post build processors that includes local bundle and manifest into output build.
+    /// This is automtically called by unity.
+    /// </summary>
     public class AssetBundleBuildProcessors : IPreprocessBuildWithReport, IPostprocessBuildWithReport
     {
+        /// <summary>
+        /// callback order. if you want to do something before copy local bundles into streaming folder.
+        /// make sure you have less callback order than this.
+        /// </summary>
         public int callbackOrder => 999;
 
+        /// <summary>
+        /// Preprocess function, copy local bundles and manifest into streaming folder.
+        /// </summary>
         public void OnPreprocessBuild(BuildReport report)
         {
             if (!AssetBundleBuildSetting.TryGetActiveSetting(out var setting)) return;
@@ -50,6 +61,10 @@ namespace BundleSystem
             AssetDatabase.Refresh();
         }
 
+        /// <summary>
+        /// Postprocess function. removes local bundles folder after a build completes.
+        /// </summary>
+        /// <param name="report"></param>
         public void OnPostprocessBuild(BuildReport report)
         {
             //delete directory and meta file
