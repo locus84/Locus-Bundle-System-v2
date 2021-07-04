@@ -83,7 +83,10 @@
   
   <h1 id="BundleSystem_AssetBundleBuildManifest" data-uid="BundleSystem.AssetBundleBuildManifest" class="text-break">Class AssetBundleBuildManifest
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>AssetBundle Manifest class.
+This class contains complete set of bundles that&apos;s needed.
+like Catalog in Addressables.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -102,7 +105,8 @@ public class AssetBundleBuildManifest</code></pre>
   
   
   <h4 id="BundleSystem_AssetBundleBuildManifest_BuildTarget" data-uid="BundleSystem.AssetBundleBuildManifest.BuildTarget">BuildTarget</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Build Target string, used when building remote path string.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -151,7 +155,8 @@ public class AssetBundleBuildManifest</code></pre>
   
   
   <h4 id="BundleSystem_AssetBundleBuildManifest_BundleInfos" data-uid="BundleSystem.AssetBundleBuildManifest.BundleInfos">BundleInfos</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Bundle infmation list.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -175,7 +180,8 @@ public class AssetBundleBuildManifest</code></pre>
   
   
   <h4 id="BundleSystem_AssetBundleBuildManifest_GlobalHashString" data-uid="BundleSystem.AssetBundleBuildManifest.GlobalHashString">GlobalHashString</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Hash String to check this manifest is same with another or not.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -199,7 +205,8 @@ public class AssetBundleBuildManifest</code></pre>
   
   
   <h4 id="BundleSystem_AssetBundleBuildManifest_RemoteURL" data-uid="BundleSystem.AssetBundleBuildManifest.RemoteURL">RemoteURL</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Remote Base URL. Files will be lied in RemoteURL/BuildTarget.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -226,7 +233,8 @@ public class AssetBundleBuildManifest</code></pre>
   
   <a id="BundleSystem_AssetBundleBuildManifest_CollectSubsetBundleInfoes_" data-uid="BundleSystem.AssetBundleBuildManifest.CollectSubsetBundleInfoes*"></a>
   <h4 id="BundleSystem_AssetBundleBuildManifest_CollectSubsetBundleInfoes_System_Collections_Generic_IEnumerable_System_String__" data-uid="BundleSystem.AssetBundleBuildManifest.CollectSubsetBundleInfoes(System.Collections.Generic.IEnumerable{System.String})">CollectSubsetBundleInfoes(IEnumerable&lt;String&gt;)</h4>
-  <div class="markdown level1 summary"><p>Collect subset of bundleinfoes that interested, including dependencies</p>
+  <div class="markdown level1 summary"><p>This collects BundleInfos that&apos;s provided names, and their dependencies.
+When you need to download only part of bundles from this manifest. </p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -246,7 +254,8 @@ public class AssetBundleBuildManifest</code></pre>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
         <td><span class="parametername">subsetNames</span></td>
-        <td></td>
+        <td><p>Bundle names you interested</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -261,7 +270,8 @@ public class AssetBundleBuildManifest</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="BundleSystem.AssetBundleBuildManifest.BundleInfo.html">AssetBundleBuildManifest.BundleInfo</a>&gt;</td>
-        <td></td>
+        <td><p>BundleInfos you requested and their dependencies</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -316,7 +326,8 @@ public class AssetBundleBuildManifest</code></pre>
   
   <a id="BundleSystem_AssetBundleBuildManifest_TryGetBundleInfo_" data-uid="BundleSystem.AssetBundleBuildManifest.TryGetBundleInfo*"></a>
   <h4 id="BundleSystem_AssetBundleBuildManifest_TryGetBundleInfo_System_String_BundleSystem_AssetBundleBuildManifest_BundleInfo__" data-uid="BundleSystem.AssetBundleBuildManifest.TryGetBundleInfo(System.String,BundleSystem.AssetBundleBuildManifest.BundleInfo@)">TryGetBundleInfo(String, out AssetBundleBuildManifest.BundleInfo)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Find BundleInfo of an AssetBundle from this Manifest.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -335,12 +346,14 @@ public class AssetBundleBuildManifest</code></pre>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">name</span></td>
-        <td></td>
+        <td><p>Name of AssetBundle</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="BundleSystem.AssetBundleBuildManifest.BundleInfo.html">AssetBundleBuildManifest.BundleInfo</a></td>
         <td><span class="parametername">info</span></td>
-        <td></td>
+        <td><p>Found BundleInfo</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -355,19 +368,22 @@ public class AssetBundleBuildManifest</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
+        <td><p>returns true if found, false otherwise</p>
+</td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="BundleSystem_AssetBundleBuildManifest_TryParse_" data-uid="BundleSystem.AssetBundleBuildManifest.TryParse*"></a>
-  <h4 id="BundleSystem_AssetBundleBuildManifest_TryParse_System_String_BundleSystem_AssetBundleBuildManifest__" data-uid="BundleSystem.AssetBundleBuildManifest.TryParse(System.String,BundleSystem.AssetBundleBuildManifest@)">TryParse(String, out AssetBundleBuildManifest)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="BundleSystem_AssetBundleBuildManifest_TryGetCachedManifest_" data-uid="BundleSystem.AssetBundleBuildManifest.TryGetCachedManifest*"></a>
+  <h4 id="BundleSystem_AssetBundleBuildManifest_TryGetCachedManifest_BundleSystem_AssetBundleBuildManifest__" data-uid="BundleSystem.AssetBundleBuildManifest.TryGetCachedManifest(BundleSystem.AssetBundleBuildManifest@)">TryGetCachedManifest(out AssetBundleBuildManifest)</h4>
+  <div class="markdown level1 summary"><p>Parse previousely applied AssetBundleBuildManifest.
+Which is stored in PlayerPref with &quot;CachedManifest&quot; key</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool TryParse(string json, out AssetBundleBuildManifest manifest)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool TryGetCachedManifest(out AssetBundleBuildManifest manifest)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -379,11 +395,6 @@ public class AssetBundleBuildManifest</code></pre>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">json</span></td>
-        <td></td>
-      </tr>
       <tr>
         <td><a class="xref" href="BundleSystem.AssetBundleBuildManifest.html">AssetBundleBuildManifest</a></td>
         <td><span class="parametername">manifest</span></td>
@@ -402,7 +413,60 @@ public class AssetBundleBuildManifest</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
+        <td><p>returns true if found, false otherwise</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="BundleSystem_AssetBundleBuildManifest_TryParse_" data-uid="BundleSystem.AssetBundleBuildManifest.TryParse*"></a>
+  <h4 id="BundleSystem_AssetBundleBuildManifest_TryParse_System_String_BundleSystem_AssetBundleBuildManifest__" data-uid="BundleSystem.AssetBundleBuildManifest.TryParse(System.String,BundleSystem.AssetBundleBuildManifest@)">TryParse(String, out AssetBundleBuildManifest)</h4>
+  <div class="markdown level1 summary"><p>Parse Json string to AssetBundleBuildManifest instance.
+Used when fetching latest manifest of loading cached manifest.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryParse(string json, out AssetBundleBuildManifest manifest)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">json</span></td>
+        <td><p>input json string</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BundleSystem.AssetBundleBuildManifest.html">AssetBundleBuildManifest</a></td>
+        <td><span class="parametername">manifest</span></td>
+        <td><p>manifest instance deserialized</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>returns true if succeeded, false otherwise</p>
+</td>
       </tr>
     </tbody>
   </table>

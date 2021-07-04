@@ -28,7 +28,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.AssetBundleBuildManifest.BundleInfo.html",
-          "hash": "3qiXloqmApzVltwCc3pRQ1u1MCi7MXN9FVrb1KFDZ8w="
+          "hash": "Vto5gEbXFM1NQH3gYibK2lZsa6OTlQZCDAt7c1adQ1A="
         }
       },
       "is_incremental": false,
@@ -40,7 +40,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.AssetBundleBuildManifest.html",
-          "hash": "b8XLZ8Qr3VqOn8apcLpclPuD4IZ6DcurgYVLGsieNx4="
+          "hash": "nX5FN/jQauImrhO/3yzmu/OGioUjteAwsGYIl1F7GWU="
         }
       },
       "is_incremental": false,
@@ -52,7 +52,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.AssetBundleBuildProcessors.html",
-          "hash": "nhAPMbDcD3T1SmaleF22905zyjUxASJ7wq/tPJ9qI7s="
+          "hash": "efxhtbguJ1HeUYNrXBxpTQI4kMv2crxbZj0zvlS2aCY="
         }
       },
       "is_incremental": false,
@@ -64,7 +64,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.AssetBundleBuildSetting.html",
-          "hash": "6lSi4Hpkh9RzNYXRlK7pRxWCQ2ge2LWYNJlVLL5oyBE="
+          "hash": "KiWtKcnfYh3pm1QHxRStY9x3O9AbjYuJvjShQvnMuQ8="
         }
       },
       "is_incremental": false,
@@ -76,7 +76,19 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.AssetBundleBuilder.html",
-          "hash": "Nmsm8CNTafWLtfdis3iQHImnlnjdv+qIQV+WEpuhct0="
+          "hash": "CTiChw2Q2xFJ+NbqWzY8NtY8C/z9gy22GSvGl2z3zcg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.AssetBundleTrackingVisualizer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.AssetBundleTrackingVisualizer.html",
+          "hash": "4WX6wKqXv+PJkAxLAxeI/ur3REC2EzGhnSBZDdZS95U="
         }
       },
       "is_incremental": false,
@@ -88,7 +100,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.AssetDependencyTree.Context.html",
-          "hash": "BqvcUHzg8JJlWNd9yKp4eaSwYPvH6obBT0eaZvos5k4="
+          "hash": "a4ka5iBP/D9SN5hXkJXQGqQez40UcJhsd3WRA3612mU="
         }
       },
       "is_incremental": false,
@@ -100,7 +112,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.AssetDependencyTree.Node.html",
-          "hash": "sfmndQJfhSqsbMO9MPX7CYrHKpRfp4b/Wlplu5i/nw8="
+          "hash": "DU62JszkYPlIhR9YaG3JHYZJVjzSJygFxRJCs09uLc4="
         }
       },
       "is_incremental": false,
@@ -112,7 +124,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.AssetDependencyTree.ProcessResult.html",
-          "hash": "EpU4qE60oVL4DqqCjCirH3MEy3zOCXtDP9HdNWu82rs="
+          "hash": "uNAFhEqe9os+Lx040hb6Q5wSvDK5YywindnlsfJ8Q64="
         }
       },
       "is_incremental": false,
@@ -124,7 +136,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.AssetDependencyTree.RootNode.html",
-          "hash": "LCWxVidbyAy7yQI7p0+6u+fhBnZEQHVxamF4l4ttq0Q="
+          "hash": "d/DEK/1/8lQ60kYIQc8sWiKgfaYyvp7IdG2c9wKdbZw="
         }
       },
       "is_incremental": false,
@@ -136,7 +148,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.AssetDependencyTree.html",
-          "hash": "K4vUcKGiWGmaccl0sgL76o+XbFsbSBU9Y/jPYLVXVuc="
+          "hash": "J4ftqWWFZ/qQpR/bl66fqtxVFol5AKYwV1XNvcN8Kds="
         }
       },
       "is_incremental": false,
@@ -148,7 +160,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.BundleAsyncOperation-1.html",
-          "hash": "f7T6VXl4sMlnlfaFj1a3g3ISAX33IUge618l4fm7yB0="
+          "hash": "CNA85QwOtO43u4l/giYAw9y9Tp6zqGMbfRqJW8cZPEo="
         }
       },
       "is_incremental": false,
@@ -160,7 +172,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.BundleAsyncOperation.html",
-          "hash": "8jz4X6C9ra458OB3eplLnFrCAheYz1AvZJyYZ6kSltE="
+          "hash": "xnfnF3jyQbjJTJ9TxPeUH0etnJ3c+aikReyeaFBBmHc="
         }
       },
       "is_incremental": false,
@@ -172,7 +184,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.BundleAsyncOperationBase.html",
-          "hash": "WFynQN/jgqryzuF4qTsXAEAVEiwNbiYzFh1HgLFSn6c="
+          "hash": "az2yJH0C66lZrE0gtDFTU9gALt6/VQEEc4dIKk1Q4JM="
         }
       },
       "is_incremental": false,
@@ -184,7 +196,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.BundleAsyncRequest-1.html",
-          "hash": "20uh6aRevMzXiGH/sEdLZCgTfwx33vZPe2uxvfhmGuw="
+          "hash": "sP+kiNf04t9BtMmACzm/db25jBuGKYh31hrmUWVmhOg="
         }
       },
       "is_incremental": false,
@@ -196,7 +208,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.BundleAsyncSceneRequest.html",
-          "hash": "jOX3TcVOiebm6TJbur5eLg3wgZPttWgzjJciaxK2z7A="
+          "hash": "k2Y9vR1Poxd2wWy2Jb3rBCU5nFQF7v9UXWpRyp1kx1c="
         }
       },
       "is_incremental": false,
@@ -208,7 +220,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.BundleErrorCode.html",
-          "hash": "QvTGdaC7joqbpw8mXUrlH2LSwcLHh+Ulx/xz183HGGM="
+          "hash": "7ZNkuuVhYJiZytyCMyVQEwBlXFwM4/+Ig0NhPLpQy7k="
         }
       },
       "is_incremental": false,
@@ -220,7 +232,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.BundleManager.html",
-          "hash": "/5hhdvutcAwO7zlhotmat5lxE1X2mEDEiVT75XbVE5g="
+          "hash": "lqYoUCPEQIjW0COOQsvavKZT3oPAhIz76bpPu0sQKr8="
         }
       },
       "is_incremental": false,
@@ -232,7 +244,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.BundleSetting.html",
-          "hash": "aFO6JBcrAUHmYDnCEBN+wMnY5ZCEYp5Bv9KLOn+xL+Q="
+          "hash": "Hkc61qxmV4KdaAllPDJSGP/cKFpV0Vvu7cUvWjjVE4E="
         }
       },
       "is_incremental": false,
@@ -244,7 +256,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.BundleSyncRequest-1.html",
-          "hash": "zNYCMfOC2AHlk78is5lhg1ylpWc4sigiZS5fkUJvxn0="
+          "hash": "uHiIu/ny32mODoveXoHuIC8kQd5KWXBUBsHDPRDCbJ4="
         }
       },
       "is_incremental": false,
@@ -256,7 +268,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.BundleSyncRequests-1.html",
-          "hash": "Uaqbzj79QxHorsVQBw8cs4PgWJipYO8ULQOatq5pJXM="
+          "hash": "nrBBXV27TOss7E0CTXCiL6i311mG3x4d4NxTBu+0apE="
         }
       },
       "is_incremental": false,
@@ -268,7 +280,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.IAwaiter-1.html",
-          "hash": "PBr6WRGNzSqqVK4CvfLS/G3QcS82zHP2bRaa/Md/vgg="
+          "hash": "VBkm0aU+fV7aT5PqiAC2XTtQjU73hDn3G+EMZ/J/VJ4="
         }
       },
       "is_incremental": false,
@@ -280,7 +292,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.TrackHandle-1.html",
-          "hash": "Y1YM6wESzivTYYjchPlK/PLM1geepwCzX/uMgEikJww="
+          "hash": "Ca5YGyiF45JbKnvQku/wjteypSG0TSfFy0LLYQK9wCw="
         }
       },
       "is_incremental": false,
@@ -292,7 +304,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.TrackInfo.html",
-          "hash": "XZts5h+3KXKJQylnD/VRtpehq6jFmFC6qdbObL599co="
+          "hash": "8j0w0Mj4Zw/xk6uKaiMtBoQRASJV06otYVOlZeQhrYo="
         }
       },
       "is_incremental": false,
@@ -304,7 +316,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.TrackStatus.html",
-          "hash": "33col37a7XJ7wVX6FvUSRmy9h/6rP95QpeTgQrPszpg="
+          "hash": "wvP40Ksi2QpMykTZskw961YBPH+C0bCVmlsAhqui3KI="
         }
       },
       "is_incremental": false,
@@ -316,7 +328,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.Utility.html",
-          "hash": "1Xnt6wmbPCpLJ6IcI+L7mAn3WhWOdZVdXhHtGoCik4g="
+          "hash": "8NYU8PYihZ52ZuDAacv0QO8IjxRvoVWLVCdFCKh409A="
         }
       },
       "is_incremental": false,
@@ -328,7 +340,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.html",
-          "hash": "PPIoXSO4Mj/HbHGGKqmzN5WsE760kywDaLnuTV8E9Qw="
+          "hash": "qMxbWVWOF+0LLJR+JJdBfHW/FxePfbC9vzGbUW00dpQ="
         }
       },
       "is_incremental": false,
@@ -340,7 +352,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "LQ8bHV0TyxKtG9O2WWnpIk23zCEVCDZLV5TXIxW/+n4="
+          "hash": "UOvEyPuMj7H0At+OnJo0x6MVCU4v+n0wj3Qwu1/VoDY="
         }
       },
       "is_incremental": false,
@@ -449,7 +461,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 26,
+          "total_file_count": 27,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

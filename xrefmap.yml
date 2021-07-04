@@ -172,6 +172,22 @@ references:
   isSpec: "True"
   fullName: BundleSystem.AssetBundleBuildManifest.TryGetBundleInfo
   nameWithType: AssetBundleBuildManifest.TryGetBundleInfo
+- uid: BundleSystem.AssetBundleBuildManifest.TryGetCachedManifest(BundleSystem.AssetBundleBuildManifest@)
+  name: TryGetCachedManifest(out AssetBundleBuildManifest)
+  href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_TryGetCachedManifest_BundleSystem_AssetBundleBuildManifest__
+  commentId: M:BundleSystem.AssetBundleBuildManifest.TryGetCachedManifest(BundleSystem.AssetBundleBuildManifest@)
+  name.vb: TryGetCachedManifest(ByRef AssetBundleBuildManifest)
+  fullName: BundleSystem.AssetBundleBuildManifest.TryGetCachedManifest(out BundleSystem.AssetBundleBuildManifest)
+  fullName.vb: BundleSystem.AssetBundleBuildManifest.TryGetCachedManifest(ByRef BundleSystem.AssetBundleBuildManifest)
+  nameWithType: AssetBundleBuildManifest.TryGetCachedManifest(out AssetBundleBuildManifest)
+  nameWithType.vb: AssetBundleBuildManifest.TryGetCachedManifest(ByRef AssetBundleBuildManifest)
+- uid: BundleSystem.AssetBundleBuildManifest.TryGetCachedManifest*
+  name: TryGetCachedManifest
+  href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_TryGetCachedManifest_
+  commentId: Overload:BundleSystem.AssetBundleBuildManifest.TryGetCachedManifest
+  isSpec: "True"
+  fullName: BundleSystem.AssetBundleBuildManifest.TryGetCachedManifest
+  nameWithType: AssetBundleBuildManifest.TryGetCachedManifest
 - uid: BundleSystem.AssetBundleBuildManifest.TryParse(System.String,BundleSystem.AssetBundleBuildManifest@)
   name: TryParse(String, out AssetBundleBuildManifest)
   href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_TryParse_System_String_BundleSystem_AssetBundleBuildManifest__
@@ -301,6 +317,12 @@ references:
   commentId: F:BundleSystem.AssetBundleBuildSetting.RemoteURL
   fullName: BundleSystem.AssetBundleBuildSetting.RemoteURL
   nameWithType: AssetBundleBuildSetting.RemoteURL
+- uid: BundleSystem.AssetBundleTrackingVisualizer
+  name: AssetBundleTrackingVisualizer
+  href: api/BundleSystem.AssetBundleTrackingVisualizer.html
+  commentId: T:BundleSystem.AssetBundleTrackingVisualizer
+  fullName: BundleSystem.AssetBundleTrackingVisualizer
+  nameWithType: AssetBundleTrackingVisualizer
 - uid: BundleSystem.AssetDependencyTree
   name: AssetDependencyTree
   href: api/BundleSystem.AssetDependencyTree.html
@@ -828,15 +850,6 @@ references:
   fullName.vb: BundleSystem.BundleAsyncRequest(Of T).BundleAsyncRequest(T, BundleSystem.TrackHandle(Of T))
   nameWithType: BundleAsyncRequest<T>.BundleAsyncRequest(T, TrackHandle<T>)
   nameWithType.vb: BundleAsyncRequest(Of T).BundleAsyncRequest(T, TrackHandle(Of T))
-- uid: BundleSystem.BundleAsyncRequest`1.#ctor(AssetBundleRequest,BundleSystem.TrackHandle{`0})
-  name: BundleAsyncRequest(AssetBundleRequest, TrackHandle<T>)
-  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1__ctor_AssetBundleRequest_BundleSystem_TrackHandle__0__
-  commentId: M:BundleSystem.BundleAsyncRequest`1.#ctor(AssetBundleRequest,BundleSystem.TrackHandle{`0})
-  name.vb: BundleAsyncRequest(AssetBundleRequest, TrackHandle(Of T))
-  fullName: BundleSystem.BundleAsyncRequest<T>.BundleAsyncRequest(AssetBundleRequest, BundleSystem.TrackHandle<T>)
-  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).BundleAsyncRequest(AssetBundleRequest, BundleSystem.TrackHandle(Of T))
-  nameWithType: BundleAsyncRequest<T>.BundleAsyncRequest(AssetBundleRequest, TrackHandle<T>)
-  nameWithType.vb: BundleAsyncRequest(Of T).BundleAsyncRequest(AssetBundleRequest, TrackHandle(Of T))
 - uid: BundleSystem.BundleAsyncRequest`1.#ctor*
   name: BundleAsyncRequest
   href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1__ctor_
@@ -899,14 +912,6 @@ references:
   fullName.vb: BundleSystem.BundleAsyncRequest(Of T).Dispose
   nameWithType: BundleAsyncRequest<T>.Dispose
   nameWithType.vb: BundleAsyncRequest(Of T).Dispose
-- uid: BundleSystem.BundleAsyncRequest`1.Empty
-  name: Empty
-  href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_Empty
-  commentId: F:BundleSystem.BundleAsyncRequest`1.Empty
-  fullName: BundleSystem.BundleAsyncRequest<T>.Empty
-  fullName.vb: BundleSystem.BundleAsyncRequest(Of T).Empty
-  nameWithType: BundleAsyncRequest<T>.Empty
-  nameWithType.vb: BundleAsyncRequest(Of T).Empty
 - uid: BundleSystem.BundleAsyncRequest`1.GetAwaiter
   name: GetAwaiter()
   href: api/BundleSystem.BundleAsyncRequest-1.html#BundleSystem_BundleAsyncRequest_1_GetAwaiter
@@ -1006,19 +1011,6 @@ references:
   commentId: T:BundleSystem.BundleAsyncSceneRequest
   fullName: BundleSystem.BundleAsyncSceneRequest
   nameWithType: BundleAsyncSceneRequest
-- uid: BundleSystem.BundleAsyncSceneRequest.#ctor(AsyncOperation)
-  name: BundleAsyncSceneRequest(AsyncOperation)
-  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest__ctor_AsyncOperation_
-  commentId: M:BundleSystem.BundleAsyncSceneRequest.#ctor(AsyncOperation)
-  fullName: BundleSystem.BundleAsyncSceneRequest.BundleAsyncSceneRequest(AsyncOperation)
-  nameWithType: BundleAsyncSceneRequest.BundleAsyncSceneRequest(AsyncOperation)
-- uid: BundleSystem.BundleAsyncSceneRequest.#ctor*
-  name: BundleAsyncSceneRequest
-  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest__ctor_
-  commentId: Overload:BundleSystem.BundleAsyncSceneRequest.#ctor
-  isSpec: "True"
-  fullName: BundleSystem.BundleAsyncSceneRequest.BundleAsyncSceneRequest
-  nameWithType: BundleAsyncSceneRequest.BundleAsyncSceneRequest
 - uid: BundleSystem.BundleAsyncSceneRequest.BundleSystem#IAwaiter{BundleSystem#BundleAsyncSceneRequest}#GetResult
   name: IAwaiter<BundleAsyncSceneRequest>.GetResult()
   href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_BundleSystem_IAwaiter_BundleSystem_BundleAsyncSceneRequest__GetResult
@@ -1053,12 +1045,6 @@ references:
   fullName: BundleSystem.BundleAsyncSceneRequest.BundleSystem.IAwaiter<BundleSystem.BundleAsyncSceneRequest>.IsCompleted
   nameWithType: BundleAsyncSceneRequest.IAwaiter<BundleAsyncSceneRequest>.IsCompleted
   nameWithType.vb: BundleAsyncSceneRequest.BundleSystem.IAwaiter<BundleSystem.BundleAsyncSceneRequest>.IsCompleted
-- uid: BundleSystem.BundleAsyncSceneRequest.Failed
-  name: Failed
-  href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_Failed
-  commentId: F:BundleSystem.BundleAsyncSceneRequest.Failed
-  fullName: BundleSystem.BundleAsyncSceneRequest.Failed
-  nameWithType: BundleAsyncSceneRequest.Failed
 - uid: BundleSystem.BundleAsyncSceneRequest.GetAwaiter
   name: GetAwaiter()
   href: api/BundleSystem.BundleAsyncSceneRequest.html#BundleSystem_BundleAsyncSceneRequest_GetAwaiter
@@ -1598,22 +1584,6 @@ references:
   fullName.vb: BundleSystem.BundleManager.TrackInstanceExplicit(Of T)(BundleSystem.TrackHandle(Of T), GameObject)
   nameWithType: BundleManager.TrackInstanceExplicit<T>(TrackHandle<T>, GameObject)
   nameWithType.vb: BundleManager.TrackInstanceExplicit(Of T)(TrackHandle(Of T), GameObject)
-- uid: BundleSystem.BundleManager.TryGetCachedManifest(BundleSystem.AssetBundleBuildManifest@)
-  name: TryGetCachedManifest(out AssetBundleBuildManifest)
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_TryGetCachedManifest_BundleSystem_AssetBundleBuildManifest__
-  commentId: M:BundleSystem.BundleManager.TryGetCachedManifest(BundleSystem.AssetBundleBuildManifest@)
-  name.vb: TryGetCachedManifest(ByRef AssetBundleBuildManifest)
-  fullName: BundleSystem.BundleManager.TryGetCachedManifest(out BundleSystem.AssetBundleBuildManifest)
-  fullName.vb: BundleSystem.BundleManager.TryGetCachedManifest(ByRef BundleSystem.AssetBundleBuildManifest)
-  nameWithType: BundleManager.TryGetCachedManifest(out AssetBundleBuildManifest)
-  nameWithType.vb: BundleManager.TryGetCachedManifest(ByRef AssetBundleBuildManifest)
-- uid: BundleSystem.BundleManager.TryGetCachedManifest*
-  name: TryGetCachedManifest
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_TryGetCachedManifest_
-  commentId: Overload:BundleSystem.BundleManager.TryGetCachedManifest
-  isSpec: "True"
-  fullName: BundleSystem.BundleManager.TryGetCachedManifest
-  nameWithType: BundleManager.TryGetCachedManifest
 - uid: BundleSystem.BundleManager.UpdateImmediate
   name: UpdateImmediate()
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_UpdateImmediate
@@ -1678,24 +1648,6 @@ references:
   fullName.vb: BundleSystem.BundleSyncRequest(Of T)
   nameWithType: BundleSyncRequest<T>
   nameWithType.vb: BundleSyncRequest(Of T)
-- uid: BundleSystem.BundleSyncRequest`1.#ctor(`0,BundleSystem.TrackHandle{`0})
-  name: BundleSyncRequest(T, TrackHandle<T>)
-  href: api/BundleSystem.BundleSyncRequest-1.html#BundleSystem_BundleSyncRequest_1__ctor__0_BundleSystem_TrackHandle__0__
-  commentId: M:BundleSystem.BundleSyncRequest`1.#ctor(`0,BundleSystem.TrackHandle{`0})
-  name.vb: BundleSyncRequest(T, TrackHandle(Of T))
-  fullName: BundleSystem.BundleSyncRequest<T>.BundleSyncRequest(T, BundleSystem.TrackHandle<T>)
-  fullName.vb: BundleSystem.BundleSyncRequest(Of T).BundleSyncRequest(T, BundleSystem.TrackHandle(Of T))
-  nameWithType: BundleSyncRequest<T>.BundleSyncRequest(T, TrackHandle<T>)
-  nameWithType.vb: BundleSyncRequest(Of T).BundleSyncRequest(T, TrackHandle(Of T))
-- uid: BundleSystem.BundleSyncRequest`1.#ctor*
-  name: BundleSyncRequest
-  href: api/BundleSystem.BundleSyncRequest-1.html#BundleSystem_BundleSyncRequest_1__ctor_
-  commentId: Overload:BundleSystem.BundleSyncRequest`1.#ctor
-  isSpec: "True"
-  fullName: BundleSystem.BundleSyncRequest<T>.BundleSyncRequest
-  fullName.vb: BundleSystem.BundleSyncRequest(Of T).BundleSyncRequest
-  nameWithType: BundleSyncRequest<T>.BundleSyncRequest
-  nameWithType.vb: BundleSyncRequest(Of T).BundleSyncRequest
 - uid: BundleSystem.BundleSyncRequest`1.Asset
   name: Asset
   href: api/BundleSystem.BundleSyncRequest-1.html#BundleSystem_BundleSyncRequest_1_Asset
@@ -1721,14 +1673,6 @@ references:
   fullName.vb: BundleSystem.BundleSyncRequest(Of T).Dispose
   nameWithType: BundleSyncRequest<T>.Dispose
   nameWithType.vb: BundleSyncRequest(Of T).Dispose
-- uid: BundleSystem.BundleSyncRequest`1.Empty
-  name: Empty
-  href: api/BundleSystem.BundleSyncRequest-1.html#BundleSystem_BundleSyncRequest_1_Empty
-  commentId: F:BundleSystem.BundleSyncRequest`1.Empty
-  fullName: BundleSystem.BundleSyncRequest<T>.Empty
-  fullName.vb: BundleSystem.BundleSyncRequest(Of T).Empty
-  nameWithType: BundleSyncRequest<T>.Empty
-  nameWithType.vb: BundleSyncRequest(Of T).Empty
 - uid: BundleSystem.BundleSyncRequest`1.Handle
   name: Handle
   href: api/BundleSystem.BundleSyncRequest-1.html#BundleSystem_BundleSyncRequest_1_Handle
@@ -1763,24 +1707,6 @@ references:
   fullName.vb: BundleSystem.BundleSyncRequests(Of T)
   nameWithType: BundleSyncRequests<T>
   nameWithType.vb: BundleSyncRequests(Of T)
-- uid: BundleSystem.BundleSyncRequests`1.#ctor(`0[],BundleSystem.TrackHandle{`0}[])
-  name: BundleSyncRequests(T[], TrackHandle<T>[])
-  href: api/BundleSystem.BundleSyncRequests-1.html#BundleSystem_BundleSyncRequests_1__ctor__0___BundleSystem_TrackHandle__0____
-  commentId: M:BundleSystem.BundleSyncRequests`1.#ctor(`0[],BundleSystem.TrackHandle{`0}[])
-  name.vb: BundleSyncRequests(T(), TrackHandle(Of T)())
-  fullName: BundleSystem.BundleSyncRequests<T>.BundleSyncRequests(T[], BundleSystem.TrackHandle<T>[])
-  fullName.vb: BundleSystem.BundleSyncRequests(Of T).BundleSyncRequests(T(), BundleSystem.TrackHandle(Of T)())
-  nameWithType: BundleSyncRequests<T>.BundleSyncRequests(T[], TrackHandle<T>[])
-  nameWithType.vb: BundleSyncRequests(Of T).BundleSyncRequests(T(), TrackHandle(Of T)())
-- uid: BundleSystem.BundleSyncRequests`1.#ctor*
-  name: BundleSyncRequests
-  href: api/BundleSystem.BundleSyncRequests-1.html#BundleSystem_BundleSyncRequests_1__ctor_
-  commentId: Overload:BundleSystem.BundleSyncRequests`1.#ctor
-  isSpec: "True"
-  fullName: BundleSystem.BundleSyncRequests<T>.BundleSyncRequests
-  fullName.vb: BundleSystem.BundleSyncRequests(Of T).BundleSyncRequests
-  nameWithType: BundleSyncRequests<T>.BundleSyncRequests
-  nameWithType.vb: BundleSyncRequests(Of T).BundleSyncRequests
 - uid: BundleSystem.BundleSyncRequests`1.Assets
   name: Assets
   href: api/BundleSystem.BundleSyncRequests-1.html#BundleSystem_BundleSyncRequests_1_Assets
@@ -1806,14 +1732,6 @@ references:
   fullName.vb: BundleSystem.BundleSyncRequests(Of T).Dispose
   nameWithType: BundleSyncRequests<T>.Dispose
   nameWithType.vb: BundleSyncRequests(Of T).Dispose
-- uid: BundleSystem.BundleSyncRequests`1.Empty
-  name: Empty
-  href: api/BundleSystem.BundleSyncRequests-1.html#BundleSystem_BundleSyncRequests_1_Empty
-  commentId: F:BundleSystem.BundleSyncRequests`1.Empty
-  fullName: BundleSystem.BundleSyncRequests<T>.Empty
-  fullName.vb: BundleSystem.BundleSyncRequests(Of T).Empty
-  nameWithType: BundleSyncRequests<T>.Empty
-  nameWithType.vb: BundleSyncRequests(Of T).Empty
 - uid: BundleSystem.BundleSyncRequests`1.Handles
   name: Handles
   href: api/BundleSystem.BundleSyncRequests-1.html#BundleSystem_BundleSyncRequests_1_Handles

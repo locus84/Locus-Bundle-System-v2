@@ -101,7 +101,8 @@
   
   
   <h4 id="BundleSystem_AssetBundleBuildSetting_CleanCacheInEditor" data-uid="BundleSystem.AssetBundleBuildSetting.CleanCacheInEditor">CleanCacheInEditor</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Clean up player cache when initializing for testing purpose.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -125,7 +126,8 @@
   
   
   <h4 id="BundleSystem_AssetBundleBuildSetting_EmulateInEditor" data-uid="BundleSystem.AssetBundleBuildSetting.EmulateInEditor">EmulateInEditor</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Use assetbundles in editor. if false, it&apos;ll use EditorAssetDatabaseMap.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -149,7 +151,9 @@
   
   
   <h4 id="BundleSystem_AssetBundleBuildSetting_EmulateWithoutRemoteURL" data-uid="BundleSystem.AssetBundleBuildSetting.EmulateWithoutRemoteURL">EmulateWithoutRemoteURL</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Use Remote output folder when emulating remote bundles
+Useful when your contents delevery network is not yet ready but you want to test with actual AssetBundles.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -173,7 +177,8 @@
   
   
   <h4 id="BundleSystem_AssetBundleBuildSetting_ForceRebuild" data-uid="BundleSystem.AssetBundleBuildSetting.ForceRebuild">ForceRebuild</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Force rebuild. ignore cache. if something wrong with built bundles. Try again with this paramteter set true.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -197,7 +202,7 @@
   
   
   <h4 id="BundleSystem_AssetBundleBuildSetting_OutputFolder" data-uid="BundleSystem.AssetBundleBuildSetting.OutputFolder">OutputFolder</h4>
-  <div class="markdown level1 summary"><p>output folder inside project</p>
+  <div class="markdown level1 summary"><p>output folder path relatvie to project root directory</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -222,7 +227,8 @@
   
   
   <h4 id="BundleSystem_AssetBundleBuildSetting_RemoteURL" data-uid="BundleSystem.AssetBundleBuildSetting.RemoteURL">RemoteURL</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Remote URL to download AssetBundles</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -249,7 +255,7 @@
   
   <a id="BundleSystem_AssetBundleBuildSetting_GetBundleSettings_" data-uid="BundleSystem.AssetBundleBuildSetting.GetBundleSettings*"></a>
   <h4 id="BundleSystem_AssetBundleBuildSetting_GetBundleSettings" data-uid="BundleSystem.AssetBundleBuildSetting.GetBundleSettings">GetBundleSettings()</h4>
-  <div class="markdown level1 summary"><p>Provide actual assets to bundle</p>
+  <div class="markdown level1 summary"><p>Provide actual infomations about each bundle.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -275,7 +281,7 @@
   
   <a id="BundleSystem_AssetBundleBuildSetting_IsValid_" data-uid="BundleSystem.AssetBundleBuildSetting.IsValid*"></a>
   <h4 id="BundleSystem_AssetBundleBuildSetting_IsValid" data-uid="BundleSystem.AssetBundleBuildSetting.IsValid">IsValid()</h4>
-  <div class="markdown level1 summary"><p>Check setting is valid</p>
+  <div class="markdown level1 summary"><p>Check setting is valid. when you need to say the setting is not valid and want to prevent AssetBundle building.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

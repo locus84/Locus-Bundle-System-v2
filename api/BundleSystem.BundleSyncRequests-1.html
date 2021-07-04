@@ -83,7 +83,8 @@
   
   <h1 id="BundleSystem_BundleSyncRequests_1" data-uid="BundleSystem.BundleSyncRequests`1" class="text-break">Struct BundleSyncRequests&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Synchronized multiple Asset Load Request with Type T</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="BundleSystem.html">BundleSystem</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
@@ -106,46 +107,13 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="constructors">Constructors
-  </h3>
-  
-  
-  <a id="BundleSystem_BundleSyncRequests_1__ctor_" data-uid="BundleSystem.BundleSyncRequests`1.#ctor*"></a>
-  <h4 id="BundleSystem_BundleSyncRequests_1__ctor__0___BundleSystem_TrackHandle__0____" data-uid="BundleSystem.BundleSyncRequests`1.#ctor(`0[],BundleSystem.TrackHandle{`0}[])">BundleSyncRequests(T[], TrackHandle&lt;T&gt;[])</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BundleSyncRequests(T[] assets, TrackHandle&lt;T&gt;[] handles)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>T[]</td>
-        <td><span class="parametername">assets</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="BundleSystem.TrackHandle-1.html">TrackHandle</a>&lt;T&gt;[]</td>
-        <td><span class="parametername">handles</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="fields">Fields
   </h3>
   
   
   <h4 id="BundleSystem_BundleSyncRequests_1_Assets" data-uid="BundleSystem.BundleSyncRequests`1.Assets">Assets</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Actual loaded Assets.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -168,32 +136,9 @@
   </table>
   
   
-  <h4 id="BundleSystem_BundleSyncRequests_1_Empty" data-uid="BundleSystem.BundleSyncRequests`1.Empty">Empty</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly BundleSyncRequests&lt;T&gt; Empty</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BundleSystem.BundleSyncRequests-1.html">BundleSyncRequests</a>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <h4 id="BundleSystem_BundleSyncRequests_1_Handles" data-uid="BundleSystem.BundleSyncRequests`1.Handles">Handles</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The loaded Assets&apos; TrackHandles.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -220,7 +165,8 @@
   
   <a id="BundleSystem_BundleSyncRequests_1_Dispose_" data-uid="BundleSystem.BundleSyncRequests`1.Dispose*"></a>
   <h4 id="BundleSystem_BundleSyncRequests_1_Dispose" data-uid="BundleSystem.BundleSyncRequests`1.Dispose">Dispose()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Release all assets loaded. This is same with calling Release() function of TrackHandle.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -230,7 +176,8 @@
   
   <a id="BundleSystem_BundleSyncRequests_1_Pin_" data-uid="BundleSystem.BundleSyncRequests`1.Pin*"></a>
   <h4 id="BundleSystem_BundleSyncRequests_1_Pin" data-uid="BundleSystem.BundleSyncRequests`1.Pin">Pin()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Supress all asset&apos;s auto release.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">

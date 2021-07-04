@@ -83,7 +83,7 @@
   
   <h1 id="BundleSystem_AssetBundleBuilder" data-uid="BundleSystem.AssetBundleBuilder" class="text-break">Class AssetBundleBuilder
   </h1>
-  <div class="markdown level0 summary"><p>class that contains actual build functionalities</p>
+  <div class="markdown level0 summary"><p>class that contains assetbundle building functionalites</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -103,7 +103,9 @@
   
   <a id="BundleSystem_AssetBundleBuilder_BuildAssetBundles_" data-uid="BundleSystem.AssetBundleBuilder.BuildAssetBundles*"></a>
   <h4 id="BundleSystem_AssetBundleBuilder_BuildAssetBundles_BundleSystem_AssetBundleBuildSetting_" data-uid="BundleSystem.AssetBundleBuilder.BuildAssetBundles(BundleSystem.AssetBundleBuildSetting)">BuildAssetBundles(AssetBundleBuildSetting)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Build assetbundles with given setting.
+This refers input setting&apos;s output folder.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -122,7 +124,8 @@
       <tr>
         <td><a class="xref" href="BundleSystem.AssetBundleBuildSetting.html">AssetBundleBuildSetting</a></td>
         <td><span class="parametername">setting</span></td>
-        <td></td>
+        <td><p>input setting</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -130,7 +133,9 @@
   
   <a id="BundleSystem_AssetBundleBuilder_WriteExpectedSharedBundles_" data-uid="BundleSystem.AssetBundleBuilder.WriteExpectedSharedBundles*"></a>
   <h4 id="BundleSystem_AssetBundleBuilder_WriteExpectedSharedBundles_BundleSystem_AssetBundleBuildSetting_" data-uid="BundleSystem.AssetBundleBuilder.WriteExpectedSharedBundles(BundleSystem.AssetBundleBuildSetting)">WriteExpectedSharedBundles(AssetBundleBuildSetting)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Write list of shared assetbundles, this function is used for reducing unexpected shared bundles.
+The output file will be generated in the project root directory with name ExpectedSharedBundles.txt.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -149,7 +154,8 @@
       <tr>
         <td><a class="xref" href="BundleSystem.AssetBundleBuildSetting.html">AssetBundleBuildSetting</a></td>
         <td><span class="parametername">setting</span></td>
-        <td></td>
+        <td><p>the setting you want to check shared bundle</p>
+</td>
       </tr>
     </tbody>
   </table>
