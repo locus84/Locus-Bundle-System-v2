@@ -10,7 +10,7 @@ using System;
 namespace BundleSystem
 {
     /// <summary>
-    /// class that contains actual build functionalities
+    /// class that contains assetbundle building functionalites
     /// </summary>
     public static class AssetBundleBuilder
     {
@@ -37,6 +37,11 @@ namespace BundleSystem
             }
         }
 
+        /// <summary>
+        /// Write list of shared assetbundles, this function is used for reducing unexpected shared bundles.
+        /// The output file will be generated in the project root directory with name ExpectedSharedBundles.txt.
+        /// </summary>
+        /// <param name="setting">the setting you want to check shared bundle</param>
         public static void WriteExpectedSharedBundles(AssetBundleBuildSetting setting)
         {
             if(!Application.isBatchMode)
@@ -60,6 +65,11 @@ namespace BundleSystem
             }
         }
 
+        /// <summary>
+        /// Build assetbundles with given setting.
+        /// This refers input setting's output folder.
+        /// </summary>
+        /// <param name="setting">input setting</param>
         public static void BuildAssetBundles(AssetBundleBuildSetting setting)
         {
             if(!Application.isBatchMode)

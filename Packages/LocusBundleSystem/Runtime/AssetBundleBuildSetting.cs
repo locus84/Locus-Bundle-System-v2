@@ -24,6 +24,9 @@ namespace BundleSystem
             }
         }
 
+        /// <summary>
+        /// Rebuild EditorAssetDatabaseMap from current active AssetBundleBuildSetting 
+        /// </summary>
         public static void RebuildEditorAssetDatabaseMap()
         {
             if(AssetBundleBuildSetting.TryGetActiveSetting(out var setting)) 
@@ -32,7 +35,12 @@ namespace BundleSystem
                 isDirty = false;
             }
         }
-
+        
+        
+        /// <summary>
+        /// Build EditorAssetDatabaseMap from this AssetBundleBuildSetting.
+        /// To emulate Assetbundle functioanlies in editor.
+        /// </summary>
         public EditorDatabaseMap CreateEditorDatabase()
         {
             var setting = new EditorDatabaseMap();
@@ -50,6 +58,12 @@ namespace BundleSystem
             return setting;
         }
 
+        /// <summary>
+        /// Try to find bundle settings that you set active using context menu.
+        /// </summary>
+        /// <param name="setting">found setting</param>
+        /// <param name="findIfNotExist">if none of them is active, set the first found as active setting.</param>
+        /// <returns>returns true if found, false otherwise</returns>
         public static bool TryGetActiveSetting(out AssetBundleBuildSetting setting, bool findIfNotExist = true)
         {
             if (s_ActiveSetting != null) 
@@ -95,6 +109,12 @@ namespace BundleSystem
             return true;
         }
 
+        /// <summary>
+        /// Set provided setting as an active one.
+        /// To use in playmode and building.
+        /// </summary>
+        /// <param name="setting">settings to set active</param>
+        /// <param name="rebuildDatabaseMap">rebuild EditorAssetDatabaseMap right away?</param>
         public static void SetActiveSetting(AssetBundleBuildSetting setting, bool rebuildDatabaseMap = false)
         {
             var assetPath = UnityEditor.AssetDatabase.GetAssetPath(setting);
@@ -107,50 +127,87 @@ namespace BundleSystem
             isDirty = !rebuildDatabaseMap;
         }
 
+        /// <summary>
+        /// Output path of the built AssetBundles.
+        /// </summary>
         public string OutputPath => Application.dataPath.Remove(Application.dataPath.Length - 6) + OutputFolder;
 #endif
 
         /// <summary>
-        /// output folder inside project
+        /// output folder path relatvie to project root directory
         /// </summary>
         [SerializeField]
         [Tooltip("AssetBundle build output folder")]
         public string OutputFolder = "AssetBundles";
 
+        /// <summary>
+        /// Remote URL to download AssetBundles
+        /// </summary>
         [Tooltip("Remote URL for downloading remote bundles")]
         public string RemoteURL = "http://localhost/";
 
+        /// <summary>
+        /// Use assetbundles in editor. if false, it'll use EditorAssetDatabaseMap.
+        /// </summary>
         [Tooltip("Use built asset bundles even in editor")]
         public bool EmulateInEditor = false;
 
+        /// <summary>
+        /// Use Remote output folder when emulating remote bundles
+        /// Useful when your contents delevery network is not yet ready but you want to test with actual AssetBundles.
+        /// </summary>
         [Tooltip("Use Remote output folder when emulating remote bundles")]
         public bool EmulateWithoutRemoteURL = false;
 
+        /// <summary>
+        /// Clean up player cache when initializing for testing purpose.
+        /// </summary>
         [Tooltip("Clean cache when initializing BundleManager for testing purpose")]
         public bool CleanCacheInEditor = false;
 
-        //build cache server settings
+        /// <summary>
+        /// Force rebuild. ignore cache. if something wrong with built bundles. Try again with this paramteter set true.
+        /// </summary>
         public bool ForceRebuild = false;
 
         /// <summary>
-        /// Provide actual assets to bundle
+        /// Provide actual infomations about each bundle.
         /// </summary>
         public abstract List<BundleSetting> GetBundleSettings();
 
         /// <summary>
-        /// Check setting is valid
+        /// Check setting is valid. when you need to say the setting is not valid and want to prevent AssetBundle building.
         /// </summary>
         public virtual bool IsValid() => true;
     }
 
+
     [System.Serializable]
     public struct BundleSetting
     {
+        /// <summary>
+        /// Name of the bundle.
+        /// </summary>
         public string BundleName;
+        /// <summary>
+        /// Whether this AssetBundle should be included in build when building player or not.
+        /// </summary>
         public bool IncludedInPlayer;
+        /// <summary>
+        /// Pathes of Assets that's included in this bundle.
+        /// </summary>
         public string[] AssetNames;
+        /// <summary>
+        /// Additional Asset name that you can use it when loading from the AssetBundle.
+        /// </summary>
         public string[] AddressableNames;
+        /// <summary>
+        /// Whether this AssetBundle should be compressed or not.
+        /// </summary>
         public bool CompressBundle;
+        /// <summary>
+        /// Whether this bundle is associated with shared bundle generation or not. 
+        /// </summary>
         public bool AutoSharedBundle;
     }
 }

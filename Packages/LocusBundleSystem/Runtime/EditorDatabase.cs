@@ -5,25 +5,26 @@ using UnityEngine;
 #if UNITY_EDITOR
 namespace BundleSystem
 {
+    /// <summary>
+    /// This class is for emulating AssetBundles without actaully using it.
+    /// All the functions/properties are used by the framework only.
+    /// </summary>
     public class EditorDatabaseMap
     {        
-        public bool UseAssetDatabase;
-        public bool CleanCache;
-        public bool UseOuputAsRemote;
-        public string OutputPath;
+        internal bool UseAssetDatabase;
+        internal bool CleanCache;
+        internal bool UseOuputAsRemote;
+        internal string OutputPath;
 
         private Dictionary<string, Dictionary<string, List<string>>> m_Map = new Dictionary<string, Dictionary<string, List<string>>>();
         private Dictionary<string, string> m_ScenePathToBundleName = new Dictionary<string, string>();
         static List<string> s_EmptyStringList = new List<string>();
 
-        public IEnumerable<string> GetBundleNames() => m_Map.Keys;
+        internal IEnumerable<string> GetBundleNames() => m_Map.Keys;
 
-        /// <summary>
-        /// Scene path to bundle name mapping dictionary, used to feed bundle manager while using AssetDatabase
-        /// </summary>
-        public Dictionary<string, string> GetScenePathToBundleName() => new Dictionary<string, string>(m_ScenePathToBundleName);
+        internal Dictionary<string, string> GetScenePathToBundleName() => new Dictionary<string, string>(m_ScenePathToBundleName);
         
-        public void Append(string bundleName, string[] assetNames, string[] addressableNames)
+        internal void Append(string bundleName, string[] assetNames, string[] addressableNames)
         {
             var assetDict = new Dictionary<string, List<string>>();
             for(int i = 0; i < assetNames.Length; i++)
@@ -46,26 +47,26 @@ namespace BundleSystem
             m_Map.Add(bundleName, assetDict);
         }
 
-        public List<string> GetAssetPaths(string bundleName, string assetName)
+        internal List<string> GetAssetPaths(string bundleName, string assetName)
         {
             if (!m_Map.TryGetValue(bundleName, out var innerDic)) return s_EmptyStringList;
             if (!innerDic.TryGetValue(assetName, out var pathList)) return s_EmptyStringList;
             return pathList;
         }
 
-        public List<string> GetAssetPaths(string bundleName)
+        internal List<string> GetAssetPaths(string bundleName)
         {
             if (!m_Map.TryGetValue(bundleName, out var innerDic)) return s_EmptyStringList;
             return innerDic.Values.SelectMany(list => list).ToList();
         }
 
-        public bool IsAssetExist(string bundleName, string assetName)
+        internal bool IsAssetExist(string bundleName, string assetName)
         {
             var assets = GetAssetPaths(bundleName, assetName);
             return assets.Count > 0;
         }
 
-        public string GetAssetPath<T>(string bundleName, string assetName) where T : UnityEngine.Object
+        internal string GetAssetPath<T>(string bundleName, string assetName) where T : UnityEngine.Object
         {
             var assets = GetAssetPaths(bundleName, assetName);
             if (assets.Count == 0) return string.Empty;

@@ -14,8 +14,16 @@ namespace BundleSystem
     /// or just in editor scripts
     /// </summary>
     public static partial class Utility
-    {
+    {   
+        /// <summary>
+        /// Temp folder that's needed when analyzing scene dependencies.
+        /// </summary>
         public const string kTempBuildPath = "Temp/BundleContentBuildData";
+
+        /// <summary>
+        /// Whether this asset can be bundled into an AssetBundle or not.
+        /// </summary>
+        /// <param name="assetPath">input asset's path</param>
         public static bool IsAssetCanBundled(string assetPath)
         {
             var mainType = AssetDatabase.GetMainAssetTypeAtPath(assetPath);
@@ -68,8 +76,13 @@ namespace BundleSystem
             }
         }
 
-        //prefabs placed into a scene are encoded into scene when building, and they does not participate bundle references.
-        //this is somewhat weird but this happens on scriptable build pipeline
+        /// <summary>
+        /// prefabs placed into a scene are encoded into scene when building, and they does not participate bundle references.
+        /// this is somewhat weird but this happens on scriptable build pipeline
+        /// </summary>
+        /// <param name="scenePath">Input scene's path</param>
+        /// <param name="sceneDeps">found dependencies using AssetDatabase function</param>
+        /// <returns>Real dependencies excluding encoded prefabs</returns>
         public static string[] UnwarpSceneEncodedPrefabs(string scenePath, string[] sceneDeps)
         {
             var list = new List<string>(sceneDeps);
@@ -121,7 +134,9 @@ namespace BundleSystem
     }
 #endif
 
-    //Runtime usable Utility
+    /// <summary>
+    /// Utility functions
+    /// </summary>
     public static partial class Utility
     {
         /// <summary>
@@ -134,6 +149,13 @@ namespace BundleSystem
 #endif
         }
 
+        /// <summary>
+        /// Combine pathes provided. 
+        /// As some platform does not allow alt directory seperate character,
+        /// This just combines path and replace all backward slash to forward slash.
+        /// </summary>
+        /// <param name="args">input pathes to combine.</param>
+        /// <returns>combined path</returns>
         public static string CombinePath(params string[] args)
         {
             var combined = Path.Combine(args);

@@ -5,7 +5,14 @@ using UnityEngine.Networking;
 
 namespace BundleSystem
 {
+    /// <summary>
+    /// Tracking status of a TrackInfo.
+    /// </summary>
     public enum TrackStatus { AutoReleasable, Pinned, ReleaseRequested }
+
+    /// <summary>
+    /// Tracking information that a TrackHandle points
+    /// </summary>
     public struct TrackInfo
     {
         internal LoadedBundle LoadedBundle;
@@ -15,6 +22,10 @@ namespace BundleSystem
         public float LoadTime;
         public TrackStatus Status;
     }
+
+    /// <summary>
+    /// Tracking handle of a loaded Asset form AssetBundles.
+    /// </summary>
     public struct TrackHandle<T> where T : Object
     {
         /// <summary>

@@ -10,6 +10,10 @@ namespace BundleSystem
     /// </summary>
     public static class AssetDependencyTree
     {
+        /// <summary>
+        /// This class contains analyzed results of bundle reference tree.
+        /// AssetBundle dependencies, actual AssetbundleBuild to pass SBP and shared bundles.
+        /// </summary>
         public class ProcessResult
         {
             public Dictionary<string, HashSet<string>> BundleDependencies;
@@ -17,7 +21,12 @@ namespace BundleSystem
             public List<AssetBundleBuild> SharedBundles;
         }
 
-        //TODO: check dependency exception
+        /// <summary>
+        /// Analyze dependency tree of input bundle setting list.
+        /// This function used when generating expected shared bundles, and when building actual assetbundles.
+        /// </summary>
+        /// <param name="bundleSettings"></param>
+        /// <returns>Process result that contains all the results</returns>
         public static ProcessResult ProcessDependencyTree(List<BundleSetting> bundleSettings)
         {
             var context = new Context();
@@ -69,7 +78,9 @@ namespace BundleSystem
             return new ProcessResult() { BundleDependencies = context.DependencyDic, ResultBundles = resultList, SharedBundles = sharedBundles };
         }
 
-        //actual node tree context
+        /// <summary>
+        /// class that holds informations while processing
+        /// </summary>
         public class Context
         {
             public Dictionary<string, HashSet<string>> DependencyDic = new Dictionary<string, HashSet<string>>();
@@ -78,6 +89,9 @@ namespace BundleSystem
             public List<RootNode> ResultSharedNodes = new List<RootNode>();
         }
 
+        /// <summary>
+        /// Top-most asset reference. Usually entry of asset loading.
+        /// </summary>
         public class RootNode : Node
         {
             public string BundleName { get; private set; }
@@ -96,6 +110,9 @@ namespace BundleSystem
             }
         }
 
+        /// <summary>
+        /// Represents individual unity asset which presist as asset file.
+        /// </summary>
         public class Node
         {
             public RootNode Root { get; protected set; }
