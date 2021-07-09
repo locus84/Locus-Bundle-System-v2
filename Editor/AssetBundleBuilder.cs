@@ -19,21 +19,23 @@ namespace BundleSystem
 
         class CustomBuildParameters : BundleBuildParameters
         {
-            public List<BundleSetting> CurrentSettings;
+            Dictionary<string, bool> m_CompressSettings = new Dictionary<string, bool>();
 
             public CustomBuildParameters(List<BundleSetting> settings, 
                 BuildTarget target, 
                 BuildTargetGroup group, 
                 string outputFolder) : base(target, group, outputFolder)
             {
-                CurrentSettings = settings;
+                foreach(var setting in settings)
+                {
+                    m_CompressSettings.Add(setting.BundleName, setting.CompressBundle);
+                }
             }
 
             public override BuildCompression GetCompressionForIdentifier(string identifier)
             {
-                //find user set compression method
-                var found = CurrentSettings.First(setting => setting.BundleName == identifier);
-                return !found.CompressBundle ? BuildCompression.LZ4 : BuildCompression.LZMA;
+                var compress = !m_CompressSettings.TryGetValue(identifier, out var compressed) || compressed;
+                return !compress ? BuildCompression.LZ4 : BuildCompression.LZMA;
             }
         }
 
