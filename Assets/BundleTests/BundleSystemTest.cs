@@ -89,6 +89,51 @@ namespace Tests
             Assert.IsTrue(BundleManager.GetBundleReferenceSnapshot().Count == 0);
         }
 
+        [UnityTest]
+        public IEnumerator FailedHandleReleaseTest()
+        {
+            //sync pin empty
+            {
+                var texReq = m_Owner.Load<Texture>("Local", "Unknown");
+                //try pin right after load
+                texReq.Pin();
+                BundleManager.UpdateImmediate();
+                Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+            }
+
+            //sync dispose empty
+            {
+                var texReq = m_Owner.Load<Texture>("Local", "Unknown");
+                //try dispose right after load loading
+                texReq.Dispose();
+                BundleManager.UpdateImmediate();
+                Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+            }
+
+            //async pin empty
+            {
+                var texReq = m_Owner.LoadAsync<Texture>("Local", "Unknown");
+                //try pin right after load
+                texReq.Pin();
+                yield return texReq;
+                BundleManager.UpdateImmediate();
+                Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+            }
+
+            //async dispose empty
+            {
+                var texReq = m_Owner.LoadAsync<Texture>("Local", "Unknown");
+                //try dispose while loading
+                texReq.Dispose();
+                //wait loading complete event after dispose(is possible actually)
+                yield return texReq;
+                BundleManager.UpdateImmediate();
+                Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+            }
+
+            //should be clean
+            Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+        }
 
         [UnityTest]
         public IEnumerator AsyncApiTest()

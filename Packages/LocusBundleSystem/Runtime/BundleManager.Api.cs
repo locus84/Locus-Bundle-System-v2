@@ -118,26 +118,21 @@ namespace BundleSystem
                 //need to keep bundle while loading, so we retain before load, release after load
                 var handle = TrackObject<T>(owner, s_LoadingObjectDummy, foundBundle);
                 var bundleRequest = new BundleAsyncRequest<T>(request, handle);
-                request.completed += op => AsyncAssetLoaded(request, bundleRequest);
+                request.completed += op => AsyncAssetLoaded(handle, request, bundleRequest);
                 return new BundleAsyncRequest<T>(request, handle);
             }
         }
 
-        private static void AsyncAssetLoaded<T>(AssetBundleRequest request, BundleAsyncRequest<T> bundleRequest) where T : Object
+        private static void AsyncAssetLoaded<T>(TrackHandle<T> handle, AssetBundleRequest request, BundleAsyncRequest<T> bundleRequest) where T : Object
         {
-            var handle = bundleRequest.Handle;
-            if (request.asset == null)
-            {
-                bundleRequest.Handle.Release();
-            }
-            else if (s_TrackInfoDict.TryGetValue(handle.Id, out var info))
-            {
-                info.Asset = request.asset;
-                var time = Time.realtimeSinceStartup;
-                //it could be pinned perior to this
-                if (info.LoadTime < time) info.LoadTime = time;
-                s_TrackInfoDict[handle.Id] = info;
-            }
+            //loading tracks are not being released, so there must be.
+            var info = s_TrackInfoDict[handle.Id];
+            info.Asset = request.asset;
+            info.LoadTime = Time.realtimeSinceStartup;
+            
+            //force release null request
+            if(info.Asset == null) info.Status = TrackStatus.ReleaseRequested;
+            s_TrackInfoDict[handle.Id] = info;
         }
 
         public static Scene LoadScene(string sceneNameOrPath, LoadSceneMode mode)
