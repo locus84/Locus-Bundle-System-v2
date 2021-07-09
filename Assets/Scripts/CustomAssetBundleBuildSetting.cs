@@ -10,15 +10,15 @@ public class CustomAssetBundleBuildSetting : AssetBundleBuildSetting
         //add settings manually
         var bundleSettings = new List<BundleSetting>();
 
-        AddFilesInFolder("Local", "Assets/TestRemoteResources/Local", true, true, bundleSettings);
-        AddFilesInFolder("Object", "Assets/TestRemoteResources/Object", true, true, bundleSettings);
-        AddFilesInFolder("Object_RootOnly", "Assets/TestRemoteResources/Object_RootOnly", true, false, bundleSettings);
-        AddFilesInFolder("Scene", "Assets/TestRemoteResources/Scene", true, true, bundleSettings);
+        AddFilesInFolder("Local", "Assets/TestRemoteResources/Local", true, true, true, bundleSettings);
+        AddFilesInFolder("Object", "Assets/TestRemoteResources/Object", true, true, false, bundleSettings);
+        AddFilesInFolder("Object_RootOnly", "Assets/TestRemoteResources/Object_RootOnly", true, false, true, bundleSettings);
+        AddFilesInFolder("Scene", "Assets/TestRemoteResources/Scene", true, true, false, bundleSettings);
 
         return bundleSettings;
     }
 
-    static void AddFilesInFolder(string bundleName, string folderPath, bool local, bool includeSubfolder, List<BundleSetting> targetList)
+    static void AddFilesInFolder(string bundleName, string folderPath, bool local, bool includeSubfolder, bool compress, List<BundleSetting> targetList)
     {
         var assetPath = new List<string>();
         var loadPath = new List<string>();
@@ -31,7 +31,7 @@ public class CustomAssetBundleBuildSetting : AssetBundleBuildSetting
             AddressableNames = loadPath.ToArray(),
             BundleName = bundleName,
             AutoSharedBundle = true,
-            CompressBundle = true,
+            CompressBundle = compress,
             IncludedInPlayer = local
         });
     }
