@@ -1,6 +1,6 @@
 # Locus Bundle System For Unity
 
-[![Discord Chat](https://img.shields.io/discord/865867751813414933.svg)](https://discord.gg/kfVzV7qaEF)
+[![Discord](https://img.shields.io/discord/865867751813414933.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/kfVzV7qaEF)
 
 [Unity Forum Thread](https://forum.unity.com/threads/simpler-alternative-to-addressables.820998)
 
