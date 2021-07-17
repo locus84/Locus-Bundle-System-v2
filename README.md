@@ -1,5 +1,7 @@
 # Locus Bundle System For Unity
 
+[![Discord Chat](https://img.shields.io/discord/865867751813414933.svg)](https://discord.gg/kfVzV7qaEF)
+
 [Unity Forum Thread](https://forum.unity.com/threads/simpler-alternative-to-addressables.820998)
 
 AssetBundle system from unity5 will be obsolute in future.\
