@@ -159,15 +159,14 @@ namespace Tests
             //scene load test
             {
                 var loadReq1 = BundleManager.LoadSceneAsync("TestScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+                var loadReq3 = BundleManager.LoadSceneAsync("TestScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
                 yield return loadReq1;
+                yield return loadReq3;
                 Assert.IsTrue(loadReq1.Scene.IsValid() && loadReq1.Succeeded);
 
                 //load subscene which contains two gameobjects
                 var loadReq2 = BundleManager.LoadSceneAsync("TestScene_SubDir", UnityEngine.SceneManagement.LoadSceneMode.Additive);
                 yield return loadReq2;
-
-                var loadReq3 = BundleManager.LoadSceneAsync("TestScene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
-                yield return loadReq3;
 
                 //allow error message
                 LogAssert.ignoreFailingMessages = true;
