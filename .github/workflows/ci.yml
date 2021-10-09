@@ -19,13 +19,12 @@ jobs:
         echo '### head info'
         git log -1
         echo "## replacing version ${GITHUB_REF##*/}"
-        sed -i '/version/s|[^.]*$/'"${GITHUB_REF##*/}\"/" $PACKAGE_MANIFEST
+        sed -ie 's|\(\"version"\): "\(.*\)"|\1: '"\"${GITHUB_REF##*/}\"|" $PACKAGE_MANIFEST
         git add -A
         git commit -m "tagging version"
         git push origin master
         echo '### copy samples'
         cp -R "$SAMPLE_SOURCE" "$SAMPLE_DEST"
-        echo "## replacing version $GITHUB_REF"
         git config user.email "automation@sample.com"
         git config user.name "automation"
         git add -A
