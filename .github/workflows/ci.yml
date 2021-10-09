@@ -21,6 +21,7 @@ jobs:
         git log -1
         echo '### copy samples'
         cp -R "$SAMPLE_SOURCE" "$SAMPLE_DEST"
+        echo "## replacing version $GITHUB_REF"
         sed -i "s/TAG_VERSION/$GITHUB_REF/g" $PACKAGE_MANIFEST
         git config user.email "automation@sample.com"
         git config user.name "automation"
