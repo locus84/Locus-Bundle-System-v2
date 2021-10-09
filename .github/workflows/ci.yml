@@ -2,8 +2,6 @@ name: CI
 
 on:
   push:
-    branches:
-    - master
     tags:
     - '*'
 
@@ -11,6 +9,7 @@ jobs:
   split-upm:
     name: update upm branch
     runs-on: ubuntu-latest
+    if: github.event.base_ref == 'refs/heads/master'
     steps:
     - uses: actions/checkout@v2
       with:
