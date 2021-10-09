@@ -23,7 +23,7 @@ jobs:
         git config user.name "automation"
         echo "## replacing version ${GITHUB_REF##*/}"
         git checkout master
-        sed -ie 's|\(\"version"\): "\(.*\)"|\1: '"\"${GITHUB_REF##*/}\"|" $PACKAGE_MANIFEST
+        sed -i 's|\(\"version"\): "\(.*\)"|\1: '"\"${GITHUB_REF##*/}\"|" $PACKAGE_MANIFEST
         git add -A
         git commit -m "tagging version"
         git push
