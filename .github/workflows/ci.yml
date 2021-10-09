@@ -18,6 +18,9 @@ jobs:
       run: |
         echo '### head info'
         git log -1
+        echo '### set git user info'
+        git config user.email "locus84@gmail.com"
+        git config user.name "automation"
         echo "## replacing version ${GITHUB_REF##*/}"
         sed -ie 's|\(\"version"\): "\(.*\)"|\1: '"\"${GITHUB_REF##*/}\"|" $PACKAGE_MANIFEST
         git add -A
@@ -25,8 +28,6 @@ jobs:
         git push origin master
         echo '### copy samples'
         cp -R "$SAMPLE_SOURCE" "$SAMPLE_DEST"
-        git config user.email "automation@sample.com"
-        git config user.name "automation"
         git add -A
         git commit -m "CopySamples"
         echo '### split upm branch'
