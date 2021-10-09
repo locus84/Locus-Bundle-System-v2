@@ -18,8 +18,8 @@ jobs:
       run: |
         echo '### head info'
         git log -1
-        echo "## replacing version $GITHUB_REF"
-        sed -i '|version|s|[^.]*$|'"${GITHUB_REF}\"|" $PACKAGE_MANIFEST
+        echo "## replacing version ${GITHUB_REF##*/}"
+        sed -i '/version/s|[^.]*$/'"${GITHUB_REF##*/}\"/" $PACKAGE_MANIFEST
         git add -A
         git commit -m "tagging version"
         git push origin master
