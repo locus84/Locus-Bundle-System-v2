@@ -21,6 +21,7 @@ jobs:
         git log -1
         echo '### copy samples'
         cp -R "$SAMPLE_SOURCE" "$SAMPLE_DEST"
+        sed -i "s/TAG_VERSION/$GITHUB_REF/g" $PACKAGE_MANIFEST
         git config user.email "automation@sample.com"
         git config user.name "automation"
         git add -A
@@ -33,3 +34,4 @@ jobs:
         PKG_ROOT: Packages/LocusBundleSystem
         SAMPLE_SOURCE: Assets/Sample
         SAMPLE_DEST: Packages/LocusBundleSystem/Samples~
+        PACKAGE_MANIFEST: Packages/LocusBundleSystem/package.json
