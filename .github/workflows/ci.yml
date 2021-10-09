@@ -25,7 +25,7 @@ jobs:
         sed -ie 's|\(\"version"\): "\(.*\)"|\1: '"\"${GITHUB_REF##*/}\"|" $PACKAGE_MANIFEST
         git add -A
         git commit -m "tagging version"
-        git push origin master
+        git push
         echo '### copy samples'
         cp -R "$SAMPLE_SOURCE" "$SAMPLE_DEST"
         git add -A
