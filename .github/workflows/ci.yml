@@ -34,8 +34,9 @@ jobs:
         echo '### split upm branch'
         git subtree split -P "$PKG_ROOT" -b upm
         echo '### update remote upm branch'
-        git tag "upm${GITHUB_REF##*/}"
         git push -f origin upm
+        git tag "upm${GITHUB_REF##*/}"
+        git push origin "upm${GITHUB_REF##*/}"
       env:
         PKG_ROOT: Packages/LocusBundleSystem
         SAMPLE_SOURCE: Assets/Sample
