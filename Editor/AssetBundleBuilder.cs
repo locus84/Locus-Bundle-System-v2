@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
@@ -24,11 +24,8 @@ namespace BundleSystem
 
             public CustomBuildParameters(List<BundleSetting> settings, 
                 BuildTarget target, 
-                BuildTargetGroup group, 
-                string outputFolder,
-                bool isLocalBundle) : base(target, group, outputFolder)
+                BuildTargetGroup group) : base(target, group, "garbage")
             {
-                IsLocalBundleBuilding = isLocalBundle;
                 foreach(var setting in settings)
                 {
                     m_CompressSettings.Add(setting.BundleName, setting.CompressBundle);
@@ -38,9 +35,16 @@ namespace BundleSystem
             public override BuildCompression GetCompressionForIdentifier(string identifier)
             {
                 //when building local bundles, we always use lzma
-                if(IsLocalBundleBuilding) return BuildCompression.LZMA;
+                if(IsLocalBundleBuilding) return BuildCompression.LZ4;
                 var compress = !m_CompressSettings.TryGetValue(identifier, out var compressed) || compressed;
                 return !compress ? BuildCompression.LZ4 : BuildCompression.LZMA;
+            }
+
+            public void ChangeSettings(string outputPath, bool isLocal, bool writeXml)
+            {
+                IsLocalBundleBuilding= isLocal;
+                OutputFolder = outputPath;
+                WriteLinkXML = writeXml;
             }
         }
 
@@ -77,7 +81,7 @@ namespace BundleSystem
         /// This refers input setting's output folder.
         /// </summary>
         /// <param name="setting">input setting</param>
-        public static void BuildAssetBundles(AssetBundleBuildSetting setting, bool localBundles = false)
+        public static void BuildAssetBundles(AssetBundleBuildSetting setting)
         {
             if(!Application.isBatchMode)
             {
@@ -94,31 +98,51 @@ namespace BundleSystem
             var bundleSettingList = setting.GetBundleSettings();
 
             var buildTarget = EditorUserBuildSettings.activeBuildTarget;
-            var groupTarget = BuildPipeline.GetBuildTargetGroup(buildTarget);
-
-            var outputPath = Utility.CombinePath(localBundles? setting.LocalOutputPath : setting.OutputPath, buildTarget.ToString());
-            //generate sharedBundle if needed, and pre generate dependency
+            var groupTarget = BuildPipeline.GetBuildTargetGroup(buildTarget);//generate sharedBundle if needed, and pre generate dependency
+            var buildParams = new CustomBuildParameters(bundleSettingList, buildTarget, groupTarget);
             var treeResult = AssetDependencyTree.ProcessDependencyTree(bundleSettingList);
-            
-            var buildParams = new CustomBuildParameters(bundleSettingList, buildTarget, groupTarget, outputPath, localBundles);
-
             buildParams.UseCache = !setting.ForceRebuild;
-            buildParams.WriteLinkXML = true;
 
-            var returnCode = ContentPipeline.BuildAssetBundles(buildParams, new BundleBuildContent(treeResult.ResultBundles.ToArray()), out var results);
-
-            if (returnCode == ReturnCode.Success)
+            //for remote build
             {
-                WriteManifestFile(outputPath, setting, results, buildTarget, setting.RemoteURL);
+                buildParams.ChangeSettings(Utility.CombinePath(setting.OutputPath, buildTarget.ToString()), false, false);
+                var returnCode = ContentPipeline.BuildAssetBundles(buildParams, new BundleBuildContent(treeResult.ResultBundles.ToArray()), out var results);
 
-                var linkPath = CopyLinkDotXml(outputPath, AssetDatabase.GetAssetPath(setting));
-                if (!Application.isBatchMode) EditorUtility.DisplayDialog("Build Succeeded!", $"Remote bundle build succeeded, \n {linkPath} updated!", "Confirm");
+                if (returnCode == ReturnCode.Success)
+                {
+                    WriteManifestFile(buildParams.OutputFolder, setting, results, buildTarget, setting.RemoteURL);
+                }
+                else
+                {
+                    EditorUtility.DisplayDialog("Build Failed!", $"Remote Bundle build failed, \n Code : {returnCode}", "Confirm");
+                    Debug.LogError(returnCode);
+                }
             }
-            else
+
+            //for local build
             {
-                EditorUtility.DisplayDialog("Build Failed!", $"Bundle build failed, \n Code : {returnCode}", "Confirm");
-                Debug.LogError(returnCode);
+                buildParams.ChangeSettings(Utility.CombinePath(setting.LocalOutputPath, buildTarget.ToString()), true, true);
+                var returnCode = ContentPipeline.BuildAssetBundles(buildParams, new BundleBuildContent(treeResult.ResultBundles.ToArray()), out var results);
+
+                if (returnCode == ReturnCode.Success)
+                {
+                    WriteManifestFile(buildParams.OutputFolder, setting, results, buildTarget, setting.RemoteURL);
+                    var linkPath = CopyLinkDotXml(buildParams.OutputFolder, AssetDatabase.GetAssetPath(setting));
+                    if (!Application.isBatchMode) EditorUtility.DisplayDialog("Build Succeeded!", $"Bundle build succeeded, \n {linkPath} updated!", "Confirm");
+                }
+                else
+                {
+                    EditorUtility.DisplayDialog("Build Failed!", $"Local build failed, \n Code : {returnCode}", "Confirm");
+                    Debug.LogError(returnCode);
+                }
             }
+        }
+        
+        private static ReturnCode PostPackingForSelectiveBuild(IBuildParameters buildParams, IDependencyData dependencyData, IWriteData writeData)
+        {
+            var customBuildParams = buildParams as CustomBuildParameters;
+            var count = writeData.WriteOperations.Count;
+            return ReturnCode.Success;
         }
 
         static string CopyLinkDotXml(string outputPath, string settingPath)

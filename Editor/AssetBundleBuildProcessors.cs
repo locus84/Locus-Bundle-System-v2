@@ -31,22 +31,10 @@ namespace BundleSystem
             //there should be a local bundle
             var localBundleSourcePath = Utility.CombinePath(setting.LocalOutputPath, EditorUserBuildSettings.activeBuildTarget.ToString());
             
-            //build if user want to(default to true)
-            if(setting.BuildLocalBundlesWhenBuildingPlayer) AssetBundleBuilder.BuildAssetBundles(setting, true);
-
             if (!Directory.Exists(localBundleSourcePath))
             {
-                if (Application.isBatchMode)
-                {
-                    Debug.LogError("Missing built local bundle directory, Locus bundle system won't work properly.");
-                    return; //we can't build now as it's in batchmode
-                }
-                else
-                {
-                    var buildNow = EditorUtility.DisplayDialog("LocusBundleSystem", "Warning - Missing built bundle directory, would you like to build now?", "Yes", "Not now");
-                    if (!buildNow) return; //user declined
-                    AssetBundleBuilder.BuildAssetBundles(setting, true);
-                }
+                Debug.LogError("Missing built local bundle directory, Locus bundle system won't work properly.");
+                return;
             }
 
             //load manifest and make local bundle list
