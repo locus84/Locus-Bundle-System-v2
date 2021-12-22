@@ -135,7 +135,7 @@ namespace BundleSystem
         /// <summary>
         /// Output path of the built Local AssetBundles.
         /// </summary>
-        public string LocalOutputPath => Application.dataPath.Remove(Application.dataPath.Length - 6) + $"Library/LocalBundleBuildCache/{OutputFolder}";
+        public string LocalOutputPath => Application.dataPath.Remove(Application.dataPath.Length - 6) + $"{OutputFolder}/Local";
 #endif
 
         /// <summary>
@@ -173,8 +173,8 @@ namespace BundleSystem
         /// <summary>
         /// Build Local bundles when building player.
         /// </summary>
-        [Tooltip("Build Local bundles when building player")]
-        public bool BuildLocalBundlesWhenBuildingPlayer = true;
+        [Tooltip("Skip build local bundles when building bundles")]
+        public bool SkipBuildLocalBundles = false;
 
         /// <summary>
         /// Force rebuild. ignore cache. if something wrong with built bundles. Try again with this paramteter set true.
