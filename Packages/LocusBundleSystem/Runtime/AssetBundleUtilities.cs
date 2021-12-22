@@ -41,7 +41,15 @@ namespace BundleSystem
                 if (!IsAssetCanBundled(unityPath)) continue;
 
                 resultAssetPath.Add(unityPath);
-                resultLoadPath.Add(Utility.CombinePath(dirPrefix, Path.GetFileNameWithoutExtension(unityPath)));
+                if(unityPath.EndsWith(".unity"))
+                {
+                    //scenes are loaded using name or full path, so we need to provide full path for its loadpath
+                    resultLoadPath.Add(unityPath);
+                }
+                else
+                {
+                    resultLoadPath.Add(Utility.CombinePath(dirPrefix, Path.GetFileNameWithoutExtension(unityPath)));
+                }
             }
 
             if (includeSubdir)
