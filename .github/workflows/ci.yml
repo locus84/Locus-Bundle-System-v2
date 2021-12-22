@@ -35,6 +35,7 @@ jobs:
         git subtree split -P "$PKG_ROOT" -b upm
         echo '### update remote upm branch'
         git push -f origin upm
+        git checkout upm
         git tag "upm${GITHUB_REF##*/}"
         git push origin "upm${GITHUB_REF##*/}"
       env:
