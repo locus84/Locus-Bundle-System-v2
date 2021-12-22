@@ -10,6 +10,8 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 /[Aa]ssetBundles/
+/[Tt]est[Bb]uild/
+/[Tt]est[Bb]uilds/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -64,3 +66,6 @@ crashlytics-build.properties
 *.DS_Store
 *link.xml
 *link.xml.meta
+
+# SharedBundleList
+ExpectedSharedBundles.txt
