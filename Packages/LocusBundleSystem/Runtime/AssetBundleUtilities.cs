@@ -16,11 +16,6 @@ namespace BundleSystem
     public static partial class Utility
     {   
         /// <summary>
-        /// Temp folder that's needed when analyzing scene dependencies.
-        /// </summary>
-        public const string kTempBuildPath = "Temp/BundleContentBuildData";
-
-        /// <summary>
         /// Whether this asset can be bundled into an AssetBundle or not.
         /// </summary>
         /// <param name="assetPath">input asset's path</param>
@@ -30,7 +25,7 @@ namespace BundleSystem
             return mainType != null && mainType != typeof(MonoScript) && mainType.IsSubclassOf(typeof(Object));
         }
 
-        static void GetFilesInDirectoryInternal(string dirPrefix, List<string> resultAssetPath, List<string> resultLoadPath, string folderPath, bool includeSubdir)
+        static void GetFilesInDirectoryInternal(string dirPrefix, List<string> resultAssetPath, List<string> resultLoadPath, string folderPath, bool includeSubdir, AssetIncludePredicate predicate)
         {
             var dir = new DirectoryInfo(Path.GetFullPath(folderPath));
             var files = dir.GetFiles();
@@ -39,6 +34,7 @@ namespace BundleSystem
                 var currentFile = files[i];
                 var unityPath = Utility.CombinePath(folderPath, currentFile.Name);
                 if (!IsAssetCanBundled(unityPath)) continue;
+                if (predicate != null && !predicate.Invoke(unityPath)) continue;
 
                 resultAssetPath.Add(unityPath);
                 if(unityPath.EndsWith(".unity"))
@@ -57,7 +53,7 @@ namespace BundleSystem
                 foreach (var subDir in dir.GetDirectories())
                 {
                     var subdirName = $"{folderPath}/{subDir.Name}";
-                    GetFilesInDirectoryInternal(Utility.CombinePath(dirPrefix, subDir.Name), resultAssetPath, resultLoadPath, subdirName, includeSubdir);
+                    GetFilesInDirectoryInternal(Utility.CombinePath(dirPrefix, subDir.Name), resultAssetPath, resultLoadPath, subdirName, includeSubdir, predicate);
                 }
             }
         }
@@ -99,13 +95,13 @@ namespace BundleSystem
             settings.group = BuildPipeline.GetBuildTargetGroup(settings.target);
             var usageTags = new UnityEditor.Build.Content.BuildUsageTagSet();
             var depsCache = new UnityEditor.Build.Content.BuildUsageCache();
-
+            
             //extract deps form scriptable build pipeline
 #if UNITY_2019_3_OR_NEWER
             var sceneInfo = UnityEditor.Build.Content.ContentBuildInterface.CalculatePlayerDependenciesForScene(scenePath, settings, usageTags, depsCache);
 #else
-            Directory.CreateDirectory(kTempBuildPath);
-            var sceneInfo = UnityEditor.Build.Content.ContentBuildInterface.PrepareScene(scenePath, settings, usageTags, depsCache, kTempBuildPath);
+            Directory.CreateDirectory("Temp/BundleContentBuildData");
+            var sceneInfo = UnityEditor.Build.Content.ContentBuildInterface.PrepareScene(scenePath, settings, usageTags, depsCache, "Temp/BundleContentBuildData");
 #endif
 
             //this is needed as calculate function actumatically pops up progress bar
@@ -147,13 +143,15 @@ namespace BundleSystem
     /// </summary>
     public static partial class Utility
     {
+        public delegate bool AssetIncludePredicate(string assetPath);
+
         /// <summary>
         /// Search files in directory, this function only works in editor
         /// </summary>
-        public static void GetFilesInDirectory(List<string> resultAssetPath, List<string> resultLoadPath, string folderPath, bool includeSubdir)
+        public static void GetFilesInDirectory(List<string> resultAssetPath, List<string> resultLoadPath, string folderPath, bool includeSubdir, AssetIncludePredicate predicate = null)
         {
 #if UNITY_EDITOR
-            GetFilesInDirectoryInternal(string.Empty, resultAssetPath, resultLoadPath, folderPath, includeSubdir);
+            GetFilesInDirectoryInternal(string.Empty, resultAssetPath, resultLoadPath, folderPath, includeSubdir, predicate);
 #endif
         }
 
