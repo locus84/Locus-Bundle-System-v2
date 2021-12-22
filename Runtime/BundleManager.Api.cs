@@ -198,11 +198,9 @@ namespace BundleSystem
                 RetainBundle(info.LoadedBundle);
                 aop.completed += op => 
                 {
-                    var sceneIndex = mode == LoadSceneMode.Single? 0 : SceneManager.sceneCount - 1;
-                    var scene = SceneManager.GetSceneAt(sceneIndex);
-                    s_SceneHandles.Add(scene.handle, info.LoadedBundle);
-                    OnSceneLoaded(scene, mode);
-                    result.Scene = scene;
+                    s_SceneHandles.Add(s_LastLoadedScene.handle, info.LoadedBundle);
+                    OnSceneLoaded(s_LastLoadedScene, mode);
+                    result.Scene = s_LastLoadedScene;
                 };
 
                 return result;
@@ -228,12 +226,9 @@ namespace BundleSystem
                 RetainBundle(info.LoadedBundle);
                 aop.completed += op => 
                 {
-                    Debug.Log("completed");
-                    var sceneIndex = mode == LoadSceneMode.Single? 0 : SceneManager.sceneCount - 1;
-                    var scene = SceneManager.GetSceneAt(sceneIndex);
-                    s_SceneHandles.Add(scene.handle, info.LoadedBundle);
-                    OnSceneLoaded(scene, mode);
-                    result.Scene = scene;
+                    s_SceneHandles.Add(s_LastLoadedScene.handle, info.LoadedBundle);
+                    OnSceneLoaded(s_LastLoadedScene, mode);
+                    result.Scene = s_LastLoadedScene;
                 };
 
 
