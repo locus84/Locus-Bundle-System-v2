@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 namespace BundleSystem
 {
@@ -328,7 +329,9 @@ namespace BundleSystem
 
         static Dictionary<int, LoadedBundle> s_SceneHandles = new Dictionary<int, LoadedBundle>(); 
         static List<GameObject> s_SceneRootObjectCache = new List<GameObject>();
-        private static void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
+        static Scene s_LastLoadedScene;
+
+        private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             //async load will failed initially,
             //but will explicitely call this function after setting scene handle
@@ -342,9 +345,15 @@ namespace BundleSystem
                 }
                 s_SceneRootObjectCache.Clear();
             }
+            else
+            {
+                //async scene complete callback will be called right after this.
+                //set last loaded scene so we can refer this scene
+                s_LastLoadedScene = scene;
+            }
         }
 
-        private static void OnSceneUnloaded(UnityEngine.SceneManagement.Scene scene)
+        private static void OnSceneUnloaded(Scene scene)
         {
             //if scene is from assetbundle, path will be assetpath inside bundle
             if (s_SceneHandles.TryGetValue(scene.handle, out var loadedBundle))
