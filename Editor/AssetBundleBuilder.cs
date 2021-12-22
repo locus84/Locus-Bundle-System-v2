@@ -20,12 +20,15 @@ namespace BundleSystem
         class CustomBuildParameters : BundleBuildParameters
         {
             Dictionary<string, bool> m_CompressSettings = new Dictionary<string, bool>();
+            public bool IsLocalBundleBuilding { get; private set; }
 
             public CustomBuildParameters(List<BundleSetting> settings, 
                 BuildTarget target, 
                 BuildTargetGroup group, 
-                string outputFolder) : base(target, group, outputFolder)
+                string outputFolder,
+                bool isLocalBundle) : base(target, group, outputFolder)
             {
+                IsLocalBundleBuilding = isLocalBundle;
                 foreach(var setting in settings)
                 {
                     m_CompressSettings.Add(setting.BundleName, setting.CompressBundle);
@@ -34,6 +37,8 @@ namespace BundleSystem
 
             public override BuildCompression GetCompressionForIdentifier(string identifier)
             {
+                //when building local bundles, we always use lzma
+                if(IsLocalBundleBuilding) return BuildCompression.LZMA;
                 var compress = !m_CompressSettings.TryGetValue(identifier, out var compressed) || compressed;
                 return !compress ? BuildCompression.LZ4 : BuildCompression.LZMA;
             }
@@ -72,7 +77,7 @@ namespace BundleSystem
         /// This refers input setting's output folder.
         /// </summary>
         /// <param name="setting">input setting</param>
-        public static void BuildAssetBundles(AssetBundleBuildSetting setting)
+        public static void BuildAssetBundles(AssetBundleBuildSetting setting, bool localBundles = false)
         {
             if(!Application.isBatchMode)
             {
@@ -91,11 +96,11 @@ namespace BundleSystem
             var buildTarget = EditorUserBuildSettings.activeBuildTarget;
             var groupTarget = BuildPipeline.GetBuildTargetGroup(buildTarget);
 
-            var outputPath = Utility.CombinePath(setting.OutputPath, buildTarget.ToString());
+            var outputPath = Utility.CombinePath(localBundles? setting.LocalOutputPath : setting.OutputPath, buildTarget.ToString());
             //generate sharedBundle if needed, and pre generate dependency
             var treeResult = AssetDependencyTree.ProcessDependencyTree(bundleSettingList);
-
-            var buildParams = new CustomBuildParameters(bundleSettingList, buildTarget, groupTarget, outputPath);
+            
+            var buildParams = new CustomBuildParameters(bundleSettingList, buildTarget, groupTarget, outputPath, localBundles);
 
             buildParams.UseCache = !setting.ForceRebuild;
             buildParams.WriteLinkXML = true;
