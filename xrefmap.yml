@@ -317,6 +317,12 @@ references:
   commentId: F:BundleSystem.AssetBundleBuildSetting.RemoteURL
   fullName: BundleSystem.AssetBundleBuildSetting.RemoteURL
   nameWithType: AssetBundleBuildSetting.RemoteURL
+- uid: BundleSystem.AssetBundleBuildSetting.SkipBuildLocalBundles
+  name: SkipBuildLocalBundles
+  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_SkipBuildLocalBundles
+  commentId: F:BundleSystem.AssetBundleBuildSetting.SkipBuildLocalBundles
+  fullName: BundleSystem.AssetBundleBuildSetting.SkipBuildLocalBundles
+  nameWithType: AssetBundleBuildSetting.SkipBuildLocalBundles
 - uid: BundleSystem.AssetBundleTrackingVisualizer
   name: AssetBundleTrackingVisualizer
   href: api/BundleSystem.AssetBundleTrackingVisualizer.html
@@ -1967,6 +1973,12 @@ references:
   commentId: T:BundleSystem.Utility
   fullName: BundleSystem.Utility
   nameWithType: Utility
+- uid: BundleSystem.Utility.AssetIncludePredicate
+  name: Utility.AssetIncludePredicate
+  href: api/BundleSystem.Utility.AssetIncludePredicate.html
+  commentId: T:BundleSystem.Utility.AssetIncludePredicate
+  fullName: BundleSystem.Utility.AssetIncludePredicate
+  nameWithType: Utility.AssetIncludePredicate
 - uid: BundleSystem.Utility.CombinePath(System.String[])
   name: CombinePath(String[])
   href: api/BundleSystem.Utility.html#BundleSystem_Utility_CombinePath_System_String___
@@ -1983,15 +1995,15 @@ references:
   isSpec: "True"
   fullName: BundleSystem.Utility.CombinePath
   nameWithType: Utility.CombinePath
-- uid: BundleSystem.Utility.GetFilesInDirectory(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Boolean)
-  name: GetFilesInDirectory(List<String>, List<String>, String, Boolean)
-  href: api/BundleSystem.Utility.html#BundleSystem_Utility_GetFilesInDirectory_System_Collections_Generic_List_System_String__System_Collections_Generic_List_System_String__System_String_System_Boolean_
-  commentId: M:BundleSystem.Utility.GetFilesInDirectory(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Boolean)
-  name.vb: GetFilesInDirectory(List(Of String), List(Of String), String, Boolean)
-  fullName: BundleSystem.Utility.GetFilesInDirectory(System.Collections.Generic.List<System.String>, System.Collections.Generic.List<System.String>, System.String, System.Boolean)
-  fullName.vb: BundleSystem.Utility.GetFilesInDirectory(System.Collections.Generic.List(Of System.String), System.Collections.Generic.List(Of System.String), System.String, System.Boolean)
-  nameWithType: Utility.GetFilesInDirectory(List<String>, List<String>, String, Boolean)
-  nameWithType.vb: Utility.GetFilesInDirectory(List(Of String), List(Of String), String, Boolean)
+- uid: BundleSystem.Utility.GetFilesInDirectory(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Boolean,BundleSystem.Utility.AssetIncludePredicate)
+  name: GetFilesInDirectory(List<String>, List<String>, String, Boolean, Utility.AssetIncludePredicate)
+  href: api/BundleSystem.Utility.html#BundleSystem_Utility_GetFilesInDirectory_System_Collections_Generic_List_System_String__System_Collections_Generic_List_System_String__System_String_System_Boolean_BundleSystem_Utility_AssetIncludePredicate_
+  commentId: M:BundleSystem.Utility.GetFilesInDirectory(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Boolean,BundleSystem.Utility.AssetIncludePredicate)
+  name.vb: GetFilesInDirectory(List(Of String), List(Of String), String, Boolean, Utility.AssetIncludePredicate)
+  fullName: BundleSystem.Utility.GetFilesInDirectory(System.Collections.Generic.List<System.String>, System.Collections.Generic.List<System.String>, System.String, System.Boolean, BundleSystem.Utility.AssetIncludePredicate)
+  fullName.vb: BundleSystem.Utility.GetFilesInDirectory(System.Collections.Generic.List(Of System.String), System.Collections.Generic.List(Of System.String), System.String, System.Boolean, BundleSystem.Utility.AssetIncludePredicate)
+  nameWithType: Utility.GetFilesInDirectory(List<String>, List<String>, String, Boolean, Utility.AssetIncludePredicate)
+  nameWithType.vb: Utility.GetFilesInDirectory(List(Of String), List(Of String), String, Boolean, Utility.AssetIncludePredicate)
 - uid: BundleSystem.Utility.GetFilesInDirectory*
   name: GetFilesInDirectory
   href: api/BundleSystem.Utility.html#BundleSystem_Utility_GetFilesInDirectory_

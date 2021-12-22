@@ -64,7 +64,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.AssetBundleBuildSetting.html",
-          "hash": "Y5HyPgfbpfy5CunVVwc9w4UC2d0tBlm25f6VEG2V2SY="
+          "hash": "BlNWt4SWJQ2yeZ9vO+ENylQrQSeaaUBM8ymbRfdfWZg="
         }
       },
       "is_incremental": false,
@@ -324,11 +324,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.Utility.AssetIncludePredicate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.Utility.AssetIncludePredicate.html",
+          "hash": "o1BX6ke25Q/HFCbReoswmuSjtU5LsiwvfMhti6nZn/Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/BundleSystem.Utility.yml",
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.Utility.html",
-          "hash": "SXkNlNuKxtkjE+OwIYGfzlmZl22QbIX1OyRLsm2Llnk="
+          "hash": "PAsxb4Jv1S0UOWpKo/t3UtuipL/8mK8C7H3RJzvgEpw="
         }
       },
       "is_incremental": false,
@@ -340,7 +352,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.html",
-          "hash": "vJwmGgX+0XNFixcf73L+OVRZQWSanYYeQHjiEkf+2KU="
+          "hash": "mKDEPrR+xQUYM/fEkpwy1lgClF1GQDbbuzCZMk6hMJA="
         }
       },
       "is_incremental": false,
@@ -352,7 +364,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "UOvEyPuMj7H0At+OnJo0x6MVCU4v+n0wj3Qwu1/VoDY="
+          "hash": "XtnVSm1L+lbvnT4/s1XVZDPr0ki1Qq4157rzDrpkJlA="
         }
       },
       "is_incremental": false,
@@ -461,7 +473,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 27,
+          "total_file_count": 28,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
