@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Utility
+    <title>Class AssetBundleBuilder.SelectiveBuilder
    | LocusBundleSystemV2 documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Utility
+    <meta name="title" content="Class AssetBundleBuilder.SelectiveBuilder
    | LocusBundleSystemV2 documentation ">
     <meta name="generator" content="docfx 2.58.9.0">
     
@@ -78,37 +78,69 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="BundleSystem.Utility">
+            <article class="content wrap" id="_content" data-uid="BundleSystem.AssetBundleBuilder.SelectiveBuilder">
   
   
-  <h1 id="BundleSystem_Utility" data-uid="BundleSystem.Utility" class="text-break">Class Utility
+  <h1 id="BundleSystem_AssetBundleBuilder_SelectiveBuilder" data-uid="BundleSystem.AssetBundleBuilder.SelectiveBuilder" class="text-break">Class AssetBundleBuilder.SelectiveBuilder
   </h1>
-  <div class="markdown level0 summary"><p>Utility functions</p>
-</div>
+  <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">Utility</span></div>
+    <div class="level1"><span class="xref">AssetBundleBuilder.SelectiveBuilder</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="BundleSystem.html">BundleSystem</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="BundleSystem_Utility_syntax">Syntax</h5>
+  <h5 id="BundleSystem_AssetBundleBuilder_SelectiveBuilder_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class Utility</code></pre>
+    <pre><code class="lang-csharp hljs">public class SelectiveBuilder</code></pre>
   </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="BundleSystem_AssetBundleBuilder_SelectiveBuilder__ctor_" data-uid="BundleSystem.AssetBundleBuilder.SelectiveBuilder.#ctor*"></a>
+  <h4 id="BundleSystem_AssetBundleBuilder_SelectiveBuilder__ctor_IBundleBuildResults_BundleSystem_AssetBundleBuildSetting_" data-uid="BundleSystem.AssetBundleBuilder.SelectiveBuilder.#ctor(IBundleBuildResults,BundleSystem.AssetBundleBuildSetting)">SelectiveBuilder(IBundleBuildResults, AssetBundleBuildSetting)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SelectiveBuilder(IBundleBuildResults previousResult, AssetBundleBuildSetting setting)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IBundleBuildResults</span></td>
+        <td><span class="parametername">previousResult</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BundleSystem.AssetBundleBuildSetting.html">AssetBundleBuildSetting</a></td>
+        <td><span class="parametername">setting</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="BundleSystem_Utility_CheckRequestSuccess_" data-uid="BundleSystem.Utility.CheckRequestSuccess*"></a>
-  <h4 id="BundleSystem_Utility_CheckRequestSuccess_UnityEngine_Networking_UnityWebRequest_" data-uid="BundleSystem.Utility.CheckRequestSuccess(UnityEngine.Networking.UnityWebRequest)">CheckRequestSuccess(UnityEngine.Networking.UnityWebRequest)</h4>
-  <div class="markdown level1 summary"><p>Check Unity WebRequest is succeeded or not</p>
-</div>
+  <a id="BundleSystem_AssetBundleBuilder_SelectiveBuilder_PostPackingForSelectiveBuild_" data-uid="BundleSystem.AssetBundleBuilder.SelectiveBuilder.PostPackingForSelectiveBuild*"></a>
+  <h4 id="BundleSystem_AssetBundleBuilder_SelectiveBuilder_PostPackingForSelectiveBuild_IBuildParameters_IDependencyData_IWriteData_" data-uid="BundleSystem.AssetBundleBuilder.SelectiveBuilder.PostPackingForSelectiveBuild(IBuildParameters,IDependencyData,IWriteData)">PostPackingForSelectiveBuild(IBuildParameters, IDependencyData, IWriteData)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool CheckRequestSuccess(UnityEngine.Networking.UnityWebRequest request)</code></pre>
+    <pre><code class="lang-csharp hljs">public ReturnCode PostPackingForSelectiveBuild(IBuildParameters buildParams, IDependencyData dependencyData, IWriteData writeData)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -121,8 +153,18 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UnityEngine.Networking.UnityWebRequest</span></td>
-        <td><span class="parametername">request</span></td>
+        <td><span class="xref">IBuildParameters</span></td>
+        <td><span class="parametername">buildParams</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">IDependencyData</span></td>
+        <td><span class="parametername">dependencyData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">IWriteData</span></td>
+        <td><span class="parametername">writeData</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -137,102 +179,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="BundleSystem_Utility_CombinePath_" data-uid="BundleSystem.Utility.CombinePath*"></a>
-  <h4 id="BundleSystem_Utility_CombinePath_System_String___" data-uid="BundleSystem.Utility.CombinePath(System.String[])">CombinePath(String[])</h4>
-  <div class="markdown level1 summary"><p>Combine pathes provided. 
-As some platform does not allow alt directory seperate character,
-This just combines path and replace all backward slash to forward slash.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string CombinePath(params string[] args)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>[]</td>
-        <td><span class="parametername">args</span></td>
-        <td><p>input pathes to combine.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><p>combined path</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="BundleSystem_Utility_GetFilesInDirectory_" data-uid="BundleSystem.Utility.GetFilesInDirectory*"></a>
-  <h4 id="BundleSystem_Utility_GetFilesInDirectory_System_Collections_Generic_List_System_String__System_Collections_Generic_List_System_String__System_String_System_Boolean_BundleSystem_Utility_AssetIncludePredicate_" data-uid="BundleSystem.Utility.GetFilesInDirectory(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Boolean,BundleSystem.Utility.AssetIncludePredicate)">GetFilesInDirectory(List&lt;String&gt;, List&lt;String&gt;, String, Boolean, Utility.AssetIncludePredicate)</h4>
-  <div class="markdown level1 summary"><p>Search files in directory, this function only works in editor</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void GetFilesInDirectory(List&lt;string&gt; resultAssetPath, List&lt;string&gt; resultLoadPath, string folderPath, bool includeSubdir, Utility.AssetIncludePredicate predicate = null)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
-        <td><span class="parametername">resultAssetPath</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
-        <td><span class="parametername">resultLoadPath</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">folderPath</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><span class="parametername">includeSubdir</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="BundleSystem.Utility.AssetIncludePredicate.html">Utility.AssetIncludePredicate</a></td>
-        <td><span class="parametername">predicate</span></td>
+        <td><span class="xref">ReturnCode</span></td>
         <td></td>
       </tr>
     </tbody>

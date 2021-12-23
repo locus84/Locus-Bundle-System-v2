@@ -251,31 +251,6 @@ Also works in editor</p>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="BundleSystem_BundleManager_RemoteURL_" data-uid="BundleSystem.BundleManager.RemoteURL*"></a>
-  <h4 id="BundleSystem_BundleManager_RemoteURL" data-uid="BundleSystem.BundleManager.RemoteURL">RemoteURL</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string RemoteURL { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
   </h3>
   
@@ -486,6 +461,32 @@ Also works in editor</p>
   </table>
   
   
+  <a id="BundleSystem_BundleManager_GetFullRemoteURL_" data-uid="BundleSystem.BundleManager.GetFullRemoteURL*"></a>
+  <h4 id="BundleSystem_BundleManager_GetFullRemoteURL" data-uid="BundleSystem.BundleManager.GetFullRemoteURL">GetFullRemoteURL()</h4>
+  <div class="markdown level1 summary"><p>Get current full remote url. ex) https://www.example.com/mypatch/[BuildTarget]</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetFullRemoteURL()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="BundleSystem_BundleManager_GetInstanceTrackHandle_" data-uid="BundleSystem.BundleManager.GetInstanceTrackHandle*"></a>
   <h4 id="BundleSystem_BundleManager_GetInstanceTrackHandle_GameObject_" data-uid="BundleSystem.BundleManager.GetInstanceTrackHandle(GameObject)">GetInstanceTrackHandle(GameObject)</h4>
   <div class="markdown level1 summary"><p>Get instance track handle associated privided gameobject and it&apos;s parents</p>
@@ -613,32 +614,14 @@ Also works in editor</p>
   
   
   <a id="BundleSystem_BundleManager_Initialize_" data-uid="BundleSystem.BundleManager.Initialize*"></a>
-  <h4 id="BundleSystem_BundleManager_Initialize_System_String_" data-uid="BundleSystem.BundleManager.Initialize(System.String)">Initialize(String)</h4>
+  <h4 id="BundleSystem_BundleManager_Initialize" data-uid="BundleSystem.BundleManager.Initialize">Initialize()</h4>
   <div class="markdown level1 summary"><p>Initialize bundle system and load local bundles</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static BundleAsyncOperation Initialize(string altRemoteUrl = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static BundleAsyncOperation Initialize()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">altRemoteUrl</span></td>
-        <td><p>alternative remote url, local manifest&apos;s RemoteUrl field will be used as default</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -1359,6 +1342,37 @@ Also works in editor</p>
       <tr>
         <td><span class="parametername">T</span></td>
         <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="BundleSystem_BundleManager_SetBaseRemoteURL_" data-uid="BundleSystem.BundleManager.SetBaseRemoteURL*"></a>
+  <h4 id="BundleSystem_BundleManager_SetBaseRemoteURL_System_String_" data-uid="BundleSystem.BundleManager.SetBaseRemoteURL(System.String)">SetBaseRemoteURL(String)</h4>
+  <div class="markdown level1 summary"><p>Set base remote url, it should be form of <a href="https://www.example.com/mypatch">https://www.example.com/mypatch</a>.
+build target string will be automatically appended.
+Full remote url will be https://www.example.com/mypatch/[BuildTarget]</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetBaseRemoteURL(string url)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">url</span></td>
+        <td><p>base url</p>
+</td>
       </tr>
     </tbody>
   </table>

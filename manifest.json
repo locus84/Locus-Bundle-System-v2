@@ -40,7 +40,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.AssetBundleBuildManifest.html",
-          "hash": "FlnlNkixeS92z9CZ6lKRBmAAFiwTh6SXPZM+NFa8ZR4="
+          "hash": "MA2XRhwyV6jut/xUJvkmPpZbQ1uxbDap+jTlogWGtUU="
         }
       },
       "is_incremental": false,
@@ -65,6 +65,18 @@
         ".html": {
           "relative_path": "api/BundleSystem.AssetBundleBuildSetting.html",
           "hash": "BlNWt4SWJQ2yeZ9vO+ENylQrQSeaaUBM8ymbRfdfWZg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.AssetBundleBuilder.SelectiveBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.AssetBundleBuilder.SelectiveBuilder.html",
+          "hash": "wBGuI9YzUmykVOUgfrxfR/68StTsPDh6VgXxscOUOOM="
         }
       },
       "is_incremental": false,
@@ -232,7 +244,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.BundleManager.html",
-          "hash": "zETQXSQCJYEA9snrgZ5bg2oLjz8K7g1s5e8q6pi3Sek="
+          "hash": "Cazx9sF6r359va3+o0tcMfOPOioOdJRXtSSizqZLkJ0="
         }
       },
       "is_incremental": false,
@@ -340,7 +352,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.Utility.html",
-          "hash": "PAsxb4Jv1S0UOWpKo/t3UtuipL/8mK8C7H3RJzvgEpw="
+          "hash": "tbzMedR7KyFNfCwoYGP78FzIvvjLiZ5S/st8n4oOn1M="
         }
       },
       "is_incremental": false,
@@ -352,7 +364,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.html",
-          "hash": "mKDEPrR+xQUYM/fEkpwy1lgClF1GQDbbuzCZMk6hMJA="
+          "hash": "kPWTPjUYynSP031iiG4gvr8qnNCxUqbgbDiwHd652sk="
         }
       },
       "is_incremental": false,
@@ -364,7 +376,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "XtnVSm1L+lbvnT4/s1XVZDPr0ki1Qq4157rzDrpkJlA="
+          "hash": "8w8PfdoXdR0ezwOwdQrMw6i9E+uHAhgHXoPjRVM/F0A="
         }
       },
       "is_incremental": false,
@@ -473,7 +485,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 28,
+          "total_file_count": 29,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

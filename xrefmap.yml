@@ -26,6 +26,38 @@ references:
   isSpec: "True"
   fullName: BundleSystem.AssetBundleBuilder.BuildAssetBundles
   nameWithType: AssetBundleBuilder.BuildAssetBundles
+- uid: BundleSystem.AssetBundleBuilder.SelectiveBuilder
+  name: AssetBundleBuilder.SelectiveBuilder
+  href: api/BundleSystem.AssetBundleBuilder.SelectiveBuilder.html
+  commentId: T:BundleSystem.AssetBundleBuilder.SelectiveBuilder
+  fullName: BundleSystem.AssetBundleBuilder.SelectiveBuilder
+  nameWithType: AssetBundleBuilder.SelectiveBuilder
+- uid: BundleSystem.AssetBundleBuilder.SelectiveBuilder.#ctor(IBundleBuildResults,BundleSystem.AssetBundleBuildSetting)
+  name: SelectiveBuilder(IBundleBuildResults, AssetBundleBuildSetting)
+  href: api/BundleSystem.AssetBundleBuilder.SelectiveBuilder.html#BundleSystem_AssetBundleBuilder_SelectiveBuilder__ctor_IBundleBuildResults_BundleSystem_AssetBundleBuildSetting_
+  commentId: M:BundleSystem.AssetBundleBuilder.SelectiveBuilder.#ctor(IBundleBuildResults,BundleSystem.AssetBundleBuildSetting)
+  fullName: BundleSystem.AssetBundleBuilder.SelectiveBuilder.SelectiveBuilder(IBundleBuildResults, BundleSystem.AssetBundleBuildSetting)
+  nameWithType: AssetBundleBuilder.SelectiveBuilder.SelectiveBuilder(IBundleBuildResults, AssetBundleBuildSetting)
+- uid: BundleSystem.AssetBundleBuilder.SelectiveBuilder.#ctor*
+  name: SelectiveBuilder
+  href: api/BundleSystem.AssetBundleBuilder.SelectiveBuilder.html#BundleSystem_AssetBundleBuilder_SelectiveBuilder__ctor_
+  commentId: Overload:BundleSystem.AssetBundleBuilder.SelectiveBuilder.#ctor
+  isSpec: "True"
+  fullName: BundleSystem.AssetBundleBuilder.SelectiveBuilder.SelectiveBuilder
+  nameWithType: AssetBundleBuilder.SelectiveBuilder.SelectiveBuilder
+- uid: BundleSystem.AssetBundleBuilder.SelectiveBuilder.PostPackingForSelectiveBuild(IBuildParameters,IDependencyData,IWriteData)
+  name: PostPackingForSelectiveBuild(IBuildParameters, IDependencyData, IWriteData)
+  href: api/BundleSystem.AssetBundleBuilder.SelectiveBuilder.html#BundleSystem_AssetBundleBuilder_SelectiveBuilder_PostPackingForSelectiveBuild_IBuildParameters_IDependencyData_IWriteData_
+  commentId: M:BundleSystem.AssetBundleBuilder.SelectiveBuilder.PostPackingForSelectiveBuild(IBuildParameters,IDependencyData,IWriteData)
+  fullName: BundleSystem.AssetBundleBuilder.SelectiveBuilder.PostPackingForSelectiveBuild(IBuildParameters, IDependencyData, IWriteData)
+  nameWithType: AssetBundleBuilder.SelectiveBuilder.PostPackingForSelectiveBuild(IBuildParameters, IDependencyData, IWriteData)
+- uid: BundleSystem.AssetBundleBuilder.SelectiveBuilder.PostPackingForSelectiveBuild*
+  name: PostPackingForSelectiveBuild
+  href: api/BundleSystem.AssetBundleBuilder.SelectiveBuilder.html#BundleSystem_AssetBundleBuilder_SelectiveBuilder_PostPackingForSelectiveBuild_
+  commentId: Overload:BundleSystem.AssetBundleBuilder.SelectiveBuilder.PostPackingForSelectiveBuild
+  isSpec: "True"
+  fullName: BundleSystem.AssetBundleBuilder.SelectiveBuilder.PostPackingForSelectiveBuild
+  nameWithType: AssetBundleBuilder.SelectiveBuilder.PostPackingForSelectiveBuild
 - uid: BundleSystem.AssetBundleBuilder.WriteExpectedSharedBundles(BundleSystem.AssetBundleBuildSetting)
   name: WriteExpectedSharedBundles(AssetBundleBuildSetting)
   href: api/BundleSystem.AssetBundleBuilder.html#BundleSystem_AssetBundleBuilder_WriteExpectedSharedBundles_BundleSystem_AssetBundleBuildSetting_
@@ -128,18 +160,18 @@ references:
   isSpec: "True"
   fullName: BundleSystem.AssetBundleBuildManifest.CollectSubsetBundleInfoes
   nameWithType: AssetBundleBuildManifest.CollectSubsetBundleInfoes
+- uid: BundleSystem.AssetBundleBuildManifest.DefaultRemoteURL
+  name: DefaultRemoteURL
+  href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_DefaultRemoteURL
+  commentId: F:BundleSystem.AssetBundleBuildManifest.DefaultRemoteURL
+  fullName: BundleSystem.AssetBundleBuildManifest.DefaultRemoteURL
+  nameWithType: AssetBundleBuildManifest.DefaultRemoteURL
 - uid: BundleSystem.AssetBundleBuildManifest.GlobalHashString
   name: GlobalHashString
   href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_GlobalHashString
   commentId: F:BundleSystem.AssetBundleBuildManifest.GlobalHashString
   fullName: BundleSystem.AssetBundleBuildManifest.GlobalHashString
   nameWithType: AssetBundleBuildManifest.GlobalHashString
-- uid: BundleSystem.AssetBundleBuildManifest.RemoteURL
-  name: RemoteURL
-  href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_RemoteURL
-  commentId: F:BundleSystem.AssetBundleBuildManifest.RemoteURL
-  fullName: BundleSystem.AssetBundleBuildManifest.RemoteURL
-  nameWithType: AssetBundleBuildManifest.RemoteURL
 - uid: BundleSystem.AssetBundleBuildManifest.TryGetBundleHash(System.String,Hash128@)
   name: TryGetBundleHash(String, out Hash128)
   href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_TryGetBundleHash_System_String_Hash128__
@@ -1235,6 +1267,19 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.GetDownloadSize
   nameWithType: BundleManager.GetDownloadSize
+- uid: BundleSystem.BundleManager.GetFullRemoteURL
+  name: GetFullRemoteURL()
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetFullRemoteURL
+  commentId: M:BundleSystem.BundleManager.GetFullRemoteURL
+  fullName: BundleSystem.BundleManager.GetFullRemoteURL()
+  nameWithType: BundleManager.GetFullRemoteURL()
+- uid: BundleSystem.BundleManager.GetFullRemoteURL*
+  name: GetFullRemoteURL
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetFullRemoteURL_
+  commentId: Overload:BundleSystem.BundleManager.GetFullRemoteURL
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.GetFullRemoteURL
+  nameWithType: BundleManager.GetFullRemoteURL
 - uid: BundleSystem.BundleManager.GetInstanceTrackHandle(GameObject)
   name: GetInstanceTrackHandle(GameObject)
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetInstanceTrackHandle_GameObject_
@@ -1303,12 +1348,12 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.GlobalBundleHash
   nameWithType: BundleManager.GlobalBundleHash
-- uid: BundleSystem.BundleManager.Initialize(System.String)
-  name: Initialize(String)
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Initialize_System_String_
-  commentId: M:BundleSystem.BundleManager.Initialize(System.String)
-  fullName: BundleSystem.BundleManager.Initialize(System.String)
-  nameWithType: BundleManager.Initialize(String)
+- uid: BundleSystem.BundleManager.Initialize
+  name: Initialize()
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Initialize
+  commentId: M:BundleSystem.BundleManager.Initialize
+  fullName: BundleSystem.BundleManager.Initialize()
+  nameWithType: BundleManager.Initialize()
 - uid: BundleSystem.BundleManager.Initialize*
   name: Initialize
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Initialize_
@@ -1545,19 +1590,19 @@ references:
   fullName.vb: BundleSystem.BundleManager.Override(Of T)(BundleSystem.TrackHandle(Of T), ByRef BundleSystem.TrackHandle(Of T))
   nameWithType: BundleManager.Override<T>(TrackHandle<T>, ref TrackHandle<T>)
   nameWithType.vb: BundleManager.Override(Of T)(TrackHandle(Of T), ByRef TrackHandle(Of T))
-- uid: BundleSystem.BundleManager.RemoteURL
-  name: RemoteURL
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_RemoteURL
-  commentId: P:BundleSystem.BundleManager.RemoteURL
-  fullName: BundleSystem.BundleManager.RemoteURL
-  nameWithType: BundleManager.RemoteURL
-- uid: BundleSystem.BundleManager.RemoteURL*
-  name: RemoteURL
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_RemoteURL_
-  commentId: Overload:BundleSystem.BundleManager.RemoteURL
+- uid: BundleSystem.BundleManager.SetBaseRemoteURL(System.String)
+  name: SetBaseRemoteURL(String)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_SetBaseRemoteURL_System_String_
+  commentId: M:BundleSystem.BundleManager.SetBaseRemoteURL(System.String)
+  fullName: BundleSystem.BundleManager.SetBaseRemoteURL(System.String)
+  nameWithType: BundleManager.SetBaseRemoteURL(String)
+- uid: BundleSystem.BundleManager.SetBaseRemoteURL*
+  name: SetBaseRemoteURL
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_SetBaseRemoteURL_
+  commentId: Overload:BundleSystem.BundleManager.SetBaseRemoteURL
   isSpec: "True"
-  fullName: BundleSystem.BundleManager.RemoteURL
-  nameWithType: BundleManager.RemoteURL
+  fullName: BundleSystem.BundleManager.SetBaseRemoteURL
+  nameWithType: BundleManager.SetBaseRemoteURL
 - uid: BundleSystem.BundleManager.TrackExplicit*
   name: TrackExplicit
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_TrackExplicit_
@@ -1979,6 +2024,19 @@ references:
   commentId: T:BundleSystem.Utility.AssetIncludePredicate
   fullName: BundleSystem.Utility.AssetIncludePredicate
   nameWithType: Utility.AssetIncludePredicate
+- uid: BundleSystem.Utility.CheckRequestSuccess(UnityEngine.Networking.UnityWebRequest)
+  name: CheckRequestSuccess(UnityEngine.Networking.UnityWebRequest)
+  href: api/BundleSystem.Utility.html#BundleSystem_Utility_CheckRequestSuccess_UnityEngine_Networking_UnityWebRequest_
+  commentId: M:BundleSystem.Utility.CheckRequestSuccess(UnityEngine.Networking.UnityWebRequest)
+  fullName: BundleSystem.Utility.CheckRequestSuccess(UnityEngine.Networking.UnityWebRequest)
+  nameWithType: Utility.CheckRequestSuccess(UnityEngine.Networking.UnityWebRequest)
+- uid: BundleSystem.Utility.CheckRequestSuccess*
+  name: CheckRequestSuccess
+  href: api/BundleSystem.Utility.html#BundleSystem_Utility_CheckRequestSuccess_
+  commentId: Overload:BundleSystem.Utility.CheckRequestSuccess
+  isSpec: "True"
+  fullName: BundleSystem.Utility.CheckRequestSuccess
+  nameWithType: Utility.CheckRequestSuccess
 - uid: BundleSystem.Utility.CombinePath(System.String[])
   name: CombinePath(String[])
   href: api/BundleSystem.Utility.html#BundleSystem_Utility_CombinePath_System_String___
