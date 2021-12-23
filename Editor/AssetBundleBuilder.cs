@@ -6,6 +6,7 @@ using UnityEditor.Build.Pipeline;
 using UnityEditor.Build.Pipeline.Interfaces;
 using UnityEngine;
 using System;
+using UnityEditor.Build.Pipeline.WriteTypes;
 
 namespace BundleSystem
 {
@@ -101,16 +102,21 @@ namespace BundleSystem
             var groupTarget = BuildPipeline.GetBuildTargetGroup(buildTarget);//generate sharedBundle if needed, and pre generate dependency
             var buildParams = new CustomBuildParameters(bundleSettingList, buildTarget, groupTarget);
             var treeResult = AssetDependencyTree.ProcessDependencyTree(bundleSettingList);
+            var bundleResult = default(IBundleBuildResults);
+            var manifest = default(AssetBundleBuildManifest);
+            var linkPath = default(string);
             buildParams.UseCache = !setting.ForceRebuild;
+
 
             //for remote build
             {
-                buildParams.ChangeSettings(Utility.CombinePath(setting.OutputPath, buildTarget.ToString()), false, false);
-                var returnCode = ContentPipeline.BuildAssetBundles(buildParams, new BundleBuildContent(treeResult.ResultBundles.ToArray()), out var results);
+                buildParams.ChangeSettings(Utility.CombinePath(setting.OutputPath, buildTarget.ToString()), false, true);
+                var returnCode = ContentPipeline.BuildAssetBundles(buildParams, new BundleBuildContent(treeResult.ResultBundles.ToArray()), out bundleResult);
 
                 if (returnCode == ReturnCode.Success)
                 {
-                    WriteManifestFile(buildParams.OutputFolder, setting, results, buildTarget, setting.RemoteURL);
+                    manifest = WriteManifestFile(buildParams.OutputFolder, setting, bundleResult, buildTarget, setting.RemoteURL);
+                    linkPath = CopyLinkDotXml(buildParams.OutputFolder, AssetDatabase.GetAssetPath(setting));
                 }
                 else
                 {
@@ -121,13 +127,15 @@ namespace BundleSystem
 
             //for local build
             {
-                buildParams.ChangeSettings(Utility.CombinePath(setting.LocalOutputPath, buildTarget.ToString()), true, true);
-                var returnCode = ContentPipeline.BuildAssetBundles(buildParams, new BundleBuildContent(treeResult.ResultBundles.ToArray()), out var results);
+                buildParams.ChangeSettings(Utility.CombinePath(setting.LocalOutputPath, buildTarget.ToString()), true, false);
+                var selectiveBuilder = new SelectiveBuilder(bundleResult, setting);
+                ContentPipeline.BuildCallbacks.PostPackingCallback += selectiveBuilder.PostPackingForSelectiveBuild;
+                var returnCode = ContentPipeline.BuildAssetBundles(buildParams, new BundleBuildContent(treeResult.ResultBundles.ToArray()), out bundleResult);
+                ContentPipeline.BuildCallbacks.PostPackingCallback -= selectiveBuilder.PostPackingForSelectiveBuild;
 
                 if (returnCode == ReturnCode.Success)
                 {
-                    WriteManifestFile(buildParams.OutputFolder, setting, results, buildTarget, setting.RemoteURL);
-                    var linkPath = CopyLinkDotXml(buildParams.OutputFolder, AssetDatabase.GetAssetPath(setting));
+                    WriteMergedManifest(buildParams.OutputFolder, manifest, bundleResult);
                     if (!Application.isBatchMode) EditorUtility.DisplayDialog("Build Succeeded!", $"Bundle build succeeded, \n {linkPath} updated!", "Confirm");
                 }
                 else
@@ -137,13 +145,57 @@ namespace BundleSystem
                 }
             }
         }
-        
-        private static ReturnCode PostPackingForSelectiveBuild(IBuildParameters buildParams, IDependencyData dependencyData, IWriteData writeData)
+
+        public class SelectiveBuilder
         {
-            var customBuildParams = buildParams as CustomBuildParameters;
-            var count = writeData.WriteOperations.Count;
-            return ReturnCode.Success;
+            List<string> m_LocalBundles;
+            public SelectiveBuilder(IBundleBuildResults previousResult, AssetBundleBuildSetting setting)
+            {
+                m_LocalBundles = GetLcoalBundles(previousResult, setting);
+            }
+
+            public ReturnCode PostPackingForSelectiveBuild(IBuildParameters buildParams, IDependencyData dependencyData, IWriteData writeData)
+            {
+                //quick exit 
+                if (m_LocalBundles == null || m_LocalBundles.Count == 0)
+                {
+                    Debug.Log("Nothing to build");
+                    writeData.WriteOperations.Clear();
+                    return ReturnCode.Success;
+                }
+
+                for (int i = writeData.WriteOperations.Count - 1; i >= 0; --i)
+                {
+                    string bundleName;
+                    switch (writeData.WriteOperations[i])
+                    {
+                        case SceneBundleWriteOperation sceneOperation:
+                            bundleName = sceneOperation.Info.bundleName;
+                            break;
+                        case SceneDataWriteOperation sceneDataOperation:
+                            var bundleWriteData = writeData as IBundleWriteData;
+                            bundleName = bundleWriteData.FileToBundle[sceneDataOperation.Command.internalName];
+                            break;
+                        case AssetBundleWriteOperation assetBundleOperation:
+                            bundleName = assetBundleOperation.Info.bundleName;
+                            break;
+                        default:
+                            Debug.LogError("Unexpected write operation");
+                            return ReturnCode.Error;
+                    }
+
+                    // if we do not want to build that bundle, remove the write operation from the list
+                    if (!m_LocalBundles.Contains(bundleName))
+                    {
+                        writeData.WriteOperations.RemoveAt(i);
+                    }
+                }
+
+                return ReturnCode.Success;
+            }
         }
+        
+        
 
         static string CopyLinkDotXml(string outputPath, string settingPath)
         {
@@ -157,7 +209,7 @@ namespace BundleSystem
         /// <summary>
         /// write manifest into target path.
         /// </summary>
-        static void WriteManifestFile(string path, AssetBundleBuildSetting setting, IBundleBuildResults bundleResults, BuildTarget target, string remoteURL)
+        static AssetBundleBuildManifest WriteManifestFile(string path, AssetBundleBuildSetting setting, IBundleBuildResults bundleResults, BuildTarget target, string remoteURL)
         {
             var manifest = new AssetBundleBuildManifest();
             manifest.BuildTarget = target.ToString();
@@ -165,12 +217,7 @@ namespace BundleSystem
             //we use unity provided dependency result for final check
             var deps = bundleResults.BundleInfos.ToDictionary(kv => kv.Key, kv => kv.Value.Dependencies.ToList());
 
-            var locals = setting.GetBundleSettings()
-                .Where(bs => bs.IncludedInPlayer)
-                .Select(bs => bs.BundleName)
-                .SelectMany(bundleName => Utility.CollectBundleDependencies(deps, bundleName, true))
-                .Distinct()
-                .ToList();
+            var locals = GetLcoalBundles(bundleResults, setting);
 
             foreach (var result in bundleResults.BundleInfos)
             {
@@ -188,7 +235,28 @@ namespace BundleSystem
             var manifestString = JsonUtility.ToJson(manifest);
             manifest.GlobalHashString = Hash128.Compute(manifestString).ToString();
             manifest.BuildTime = DateTime.UtcNow.Ticks;
-            manifest.RemoteURL = remoteURL;
+            manifest.DefaultRemoteURL = remoteURL;
+            if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+            File.WriteAllText(Utility.CombinePath(path, BundleManager.ManifestFileName), JsonUtility.ToJson(manifest, true));
+            return manifest;
+        }
+
+        static void WriteMergedManifest(string path, AssetBundleBuildManifest manifest, IBundleBuildResults bundleResults)
+        {
+            foreach(var result in bundleResults.BundleInfos)
+            {
+                var pervInfoIndex = manifest.BundleInfos.FindIndex(bi => bi.BundleName == result.Key);
+                var bundleInfo = manifest.BundleInfos[pervInfoIndex];
+                bundleInfo.HashString = result.Value.Hash.ToString();
+                bundleInfo.Size = new FileInfo(result.Value.FileName).Length;
+                manifest.BundleInfos[pervInfoIndex] = bundleInfo;
+            }
+
+            //sort by size
+            manifest.BundleInfos.Sort((a, b) => b.Size.CompareTo(a.Size));
+            var manifestString = JsonUtility.ToJson(manifest);
+            manifest.GlobalHashString = Hash128.Compute(manifestString).ToString();
+
             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
             File.WriteAllText(Utility.CombinePath(path, BundleManager.ManifestFileName), JsonUtility.ToJson(manifest, true));
         }
@@ -219,6 +287,19 @@ namespace BundleSystem
 
             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
             File.WriteAllText(Utility.CombinePath(path, LogExpectedSharedBundleFileName), sb.ToString());
+        }
+
+        static List<string> GetLcoalBundles(IBundleBuildResults result, AssetBundleBuildSetting setting)
+        {
+            //we use unity provided dependency result for final check
+            var deps = result.BundleInfos.ToDictionary(kv => kv.Key, kv => kv.Value.Dependencies.ToList());
+
+            return setting.GetBundleSettings()
+                .Where(bs => bs.IncludedInPlayer)
+                .Select(bs => bs.BundleName)
+                .SelectMany(bundleName => Utility.CollectBundleDependencies(deps, bundleName, true))
+                .Distinct()
+                .ToList();
         }
     }
 }

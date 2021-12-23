@@ -107,7 +107,51 @@ namespace BundleSystem
 
         public static bool Initialized { get; private set; } = false;
         public static string LocalURL { get; private set; }
-        public static string RemoteURL { get; private set; }
+
+
+        private static string s_UserRemoteURL;
+        private static string s_BundleBuildTarget;
+        private static string s_DefaultRemoteURL;
+
+        /// <summary>
+        /// Set base remote url, it should be form of https://www.example.com/mypatch.
+        /// build target string will be automatically appended.
+        /// Full remote url will be https://www.example.com/mypatch/[BuildTarget]
+        /// </summary>
+        /// <param name="url">base url</param>
+        public static void SetBaseRemoteURL(string url) => s_UserRemoteURL = url;
+
+        /// <summary>
+        /// Get current full remote url. ex) https://www.example.com/mypatch/[BuildTarget]
+        /// </summary>
+        /// <returns></returns>
+        public static string GetFullRemoteURL()
+        {
+            //it has to be initialized
+            if (!Initialized)
+            {
+                Debug.LogError("Do Initialize first");
+                return string.Empty;
+            }
+            
+#if UNITY_EDITOR
+            //editor functionality
+            if (s_EditorDatabaseMap.UseOuputAsRemote)
+            {
+                return "file://" + s_EditorDatabaseMap.OutputPath;
+            }
+#endif
+
+            //if user custom remote url is empty
+            if(string.IsNullOrWhiteSpace(s_UserRemoteURL)) 
+            {
+                return Utility.CombinePath(s_DefaultRemoteURL, s_BundleBuildTarget);
+            }
+
+            //build actual url
+            return Utility.CombinePath(s_UserRemoteURL, s_BundleBuildTarget);
+        }
+        
         public static string GlobalBundleHash { get; private set; }
         public static bool LogMessages { get; set; }
 
@@ -147,16 +191,15 @@ namespace BundleSystem
         /// <summary>
         /// Initialize bundle system and load local bundles
         /// </summary>
-        /// <param name="altRemoteUrl">alternative remote url, local manifest's RemoteUrl field will be used as default</param>
         /// <returns>async operation that can be yield return</returns>
-        public static BundleAsyncOperation Initialize(string altRemoteUrl = null)
+        public static BundleAsyncOperation Initialize()
         {
             var result = new BundleAsyncOperation();
-            s_Helper.StartCoroutine(CoInitalizeLocalBundles(result, altRemoteUrl));
+            s_Helper.StartCoroutine(CoInitalizeLocalBundles(result));
             return result;
         }
 
-        static IEnumerator CoInitalizeLocalBundles(BundleAsyncOperation result, string altRemoteUrl)
+        static IEnumerator CoInitalizeLocalBundles(BundleAsyncOperation result)
         {
             if (Initialized)
             {
@@ -202,7 +245,7 @@ namespace BundleSystem
 
             var manifestReq = UnityWebRequest.Get(Utility.CombinePath(LocalURL, ManifestFileName));
             yield return manifestReq.SendWebRequest();
-            if (manifestReq.isHttpError || manifestReq.isNetworkError)
+            if (!Utility.CheckRequestSuccess(manifestReq))
             {
                 result.Done(BundleErrorCode.NetworkError);
                 yield break;
@@ -244,7 +287,7 @@ namespace BundleSystem
                     yield return null;
                 }
 
-                if (!bundleReq.isHttpError && !bundleReq.isNetworkError)
+                if (Utility.CheckRequestSuccess(bundleReq))
                 {
                     var loadedBundle = new LoadedBundle(bundleInfoToLoad, loadPath, DownloadHandlerAssetBundle.GetContent(bundleReq), useLocalBundle);
                     s_AssetBundles.Add(localBundleInfo.BundleName, loadedBundle);
@@ -262,17 +305,13 @@ namespace BundleSystem
                 s_LocalBundles.Add(localBundleInfo.BundleName, Hash128.Parse(localBundleInfo.HashString));
             }
 
-            var remoteUrl = string.IsNullOrEmpty(altRemoteUrl) ? localManifest.RemoteURL : altRemoteUrl;
-            RemoteURL = Utility.CombinePath(remoteUrl, localManifest.BuildTarget);
-#if UNITY_EDITOR
-            if (s_EditorDatabaseMap.UseOuputAsRemote)
-                RemoteURL = "file://" + s_EditorDatabaseMap.OutputPath;
-#endif
+            s_BundleBuildTarget = localManifest.BuildTarget;
+            s_DefaultRemoteURL = localManifest.DefaultRemoteURL;
+
             Initialized = true;
-            if (LogMessages) Debug.Log($"Initialize Success \nRemote URL : {RemoteURL} \nLocal URL : {LocalURL}");
+            if (LogMessages) Debug.Log($"Initialize Success \nLocal URL : {LocalURL}");
             result.Done(BundleErrorCode.Success);
         }
-
 
         public static BundleAsyncOperation<AssetBundleBuildManifest> GetManifest()
         {
@@ -299,10 +338,11 @@ namespace BundleSystem
             }
 #endif
 
-            var manifestReq = UnityWebRequest.Get(Utility.CombinePath(RemoteURL, ManifestFileName));
+            var remoteURL = GetFullRemoteURL();
+            var manifestReq = UnityWebRequest.Get(Utility.CombinePath(remoteURL, ManifestFileName));
             yield return manifestReq.SendWebRequest();
 
-            if (manifestReq.isHttpError || manifestReq.isNetworkError)
+            if (!Utility.CheckRequestSuccess(manifestReq))
             {
                 result.Done(BundleErrorCode.NetworkError);
                 yield break;
@@ -379,6 +419,7 @@ namespace BundleSystem
             }
 #endif
 
+            var remoteURL = GetFullRemoteURL();
             var bundlesToUnload = new HashSet<string>(s_AssetBundles.Keys);
             var downloadBundleList = subsetNames == null ? manifest.BundleInfos : manifest.CollectSubsetBundleInfoes(subsetNames);
             var bundleReplaced = false; //bundle has been replaced
@@ -398,7 +439,7 @@ namespace BundleSystem
                 var isCached = Caching.IsVersionCached(bundleInfo.ToCachedBundle());
                 result.SetCachedBundle(isCached);
 
-                var loadURL = islocalBundle ? Utility.CombinePath(LocalURL, bundleInfo.BundleName) : Utility.CombinePath(RemoteURL, bundleInfo.BundleName);
+                var loadURL = islocalBundle ? Utility.CombinePath(LocalURL, bundleInfo.BundleName) : Utility.CombinePath(remoteURL, bundleInfo.BundleName);
                 if (LogMessages) Debug.Log($"Loading Bundle Name : {bundleInfo.BundleName}, loadURL {loadURL}, isLocalBundle : {islocalBundle}, isCached {isCached}");
                 LoadedBundle previousBundle;
 
@@ -416,7 +457,7 @@ namespace BundleSystem
                         yield return null;
                     }
 
-                    if (bundleReq.isNetworkError || bundleReq.isHttpError)
+                    if (!Utility.CheckRequestSuccess(bundleReq))
                     {
                         result.Done(BundleErrorCode.NetworkError);
                         yield break;

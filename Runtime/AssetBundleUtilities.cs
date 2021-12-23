@@ -168,5 +168,19 @@ namespace BundleSystem
             if (Path.DirectorySeparatorChar == '\\') combined = combined.Replace('\\', '/');
             return combined;
         }
+
+        /// <summary>
+        /// Check Unity WebRequest is succeeded or not
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public static bool CheckRequestSuccess(UnityEngine.Networking.UnityWebRequest request)
+        {
+#if UNITY_2020_2_OR_NEWER
+            return request.result == UnityEngine.Networking.UnityWebRequest.Result.Success;
+#else
+            return !request.isHttpError && !request.isNetworkError;
+#endif
+        }
     }
 }

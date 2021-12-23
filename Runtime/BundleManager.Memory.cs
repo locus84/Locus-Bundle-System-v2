@@ -452,7 +452,7 @@ namespace BundleSystem
             yield return bundleReq.SendWebRequest();
             loadedBundle.IsReloading = false;
 
-            if (bundleReq.isNetworkError || bundleReq.isHttpError)
+            if (!Utility.CheckRequestSuccess(bundleReq))
             {
                 Debug.LogError($"Bundle reload error { bundleReq.error }");
                 yield break;

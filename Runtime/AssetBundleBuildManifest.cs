@@ -107,9 +107,10 @@ namespace BundleSystem
         public long BuildTime;
 
         /// <summary>
-        /// Remote Base URL. Files will be lied in RemoteURL/BuildTarget.
+        /// Default Remote Base URL. Files will be lied in RemoteURL/BuildTarget.
+        /// User custom URL can be set using BundleManager.SetRemoteURL(string) function.
         /// </summary>
-        public string RemoteURL;
+        public string DefaultRemoteURL;
 
         /// <summary>
         /// Hash String to check this manifest is same with another or not.
