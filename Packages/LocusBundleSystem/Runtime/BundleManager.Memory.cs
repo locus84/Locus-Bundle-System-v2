@@ -429,7 +429,7 @@ namespace BundleSystem
 
             if(loadedBundle.RequestForReload != null)
             {
-                loadedBundle.Bundle.Unload(true);
+                loadedBundle.Bundle.Unload(false);
                 loadedBundle.Bundle = DownloadHandlerAssetBundle.GetContent(loadedBundle.RequestForReload);
                 //stored request needs to be disposed
                 loadedBundle.RequestForReload.Dispose();
@@ -469,7 +469,7 @@ namespace BundleSystem
             if(!s_BundleRefCounts.TryGetValue(bundleName, out var refCount) || refCount == 0)
             {
                 if (LogMessages) Debug.Log($"Reloaded Bundle {bundleName}");
-                loadedBundle.Bundle.Unload(true);
+                loadedBundle.Bundle.Unload(false);
                 loadedBundle.Bundle = DownloadHandlerAssetBundle.GetContent(bundleReq);
                 bundleReq.Dispose();
             }
