@@ -482,9 +482,7 @@ namespace BundleSystem
             foreach (var name in bundlesToUnload)
             {
                 var bundleInfo = s_AssetBundles[name];
-                bundleInfo.Bundle.Unload(false);
-                if (bundleInfo.RequestForReload != null)
-                    bundleInfo.RequestForReload.Dispose(); //dispose reload bundle
+                bundleInfo.Dispose();
                 s_AssetBundles.Remove(bundleInfo.Name);
             }
 
