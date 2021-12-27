@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -293,11 +293,22 @@ namespace BundleSystem
                 for (int i = 0; i < bundle.Dependencies.Count; i++)
                 {
                     var refBundleName = bundle.Dependencies[i];
-                    if (!s_BundleRefCounts.ContainsKey(refBundleName)) s_BundleRefCounts[refBundleName] = count;
+                    var refBundle = s_AssetBundles[refBundleName];
+
+                    if (!s_BundleRefCounts.ContainsKey(refBundleName)) 
+                    {
+                        s_BundleRefCounts[refBundleName] = count;
+                    }
                     else s_BundleRefCounts[refBundleName] += count;
+
+                    if(!refBundle.IsReloading && refBundle.RequestForReload == null)
+                    {
+                        s_Helper.StartCoroutine(CoReloadBundle(refBundle));
+                    }
                 }
             }
         }
+
 
         private static void ReleaseBundle(LoadedBundle bundle, int count = 1)
         {
@@ -320,7 +331,7 @@ namespace BundleSystem
                         if (s_BundleRefCounts[refBundleName] <= 0) 
                         {
                             s_BundleRefCounts.Remove(refBundleName);
-                            ReloadBundle(refBundleName);
+                            ApplyReloadedBundle(refBundleName);
                         }
                     }
                 }
@@ -412,73 +423,72 @@ namespace BundleSystem
             }
         }
 
-        private static void ReloadBundle(string bundleName)
+        private static void ApplyReloadedBundle(string bundleName)
         {
             //find current active bundle and try reload
             if(!s_AssetBundles.TryGetValue(bundleName, out var loadedBundle))
             {
-                if (LogMessages) Debug.Log("Bundle is no longer exist");
+                if (LogMessages) Debug.Log($"BundleName {bundleName} is no longer exist");
                 return;
             }
 
-            if(loadedBundle.IsReloading)
+            //the reference count if from previous dispsed bundles and we don't need to reload
+            //before it gets dirty by Retainbundle function
+            if(loadedBundle.RequestForReload == null)
             {
-                if (LogMessages) Debug.Log("Bundle is already reloading");
+                if (LogMessages) Debug.Log($"BundleName {bundleName} is still new");
                 return;
             }
 
-            if(loadedBundle.RequestForReload != null)
-            {
-                loadedBundle.Bundle.Unload(false);
-                loadedBundle.Bundle = DownloadHandlerAssetBundle.GetContent(loadedBundle.RequestForReload);
-                //stored request needs to be disposed
-                loadedBundle.RequestForReload.Dispose();
-                loadedBundle.RequestForReload = null;
-            }
-            else
-            {
-                s_Helper.StartCoroutine(CoReloadBundle(loadedBundle));
-            }
+            loadedBundle.Bundle.Unload(true);
+            loadedBundle.Bundle = DownloadHandlerAssetBundle.GetContent(loadedBundle.RequestForReload);
+            //stored request needs to be disposed
+            loadedBundle.RequestForReload.Dispose();
+            loadedBundle.RequestForReload = null;
+            if (LogMessages) Debug.Log($"Reloaded bundle {bundleName}");
         }
+
+        //reload related
+        static int s_CurrentReloadingCount;
+        const int MAX_CONCURRENT_RELOAD_COUNT = 3;
 
         static IEnumerator CoReloadBundle(LoadedBundle loadedBundle)
         {
+            loadedBundle.IsReloading = true;
             var bundleName = loadedBundle.Name;
             if (LogMessages) Debug.Log($"Start Reloading Bundle {bundleName}");
+
+            RetainBundle(loadedBundle);
+
+            while(s_CurrentReloadingCount >= MAX_CONCURRENT_RELOAD_COUNT) yield return null;
+            s_CurrentReloadingCount++;
+
             var bundleReq = loadedBundle.IsLocalBundle? UnityWebRequestAssetBundle.GetAssetBundle(loadedBundle.LoadPath) : 
                 UnityWebRequestAssetBundle.GetAssetBundle(loadedBundle.LoadPath, new CachedAssetBundle(bundleName, loadedBundle.Hash));
 
-            loadedBundle.IsReloading = true;
             yield return bundleReq.SendWebRequest();
+
+            s_CurrentReloadingCount--;
             loadedBundle.IsReloading = false;
 
             if (!Utility.CheckRequestSuccess(bundleReq))
             {
                 Debug.LogError($"Bundle reload error { bundleReq.error }");
+                ReleaseBundle(loadedBundle);
                 yield break;
             }
 
             if(loadedBundle.IsDisposed)
             {
                 if (LogMessages) Debug.Log("Bundle To Reload does not exist(dispoed during reloaing)");
+                ReleaseBundle(loadedBundle);
                 bundleReq.Dispose();
                 yield break;
             }
-
-            //if we can swap now
-            if(!s_BundleRefCounts.TryGetValue(bundleName, out var refCount) || refCount == 0)
-            {
-                if (LogMessages) Debug.Log($"Reloaded Bundle {bundleName}");
-                loadedBundle.Bundle.Unload(false);
-                loadedBundle.Bundle = DownloadHandlerAssetBundle.GetContent(bundleReq);
-                bundleReq.Dispose();
-            }
-            else
-            {
-                if (LogMessages) Debug.Log($"Reloaded Bundle Cached for later use {bundleName}");
-                //store request for laster use
-                loadedBundle.RequestForReload = bundleReq;
-            }
+            
+            if (LogMessages) Debug.Log($"Reloaded Bundle Cached for later use {bundleName}");
+            loadedBundle.RequestForReload = bundleReq;
+            ReleaseBundle(loadedBundle);
         }
     }
 }
