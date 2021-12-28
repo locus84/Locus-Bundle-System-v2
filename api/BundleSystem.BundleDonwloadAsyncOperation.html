@@ -90,26 +90,23 @@
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><a class="xref" href="BundleSystem.BundleAsyncOperationBase.html">BundleAsyncOperationBase</a></div>
-    <div class="level2"><a class="xref" href="BundleSystem.BundleAsyncOperation-1.html">BundleAsyncOperation</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</div>
+    <div class="level2"><a class="xref" href="BundleSystem.BundleAsyncOperation.html">BundleAsyncOperation</a></div>
     <div class="level3"><span class="xref">BundleDonwloadAsyncOperation</span></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="BundleSystem.IAwaiter-1.html">IAwaiter</a>&lt;<a class="xref" href="BundleSystem.BundleAsyncOperation-1.html">BundleAsyncOperation</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;&gt;</div>
+    <div><a class="xref" href="BundleSystem.IAwaiter-1.html">IAwaiter</a>&lt;<a class="xref" href="BundleSystem.BundleAsyncOperation.html">BundleAsyncOperation</a>&gt;</div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="BundleSystem.BundleAsyncOperation-1.html#BundleSystem_BundleAsyncOperation_1_Result">BundleAsyncOperation&lt;Boolean&gt;.Result</a>
+      <a class="xref" href="BundleSystem.BundleAsyncOperation.html#BundleSystem_BundleAsyncOperation_BundleSystem_IAwaiter_BundleSystem_BundleAsyncOperation__IsCompleted">BundleAsyncOperation.IAwaiter&lt;BundleAsyncOperation&gt;.IsCompleted</a>
     </div>
     <div>
-      <a class="xref" href="BundleSystem.BundleAsyncOperation-1.html#BundleSystem_BundleAsyncOperation_1_BundleSystem_IAwaiter_BundleSystem_BundleAsyncOperation_T___IsCompleted">BundleAsyncOperation&lt;Boolean&gt;.IAwaiter&lt;BundleAsyncOperation&lt;Boolean&gt;&gt;.IsCompleted</a>
+      <a class="xref" href="BundleSystem.BundleAsyncOperation.html#BundleSystem_BundleAsyncOperation_BundleSystem_IAwaiter_BundleSystem_BundleAsyncOperation__GetResult">BundleAsyncOperation.IAwaiter&lt;BundleAsyncOperation&gt;.GetResult()</a>
     </div>
     <div>
-      <a class="xref" href="BundleSystem.BundleAsyncOperation-1.html#BundleSystem_BundleAsyncOperation_1_BundleSystem_IAwaiter_BundleSystem_BundleAsyncOperation_T___GetResult">BundleAsyncOperation&lt;Boolean&gt;.IAwaiter&lt;BundleAsyncOperation&lt;Boolean&gt;&gt;.GetResult()</a>
-    </div>
-    <div>
-      <a class="xref" href="BundleSystem.BundleAsyncOperation-1.html#BundleSystem_BundleAsyncOperation_1_GetAwaiter">BundleAsyncOperation&lt;Boolean&gt;.GetAwaiter()</a>
+      <a class="xref" href="BundleSystem.BundleAsyncOperation.html#BundleSystem_BundleAsyncOperation_GetAwaiter">BundleAsyncOperation.GetAwaiter()</a>
     </div>
     <div>
       <a class="xref" href="BundleSystem.BundleAsyncOperationBase.html#BundleSystem_BundleAsyncOperationBase_IsDone">BundleAsyncOperationBase.IsDone</a>
@@ -146,7 +143,7 @@
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
   <h5 id="BundleSystem_BundleDonwloadAsyncOperation_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class BundleDonwloadAsyncOperation : BundleAsyncOperation&lt;bool&gt;, IAwaiter&lt;BundleAsyncOperation&lt;bool&gt;&gt;, ICriticalNotifyCompletion, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public class BundleDonwloadAsyncOperation : BundleAsyncOperation, IAwaiter&lt;BundleAsyncOperation&gt;, ICriticalNotifyCompletion, IDisposable</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -184,6 +181,31 @@
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsDisposed { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="BundleSystem_BundleDonwloadAsyncOperation_WillBundleReplaced_" data-uid="BundleSystem.BundleDonwloadAsyncOperation.WillBundleReplaced*"></a>
+  <h4 id="BundleSystem_BundleDonwloadAsyncOperation_WillBundleReplaced" data-uid="BundleSystem.BundleDonwloadAsyncOperation.WillBundleReplaced">WillBundleReplaced</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WillBundleReplaced { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
