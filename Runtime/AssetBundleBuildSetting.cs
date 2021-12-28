@@ -138,7 +138,7 @@ namespace BundleSystem
         /// <summary>
         /// Output path of the built Local AssetBundles.
         /// </summary>
-        public string LocalOutputPath => $"{OutputPath}/Local";
+        public string LocalOutputPath => $"{OutputPath}/_LocalBundles";
 #endif
 
         /// <summary>
