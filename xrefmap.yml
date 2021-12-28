@@ -1180,6 +1180,19 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleDonwloadAsyncOperation.ApplyAdditive
   nameWithType: BundleDonwloadAsyncOperation.ApplyAdditive
+- uid: BundleSystem.BundleDonwloadAsyncOperation.BundlesWillReplaced
+  name: BundlesWillReplaced
+  href: api/BundleSystem.BundleDonwloadAsyncOperation.html#BundleSystem_BundleDonwloadAsyncOperation_BundlesWillReplaced
+  commentId: P:BundleSystem.BundleDonwloadAsyncOperation.BundlesWillReplaced
+  fullName: BundleSystem.BundleDonwloadAsyncOperation.BundlesWillReplaced
+  nameWithType: BundleDonwloadAsyncOperation.BundlesWillReplaced
+- uid: BundleSystem.BundleDonwloadAsyncOperation.BundlesWillReplaced*
+  name: BundlesWillReplaced
+  href: api/BundleSystem.BundleDonwloadAsyncOperation.html#BundleSystem_BundleDonwloadAsyncOperation_BundlesWillReplaced_
+  commentId: Overload:BundleSystem.BundleDonwloadAsyncOperation.BundlesWillReplaced
+  isSpec: "True"
+  fullName: BundleSystem.BundleDonwloadAsyncOperation.BundlesWillReplaced
+  nameWithType: BundleDonwloadAsyncOperation.BundlesWillReplaced
 - uid: BundleSystem.BundleDonwloadAsyncOperation.Cancel
   name: Cancel()
   href: api/BundleSystem.BundleDonwloadAsyncOperation.html#BundleSystem_BundleDonwloadAsyncOperation_Cancel
@@ -1232,19 +1245,6 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleDonwloadAsyncOperation.IsDisposed
   nameWithType: BundleDonwloadAsyncOperation.IsDisposed
-- uid: BundleSystem.BundleDonwloadAsyncOperation.WillBundleReplaced
-  name: WillBundleReplaced
-  href: api/BundleSystem.BundleDonwloadAsyncOperation.html#BundleSystem_BundleDonwloadAsyncOperation_WillBundleReplaced
-  commentId: P:BundleSystem.BundleDonwloadAsyncOperation.WillBundleReplaced
-  fullName: BundleSystem.BundleDonwloadAsyncOperation.WillBundleReplaced
-  nameWithType: BundleDonwloadAsyncOperation.WillBundleReplaced
-- uid: BundleSystem.BundleDonwloadAsyncOperation.WillBundleReplaced*
-  name: WillBundleReplaced
-  href: api/BundleSystem.BundleDonwloadAsyncOperation.html#BundleSystem_BundleDonwloadAsyncOperation_WillBundleReplaced_
-  commentId: Overload:BundleSystem.BundleDonwloadAsyncOperation.WillBundleReplaced
-  isSpec: "True"
-  fullName: BundleSystem.BundleDonwloadAsyncOperation.WillBundleReplaced
-  nameWithType: BundleDonwloadAsyncOperation.WillBundleReplaced
 - uid: BundleSystem.BundleErrorCode
   name: BundleErrorCode
   href: api/BundleSystem.BundleErrorCode.html
