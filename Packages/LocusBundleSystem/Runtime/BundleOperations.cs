@@ -241,6 +241,12 @@ namespace BundleSystem
         }
 
         public bool Apply(bool unloadAllLoadedAssets = false, bool cleanUpCache = true)
+            => ApplyInternal(false, unloadAllLoadedAssets, cleanUpCache);
+        
+        public bool ApplyAdditive(bool unloadAllLoadedAssets = false, bool cleanUpCache = true) 
+            => ApplyInternal(true, unloadAllLoadedAssets, cleanUpCache);
+
+        private bool ApplyInternal(bool additive, bool unload, bool cleanUp)
         {
             if(IsDisposed)
             {
@@ -254,7 +260,7 @@ namespace BundleSystem
                 return false;
             }
 
-            return BundleManager.ApplyDownloadOperationInternal(this, unloadAllLoadedAssets, cleanUpCache);
+            return BundleManager.ApplyDownloadOperationInternal(this, additive, unload, cleanUp);
         }
 
         public void Dispose()
