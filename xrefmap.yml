@@ -1148,6 +1148,77 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleAsyncSceneRequest.Succeeded
   nameWithType: BundleAsyncSceneRequest.Succeeded
+- uid: BundleSystem.BundleDonwloadAsyncOperation
+  name: BundleDonwloadAsyncOperation
+  href: api/BundleSystem.BundleDonwloadAsyncOperation.html
+  commentId: T:BundleSystem.BundleDonwloadAsyncOperation
+  fullName: BundleSystem.BundleDonwloadAsyncOperation
+  nameWithType: BundleDonwloadAsyncOperation
+- uid: BundleSystem.BundleDonwloadAsyncOperation.Apply(System.Boolean,System.Boolean)
+  name: Apply(Boolean, Boolean)
+  href: api/BundleSystem.BundleDonwloadAsyncOperation.html#BundleSystem_BundleDonwloadAsyncOperation_Apply_System_Boolean_System_Boolean_
+  commentId: M:BundleSystem.BundleDonwloadAsyncOperation.Apply(System.Boolean,System.Boolean)
+  fullName: BundleSystem.BundleDonwloadAsyncOperation.Apply(System.Boolean, System.Boolean)
+  nameWithType: BundleDonwloadAsyncOperation.Apply(Boolean, Boolean)
+- uid: BundleSystem.BundleDonwloadAsyncOperation.Apply*
+  name: Apply
+  href: api/BundleSystem.BundleDonwloadAsyncOperation.html#BundleSystem_BundleDonwloadAsyncOperation_Apply_
+  commentId: Overload:BundleSystem.BundleDonwloadAsyncOperation.Apply
+  isSpec: "True"
+  fullName: BundleSystem.BundleDonwloadAsyncOperation.Apply
+  nameWithType: BundleDonwloadAsyncOperation.Apply
+- uid: BundleSystem.BundleDonwloadAsyncOperation.Cancel
+  name: Cancel()
+  href: api/BundleSystem.BundleDonwloadAsyncOperation.html#BundleSystem_BundleDonwloadAsyncOperation_Cancel
+  commentId: M:BundleSystem.BundleDonwloadAsyncOperation.Cancel
+  fullName: BundleSystem.BundleDonwloadAsyncOperation.Cancel()
+  nameWithType: BundleDonwloadAsyncOperation.Cancel()
+- uid: BundleSystem.BundleDonwloadAsyncOperation.Cancel*
+  name: Cancel
+  href: api/BundleSystem.BundleDonwloadAsyncOperation.html#BundleSystem_BundleDonwloadAsyncOperation_Cancel_
+  commentId: Overload:BundleSystem.BundleDonwloadAsyncOperation.Cancel
+  isSpec: "True"
+  fullName: BundleSystem.BundleDonwloadAsyncOperation.Cancel
+  nameWithType: BundleDonwloadAsyncOperation.Cancel
+- uid: BundleSystem.BundleDonwloadAsyncOperation.Dispose
+  name: Dispose()
+  href: api/BundleSystem.BundleDonwloadAsyncOperation.html#BundleSystem_BundleDonwloadAsyncOperation_Dispose
+  commentId: M:BundleSystem.BundleDonwloadAsyncOperation.Dispose
+  fullName: BundleSystem.BundleDonwloadAsyncOperation.Dispose()
+  nameWithType: BundleDonwloadAsyncOperation.Dispose()
+- uid: BundleSystem.BundleDonwloadAsyncOperation.Dispose*
+  name: Dispose
+  href: api/BundleSystem.BundleDonwloadAsyncOperation.html#BundleSystem_BundleDonwloadAsyncOperation_Dispose_
+  commentId: Overload:BundleSystem.BundleDonwloadAsyncOperation.Dispose
+  isSpec: "True"
+  fullName: BundleSystem.BundleDonwloadAsyncOperation.Dispose
+  nameWithType: BundleDonwloadAsyncOperation.Dispose
+- uid: BundleSystem.BundleDonwloadAsyncOperation.IsCancelled
+  name: IsCancelled
+  href: api/BundleSystem.BundleDonwloadAsyncOperation.html#BundleSystem_BundleDonwloadAsyncOperation_IsCancelled
+  commentId: P:BundleSystem.BundleDonwloadAsyncOperation.IsCancelled
+  fullName: BundleSystem.BundleDonwloadAsyncOperation.IsCancelled
+  nameWithType: BundleDonwloadAsyncOperation.IsCancelled
+- uid: BundleSystem.BundleDonwloadAsyncOperation.IsCancelled*
+  name: IsCancelled
+  href: api/BundleSystem.BundleDonwloadAsyncOperation.html#BundleSystem_BundleDonwloadAsyncOperation_IsCancelled_
+  commentId: Overload:BundleSystem.BundleDonwloadAsyncOperation.IsCancelled
+  isSpec: "True"
+  fullName: BundleSystem.BundleDonwloadAsyncOperation.IsCancelled
+  nameWithType: BundleDonwloadAsyncOperation.IsCancelled
+- uid: BundleSystem.BundleDonwloadAsyncOperation.IsDisposed
+  name: IsDisposed
+  href: api/BundleSystem.BundleDonwloadAsyncOperation.html#BundleSystem_BundleDonwloadAsyncOperation_IsDisposed
+  commentId: P:BundleSystem.BundleDonwloadAsyncOperation.IsDisposed
+  fullName: BundleSystem.BundleDonwloadAsyncOperation.IsDisposed
+  nameWithType: BundleDonwloadAsyncOperation.IsDisposed
+- uid: BundleSystem.BundleDonwloadAsyncOperation.IsDisposed*
+  name: IsDisposed
+  href: api/BundleSystem.BundleDonwloadAsyncOperation.html#BundleSystem_BundleDonwloadAsyncOperation_IsDisposed_
+  commentId: Overload:BundleSystem.BundleDonwloadAsyncOperation.IsDisposed
+  isSpec: "True"
+  fullName: BundleSystem.BundleDonwloadAsyncOperation.IsDisposed
+  nameWithType: BundleDonwloadAsyncOperation.IsDisposed
 - uid: BundleSystem.BundleErrorCode
   name: BundleErrorCode
   href: api/BundleSystem.BundleErrorCode.html
@@ -1184,6 +1255,12 @@ references:
   commentId: F:BundleSystem.BundleErrorCode.Success
   fullName: BundleSystem.BundleErrorCode.Success
   nameWithType: BundleErrorCode.Success
+- uid: BundleSystem.BundleErrorCode.UserCancelled
+  name: UserCancelled
+  href: api/BundleSystem.BundleErrorCode.html#BundleSystem_BundleErrorCode_UserCancelled
+  commentId: F:BundleSystem.BundleErrorCode.UserCancelled
+  fullName: BundleSystem.BundleErrorCode.UserCancelled
+  nameWithType: BundleErrorCode.UserCancelled
 - uid: BundleSystem.BundleManager
   name: BundleManager
   href: api/BundleSystem.BundleManager.html
@@ -1306,6 +1383,19 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.GetManifest
   nameWithType: BundleManager.GetManifest
+- uid: BundleSystem.BundleManager.GetReloadingBundleCount
+  name: GetReloadingBundleCount()
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetReloadingBundleCount
+  commentId: M:BundleSystem.BundleManager.GetReloadingBundleCount
+  fullName: BundleSystem.BundleManager.GetReloadingBundleCount()
+  nameWithType: BundleManager.GetReloadingBundleCount()
+- uid: BundleSystem.BundleManager.GetReloadingBundleCount*
+  name: GetReloadingBundleCount
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetReloadingBundleCount_
+  commentId: Overload:BundleSystem.BundleManager.GetReloadingBundleCount
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.GetReloadingBundleCount
+  nameWithType: BundleManager.GetReloadingBundleCount
 - uid: BundleSystem.BundleManager.GetTrackingSnapshot
   name: GetTrackingSnapshot()
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetTrackingSnapshot
@@ -1581,6 +1671,24 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.Override
   nameWithType: BundleManager.Override
+- uid: BundleSystem.BundleManager.Override``1(BundleSystem.BundleAsyncRequest{``0},BundleSystem.TrackHandle{``0}@)
+  name: Override<T>(BundleAsyncRequest<T>, ref TrackHandle<T>)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Override__1_BundleSystem_BundleAsyncRequest___0__BundleSystem_TrackHandle___0___
+  commentId: M:BundleSystem.BundleManager.Override``1(BundleSystem.BundleAsyncRequest{``0},BundleSystem.TrackHandle{``0}@)
+  name.vb: Override(Of T)(BundleAsyncRequest(Of T), ByRef TrackHandle(Of T))
+  fullName: BundleSystem.BundleManager.Override<T>(BundleSystem.BundleAsyncRequest<T>, ref BundleSystem.TrackHandle<T>)
+  fullName.vb: BundleSystem.BundleManager.Override(Of T)(BundleSystem.BundleAsyncRequest(Of T), ByRef BundleSystem.TrackHandle(Of T))
+  nameWithType: BundleManager.Override<T>(BundleAsyncRequest<T>, ref TrackHandle<T>)
+  nameWithType.vb: BundleManager.Override(Of T)(BundleAsyncRequest(Of T), ByRef TrackHandle(Of T))
+- uid: BundleSystem.BundleManager.Override``1(BundleSystem.BundleSyncRequest{``0},BundleSystem.TrackHandle{``0}@)
+  name: Override<T>(BundleSyncRequest<T>, ref TrackHandle<T>)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Override__1_BundleSystem_BundleSyncRequest___0__BundleSystem_TrackHandle___0___
+  commentId: M:BundleSystem.BundleManager.Override``1(BundleSystem.BundleSyncRequest{``0},BundleSystem.TrackHandle{``0}@)
+  name.vb: Override(Of T)(BundleSyncRequest(Of T), ByRef TrackHandle(Of T))
+  fullName: BundleSystem.BundleManager.Override<T>(BundleSystem.BundleSyncRequest<T>, ref BundleSystem.TrackHandle<T>)
+  fullName.vb: BundleSystem.BundleManager.Override(Of T)(BundleSystem.BundleSyncRequest(Of T), ByRef BundleSystem.TrackHandle(Of T))
+  nameWithType: BundleManager.Override<T>(BundleSyncRequest<T>, ref TrackHandle<T>)
+  nameWithType.vb: BundleManager.Override(Of T)(BundleSyncRequest(Of T), ByRef TrackHandle(Of T))
 - uid: BundleSystem.BundleManager.Override``1(BundleSystem.TrackHandle{``0},BundleSystem.TrackHandle{``0}@)
   name: Override<T>(TrackHandle<T>, ref TrackHandle<T>)
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Override__1_BundleSystem_TrackHandle___0__BundleSystem_TrackHandle___0___

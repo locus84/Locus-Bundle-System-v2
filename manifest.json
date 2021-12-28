@@ -172,7 +172,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.BundleAsyncOperation-1.html",
-          "hash": "T3sp0R1V6KSJv0/l74Z/gUBpnkJCiq0EKWOYo4tUsBE="
+          "hash": "Ke5VeH7+hYg6ZMS+KtKXmKfk9K2FfbRYt9T81T6sUXs="
         }
       },
       "is_incremental": false,
@@ -228,11 +228,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/BundleSystem.BundleDonwloadAsyncOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BundleSystem.BundleDonwloadAsyncOperation.html",
+          "hash": "t4wnQWQSMAxvnJnPDoBzurfL8nj8plL3yx57woXPFIM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/BundleSystem.BundleErrorCode.yml",
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.BundleErrorCode.html",
-          "hash": "VFYBUzAh/tk5Wt6dvYzZ697NG4oymrbZB8vcwGqP78s="
+          "hash": "hbnIXCtilXx5oEPPd36te2VZQOJlK5XTseymc3Rz7pc="
         }
       },
       "is_incremental": false,
@@ -244,7 +256,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.BundleManager.html",
-          "hash": "Cazx9sF6r359va3+o0tcMfOPOioOdJRXtSSizqZLkJ0="
+          "hash": "gIGWsqpWpE4LK+UtVfGJ+mS0hb+gj52BOvD/5L28CBo="
         }
       },
       "is_incremental": false,
@@ -364,7 +376,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BundleSystem.html",
-          "hash": "kPWTPjUYynSP031iiG4gvr8qnNCxUqbgbDiwHd652sk="
+          "hash": "JuVNECexHwVYPpkY+RrYFQLwaRBCeLkQjyvS7ZrtVTM="
         }
       },
       "is_incremental": false,
@@ -376,7 +388,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "8w8PfdoXdR0ezwOwdQrMw6i9E+uHAhgHXoPjRVM/F0A="
+          "hash": "rIxvs7HTa101qro6h2X3aqWu7cK1Pw2dncSGsVvqTGY="
         }
       },
       "is_incremental": false,
@@ -485,7 +497,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 29,
+          "total_file_count": 30,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
