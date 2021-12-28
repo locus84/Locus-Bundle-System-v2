@@ -467,10 +467,10 @@ namespace BundleSystem
 
             result.BundlesToUnload = new HashSet<string>(s_AssetBundles.Keys);
             result.BundlesToAddOrReplace = new List<LoadedBundle>();
+            result.BundlesWillReplaced = new List<string>();
 
             var remoteURL = GetFullRemoteURL();
             var downloadBundleList = subsetNames == null ? manifest.BundleInfos : manifest.CollectSubsetBundleInfoes(subsetNames);
-            var bundleReplaced = false; //bundle has been replaced or not
 
             result.SetIndexLength(downloadBundleList.Count);
 
@@ -521,7 +521,10 @@ namespace BundleSystem
                     }
 
                     //examin current bundle should be replaced or not
-                    if(!bundleReplaced && s_AssetBundles.ContainsKey(bundleInfo.BundleName)) bundleReplaced = true;
+                    if(s_AssetBundles.ContainsKey(bundleInfo.BundleName))
+                    {
+                        result.BundlesWillReplaced.Add(bundleInfo.BundleName);
+                    }
 
                     //pass req as cachedRequest
                     var loadedBundle = new LoadedBundle(bundleInfo, loadURL, null, islocalBundle) { CachedRequest = bundleReq };
@@ -531,7 +534,6 @@ namespace BundleSystem
                 }
             }
 
-            result.WillBundleReplaced = bundleReplaced;
             result.Manifest = manifest;
             result.Version = s_InGameIncrementalVersion + 1;
             result.Done(BundleErrorCode.Success);
@@ -567,7 +569,7 @@ namespace BundleSystem
                 CollectSceneNames(bundle);
             }
             
-            //if additive, keep bundles in the bundleinfos
+            //if additive, keep bundles in the full bundleinfo list
             if(additive)
             {
                 foreach(var info in operation.Manifest.BundleInfos)
