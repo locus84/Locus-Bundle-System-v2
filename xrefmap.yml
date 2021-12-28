@@ -1167,6 +1167,19 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleDonwloadAsyncOperation.Apply
   nameWithType: BundleDonwloadAsyncOperation.Apply
+- uid: BundleSystem.BundleDonwloadAsyncOperation.ApplyAdditive(System.Boolean,System.Boolean)
+  name: ApplyAdditive(Boolean, Boolean)
+  href: api/BundleSystem.BundleDonwloadAsyncOperation.html#BundleSystem_BundleDonwloadAsyncOperation_ApplyAdditive_System_Boolean_System_Boolean_
+  commentId: M:BundleSystem.BundleDonwloadAsyncOperation.ApplyAdditive(System.Boolean,System.Boolean)
+  fullName: BundleSystem.BundleDonwloadAsyncOperation.ApplyAdditive(System.Boolean, System.Boolean)
+  nameWithType: BundleDonwloadAsyncOperation.ApplyAdditive(Boolean, Boolean)
+- uid: BundleSystem.BundleDonwloadAsyncOperation.ApplyAdditive*
+  name: ApplyAdditive
+  href: api/BundleSystem.BundleDonwloadAsyncOperation.html#BundleSystem_BundleDonwloadAsyncOperation_ApplyAdditive_
+  commentId: Overload:BundleSystem.BundleDonwloadAsyncOperation.ApplyAdditive
+  isSpec: "True"
+  fullName: BundleSystem.BundleDonwloadAsyncOperation.ApplyAdditive
+  nameWithType: BundleDonwloadAsyncOperation.ApplyAdditive
 - uid: BundleSystem.BundleDonwloadAsyncOperation.Cancel
   name: Cancel()
   href: api/BundleSystem.BundleDonwloadAsyncOperation.html#BundleSystem_BundleDonwloadAsyncOperation_Cancel
