@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using UnityEngine;
@@ -210,6 +211,63 @@ namespace BundleSystem
         void ICriticalNotifyCompletion.UnsafeOnCompleted(System.Action continuation) => ((INotifyCompletion)this).OnCompleted(continuation);
     }
 
+
+    /// <summary>
+    /// Download operation of BundleManager.
+    /// </summary>
+    public class BundleDonwloadAsyncOperation : BundleAsyncOperation<bool>, System.IDisposable
+    {
+        public bool IsDisposed { get; set; } = false;
+        public bool IsCancelled => ErrorCode == BundleErrorCode.UserCancelled;
+        internal AssetBundleBuildManifest Manifest;
+        internal HashSet<string> BundlesToUnload;
+        internal List<LoadedBundle> BundlesToAddOrReplace;
+        internal int Version;
+
+        /// <summary>
+        /// Try Cancel download operation.
+        /// Note : it may result other resultcode if it's too late.
+        /// </summary>
+        public bool Cancel()
+        {
+            if(IsDone) 
+            {
+                if(BundleManager.LogMessages) Debug.LogError("The operation already ended!");
+                return false;
+            }
+            Done(BundleErrorCode.UserCancelled);
+            return true;
+        }
+
+        public bool Apply(bool unloadAllLoadedAssets = false, bool cleanUpCache = true)
+        {
+            if(IsDisposed)
+            {
+                if(BundleManager.LogMessages) Debug.LogError("Can't apply disposed operation!");
+                return false;
+            }
+
+            if(!Succeeded)
+            {
+                if(BundleManager.LogMessages) Debug.LogError("Can't apply not succeeded download!");
+                return false;
+            }
+
+            return BundleManager.ApplyDownloadOperationInternal(this, unloadAllLoadedAssets, cleanUpCache);
+        }
+
+        public void Dispose()
+        {
+            //already disposed
+            if(IsDisposed) return;
+            IsDisposed = true;
+            
+            //call cancel if it's not ended yet
+            if(!IsDone) Cancel();
+            BundleManager.CancelDownloadOperationInternal(this);
+        }
+    }
+
     /// <summary>
     /// Async operation of BundleManager. with result T
     /// </summary>
@@ -238,7 +296,6 @@ namespace BundleSystem
         void ICriticalNotifyCompletion.UnsafeOnCompleted(System.Action continuation) => AwaiterOnComplete(continuation);
     }
     
-
     /// <summary>
     /// Base class of async bundle operation
     /// </summary>
@@ -343,6 +400,10 @@ namespace BundleSystem
         /// Unable to parse manifest.
         /// </summary>
         ManifestParseError = 3,
+        /// <summary>
+        /// User cancelled operation(download only)
+        /// </summary>
+        UserCancelled = 4,
     }
     
     /// <summary>

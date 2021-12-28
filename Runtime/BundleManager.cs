@@ -17,7 +17,7 @@ namespace BundleSystem
         public List<string> Dependencies; //including self
         public bool IsLocalBundle;
         public string LoadPath;
-        public UnityWebRequest RequestForReload;
+        public UnityWebRequest CachedRequest;
         public bool IsReloading = false;
         public bool IsDisposed { get; private set; } = false;
 
@@ -35,19 +35,19 @@ namespace BundleSystem
             Dependencies.Add(Name);
         }
 
-        public void Dispose()
+        public void Dispose(bool unloadAllLoadedAssets = false)
         {
             if (!IsDisposed)
             {
                 if(Bundle != null)
                 {
-                    Bundle.Unload(false);
+                    Bundle.Unload(unloadAllLoadedAssets);
                     Bundle = null;
                 }
-                if(RequestForReload != null)
+                if(CachedRequest != null)
                 {
-                    RequestForReload.Dispose();
-                    RequestForReload = null;
+                    CachedRequest.Dispose();
+                    CachedRequest = null;
                 }
                 IsDisposed = true;
             }
@@ -70,7 +70,7 @@ namespace BundleSystem
         private static Dictionary<string, LoadedBundle> s_AssetBundles = new Dictionary<string, LoadedBundle>();
         private static Dictionary<string, Hash128> s_LocalBundles = new Dictionary<string, Hash128>();
         private static Dictionary<string, SceneInfo> s_SceneInfos = new Dictionary<string, SceneInfo>();
-
+        private static int s_InGameIncrementalVersion = 0;
 
 #if UNITY_EDITOR
         public static bool UseAssetDatabaseMap { get; private set; } = true;
@@ -310,6 +310,9 @@ namespace BundleSystem
 
             Initialized = true;
             if (LogMessages) Debug.Log($"Initialize Success \nLocal URL : {LocalURL}");
+
+            //increase version
+            s_InGameIncrementalVersion++;
             result.Done(BundleErrorCode.Success);
         }
 
@@ -395,14 +398,14 @@ namespace BundleSystem
         /// </summary>
         /// <param name="manifest">manifest you get from GetManifest() function</param>
         /// <param name="subsetNames">names that you interested among full bundle list(optional)</param>
-        public static BundleAsyncOperation<bool> DownloadAssetBundles(AssetBundleBuildManifest manifest, IEnumerable<string> subsetNames = null)
+        public static BundleDonwloadAsyncOperation DownloadAssetBundles(AssetBundleBuildManifest manifest, IEnumerable<string> subsetNames = null)
         {
-            var result = new BundleAsyncOperation<bool>();
+            var result = new BundleDonwloadAsyncOperation();
             s_Helper.StartCoroutine(CoDownloadAssetBundles(manifest, subsetNames, result));
             return result;
         }
 
-        static IEnumerator CoDownloadAssetBundles(AssetBundleBuildManifest manifest, IEnumerable<string> subsetNames, BundleAsyncOperation<bool> result)
+        static IEnumerator CoDownloadAssetBundles(AssetBundleBuildManifest manifest, IEnumerable<string> subsetNames, BundleDonwloadAsyncOperation result)
         {
             if (!Initialized)
             {
@@ -419,10 +422,12 @@ namespace BundleSystem
             }
 #endif
 
+            result.BundlesToUnload = new HashSet<string>(s_AssetBundles.Keys);
+            result.BundlesToAddOrReplace = new List<LoadedBundle>();
+
             var remoteURL = GetFullRemoteURL();
-            var bundlesToUnload = new HashSet<string>(s_AssetBundles.Keys);
             var downloadBundleList = subsetNames == null ? manifest.BundleInfos : manifest.CollectSubsetBundleInfoes(subsetNames);
-            var bundleReplaced = false; //bundle has been replaced
+            var bundleReplaced = false; //bundle has been replaced or not
 
             result.SetIndexLength(downloadBundleList.Count);
 
@@ -433,7 +438,7 @@ namespace BundleSystem
                 var bundleHash = Hash128.Parse(bundleInfo.HashString);
 
                 //remove from the set so we can track bundles that should be cleared
-                bundlesToUnload.Remove(bundleInfo.BundleName);
+                result.BundlesToUnload.Remove(bundleInfo.BundleName);
 
                 var islocalBundle = s_LocalBundles.TryGetValue(bundleInfo.BundleName, out var localHash) && localHash == bundleHash;
                 var isCached = Caching.IsVersionCached(bundleInfo.ToCachedBundle());
@@ -451,35 +456,76 @@ namespace BundleSystem
                 {
                     var bundleReq = islocalBundle ? UnityWebRequestAssetBundle.GetAssetBundle(loadURL) : UnityWebRequestAssetBundle.GetAssetBundle(loadURL, bundleInfo.ToCachedBundle());
                     var operation = bundleReq.SendWebRequest();
-                    while (!bundleReq.isDone)
+                    while (!bundleReq.isDone && !result.IsCancelled)
                     {
                         result.SetProgress(operation.progress);
                         yield return null;
                     }
 
+                    if(result.IsCancelled)
+                    {
+                        //dispose currentRequest
+                        bundleReq.Dispose();
+                        yield break;
+                    }
+
                     if (!Utility.CheckRequestSuccess(bundleReq))
                     {
+                        //dispose currentRequest
+                        bundleReq.Dispose();
                         result.Done(BundleErrorCode.NetworkError);
                         yield break;
                     }
 
-                    if (s_AssetBundles.TryGetValue(bundleInfo.BundleName, out previousBundle))
-                    {
-                        bundleReplaced = true;
-                        previousBundle.Dispose();
-                        s_AssetBundles.Remove(bundleInfo.BundleName);
-                    }
+                    //examin current bundle should be replaced or not
+                    if(!bundleReplaced && s_AssetBundles.ContainsKey(bundleInfo.BundleName)) bundleReplaced = true;
 
-                    var loadedBundle = new LoadedBundle(bundleInfo, loadURL, DownloadHandlerAssetBundle.GetContent(bundleReq), islocalBundle);
-                    s_AssetBundles.Add(bundleInfo.BundleName, loadedBundle);
-                    CollectSceneNames(loadedBundle);
+                    //pass req as cachedRequest
+                    var loadedBundle = new LoadedBundle(bundleInfo, loadURL, null, islocalBundle) { CachedRequest = bundleReq };
+
+                    result.BundlesToAddOrReplace.Add(loadedBundle);
                     if (LogMessages) Debug.Log($"Loading Bundle Name : {bundleInfo.BundleName} Complete");
-                    bundleReq.Dispose();
                 }
             }
 
+            result.Result = bundleReplaced;
+            result.Manifest = manifest;
+            result.Version = s_InGameIncrementalVersion + 1;
+            result.Done(BundleErrorCode.Success);
+        }
+
+        internal static bool ApplyDownloadOperationInternal(BundleDonwloadAsyncOperation operation, bool unloadAll, bool cleanUpCache)
+        {
+#if UNITY_EDITOR
+            if (UseAssetDatabaseMap) return true;
+#endif
+
+            //download operation always should be sequential, as it's based on previous state,
+            //keep track of previous version and see if it's valid operation.
+            if(operation.Version != s_InGameIncrementalVersion + 1)
+            {
+                if(LogMessages) Debug.LogError("The operation version is invalid, please dispose and try again");
+                return false;
+            }
+
+            //update bundles
+            foreach(var bundle in operation.BundlesToAddOrReplace)
+            {
+                //remove previous bundles
+                if (s_AssetBundles.TryGetValue(bundle.Name, out var previousBundle)) previousBundle.Dispose(unloadAll);
+
+                //cached request to bundle 
+                bundle.Bundle = DownloadHandlerAssetBundle.GetContent(bundle.CachedRequest);
+                bundle.CachedRequest.Dispose();
+                bundle.CachedRequest = null;
+
+                //add and collect scene names
+                s_AssetBundles[bundle.Name] = bundle;
+                CollectSceneNames(bundle);
+            }
+            
             //let's drop unknown bundles loaded
-            foreach (var name in bundlesToUnload)
+            foreach (var name in operation.BundlesToUnload)
             {
                 var bundleInfo = s_AssetBundles[name];
                 bundleInfo.Dispose();
@@ -488,22 +534,41 @@ namespace BundleSystem
 
             //bump entire bundles' usage timestamp
             //we use manifest directly to find out entire list
-            for (int i = 0; i < manifest.BundleInfos.Count; i++)
+            for (int i = 0; i < operation.Manifest.BundleInfos.Count; i++)
             {
-                var cachedInfo = manifest.BundleInfos[i].ToCachedBundle();
+                var cachedInfo = operation.Manifest.BundleInfos[i].ToCachedBundle();
                 if (Caching.IsVersionCached(cachedInfo)) Caching.MarkAsUsed(cachedInfo);
             }
 
-            var prevSpace = Caching.defaultCache.spaceOccupied;
-            Caching.ClearCache(600); //as we bumped entire list right before clear, let it be just 600
-            if (LogMessages) Debug.Log($"Cache CleanUp : {prevSpace} -> {Caching.defaultCache.spaceOccupied} bytes");
+            //if user wants cleanup
+            if(cleanUpCache)
+            {
+                var prevSpace = Caching.defaultCache.spaceOccupied;
+                Caching.ClearCache(600); //as we bumped entire list right before clear, let it be just 600
+                if (LogMessages) Debug.Log($"Cache CleanUp : {prevSpace} -> {Caching.defaultCache.spaceOccupied} bytes");
+            }
 
-            PlayerPrefs.SetString("CachedManifest", JsonUtility.ToJson(manifest));
-            GlobalBundleHash = manifest.GlobalHashString;
-            result.Result = bundleReplaced;
-            result.Done(BundleErrorCode.Success);
+            PlayerPrefs.SetString("CachedManifest", JsonUtility.ToJson(operation.Manifest));
+            s_InGameIncrementalVersion = operation.Version;
+            GlobalBundleHash = operation.Manifest.GlobalHashString;
+            return true;
         }
 
+        internal static void CancelDownloadOperationInternal(BundleDonwloadAsyncOperation operation)
+        {
+#if UNITY_EDITOR
+            if (UseAssetDatabaseMap) return;
+#endif
+            //nothing has done while downloading
+            if(operation.BundlesToAddOrReplace == null) return;
+
+            //dispose already loaded requests
+            foreach(var bundle in operation.BundlesToAddOrReplace) 
+            {
+                //it can be null if already applied
+                bundle.CachedRequest?.Dispose();
+            }
+        }
 
         private struct SceneInfo {
             public string Name;

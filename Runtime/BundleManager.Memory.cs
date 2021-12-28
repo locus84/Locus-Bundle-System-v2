@@ -89,6 +89,8 @@ namespace BundleSystem
             if(Application.isPlaying) s_TrackInfoDict.FillNormalDictionary(targetDict);
         } 
 
+        public static int GetReloadingBundleCount() => s_CurrentReloadingCount;
+
         /// <summary>
         /// Get current bundle references dictionary
         /// </summary>
@@ -182,6 +184,28 @@ namespace BundleSystem
         {
             oldHandle.Release();
             oldHandle = newHandle;
+        }
+
+        /// <summary>
+        /// Release old track handle and assign new handle from request.
+        /// </summary>
+        /// <param name="newRequest">New request</param>
+        /// <param name="oldHandle">Old handle to release</param>
+        public static void Override<T>(this BundleSyncRequest<T> newRequest, ref TrackHandle<T> oldHandle) where T : Object
+        {
+            oldHandle.Release();
+            oldHandle = newRequest.Handle;
+        }
+
+        /// <summary>
+        /// Release old track handle and assign new handle from request.
+        /// </summary>
+        /// <param name="newRequest">New request</param>
+        /// <param name="oldHandle">Old handle to release</param>
+        public static void Override<T>(this BundleAsyncRequest<T> newRequest, ref TrackHandle<T> oldHandle) where T : Object
+        {
+            oldHandle.Release();
+            oldHandle = newRequest.Handle;
         }
 
         /// <summary>
@@ -301,7 +325,7 @@ namespace BundleSystem
                     }
                     else s_BundleRefCounts[refBundleName] += count;
 
-                    if(!refBundle.IsReloading && refBundle.RequestForReload == null)
+                    if(!refBundle.IsReloading && refBundle.CachedRequest == null)
                     {
                         s_Helper.StartCoroutine(CoReloadBundle(refBundle));
                     }
@@ -434,17 +458,17 @@ namespace BundleSystem
 
             //the reference count if from previous dispsed bundles and we don't need to reload
             //before it gets dirty by Retainbundle function
-            if(loadedBundle.RequestForReload == null)
+            if(loadedBundle.CachedRequest == null)
             {
                 if (LogMessages) Debug.Log($"BundleName {bundleName} is still new");
                 return;
             }
 
             loadedBundle.Bundle.Unload(true);
-            loadedBundle.Bundle = DownloadHandlerAssetBundle.GetContent(loadedBundle.RequestForReload);
+            loadedBundle.Bundle = DownloadHandlerAssetBundle.GetContent(loadedBundle.CachedRequest);
             //stored request needs to be disposed
-            loadedBundle.RequestForReload.Dispose();
-            loadedBundle.RequestForReload = null;
+            loadedBundle.CachedRequest.Dispose();
+            loadedBundle.CachedRequest = null;
             if (LogMessages) Debug.Log($"Reloaded bundle {bundleName}");
         }
 
@@ -487,7 +511,7 @@ namespace BundleSystem
             }
             
             if (LogMessages) Debug.Log($"Reloaded Bundle Cached for later use {bundleName}");
-            loadedBundle.RequestForReload = bundleReq;
+            loadedBundle.CachedRequest = bundleReq;
             ReleaseBundle(loadedBundle);
         }
     }
