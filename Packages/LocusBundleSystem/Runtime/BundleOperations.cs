@@ -218,7 +218,7 @@ namespace BundleSystem
     public class BundleDonwloadAsyncOperation : BundleAsyncOperation, System.IDisposable
     {
         public bool IsDisposed { get; set; } = false;
-        public bool WillBundleReplaced { get; internal set; } = false;
+        public List<string> BundlesWillReplaced { get; internal set; }
         public bool IsCancelled => ErrorCode == BundleErrorCode.UserCancelled;
         internal AssetBundleBuildManifest Manifest;
         internal HashSet<string> BundlesToUnload;
