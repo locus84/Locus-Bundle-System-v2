@@ -84,7 +84,7 @@ namespace BundleSystem
 
             GUILayout.BeginHorizontal();
             EditorGUILayout.PropertyField(m_OutputPath);
-            if (GUILayout.Button("Open", GUILayout.ExpandWidth(false))) EditorUtility.RevealInFinder(Utility.CombinePath(setting.OutputPath, EditorUserBuildSettings.activeBuildTarget.ToString()));
+            if (GUILayout.Button("Open", GUILayout.ExpandWidth(false))) EditorUtility.RevealInFinder(setting.OutputPath);
             GUILayout.EndHorizontal();
             EditorGUILayout.PropertyField(m_RemoteURL);
             EditorGUILayout.Space();
@@ -132,7 +132,7 @@ namespace BundleSystem
                 var buildTargetString = EditorUserBuildSettings.activeBuildTarget.ToString();
                 var credential = new NetworkCredential(setting.FtpUserName, setting.FtpUserPass);
                 var uploadRootPath = Utility.CombinePath(setting.FtpHost, buildTargetString);
-                var dirInfo = new DirectoryInfo(Utility.CombinePath(setting.OutputPath, buildTargetString));
+                var dirInfo = new DirectoryInfo(setting.OutputPath);
                 var files = dirInfo.GetFiles();
                 var progress = 0f;
                 var progressStep = 1f / files.Length;

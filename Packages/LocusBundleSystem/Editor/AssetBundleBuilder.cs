@@ -107,10 +107,9 @@ namespace BundleSystem
             var linkPath = default(string);
             buildParams.UseCache = !setting.ForceRebuild;
 
-
             //for remote build
             {
-                buildParams.ChangeSettings(Utility.CombinePath(setting.OutputPath, buildTarget.ToString()), false, true);
+                buildParams.ChangeSettings(setting.OutputPath, false, true);
                 var returnCode = ContentPipeline.BuildAssetBundles(buildParams, new BundleBuildContent(treeResult.ResultBundles.ToArray()), out bundleResult);
 
                 if (returnCode == ReturnCode.Success)
@@ -127,7 +126,7 @@ namespace BundleSystem
 
             //for local build
             {
-                buildParams.ChangeSettings(Utility.CombinePath(setting.LocalOutputPath, buildTarget.ToString()), true, false);
+                buildParams.ChangeSettings(setting.LocalOutputPath, true, false);
                 var selectiveBuilder = new SelectiveBuilder(bundleResult, setting);
                 ContentPipeline.BuildCallbacks.PostPackingCallback += selectiveBuilder.PostPackingForSelectiveBuild;
                 var returnCode = ContentPipeline.BuildAssetBundles(buildParams, new BundleBuildContent(treeResult.ResultBundles.ToArray()), out bundleResult);

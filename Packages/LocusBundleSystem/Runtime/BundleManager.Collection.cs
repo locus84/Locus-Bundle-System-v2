@@ -6,82 +6,6 @@ namespace BundleSystem
 {
     public static partial class BundleManager
     {
-        struct TupleObjectKey : IEqualityComparer<TupleObjectKey>
-        {
-            public TupleObjectKey(Object a, Object b)
-            {
-                m_IdA = a.GetInstanceID();
-                m_IdB = b.GetInstanceID();
-            }
-
-            public int m_IdA;
-            public int m_IdB;
-
-            public bool Equals(TupleObjectKey x, TupleObjectKey y)
-            {
-                return x.m_IdA == y.m_IdA && x.m_IdB == y.m_IdB;
-            }
-
-            public int GetHashCode(TupleObjectKey obj)
-            {
-                unchecked
-                {
-                    return ((m_IdA << 5) + m_IdA) ^ m_IdB;
-                }
-            }
-        }
-
-        class IndexedList<T>
-        {
-            public int CurrentIndex { get; private set; } = -1;
-            List<T> m_InnerList;
-
-            public int Count => m_InnerList.Count;
-
-            public IndexedList(int capacity)
-            {
-                m_InnerList = new List<T>(capacity);
-            }
-
-            public void Add(T item)
-            {
-                m_InnerList.Add(item);
-            }
-
-            public void RemoveAt(int index)
-            {
-                //swap remove
-                if (Count <= 1) m_InnerList.RemoveAt(index);
-                else if (index == Count - 1) //last index
-                {
-                    m_InnerList.RemoveAt(index);
-                }
-                else
-                {
-                    m_InnerList[index] = m_InnerList[Count - 1]; //set last index
-                    m_InnerList.RemoveAt(Count - 1); //remove
-                }
-            }
-
-            public void ResetCurrentIndex()
-            {
-                CurrentIndex = -1;
-            }
-
-            public bool TryGetNext(out T value)
-            {
-                if (Count == 0)
-                {
-                    value = default;
-                    return false;
-                }
-                CurrentIndex++;
-                if (CurrentIndex >= Count) CurrentIndex = 0;
-                value = m_InnerList[CurrentIndex];
-                return true;
-            }
-        }
-
         class IndexedDictionary<TKey, TValue>
         {
             public int CurrentIndex { get; private set; } = -1;
@@ -176,6 +100,13 @@ namespace BundleSystem
                 CurrentIndex = ++CurrentIndex % m_InnerList.Count;
                 value = m_InnerList[CurrentIndex];
                 return true;
+            }
+            
+            public void Clear()
+            {
+                ResetCurrentIndex();
+                m_InnerList.Clear();
+                m_KeyDictionary.Clear();
             }
         }
     }
