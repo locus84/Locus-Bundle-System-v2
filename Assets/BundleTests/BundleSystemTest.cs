@@ -46,7 +46,11 @@ namespace Tests
             {
                 var manifestReq = BundleManager.GetManifest();
                 yield return manifestReq;
-                yield return BundleManager.DownloadAssetBundles(manifestReq.Result);
+                var downloadReq = BundleManager.DownloadAssetBundles(manifestReq.Result);
+                // downloadReq.Cancel();
+                yield return downloadReq;
+                downloadReq.Apply();
+                downloadReq.Dispose();
             }
 
             m_Owner = new GameObject("Owner").transform;
@@ -84,6 +88,9 @@ namespace Tests
             yield return SceneManager.UnloadSceneAsync(scene);
             BundleManager.UpdateImmediate();
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+
+            //wait for reloading done
+            while(BundleManager.GetReloadingBundleCount() != 0) yield return null;
 
             //should be clean
             Assert.IsTrue(BundleManager.GetBundleReferenceSnapshot().Count == 0);
@@ -150,6 +157,10 @@ namespace Tests
             handle.Release();
             BundleManager.UpdateImmediate();
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+            
+            //wait for reloading done
+            while(BundleManager.GetReloadingBundleCount() != 0) yield return null;
+            
             Assert.IsTrue(BundleManager.GetBundleReferenceSnapshot().Count == 0);
         }
 
@@ -216,6 +227,10 @@ namespace Tests
             yield return SceneManager.UnloadSceneAsync("TestScene");
             BundleManager.UpdateImmediate();
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+            
+            //wait for reloading done
+            while(BundleManager.GetReloadingBundleCount() != 0) yield return null;
+            
             Assert.IsTrue(BundleManager.GetBundleReferenceSnapshot().Count == 0);
         }
 
@@ -271,6 +286,9 @@ namespace Tests
                 Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
             }
 
+            //wait for reloading done
+            while(BundleManager.GetReloadingBundleCount() != 0) yield return null;
+            
             //should be clean
             Assert.IsTrue(BundleManager.GetBundleReferenceSnapshot().Count == 0);
         }
