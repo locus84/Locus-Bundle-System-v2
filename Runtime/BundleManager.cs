@@ -537,7 +537,7 @@ namespace BundleSystem
             result.Done(BundleErrorCode.Success);
         }
 
-        internal static bool ApplyDownloadOperationInternal(BundleDonwloadAsyncOperation operation, bool unloadAll, bool cleanUpCache)
+        internal static bool ApplyDownloadOperationInternal(BundleDonwloadAsyncOperation operation, bool additive, bool unloadAll, bool cleanUpCache)
         {
 #if UNITY_EDITOR
             if (UseAssetDatabaseMap) return true;
@@ -567,6 +567,15 @@ namespace BundleSystem
                 CollectSceneNames(bundle);
             }
             
+            //if additive, keep bundles in the bundleinfos
+            if(additive)
+            {
+                foreach(var info in operation.Manifest.BundleInfos)
+                {
+                    operation.BundlesToUnload.Remove(info.BundleName);
+                }
+            }
+            
             //let's drop unknown bundles loaded
             foreach (var name in operation.BundlesToUnload)
             {
@@ -574,12 +583,12 @@ namespace BundleSystem
                 bundleInfo.Dispose();
                 s_AssetBundles.Remove(bundleInfo.Name);
             }
-
+            
             //bump entire bundles' usage timestamp
             //we use manifest directly to find out entire list
-            for (int i = 0; i < operation.Manifest.BundleInfos.Count; i++)
+            foreach(var info in operation.Manifest.BundleInfos)
             {
-                var cachedInfo = operation.Manifest.BundleInfos[i].ToCachedBundle();
+                var cachedInfo = info.ToCachedBundle();
                 if (Caching.IsVersionCached(cachedInfo)) Caching.MarkAsUsed(cachedInfo);
             }
 
