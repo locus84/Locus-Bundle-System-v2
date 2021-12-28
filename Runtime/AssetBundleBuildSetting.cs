@@ -47,7 +47,8 @@ namespace BundleSystem
             setting.UseAssetDatabase = !EmulateInEditor || !Application.isPlaying;
             setting.CleanCache = CleanCacheInEditor;
             setting.UseOuputAsRemote = EmulateWithoutRemoteURL;
-            setting.OutputPath = Utility.CombinePath(OutputPath, UnityEditor.EditorUserBuildSettings.activeBuildTarget.ToString());
+            setting.OutputPath = OutputPath;
+            setting.LocalOutputPath = LocalOutputPath;
 
             var bundleSettings = GetBundleSettings();
             for (int i = 0; i < bundleSettings.Count; i++)
@@ -130,12 +131,14 @@ namespace BundleSystem
         /// <summary>
         /// Output path of the built AssetBundles.
         /// </summary>
-        public string OutputPath => Application.dataPath.Remove(Application.dataPath.Length - 6) + OutputFolder;
+        public string OutputPath => Utility.CombinePath(
+            Application.dataPath.Remove(Application.dataPath.Length - 6) + OutputFolder, 
+            UnityEditor.EditorUserBuildSettings.activeBuildTarget.ToString());
 
         /// <summary>
         /// Output path of the built Local AssetBundles.
         /// </summary>
-        public string LocalOutputPath => Application.dataPath.Remove(Application.dataPath.Length - 6) + $"{OutputFolder}/Local";
+        public string LocalOutputPath => $"{OutputPath}/Local";
 #endif
 
         /// <summary>

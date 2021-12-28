@@ -215,9 +215,10 @@ namespace BundleSystem
     /// <summary>
     /// Download operation of BundleManager.
     /// </summary>
-    public class BundleDonwloadAsyncOperation : BundleAsyncOperation<bool>, System.IDisposable
+    public class BundleDonwloadAsyncOperation : BundleAsyncOperation, System.IDisposable
     {
         public bool IsDisposed { get; set; } = false;
+        public bool WillBundleReplaced { get; internal set; } = false;
         public bool IsCancelled => ErrorCode == BundleErrorCode.UserCancelled;
         internal AssetBundleBuildManifest Manifest;
         internal HashSet<string> BundlesToUnload;
@@ -295,7 +296,7 @@ namespace BundleSystem
         void INotifyCompletion.OnCompleted(System.Action continuation) => AwaiterOnComplete(continuation);
         void ICriticalNotifyCompletion.UnsafeOnCompleted(System.Action continuation) => AwaiterOnComplete(continuation);
     }
-    
+
     /// <summary>
     /// Base class of async bundle operation
     /// </summary>

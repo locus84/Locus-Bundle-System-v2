@@ -155,6 +155,49 @@ namespace BundleSystem
         public static string GlobalBundleHash { get; private set; }
         public static bool LogMessages { get; set; }
 
+#if UNITY_EDITOR
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        static void DomainReloaded()
+        {
+            UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
+            UnityEngine.SceneManagement.SceneManager.sceneUnloaded -= OnSceneUnloaded;
+
+            UnityMainThreadId = default;
+            s_Helper = default;
+
+            s_AssetBundles.Clear();
+            s_LocalBundles.Clear();
+            s_SceneInfos.Clear();
+            s_InGameIncrementalVersion = 0;
+
+            UseAssetDatabaseMap = true;
+            s_EditorDatabaseMap = default;
+            
+            Initialized = false;
+            LocalURL = default;
+
+            s_UserRemoteURL = default;
+            s_BundleBuildTarget = default;
+            s_DefaultRemoteURL = default;
+
+            GlobalBundleHash = default;
+            LogMessages = default;
+
+            s_LastTrackId = default;
+            s_SceneObjectDummy = new Texture2D(0,0) { name = "SceneDummy" };
+            s_LoadingObjectDummy = new Texture2D(0,0) { name = "LoadingDummy" };
+            s_TrackInfoDict.Clear();
+            s_TrackInstanceTransformDict.Clear();
+            s_BundleRefCounts.Clear();
+
+            s_SceneHandles.Clear();
+            s_SceneRootObjectCache.Clear();
+            s_LastLoadedScene = default;
+
+            s_CurrentReloadingCount = default;
+        }
+#endif
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         static void Setup()
         {
@@ -222,7 +265,7 @@ namespace BundleSystem
             //cache control
             if (s_EditorDatabaseMap.CleanCache) Caching.ClearCache();
 
-            LocalURL = s_EditorDatabaseMap.OutputPath;
+            LocalURL = s_EditorDatabaseMap.LocalOutputPath;
 #else
             LocalURL = LocalBundleRuntimePath;
 #endif
@@ -488,7 +531,7 @@ namespace BundleSystem
                 }
             }
 
-            result.Result = bundleReplaced;
+            result.WillBundleReplaced = bundleReplaced;
             result.Manifest = manifest;
             result.Version = s_InGameIncrementalVersion + 1;
             result.Done(BundleErrorCode.Success);
