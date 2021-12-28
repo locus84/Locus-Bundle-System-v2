@@ -27,24 +27,21 @@ namespace BundleSystem
             if (!AssetBundleBuildSetting.TryGetActiveSetting(out var setting)) return;
             if (Directory.Exists(BundleManager.LocalBundleRuntimePath)) Directory.Delete(BundleManager.LocalBundleRuntimePath, true);
             if (!Directory.Exists(Application.streamingAssetsPath)) Directory.CreateDirectory(Application.streamingAssetsPath);
-
-            //there should be a local bundle
-            var localBundleSourcePath = Utility.CombinePath(setting.LocalOutputPath, EditorUserBuildSettings.activeBuildTarget.ToString());
             
-            if (!Directory.Exists(localBundleSourcePath))
+            if (!Directory.Exists(setting.LocalOutputPath))
             {
                 Debug.LogError("Missing built local bundle directory, Locus bundle system won't work properly.");
                 return;
             }
 
             //load manifest and make local bundle list
-            var manifest = JsonUtility.FromJson<AssetBundleBuildManifest>(File.ReadAllText(Utility.CombinePath(localBundleSourcePath, BundleManager.ManifestFileName)));
+            var manifest = JsonUtility.FromJson<AssetBundleBuildManifest>(File.ReadAllText(Utility.CombinePath(setting.LocalOutputPath, BundleManager.ManifestFileName)));
             var localBundleNames = manifest.BundleInfos.Where(bi => bi.IsLocal).Select(bi => bi.BundleName).ToList();
 
             Directory.CreateDirectory(BundleManager.LocalBundleRuntimePath);
 
             //copy only manifest and local bundles                        
-            foreach (var file in new DirectoryInfo(localBundleSourcePath).GetFiles())
+            foreach (var file in new DirectoryInfo(setting.LocalOutputPath).GetFiles())
             {
                 if (!localBundleNames.Contains(file.Name) && BundleManager.ManifestFileName != file.Name) continue;
                 FileUtil.CopyFileOrDirectory(file.FullName, Utility.CombinePath(BundleManager.LocalBundleRuntimePath, file.Name));
