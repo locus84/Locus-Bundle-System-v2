@@ -18,6 +18,8 @@ namespace BundleSystem
         public bool IsLocalBundle;
         public string LoadPath;
         public UnityWebRequest CachedRequest;
+        public ReloadGroup Group;
+        public int ReferenceCount;
         public bool IsReloading = false;
         public bool IsDisposed { get; private set; } = false;
 
@@ -188,10 +190,9 @@ namespace BundleSystem
             s_LoadingObjectDummy = new Texture2D(0,0) { name = "LoadingDummy" };
             s_TrackInfoDict.Clear();
             s_TrackInstanceTransformDict.Clear();
-            s_BundleRefCounts.Clear();
-
             s_SceneHandles.Clear();
             s_SceneRootObjectCache.Clear();
+            s_ReloadGroupDict.Clear();
             s_LastLoadedScene = default;
 
             s_CurrentReloadingCount = default;
@@ -353,6 +354,12 @@ namespace BundleSystem
 
             Initialized = true;
             if (LogMessages) Debug.Log($"Initialize Success \nLocal URL : {LocalURL}");
+            
+            if(GlobalBundleHash != localManifest.GlobalHashString)
+            {
+                RefreshReloadGroup(localManifest);
+                GlobalBundleHash = localManifest.GlobalHashString;
+            }
 
             //increase version
             s_InGameIncrementalVersion++;
@@ -604,7 +611,13 @@ namespace BundleSystem
 
             PlayerPrefs.SetString("CachedManifest", JsonUtility.ToJson(operation.Manifest));
             s_InGameIncrementalVersion = operation.Version;
-            GlobalBundleHash = operation.Manifest.GlobalHashString;
+
+            if(GlobalBundleHash != operation.Manifest.GlobalHashString)
+            {
+                RefreshReloadGroup(operation.Manifest);
+                GlobalBundleHash = operation.Manifest.GlobalHashString;
+            }
+
             return true;
         }
 

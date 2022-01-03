@@ -64,9 +64,6 @@ namespace BundleSystem
         static Object s_LoadingObjectDummy = new Texture2D(0,0) { name = "LoadingDummy" };
         static IndexedDictionary<int, TrackInfo> s_TrackInfoDict = new IndexedDictionary<int, TrackInfo>(10);
         static Dictionary<int, int> s_TrackInstanceTransformDict = new Dictionary<int, int>(10);
-
-        //bundle ref count
-        private static Dictionary<string, int> s_BundleRefCounts = new Dictionary<string, int>(10);
         
         /// <summary>
         /// Get current tracking information dictionary
@@ -111,7 +108,11 @@ namespace BundleSystem
             targetDict.Clear();
             if(Application.isPlaying) 
             {
-                foreach(var kv in s_BundleRefCounts) targetDict.Add(kv.Key, kv.Value);
+                foreach(var kv in s_AssetBundles) 
+                {
+                    if(kv.Value.ReferenceCount == 0) continue;
+                    targetDict.Add(kv.Key, kv.Value.ReferenceCount);
+                }
             }
         } 
 
@@ -305,61 +306,42 @@ namespace BundleSystem
 
         private static void RetainBundle(LoadedBundle bundle, int count = 1)
         {
+            Debug.Log("RetainBundle" + bundle.Name + count);
+            bundle.ReferenceCount += count;
 #if UNITY_EDITOR
-            if(UseAssetDatabaseMap)
-            {
-                if (!s_BundleRefCounts.ContainsKey(bundle.Name)) s_BundleRefCounts[bundle.Name] = count;
-                else s_BundleRefCounts[bundle.Name] += count;
-            }
-            else
+            if(UseAssetDatabaseMap) return;
 #endif
+            if(bundle.Group.IsInvalid) return;
+            bundle.Group.ReferenceCount += count;
+            if(bundle.Group.IsDirty) return; //already dirty
+            bundle.Group.IsDirty = true;
+            for(int i = 0; i < bundle.Group.Bundles.Count; i++)
             {
-                for (int i = 0; i < bundle.Dependencies.Count; i++)
-                {
-                    var refBundleName = bundle.Dependencies[i];
-                    var refBundle = s_AssetBundles[refBundleName];
-
-                    if (!s_BundleRefCounts.ContainsKey(refBundleName)) 
-                    {
-                        s_BundleRefCounts[refBundleName] = count;
-                    }
-                    else s_BundleRefCounts[refBundleName] += count;
-
-                    if(!refBundle.IsReloading && refBundle.CachedRequest == null)
-                    {
-                        s_Helper.StartCoroutine(CoReloadBundle(refBundle));
-                    }
-                }
+                s_Helper.StartCoroutine(CoReloadBundle(bundle.Group.Bundles[i]));
             }
         }
 
-
         private static void ReleaseBundle(LoadedBundle bundle, int count = 1)
         {
+            Debug.Log("ReleaseBundle" + bundle.Name + count);
+            bundle.ReferenceCount -= count;
 #if UNITY_EDITOR
-            if(UseAssetDatabaseMap)
-            {
-                var nextCount = s_BundleRefCounts[bundle.Name] - count;
-                if(nextCount == 0) s_BundleRefCounts.Remove(bundle.Name);
-                else s_BundleRefCounts[bundle.Name] = nextCount;
-            }
-            else
+            if(UseAssetDatabaseMap) return;
 #endif
+            if(bundle.Group.IsInvalid) return;
+            bundle.Group.ReferenceCount -= count;
+            if(!bundle.Group.IsDirty || bundle.Group.ReferenceCount > 0) return;
+            
+            for(int i = 0; i < bundle.Group.Bundles.Count; i++)
             {
-                for (int i = 0; i < bundle.Dependencies.Count; i++)
-                {
-                    var refBundleName = bundle.Dependencies[i];
-                    if (s_BundleRefCounts.ContainsKey(refBundleName))
-                    {
-                        s_BundleRefCounts[refBundleName] -= count;
-                        if (s_BundleRefCounts[refBundleName] <= 0) 
-                        {
-                            s_BundleRefCounts.Remove(refBundleName);
-                            ApplyReloadedBundle(refBundleName);
-                        }
-                    }
-                }
+                var refBundle = bundle.Group.Bundles[i];
+                refBundle.Bundle.Unload(true);
+                refBundle.Bundle = DownloadHandlerAssetBundle.GetContent(refBundle.CachedRequest);
+                //stored request needs to be disposed
+                refBundle.CachedRequest.Dispose();
+                refBundle.CachedRequest = null;
             }
+            bundle.Group.IsDirty = false;
         }
 
         static Dictionary<int, LoadedBundle> s_SceneHandles = new Dictionary<int, LoadedBundle>(); 
@@ -447,31 +429,6 @@ namespace BundleSystem
             }
         }
 
-        private static void ApplyReloadedBundle(string bundleName)
-        {
-            //find current active bundle and try reload
-            if(!s_AssetBundles.TryGetValue(bundleName, out var loadedBundle))
-            {
-                if (LogMessages) Debug.Log($"BundleName {bundleName} is no longer exist");
-                return;
-            }
-
-            //the reference count if from previous dispsed bundles and we don't need to reload
-            //before it gets dirty by Retainbundle function
-            if(loadedBundle.CachedRequest == null)
-            {
-                if (LogMessages) Debug.Log($"BundleName {bundleName} is still new");
-                return;
-            }
-
-            loadedBundle.Bundle.Unload(true);
-            loadedBundle.Bundle = DownloadHandlerAssetBundle.GetContent(loadedBundle.CachedRequest);
-            //stored request needs to be disposed
-            loadedBundle.CachedRequest.Dispose();
-            loadedBundle.CachedRequest = null;
-            if (LogMessages) Debug.Log($"Reloaded bundle {bundleName}");
-        }
-
         //reload related
         static int s_CurrentReloadingCount;
         const int MAX_CONCURRENT_RELOAD_COUNT = 3;
@@ -498,6 +455,7 @@ namespace BundleSystem
             if (!Utility.CheckRequestSuccess(bundleReq))
             {
                 Debug.LogError($"Bundle reload error { bundleReq.error }");
+                bundleReq.Dispose();
                 ReleaseBundle(loadedBundle);
                 yield break;
             }
@@ -505,8 +463,8 @@ namespace BundleSystem
             if(loadedBundle.IsDisposed)
             {
                 if (LogMessages) Debug.Log("Bundle To Reload does not exist(dispoed during reloaing)");
-                ReleaseBundle(loadedBundle);
                 bundleReq.Dispose();
+                ReleaseBundle(loadedBundle);
                 yield break;
             }
             
