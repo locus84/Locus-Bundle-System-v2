@@ -324,5 +324,37 @@ namespace Tests
             //should be clean
             Assert.IsTrue(BundleManager.GetBundleReferenceSnapshot().Count == 0);
         }
+
+        [UnityTest]
+        public IEnumerator SharedReferenceTest()
+        {
+            //auto release
+            {
+                var refAssetReq = m_Owner.LoadAsync<GameObject>("Ref_A", "ReferencingObject");
+                yield return refAssetReq;
+                Assert.NotNull(refAssetReq.Asset);
+                BundleManager.UpdateImmediate();
+                //wait for reloading done
+                while(BundleManager.GetReloadingBundleCount() != 0) yield return null;
+                //after two seconds, it must be auto-released
+                Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+
+                //reload ref_A
+            }
+
+            //auto release
+            {
+                var refAssetReq = m_Owner.LoadAsync<GameObject>("Ref_B", "ReferencingObject");
+                yield return refAssetReq;
+                Assert.NotNull(refAssetReq.Asset);
+                BundleManager.UpdateImmediate();
+                //wait for reloading done
+                while(BundleManager.GetReloadingBundleCount() != 0) yield return null;
+                //after two seconds, it must be auto-released
+                Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+
+                //reload ref_B
+            }
+        }
     }
 }
