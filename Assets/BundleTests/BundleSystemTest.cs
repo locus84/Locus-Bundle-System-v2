@@ -328,8 +328,14 @@ namespace Tests
         [UnityTest]
         public IEnumerator SharedReferenceTest()
         {
+
+            var handler = new TestLogHandler();
+			Application.logMessageReceivedThreaded -= handler.LogCallback;   
+			Application.logMessageReceivedThreaded += handler.LogCallback;
+
             //auto release
             {
+                Debug.Log("Start Ref_A");
                 var refAssetReq = m_Owner.LoadAsync<GameObject>("Ref_A", "ReferencingObject");
                 yield return refAssetReq;
                 Assert.NotNull(refAssetReq.Asset);
@@ -343,7 +349,8 @@ namespace Tests
             }
 
             //auto release
-            {
+            {       
+                Debug.Log("Start Ref_B");
                 var refAssetReq = m_Owner.LoadAsync<GameObject>("Ref_B", "ReferencingObject");
                 yield return refAssetReq;
                 Assert.NotNull(refAssetReq.Asset);
@@ -352,9 +359,17 @@ namespace Tests
                 while(BundleManager.GetReloadingBundleCount() != 0) yield return null;
                 //after two seconds, it must be auto-released
                 Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
-
                 //reload ref_B
             }
+
+            Assert.IsTrue(handler.Success);
+			Application.logMessageReceivedThreaded -= handler.LogCallback;
+        }
+
+        class TestLogHandler
+        {
+            public bool Success = true;
+            public void LogCallback(string condition, string stackTrace, LogType type) => Success = type != LogType.Log? false : Success;
         }
     }
 }
