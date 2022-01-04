@@ -26,38 +26,6 @@ references:
   isSpec: "True"
   fullName: BundleSystem.AssetBundleBuilder.BuildAssetBundles
   nameWithType: AssetBundleBuilder.BuildAssetBundles
-- uid: BundleSystem.AssetBundleBuilder.SelectiveBuilder
-  name: AssetBundleBuilder.SelectiveBuilder
-  href: api/BundleSystem.AssetBundleBuilder.SelectiveBuilder.html
-  commentId: T:BundleSystem.AssetBundleBuilder.SelectiveBuilder
-  fullName: BundleSystem.AssetBundleBuilder.SelectiveBuilder
-  nameWithType: AssetBundleBuilder.SelectiveBuilder
-- uid: BundleSystem.AssetBundleBuilder.SelectiveBuilder.#ctor(IBundleBuildResults,BundleSystem.AssetBundleBuildSetting)
-  name: SelectiveBuilder(IBundleBuildResults, AssetBundleBuildSetting)
-  href: api/BundleSystem.AssetBundleBuilder.SelectiveBuilder.html#BundleSystem_AssetBundleBuilder_SelectiveBuilder__ctor_IBundleBuildResults_BundleSystem_AssetBundleBuildSetting_
-  commentId: M:BundleSystem.AssetBundleBuilder.SelectiveBuilder.#ctor(IBundleBuildResults,BundleSystem.AssetBundleBuildSetting)
-  fullName: BundleSystem.AssetBundleBuilder.SelectiveBuilder.SelectiveBuilder(IBundleBuildResults, BundleSystem.AssetBundleBuildSetting)
-  nameWithType: AssetBundleBuilder.SelectiveBuilder.SelectiveBuilder(IBundleBuildResults, AssetBundleBuildSetting)
-- uid: BundleSystem.AssetBundleBuilder.SelectiveBuilder.#ctor*
-  name: SelectiveBuilder
-  href: api/BundleSystem.AssetBundleBuilder.SelectiveBuilder.html#BundleSystem_AssetBundleBuilder_SelectiveBuilder__ctor_
-  commentId: Overload:BundleSystem.AssetBundleBuilder.SelectiveBuilder.#ctor
-  isSpec: "True"
-  fullName: BundleSystem.AssetBundleBuilder.SelectiveBuilder.SelectiveBuilder
-  nameWithType: AssetBundleBuilder.SelectiveBuilder.SelectiveBuilder
-- uid: BundleSystem.AssetBundleBuilder.SelectiveBuilder.PostPackingForSelectiveBuild(IBuildParameters,IDependencyData,IWriteData)
-  name: PostPackingForSelectiveBuild(IBuildParameters, IDependencyData, IWriteData)
-  href: api/BundleSystem.AssetBundleBuilder.SelectiveBuilder.html#BundleSystem_AssetBundleBuilder_SelectiveBuilder_PostPackingForSelectiveBuild_IBuildParameters_IDependencyData_IWriteData_
-  commentId: M:BundleSystem.AssetBundleBuilder.SelectiveBuilder.PostPackingForSelectiveBuild(IBuildParameters,IDependencyData,IWriteData)
-  fullName: BundleSystem.AssetBundleBuilder.SelectiveBuilder.PostPackingForSelectiveBuild(IBuildParameters, IDependencyData, IWriteData)
-  nameWithType: AssetBundleBuilder.SelectiveBuilder.PostPackingForSelectiveBuild(IBuildParameters, IDependencyData, IWriteData)
-- uid: BundleSystem.AssetBundleBuilder.SelectiveBuilder.PostPackingForSelectiveBuild*
-  name: PostPackingForSelectiveBuild
-  href: api/BundleSystem.AssetBundleBuilder.SelectiveBuilder.html#BundleSystem_AssetBundleBuilder_SelectiveBuilder_PostPackingForSelectiveBuild_
-  commentId: Overload:BundleSystem.AssetBundleBuilder.SelectiveBuilder.PostPackingForSelectiveBuild
-  isSpec: "True"
-  fullName: BundleSystem.AssetBundleBuilder.SelectiveBuilder.PostPackingForSelectiveBuild
-  nameWithType: AssetBundleBuilder.SelectiveBuilder.PostPackingForSelectiveBuild
 - uid: BundleSystem.AssetBundleBuilder.WriteExpectedSharedBundles(BundleSystem.AssetBundleBuildSetting)
   name: WriteExpectedSharedBundles(AssetBundleBuildSetting)
   href: api/BundleSystem.AssetBundleBuilder.html#BundleSystem_AssetBundleBuilder_WriteExpectedSharedBundles_BundleSystem_AssetBundleBuildSetting_
@@ -349,12 +317,6 @@ references:
   commentId: F:BundleSystem.AssetBundleBuildSetting.RemoteURL
   fullName: BundleSystem.AssetBundleBuildSetting.RemoteURL
   nameWithType: AssetBundleBuildSetting.RemoteURL
-- uid: BundleSystem.AssetBundleBuildSetting.SkipBuildLocalBundles
-  name: SkipBuildLocalBundles
-  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_SkipBuildLocalBundles
-  commentId: F:BundleSystem.AssetBundleBuildSetting.SkipBuildLocalBundles
-  fullName: BundleSystem.AssetBundleBuildSetting.SkipBuildLocalBundles
-  nameWithType: AssetBundleBuildSetting.SkipBuildLocalBundles
 - uid: BundleSystem.AssetBundleTrackingVisualizer
   name: AssetBundleTrackingVisualizer
   href: api/BundleSystem.AssetBundleTrackingVisualizer.html
