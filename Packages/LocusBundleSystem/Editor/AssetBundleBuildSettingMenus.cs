@@ -1,28 +1,28 @@
-﻿using BundleSystem;
+﻿using System.IO;
+using BundleSystem;
 using UnityEditor;
-using UnityEngine;
 
-public static class AssetBundleBuildSettingExtensions
+public static class AssetBundleBuildSettingMenus
 {
     [MenuItem("CONTEXT/AssetBundleBuildSetting/Set As Active Setting")]
-    static void SetDefaultSetting()
+    static void SetDefaultSetting(MenuCommand command)
     {
-        var setting = Selection.activeObject as AssetBundleBuildSetting;
-        if (setting != null) AssetBundleBuildSetting.SetActiveSetting(setting);
+        var setting = (AssetBundleBuildSetting)command.context;
+        AssetBundleBuildSetting.SetActiveSetting(setting);
     }
 
     [MenuItem("CONTEXT/AssetBundleBuildSetting/Build With This Setting")]
-    static void BuildThisSetting()
+    static void BuildThisSetting(MenuCommand command)
     {
-        var setting = Selection.activeObject as AssetBundleBuildSetting;
-        if (setting != null) AssetBundleBuilder.BuildAssetBundles(setting);
+        var setting = (AssetBundleBuildSetting)command.context;
+        AssetBundleBuilder.BuildAssetBundles(setting);
     }
 
     [MenuItem("CONTEXT/AssetBundleBuildSetting/Get Expected Shared Bundles")]
-    static void GetSharedBundleLog()
+    static void GetSharedBundleLog(MenuCommand command)
     {
-        var setting = Selection.activeObject as AssetBundleBuildSetting;
-        if (setting != null) AssetBundleBuilder.WriteExpectedSharedBundles(setting);
+        var setting = (AssetBundleBuildSetting)command.context;
+        AssetBundleBuilder.WriteExpectedSharedBundles(setting);
     }
 
     // Add menu named "My Window" to the Window menu
