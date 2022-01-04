@@ -28,20 +28,20 @@ namespace BundleSystem
             if (Directory.Exists(BundleManager.LocalBundleRuntimePath)) Directory.Delete(BundleManager.LocalBundleRuntimePath, true);
             if (!Directory.Exists(Application.streamingAssetsPath)) Directory.CreateDirectory(Application.streamingAssetsPath);
             
-            if (!Directory.Exists(setting.LocalOutputPath))
+            if (!Directory.Exists(setting.OutputPath))
             {
-                Debug.LogError("Missing built local bundle directory, Locus bundle system won't work properly.");
+                Debug.LogError("Missing built bundle directory, Locus bundle system won't work properly.");
                 return;
             }
 
             //load manifest and make local bundle list
-            var manifest = JsonUtility.FromJson<AssetBundleBuildManifest>(File.ReadAllText(Utility.CombinePath(setting.LocalOutputPath, BundleManager.ManifestFileName)));
+            var manifest = JsonUtility.FromJson<AssetBundleBuildManifest>(File.ReadAllText(Utility.CombinePath(setting.OutputPath, BundleManager.ManifestFileName)));
             var localBundleNames = manifest.BundleInfos.Where(bi => bi.IsLocal).Select(bi => bi.BundleName).ToList();
 
             Directory.CreateDirectory(BundleManager.LocalBundleRuntimePath);
 
             //copy only manifest and local bundles                        
-            foreach (var file in new DirectoryInfo(setting.LocalOutputPath).GetFiles())
+            foreach (var file in new DirectoryInfo(setting.OutputPath).GetFiles())
             {
                 if (!localBundleNames.Contains(file.Name) && BundleManager.ManifestFileName != file.Name) continue;
                 FileUtil.CopyFileOrDirectory(file.FullName, Utility.CombinePath(BundleManager.LocalBundleRuntimePath, file.Name));

@@ -266,7 +266,7 @@ namespace BundleSystem
             //cache control
             if (s_EditorDatabaseMap.CleanCache) Caching.ClearCache();
 
-            LocalURL = s_EditorDatabaseMap.LocalOutputPath;
+            LocalURL = s_EditorDatabaseMap.OutputPath;
 #else
             LocalURL = LocalBundleRuntimePath;
 #endif
@@ -616,6 +616,14 @@ namespace BundleSystem
             {
                 RefreshReloadGroup(operation.Manifest);
                 GlobalBundleHash = operation.Manifest.GlobalHashString;
+            }
+            else
+            {
+                //use existing groups for added bundles as they have no group atm
+                foreach(var bundle in operation.BundlesToAddOrReplace)
+                {
+                    bundle.Group = s_ReloadGroupDict[bundle.Name];
+                }
             }
 
             return true;
