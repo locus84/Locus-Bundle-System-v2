@@ -143,7 +143,7 @@ namespace BundleSystem
             {
                 EnsureAssetDatabase();
                 //like default scene load functionality, we return null if something went wrong
-                if (!s_SceneInfos.TryGetValue(sceneNameOrPath, out var info))
+                if (!s_SceneInfos.TryGetValue(sceneNameOrPath, out var info) || info.LoadedBundle.IsDisposed)
                 {
                     Debug.LogError("Bundle you requested could not be found");
                     return default;

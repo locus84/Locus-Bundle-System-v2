@@ -48,7 +48,6 @@ namespace BundleSystem
             setting.CleanCache = CleanCacheInEditor;
             setting.UseOuputAsRemote = EmulateWithoutRemoteURL;
             setting.OutputPath = OutputPath;
-            setting.LocalOutputPath = LocalOutputPath;
 
             var bundleSettings = GetBundleSettings();
             for (int i = 0; i < bundleSettings.Count; i++)
@@ -134,11 +133,6 @@ namespace BundleSystem
         public string OutputPath => Utility.CombinePath(
             Application.dataPath.Remove(Application.dataPath.Length - 6) + OutputFolder, 
             UnityEditor.EditorUserBuildSettings.activeBuildTarget.ToString());
-
-        /// <summary>
-        /// Output path of the built Local AssetBundles.
-        /// </summary>
-        public string LocalOutputPath => $"{OutputPath}/_LocalBundles";
 #endif
 
         /// <summary>
@@ -172,12 +166,6 @@ namespace BundleSystem
         /// </summary>
         [Tooltip("Clean cache when initializing BundleManager for testing purpose")]
         public bool CleanCacheInEditor = false;
-
-        /// <summary>
-        /// Build Local bundles when building player.
-        /// </summary>
-        [Tooltip("Skip build local bundles when building bundles")]
-        public bool SkipBuildLocalBundles = false;
 
         /// <summary>
         /// Force rebuild. ignore cache. if something wrong with built bundles. Try again with this paramteter set true.
