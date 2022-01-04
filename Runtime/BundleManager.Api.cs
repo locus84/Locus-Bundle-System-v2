@@ -143,7 +143,7 @@ namespace BundleSystem
             {
                 EnsureAssetDatabase();
                 //like default scene load functionality, we return null if something went wrong
-                if (!s_SceneInfos.TryGetValue(sceneNameOrPath, out var info) || info.LoadedBundle.IsDisposed)
+                if (!TryGetSceneInfo(sceneNameOrPath, out var info))
                 {
                     Debug.LogError("Bundle you requested could not be found");
                     return default;
@@ -161,7 +161,7 @@ namespace BundleSystem
             {
                 if (!Initialized) throw new System.Exception("BundleManager not initialized, try initialize first!");
                 //like default scene load functionality, we return null if something went wrong
-                if (!s_SceneInfos.TryGetValue(sceneNameOrPath, out var info))
+                if (!TryGetSceneInfo(sceneNameOrPath, out var info))
                 {
                     Debug.LogError("Bundle you requested could not be found");
                     return default;
@@ -184,7 +184,7 @@ namespace BundleSystem
             {
                 EnsureAssetDatabase();
                 //like default scene load functionality, we return null if something went wrong
-                if (!s_SceneInfos.TryGetValue(sceneNameOrPath, out var info))
+                if (!TryGetSceneInfo(sceneNameOrPath, out var info))
                 {
                     Debug.LogError("Bundle you requested could not be found");
                     return BundleAsyncSceneRequest.Failed;
@@ -211,7 +211,7 @@ namespace BundleSystem
                 if (!Initialized) throw new System.Exception("BundleManager not initialized, try initialize first!");
 
                 //like default scene load functionality, we return null if something went wrong
-                if (!s_SceneInfos.TryGetValue(sceneNameOrPath, out var info))
+                if (!TryGetSceneInfo(sceneNameOrPath, out var info))
                 {
                     Debug.LogError("Bundle you requested could not be found");
                     return BundleAsyncSceneRequest.Failed;
@@ -234,6 +234,22 @@ namespace BundleSystem
 
                 return result;
             }
+        }
+
+        private static bool TryGetSceneInfo(string sceneNameOrPath, out SceneInfo info)
+        {
+            //check nameOrPathExist
+            if (!s_SceneInfos.TryGetValue(sceneNameOrPath, out info)) return false;
+
+            //check if disposed
+            if(info.LoadedBundle.IsDisposed)
+            {
+                s_SceneInfos.Remove(sceneNameOrPath);
+                info = default;
+                return false;
+            }
+
+            return true;
         }
 
         public static bool IsAssetExist(string bundleName, string assetName)
