@@ -121,7 +121,8 @@ namespace Tests
             {
                 var texReq = m_Owner.LoadAsync<Texture>("Local", "Unknown");
                 //try pin right after load
-                texReq.Pin();
+                var handle = default(TrackHandle<Texture>);
+                texReq.Pin(ref handle);
                 yield return texReq;
                 BundleManager.UpdateImmediate();
                 Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
@@ -149,9 +150,9 @@ namespace Tests
             var image = go.AddComponent<UnityEngine.UI.Image>();
             var spriteReq = image.LoadAsync<Sprite>("Object", "TestSprite");
             yield return spriteReq;
-            image.sprite = spriteReq.Pin().Asset;
+            image.sprite = spriteReq.Asset;
             var handle = default(TrackHandle<Sprite>);
-            spriteReq.Handle.Override(ref handle);
+            spriteReq.Pin(ref handle);
             BundleManager.UpdateImmediate();
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 1);
             handle.Release();
@@ -252,12 +253,13 @@ namespace Tests
             {
                 var spriteReq = m_Owner.LoadAsync<Sprite>("Object", "TestSprite");
                 yield return spriteReq;
-                Assert.NotNull(spriteReq.Pin().Asset);
+                var handle = default(TrackHandle<Sprite>);
+                Assert.NotNull(spriteReq.Pin(ref handle).Asset);
                 yield return new WaitForSecondsRealtime(2);
 
                 //it must not be auto-released as it's pinned 
                 Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 1);
-                spriteReq.Dispose();
+                handle.Release();
                 BundleManager.UpdateImmediate();
                 Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
             }
@@ -306,18 +308,17 @@ namespace Tests
             var go = new GameObject("Go");
             var image = go.AddComponent<UnityEngine.UI.Image>();
             var req = await image.LoadAsync<Sprite>("Object", "TestSprite");
-            image.sprite = req.Pin().Asset;
-            var prevHandle = req.Handle;
+            var handle = default(TrackHandle<Sprite>);
+            image.sprite = req.Pin(ref handle).Asset;
 
             //load second and override existing handle
             var otherReq = await image.LoadAsync<Sprite>("Object", "TestSprite");
-            image.sprite = otherReq.Pin().Asset;
-            otherReq.Handle.Override(ref prevHandle);
+            image.sprite = otherReq.Pin(ref handle).Asset;
             BundleManager.UpdateImmediate();
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 1);
 
             //it's overriden and pointing new handle
-            prevHandle.Release(); 
+            handle.Release(); 
             BundleManager.UpdateImmediate();
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
 
