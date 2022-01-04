@@ -181,9 +181,10 @@ namespace BundleSystem
         /// </summary>
         /// <param name="newHandle">New handle</param>
         /// <param name="oldHandle">Old handle to release</param>
-        public static void Override<T>(this TrackHandle<T> newHandle, ref TrackHandle<T> oldHandle) where T : Object
+        public static void Pin<T>(this TrackHandle<T> newHandle, ref TrackHandle<T> oldHandle) where T : Object
         {
             oldHandle.Release();
+            if(newHandle.IsValid()) BundleManager.SupressAutoReleaseInternal(newHandle.Id);
             oldHandle = newHandle;
         }
 
@@ -192,10 +193,10 @@ namespace BundleSystem
         /// </summary>
         /// <param name="newRequest">New request</param>
         /// <param name="oldHandle">Old handle to release</param>
-        public static void Override<T>(this BundleSyncRequest<T> newRequest, ref TrackHandle<T> oldHandle) where T : Object
+        public static BundleSyncRequest<T> Pin<T>(this BundleSyncRequest<T> newRequest, ref TrackHandle<T> oldHandle) where T : Object
         {
-            oldHandle.Release();
-            oldHandle = newRequest.Handle;
+            newRequest.Handle.Pin<T>(ref oldHandle);
+            return newRequest;
         }
 
         /// <summary>
@@ -203,10 +204,10 @@ namespace BundleSystem
         /// </summary>
         /// <param name="newRequest">New request</param>
         /// <param name="oldHandle">Old handle to release</param>
-        public static void Override<T>(this BundleAsyncRequest<T> newRequest, ref TrackHandle<T> oldHandle) where T : Object
+        public static BundleAsyncRequest<T> Pin<T>(this BundleAsyncRequest<T> newRequest, ref TrackHandle<T> oldHandle) where T : Object
         {
-            oldHandle.Release();
-            oldHandle = newRequest.Handle;
+            newRequest.Handle.Pin<T>(ref oldHandle);
+            return newRequest;
         }
 
         /// <summary>

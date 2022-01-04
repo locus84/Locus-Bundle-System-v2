@@ -147,15 +147,6 @@ namespace BundleSystem
         BundleAsyncRequest<T> IAwaiter<BundleAsyncRequest<T>>.GetResult() => this;
         public IAwaiter<BundleAsyncRequest<T>> GetAwaiter() => this;
 
-        /// <summary>
-        /// Supress asset's auto release.
-        /// </summary>
-        public BundleAsyncRequest<T> Pin()
-        {
-            BundleManager.SupressAutoReleaseInternal(Handle.Id);
-            return this;
-        }
-
         void INotifyCompletion.OnCompleted(System.Action continuation)
         {
             if(Thread.CurrentThread.ManagedThreadId != BundleManager.UnityMainThreadId) 
