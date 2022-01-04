@@ -1322,14 +1322,14 @@ Also works in editor</p>
   </table>
   
   
-  <a id="BundleSystem_BundleManager_Override_" data-uid="BundleSystem.BundleManager.Override*"></a>
-  <h4 id="BundleSystem_BundleManager_Override__1_BundleSystem_BundleAsyncRequest___0__BundleSystem_TrackHandle___0___" data-uid="BundleSystem.BundleManager.Override``1(BundleSystem.BundleAsyncRequest{``0},BundleSystem.TrackHandle{``0}@)">Override&lt;T&gt;(BundleAsyncRequest&lt;T&gt;, ref TrackHandle&lt;T&gt;)</h4>
+  <a id="BundleSystem_BundleManager_Pin_" data-uid="BundleSystem.BundleManager.Pin*"></a>
+  <h4 id="BundleSystem_BundleManager_Pin__1_BundleSystem_BundleAsyncRequest___0__BundleSystem_TrackHandle___0___" data-uid="BundleSystem.BundleManager.Pin``1(BundleSystem.BundleAsyncRequest{``0},BundleSystem.TrackHandle{``0}@)">Pin&lt;T&gt;(BundleAsyncRequest&lt;T&gt;, ref TrackHandle&lt;T&gt;)</h4>
   <div class="markdown level1 summary"><p>Release old track handle and assign new handle from request.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Override&lt;T&gt;(this BundleAsyncRequest&lt;T&gt; newRequest, ref TrackHandle&lt;T&gt; oldHandle)</code></pre>
+    <pre><code class="lang-csharp hljs">public static BundleAsyncRequest&lt;T&gt; Pin&lt;T&gt;(this BundleAsyncRequest&lt;T&gt; newRequest, ref TrackHandle&lt;T&gt; oldHandle)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1355,6 +1355,21 @@ Also works in editor</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BundleSystem.BundleAsyncRequest-1.html">BundleAsyncRequest</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -1372,14 +1387,14 @@ Also works in editor</p>
   </table>
   
   
-  <a id="BundleSystem_BundleManager_Override_" data-uid="BundleSystem.BundleManager.Override*"></a>
-  <h4 id="BundleSystem_BundleManager_Override__1_BundleSystem_BundleSyncRequest___0__BundleSystem_TrackHandle___0___" data-uid="BundleSystem.BundleManager.Override``1(BundleSystem.BundleSyncRequest{``0},BundleSystem.TrackHandle{``0}@)">Override&lt;T&gt;(BundleSyncRequest&lt;T&gt;, ref TrackHandle&lt;T&gt;)</h4>
+  <a id="BundleSystem_BundleManager_Pin_" data-uid="BundleSystem.BundleManager.Pin*"></a>
+  <h4 id="BundleSystem_BundleManager_Pin__1_BundleSystem_BundleSyncRequest___0__BundleSystem_TrackHandle___0___" data-uid="BundleSystem.BundleManager.Pin``1(BundleSystem.BundleSyncRequest{``0},BundleSystem.TrackHandle{``0}@)">Pin&lt;T&gt;(BundleSyncRequest&lt;T&gt;, ref TrackHandle&lt;T&gt;)</h4>
   <div class="markdown level1 summary"><p>Release old track handle and assign new handle from request.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Override&lt;T&gt;(this BundleSyncRequest&lt;T&gt; newRequest, ref TrackHandle&lt;T&gt; oldHandle)</code></pre>
+    <pre><code class="lang-csharp hljs">public static BundleSyncRequest&lt;T&gt; Pin&lt;T&gt;(this BundleSyncRequest&lt;T&gt; newRequest, ref TrackHandle&lt;T&gt; oldHandle)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1405,6 +1420,21 @@ Also works in editor</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BundleSystem.BundleSyncRequest-1.html">BundleSyncRequest</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -1422,14 +1452,14 @@ Also works in editor</p>
   </table>
   
   
-  <a id="BundleSystem_BundleManager_Override_" data-uid="BundleSystem.BundleManager.Override*"></a>
-  <h4 id="BundleSystem_BundleManager_Override__1_BundleSystem_TrackHandle___0__BundleSystem_TrackHandle___0___" data-uid="BundleSystem.BundleManager.Override``1(BundleSystem.TrackHandle{``0},BundleSystem.TrackHandle{``0}@)">Override&lt;T&gt;(TrackHandle&lt;T&gt;, ref TrackHandle&lt;T&gt;)</h4>
+  <a id="BundleSystem_BundleManager_Pin_" data-uid="BundleSystem.BundleManager.Pin*"></a>
+  <h4 id="BundleSystem_BundleManager_Pin__1_BundleSystem_TrackHandle___0__BundleSystem_TrackHandle___0___" data-uid="BundleSystem.BundleManager.Pin``1(BundleSystem.TrackHandle{``0},BundleSystem.TrackHandle{``0}@)">Pin&lt;T&gt;(TrackHandle&lt;T&gt;, ref TrackHandle&lt;T&gt;)</h4>
   <div class="markdown level1 summary"><p>Release old track handle and assign new handle.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Override&lt;T&gt;(this TrackHandle&lt;T&gt; newHandle, ref TrackHandle&lt;T&gt; oldHandle)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void Pin&lt;T&gt;(this TrackHandle&lt;T&gt; newHandle, ref TrackHandle&lt;T&gt; oldHandle)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
