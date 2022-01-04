@@ -306,7 +306,7 @@ namespace BundleSystem
 
         private static void RetainBundle(LoadedBundle bundle, int count = 1)
         {
-            Debug.Log("RetainBundle" + bundle.Name + count);
+            if(LogMessages) Debug.Log($"Bundle Reference Count {bundle.Name} += {count}");
             bundle.ReferenceCount += count;
 #if UNITY_EDITOR
             if(UseAssetDatabaseMap) return;
@@ -314,6 +314,9 @@ namespace BundleSystem
             if(bundle.Group.IsInvalid) return;
             bundle.Group.ReferenceCount += count;
             if(bundle.Group.IsDirty) return; //already dirty
+
+            if(LogMessages) Debug.Log($"ReloadGroup {bundle.Group.Index} gets dirty");
+
             bundle.Group.IsDirty = true;
             for(int i = 0; i < bundle.Group.Bundles.Count; i++)
             {
@@ -323,7 +326,7 @@ namespace BundleSystem
 
         private static void ReleaseBundle(LoadedBundle bundle, int count = 1)
         {
-            Debug.Log("ReleaseBundle" + bundle.Name + count);
+            if(LogMessages) Debug.Log($"Bundle Reference Count {bundle.Name} -= {count}");
             bundle.ReferenceCount -= count;
 #if UNITY_EDITOR
             if(UseAssetDatabaseMap) return;
@@ -331,10 +334,13 @@ namespace BundleSystem
             if(bundle.Group.IsInvalid) return;
             bundle.Group.ReferenceCount -= count;
             if(!bundle.Group.IsDirty || bundle.Group.ReferenceCount > 0) return;
+
+            if(LogMessages) Debug.Log($"ReloadGroup {bundle.Group.Index} reloading...");
             
             for(int i = 0; i < bundle.Group.Bundles.Count; i++)
             {
                 var refBundle = bundle.Group.Bundles[i];
+                if(refBundle.CachedRequest == null) continue;
                 refBundle.Bundle.Unload(true);
                 refBundle.Bundle = DownloadHandlerAssetBundle.GetContent(refBundle.CachedRequest);
                 //stored request needs to be disposed

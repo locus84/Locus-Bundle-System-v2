@@ -62,7 +62,7 @@ namespace BundleSystem
                     {
                         foundGroup = depGroup;
                     }
-                    list.Add(bi.BundleName);
+                    list.Add(dep);
                 }
 
                 if (foundGroup == null) foundGroup = new ReloadGroup(++index);
