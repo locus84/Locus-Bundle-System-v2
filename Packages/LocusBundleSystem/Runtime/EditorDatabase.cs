@@ -15,6 +15,7 @@ namespace BundleSystem
         internal bool CleanCache;
         internal bool UseOuputAsRemote;
         internal string OutputPath;
+        internal string UserVersionString;
 
         private Dictionary<string, Dictionary<string, List<string>>> m_Map = new Dictionary<string, Dictionary<string, List<string>>>();
         private Dictionary<string, string> m_ScenePathToBundleName = new Dictionary<string, string>();

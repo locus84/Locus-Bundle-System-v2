@@ -116,6 +116,11 @@ namespace BundleSystem
         /// Hash String to check this manifest is same with another or not.
         /// </summary>
         public string GlobalHashString;
+
+        /// <summary>
+        /// User defined version string when building assetbundles manifest is same with another or not.
+        /// </summary>
+        public string UserVersionString;
         
         /// <summary>
         /// Find BundleInfo of an AssetBundle from this Manifest.

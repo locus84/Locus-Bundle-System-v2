@@ -72,6 +72,14 @@ namespace Tests
         }
 
         [UnityTest]
+        public IEnumerator UserDefinedVersionTest()
+        {
+            var manifestReq = BundleManager.GetManifest();
+            yield return manifestReq;
+            Assert.IsTrue("wq[oeijfqowijfpeojqi" == manifestReq.Result.UserVersionString);
+        }
+
+        [UnityTest]
         public IEnumerator SyncApiTest()
         {
             //simple load
@@ -325,6 +333,8 @@ namespace Tests
             //should be clean
             Assert.IsTrue(BundleManager.GetBundleReferenceSnapshot().Count == 0);
         }
+
+
 
         [UnityTest]
         public IEnumerator SharedReferenceTest()

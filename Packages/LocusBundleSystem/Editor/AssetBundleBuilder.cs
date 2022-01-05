@@ -80,7 +80,7 @@ namespace BundleSystem
         /// This refers input setting's output folder.
         /// </summary>
         /// <param name="setting">input setting</param>
-        public static void BuildAssetBundles(AssetBundleBuildSetting setting)
+        public static void BuildAssetBundles(AssetBundleBuildSetting setting, string userDefinedVersion = "")
         {
             if(!Application.isBatchMode)
             {
@@ -105,7 +105,7 @@ namespace BundleSystem
 
             if (returnCode == ReturnCode.Success)
             {
-                WriteManifestFile(buildParams.OutputFolder, setting, bundleResult, buildTarget, setting.RemoteURL);
+                WriteManifestFile(buildParams.OutputFolder, setting, bundleResult, buildTarget, setting.RemoteURL, userDefinedVersion);
                 var linkPath = CopyLinkDotXml(setting.OutputPath, AssetDatabase.GetAssetPath(setting));
                 if (!Application.isBatchMode) EditorUtility.DisplayDialog("Build Succeeded!", $"Bundle build succeeded, \n {linkPath} updated!", "Confirm");
             }
@@ -128,10 +128,12 @@ namespace BundleSystem
         /// <summary>
         /// write manifest into target path.
         /// </summary>
-        static AssetBundleBuildManifest WriteManifestFile(string path, AssetBundleBuildSetting setting, IBundleBuildResults bundleResults, BuildTarget target, string remoteURL)
+        static AssetBundleBuildManifest WriteManifestFile(string path, AssetBundleBuildSetting setting, IBundleBuildResults bundleResults, BuildTarget target, string remoteURL, string userDefinedVersion)
         {
             var manifest = new AssetBundleBuildManifest();
             manifest.BuildTarget = target.ToString();
+
+            manifest.UserVersionString = string.IsNullOrWhiteSpace(userDefinedVersion)? setting.DefaultUserDefinedVersion : userDefinedVersion;
 
             //we use unity provided dependency result for final check
             var deps = bundleResults.BundleInfos.ToDictionary(kv => kv.Key, kv => kv.Value.Dependencies.ToList());
