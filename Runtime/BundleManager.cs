@@ -385,7 +385,7 @@ namespace BundleSystem
 #if UNITY_EDITOR
             if (UseAssetDatabaseMap)
             {
-                result.Result = new AssetBundleBuildManifest();
+                result.Result = new AssetBundleBuildManifest() { UserVersionString = s_EditorDatabaseMap.UserVersionString };
                 result.Done(BundleErrorCode.Success);
                 yield break;
             }

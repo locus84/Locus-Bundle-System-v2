@@ -48,6 +48,7 @@ namespace BundleSystem
             setting.CleanCache = CleanCacheInEditor;
             setting.UseOuputAsRemote = EmulateWithoutRemoteURL;
             setting.OutputPath = OutputPath;
+            setting.UserVersionString = DefaultUserDefinedVersion;
 
             var bundleSettings = GetBundleSettings();
             for (int i = 0; i < bundleSettings.Count; i++)
@@ -166,6 +167,12 @@ namespace BundleSystem
         /// </summary>
         [Tooltip("Clean cache when initializing BundleManager for testing purpose")]
         public bool CleanCacheInEditor = false;
+
+        /// <summary>
+        /// Default user defined version when building assetbundles
+        /// </summary>
+        [Tooltip("Default user defined version.")]
+        public string DefaultUserDefinedVersion;
 
         /// <summary>
         /// Force rebuild. ignore cache. if something wrong with built bundles. Try again with this paramteter set true.
