@@ -13,12 +13,12 @@ references:
   commentId: T:BundleSystem.AssetBundleBuilder
   fullName: BundleSystem.AssetBundleBuilder
   nameWithType: AssetBundleBuilder
-- uid: BundleSystem.AssetBundleBuilder.BuildAssetBundles(BundleSystem.AssetBundleBuildSetting)
-  name: BuildAssetBundles(AssetBundleBuildSetting)
-  href: api/BundleSystem.AssetBundleBuilder.html#BundleSystem_AssetBundleBuilder_BuildAssetBundles_BundleSystem_AssetBundleBuildSetting_
-  commentId: M:BundleSystem.AssetBundleBuilder.BuildAssetBundles(BundleSystem.AssetBundleBuildSetting)
-  fullName: BundleSystem.AssetBundleBuilder.BuildAssetBundles(BundleSystem.AssetBundleBuildSetting)
-  nameWithType: AssetBundleBuilder.BuildAssetBundles(AssetBundleBuildSetting)
+- uid: BundleSystem.AssetBundleBuilder.BuildAssetBundles(BundleSystem.AssetBundleBuildSetting,System.String)
+  name: BuildAssetBundles(AssetBundleBuildSetting, String)
+  href: api/BundleSystem.AssetBundleBuilder.html#BundleSystem_AssetBundleBuilder_BuildAssetBundles_BundleSystem_AssetBundleBuildSetting_System_String_
+  commentId: M:BundleSystem.AssetBundleBuilder.BuildAssetBundles(BundleSystem.AssetBundleBuildSetting,System.String)
+  fullName: BundleSystem.AssetBundleBuilder.BuildAssetBundles(BundleSystem.AssetBundleBuildSetting, System.String)
+  nameWithType: AssetBundleBuilder.BuildAssetBundles(AssetBundleBuildSetting, String)
 - uid: BundleSystem.AssetBundleBuilder.BuildAssetBundles*
   name: BuildAssetBundles
   href: api/BundleSystem.AssetBundleBuilder.html#BundleSystem_AssetBundleBuilder_BuildAssetBundles_
@@ -204,6 +204,12 @@ references:
   isSpec: "True"
   fullName: BundleSystem.AssetBundleBuildManifest.TryParse
   nameWithType: AssetBundleBuildManifest.TryParse
+- uid: BundleSystem.AssetBundleBuildManifest.UserVersionString
+  name: UserVersionString
+  href: api/BundleSystem.AssetBundleBuildManifest.html#BundleSystem_AssetBundleBuildManifest_UserVersionString
+  commentId: F:BundleSystem.AssetBundleBuildManifest.UserVersionString
+  fullName: BundleSystem.AssetBundleBuildManifest.UserVersionString
+  nameWithType: AssetBundleBuildManifest.UserVersionString
 - uid: BundleSystem.AssetBundleBuildProcessors
   name: AssetBundleBuildProcessors
   href: api/BundleSystem.AssetBundleBuildProcessors.html
@@ -261,6 +267,12 @@ references:
   commentId: F:BundleSystem.AssetBundleBuildSetting.CleanCacheInEditor
   fullName: BundleSystem.AssetBundleBuildSetting.CleanCacheInEditor
   nameWithType: AssetBundleBuildSetting.CleanCacheInEditor
+- uid: BundleSystem.AssetBundleBuildSetting.DefaultUserDefinedVersion
+  name: DefaultUserDefinedVersion
+  href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_DefaultUserDefinedVersion
+  commentId: F:BundleSystem.AssetBundleBuildSetting.DefaultUserDefinedVersion
+  fullName: BundleSystem.AssetBundleBuildSetting.DefaultUserDefinedVersion
+  nameWithType: AssetBundleBuildSetting.DefaultUserDefinedVersion
 - uid: BundleSystem.AssetBundleBuildSetting.EmulateInEditor
   name: EmulateInEditor
   href: api/BundleSystem.AssetBundleBuildSetting.html#BundleSystem_AssetBundleBuildSetting_EmulateInEditor
