@@ -20,7 +20,8 @@ namespace BundleSystem
 
         class CustomBuildParameters : BundleBuildParameters
         {
-            Dictionary<string, BuildCompression> m_CompressSettings = new Dictionary<string, BuildCompression>();
+            Dictionary<string, bool> m_CompressSettings = new Dictionary<string, bool>();
+            List<string> m_LocalBundles = new List<string>();
 
             public CustomBuildParameters(
                 List<BundleSetting> settings,
@@ -31,17 +32,19 @@ namespace BundleSystem
             {
                 //we use unity provided dependency result for final check
                 var deps = result.BundleDependencies.ToDictionary(kv => kv.Key, kv => kv.Value.ToList());
-                var localBundles = GetLcoalBundles(deps, settings);
-
-                foreach(var setting in settings)
-                {
-                    var isLocal = localBundles.Contains(setting.BundleName);
-                    var compressSetting = (isLocal || !setting.CompressBundle)? BuildCompression.LZ4 : BuildCompression.LZMA;
-                    m_CompressSettings.Add(setting.BundleName, compressSetting);
-                }
+                m_LocalBundles = GetLcoalBundles(deps, settings);
+                foreach(var setting in settings) m_CompressSettings.Add(setting.BundleName, setting.CompressBundle);
             }
 
-            public override BuildCompression GetCompressionForIdentifier(string identifier) => m_CompressSettings[identifier];
+            public override BuildCompression GetCompressionForIdentifier(string identifier) 
+            {
+                //if local bundles we don't use compression
+                if(m_LocalBundles.Contains(identifier)) return BuildCompression.LZ4;
+                //if non-local shared bundle, we always compress
+                if(!m_CompressSettings.TryGetValue(identifier, out var compress)) return BuildCompression.LZMA;
+                //rest, follow user settings
+                return compress? BuildCompression.LZMA : BuildCompression.LZ4;
+            }
         }
 
         /// <summary>
