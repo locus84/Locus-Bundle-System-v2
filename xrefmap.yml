@@ -1353,19 +1353,6 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.GetInstanceTrackHandle
   nameWithType: BundleManager.GetInstanceTrackHandle
-- uid: BundleSystem.BundleManager.GetLocalManifest
-  name: GetLocalManifest()
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetLocalManifest
-  commentId: M:BundleSystem.BundleManager.GetLocalManifest
-  fullName: BundleSystem.BundleManager.GetLocalManifest()
-  nameWithType: BundleManager.GetLocalManifest()
-- uid: BundleSystem.BundleManager.GetLocalManifest*
-  name: GetLocalManifest
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetLocalManifest_
-  commentId: Overload:BundleSystem.BundleManager.GetLocalManifest
-  isSpec: "True"
-  fullName: BundleSystem.BundleManager.GetLocalManifest
-  nameWithType: BundleManager.GetLocalManifest
 - uid: BundleSystem.BundleManager.GetManifest
   name: GetManifest()
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_GetManifest
@@ -1654,6 +1641,19 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.LogMessages
   nameWithType: BundleManager.LogMessages
+- uid: BundleSystem.BundleManager.Manifest
+  name: Manifest
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Manifest
+  commentId: P:BundleSystem.BundleManager.Manifest
+  fullName: BundleSystem.BundleManager.Manifest
+  nameWithType: BundleManager.Manifest
+- uid: BundleSystem.BundleManager.Manifest*
+  name: Manifest
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Manifest_
+  commentId: Overload:BundleSystem.BundleManager.Manifest
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.Manifest
+  nameWithType: BundleManager.Manifest
 - uid: BundleSystem.BundleManager.ManifestFileName
   name: ManifestFileName
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_ManifestFileName
