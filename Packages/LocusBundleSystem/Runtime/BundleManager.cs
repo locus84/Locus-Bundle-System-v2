@@ -109,6 +109,7 @@ namespace BundleSystem
 
         public static bool Initialized { get; private set; } = false;
         public static string LocalURL { get; private set; }
+        public static AssetBundleBuildManifest Manifest { get; private set; }
 
 
         private static string s_UserRemoteURL;
@@ -177,6 +178,7 @@ namespace BundleSystem
             
             Initialized = false;
             LocalURL = default;
+            Manifest = default;
 
             s_UserRemoteURL = default;
             s_BundleBuildTarget = default;
@@ -256,6 +258,7 @@ namespace BundleSystem
             {
                 UseAssetDatabaseMap = true;
                 Initialized = true;
+                Manifest = GetEditorDefaultManifest();
                 result.Done(BundleErrorCode.Success);
                 yield break; //use asset database
             }
@@ -353,6 +356,8 @@ namespace BundleSystem
             s_DefaultRemoteURL = localManifest.DefaultRemoteURL;
 
             Initialized = true;
+            Manifest = localManifest;
+
             if (LogMessages) Debug.Log($"Initialize Success \nLocal URL : {LocalURL}");
             
             if(GlobalBundleHash != localManifest.GlobalHashString)
@@ -366,52 +371,12 @@ namespace BundleSystem
             result.Done(BundleErrorCode.Success);
         }
 
-        public static BundleAsyncOperation<AssetBundleBuildManifest> GetLocalManifest()
-        {
-            var result = new BundleAsyncOperation<AssetBundleBuildManifest>();
-            s_Helper.StartCoroutine(CoGetLocalManifest(result));
-            return result;
-        }
-
-        static IEnumerator CoGetLocalManifest(BundleAsyncOperation<AssetBundleBuildManifest> result)
-        {
-            if (!Initialized)
-            {
-                Debug.LogError("Do Initialize first");
-                result.Done(BundleErrorCode.NotInitialized);
-                yield break;
-            }
-
 #if UNITY_EDITOR
-            if (UseAssetDatabaseMap)
-            {
-                result.Result = new AssetBundleBuildManifest() {
-                    UserVersionString = s_EditorDatabaseMap.UserVersionString};
-                result.Done(BundleErrorCode.Success);
-                yield break;
-            }
-#endif
-
-            var manifestReq = UnityWebRequest.Get(Utility.CombinePath(LocalURL, ManifestFileName));
-            yield return manifestReq.SendWebRequest();
-            if (!Utility.CheckRequestSuccess(manifestReq))
-            {
-                result.Done(BundleErrorCode.NetworkError);
-                yield break;
-            }
-
-            var localManifestJson = manifestReq.downloadHandler.text;
-            manifestReq.Dispose();
-
-            if (!AssetBundleBuildManifest.TryParse(localManifestJson, out var localManifest))
-            {
-                result.Done(BundleErrorCode.ManifestParseError);
-                yield break;
-            }
-
-            result.Result = localManifest;
-            result.Done(BundleErrorCode.Success);
+        static AssetBundleBuildManifest GetEditorDefaultManifest()
+        {
+            return new AssetBundleBuildManifest() { UserVersionString = s_EditorDatabaseMap.UserVersionString };
         }
+#endif
 
         public static BundleAsyncOperation<AssetBundleBuildManifest> GetManifest()
         {
@@ -419,6 +384,7 @@ namespace BundleSystem
             s_Helper.StartCoroutine(CoGetManifest(result));
             return result;
         }
+
 
         static IEnumerator CoGetManifest(BundleAsyncOperation<AssetBundleBuildManifest> result)
         {
@@ -432,7 +398,7 @@ namespace BundleSystem
 #if UNITY_EDITOR
             if (UseAssetDatabaseMap)
             {
-                result.Result = new AssetBundleBuildManifest() { UserVersionString = s_EditorDatabaseMap.UserVersionString };
+                result.Result = GetEditorDefaultManifest();
                 result.Done(BundleErrorCode.Success);
                 yield break;
             }
@@ -658,6 +624,7 @@ namespace BundleSystem
 
             PlayerPrefs.SetString("CachedManifest", JsonUtility.ToJson(operation.Manifest));
             s_InGameIncrementalVersion = operation.Version;
+            Manifest = operation.Manifest;
 
             if(GlobalBundleHash != operation.Manifest.GlobalHashString)
             {
