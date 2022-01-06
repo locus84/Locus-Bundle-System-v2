@@ -41,6 +41,12 @@ namespace Tests
             //actual initialize function
             yield return BundleManager.Initialize();
 
+            {
+                var manifestReq = BundleManager.GetLocalManifest();
+                yield return manifestReq;
+                Debug.Log(JsonUtility.ToJson(manifestReq.Result));
+            }
+
             //skip remote bundle download test in build
             if (downloadBundles)
             {
