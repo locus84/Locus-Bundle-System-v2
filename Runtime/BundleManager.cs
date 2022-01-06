@@ -366,6 +366,53 @@ namespace BundleSystem
             result.Done(BundleErrorCode.Success);
         }
 
+        public static BundleAsyncOperation<AssetBundleBuildManifest> GetLocalManifest()
+        {
+            var result = new BundleAsyncOperation<AssetBundleBuildManifest>();
+            s_Helper.StartCoroutine(CoGetLocalManifest(result));
+            return result;
+        }
+
+        static IEnumerator CoGetLocalManifest(BundleAsyncOperation<AssetBundleBuildManifest> result)
+        {
+            if (!Initialized)
+            {
+                Debug.LogError("Do Initialize first");
+                result.Done(BundleErrorCode.NotInitialized);
+                yield break;
+            }
+
+#if UNITY_EDITOR
+            if (UseAssetDatabaseMap)
+            {
+                result.Result = new AssetBundleBuildManifest() {
+                    UserVersionString = s_EditorDatabaseMap.UserVersionString};
+                result.Done(BundleErrorCode.Success);
+                yield break;
+            }
+#endif
+
+            var manifestReq = UnityWebRequest.Get(Utility.CombinePath(LocalURL, ManifestFileName));
+            yield return manifestReq.SendWebRequest();
+            if (!Utility.CheckRequestSuccess(manifestReq))
+            {
+                result.Done(BundleErrorCode.NetworkError);
+                yield break;
+            }
+
+            var localManifestJson = manifestReq.downloadHandler.text;
+            manifestReq.Dispose();
+
+            if (!AssetBundleBuildManifest.TryParse(localManifestJson, out var localManifest))
+            {
+                result.Done(BundleErrorCode.ManifestParseError);
+                yield break;
+            }
+
+            result.Result = localManifest;
+            result.Done(BundleErrorCode.Success);
+        }
+
         public static BundleAsyncOperation<AssetBundleBuildManifest> GetManifest()
         {
             var result = new BundleAsyncOperation<AssetBundleBuildManifest>();
