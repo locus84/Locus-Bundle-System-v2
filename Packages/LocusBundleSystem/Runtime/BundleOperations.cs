@@ -33,9 +33,9 @@ namespace BundleSystem
         /// <summary>
         /// Supress asset's auto release.
         /// </summary>
-        public BundleSyncRequest<T> Pin()
+        public BundleSyncRequest<T> Pin(Component owner)
         {
-            BundleManager.SupressAutoReleaseInternal(Handle.Id);
+            BundleManager.SupressAutoReleaseInternal(Handle.Id, owner);
             return this;
         }
 
@@ -72,11 +72,11 @@ namespace BundleSystem
         /// <summary>
         /// Supress all asset's auto release.
         /// </summary>
-        public BundleSyncRequests<T> Pin()
+        public BundleSyncRequests<T> Pin(Component owner)
         {
             for(int i = 0; i < Handles.Length; i++)
             {
-                BundleManager.SupressAutoReleaseInternal(Handles[i].Id);
+                BundleManager.SupressAutoReleaseInternal(Handles[i].Id, owner);
             }
             return this;
         }

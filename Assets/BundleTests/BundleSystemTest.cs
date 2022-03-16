@@ -72,11 +72,12 @@ namespace Tests
         }
 
         [UnityTest]
-        public IEnumerator UserDefinedVersionTest()
+        public IEnumerator ManifestTest()
         {
+            Assert.IsNotNull(BundleManager.Manifest);
             var manifestReq = BundleManager.GetManifest();
             yield return manifestReq;
-            Assert.IsTrue("wq[oeijfqowijfpeojqi" == manifestReq.Result.UserVersionString);
+            Assert.IsTrue(BundleManager.Manifest.UserVersionString == manifestReq.Result.UserVersionString);
         }
 
         [UnityTest]
@@ -111,7 +112,7 @@ namespace Tests
             {
                 var texReq = m_Owner.Load<Texture>("Local", "Unknown");
                 //try pin right after load
-                texReq.Pin();
+                texReq.Pin(m_Owner);
                 BundleManager.UpdateImmediate();
                 Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
             }
@@ -127,10 +128,10 @@ namespace Tests
 
             //async pin empty
             {
-                var texReq = m_Owner.LoadAsync<Texture>("Local", "Unknown");
+                var texReq = BundleManager.LoadAsync<Texture>("Local", "Unknown");
                 //try pin right after load
                 var handle = default(TrackHandle<Texture>);
-                texReq.Pin(ref handle);
+                texReq.Pin(m_Owner, ref handle);
                 yield return texReq;
                 BundleManager.UpdateImmediate();
                 Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
@@ -138,7 +139,7 @@ namespace Tests
 
             //async dispose empty
             {
-                var texReq = m_Owner.LoadAsync<Texture>("Local", "Unknown");
+                var texReq = BundleManager.LoadAsync<Texture>("Local", "Unknown");
                 //try dispose while loading
                 texReq.Dispose();
                 //wait loading complete event after dispose(is possible actually)
@@ -156,11 +157,11 @@ namespace Tests
         {
             var go = new GameObject("Go");
             var image = go.AddComponent<UnityEngine.UI.Image>();
-            var spriteReq = image.LoadAsync<Sprite>("Object", "TestSprite");
+            var spriteReq =  BundleManager.LoadAsync<Sprite>("Object", "TestSprite");
             yield return spriteReq;
             image.sprite = spriteReq.Asset;
             var handle = default(TrackHandle<Sprite>);
-            spriteReq.Pin(ref handle);
+            spriteReq.Pin(m_Owner, ref handle);
             BundleManager.UpdateImmediate();
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 1);
             handle.Release();
@@ -248,7 +249,7 @@ namespace Tests
         {
             //auto release
             {
-                var spriteReq = m_Owner.LoadAsync<Sprite>("Object", "TestSprite");
+                var spriteReq =  BundleManager.LoadAsync<Sprite>("Object", "TestSprite");
                 yield return spriteReq;
                 Assert.NotNull(spriteReq.Asset);
                 yield return new WaitForSecondsRealtime(2);
@@ -259,10 +260,10 @@ namespace Tests
 
             //pin request
             {
-                var spriteReq = m_Owner.LoadAsync<Sprite>("Object", "TestSprite");
+                var spriteReq = BundleManager.LoadAsync<Sprite>("Object", "TestSprite");
                 yield return spriteReq;
                 var handle = default(TrackHandle<Sprite>);
-                Assert.NotNull(spriteReq.Pin(ref handle).Asset);
+                Assert.NotNull(spriteReq.Pin(m_Owner, ref handle).Asset);
                 yield return new WaitForSecondsRealtime(2);
 
                 //it must not be auto-released as it's pinned 
@@ -274,7 +275,7 @@ namespace Tests
 
             //dispose
             {
-                var spriteReq = m_Owner.LoadAsync<Sprite>("Object", "TestSprite");
+                var spriteReq = BundleManager.LoadAsync<Sprite>("Object", "TestSprite");
                 yield return spriteReq;
                 Assert.NotNull(spriteReq.Asset);
 
@@ -286,7 +287,7 @@ namespace Tests
 
             //handle release
             {
-                var spriteReq = m_Owner.LoadAsync<Sprite>("Object", "TestSprite");
+                var spriteReq = BundleManager.LoadAsync<Sprite>("Object", "TestSprite");
                 yield return spriteReq;
                 Assert.NotNull(spriteReq.Asset);
 
@@ -315,13 +316,13 @@ namespace Tests
             //simple async function
             var go = new GameObject("Go");
             var image = go.AddComponent<UnityEngine.UI.Image>();
-            var req = await image.LoadAsync<Sprite>("Object", "TestSprite");
+            var req = await BundleManager.LoadAsync<Sprite>("Object", "TestSprite");
             var handle = default(TrackHandle<Sprite>);
-            image.sprite = req.Pin(ref handle).Asset;
+            image.sprite = req.Pin(m_Owner, ref handle).Asset;
 
             //load second and override existing handle
-            var otherReq = await image.LoadAsync<Sprite>("Object", "TestSprite");
-            image.sprite = otherReq.Pin(ref handle).Asset;
+            var otherReq = await BundleManager.LoadAsync<Sprite>("Object", "TestSprite");
+            image.sprite = otherReq.Pin(m_Owner, ref handle).Asset;
             BundleManager.UpdateImmediate();
             Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 1);
 
@@ -347,7 +348,7 @@ namespace Tests
             //auto release
             {
                 Debug.Log("Start Ref_A");
-                var refAssetReq = m_Owner.LoadAsync<GameObject>("Ref_A", "ReferencingObject");
+                var refAssetReq = BundleManager.LoadAsync<GameObject>("Ref_A", "ReferencingObject");
                 yield return refAssetReq;
                 Assert.NotNull(refAssetReq.Asset);
                 BundleManager.UpdateImmediate();
@@ -362,7 +363,7 @@ namespace Tests
             //auto release
             {       
                 Debug.Log("Start Ref_B");
-                var refAssetReq = m_Owner.LoadAsync<GameObject>("Ref_B", "ReferencingObject");
+                var refAssetReq = BundleManager.LoadAsync<GameObject>("Ref_B", "ReferencingObject");
                 yield return refAssetReq;
                 Assert.NotNull(refAssetReq.Asset);
                 BundleManager.UpdateImmediate();
