@@ -131,11 +131,13 @@ namespace BundleSystem
         }
 
         internal static bool IsTrackHandleValidInternal(int id) => id != 0 && s_TrackInfoDict.ContainsKey(id);
-        internal static void SupressAutoReleaseInternal(int id)
+        internal static void SupressAutoReleaseInternal(int id, Component owner)
         {
+            if(!owner.gameObject.scene.IsValid()) throw new System.Exception("Owner must be scene object");
             if(id != 0 && s_TrackInfoDict.TryGetValue(id, out var info) && info.Status == TrackStatus.AutoReleasable)
             {
                 info.Status = TrackStatus.Pinned;
+                info.Owner = owner;
                 s_TrackInfoDict[id] = info;
             }
         } 
@@ -148,15 +150,13 @@ namespace BundleSystem
         /// <param name="asset">Asset to track</param>
         /// <param name="newOwner">New owner if specified, shares same owner if not specified</param>
         /// <returns>Returns newly created track handle</returns>
-        public static TrackHandle<T> TrackExplicit<TRef, T>(this TrackHandle<TRef> referenceHandle, T asset,  Component newOwner = null)
+        public static TrackHandle<T> TrackExplicit<TRef, T>(this TrackHandle<TRef> referenceHandle, T asset)
         where TRef : Object where T : Object
         {
-            if(newOwner != null && !newOwner.gameObject.scene.IsValid()) throw new System.Exception("Owner must be scene object");
             if(!s_TrackInfoDict.TryGetValue(referenceHandle.Id, out var info)) throw new System.Exception("Handle is not valid or already not tracked");
 
             var newTrackId = ++s_LastTrackId;
-            if(newOwner == null) newOwner = info.Owner;
-            return TrackObject<T>(newOwner, asset, info.LoadedBundle);
+            return TrackObject<T>(asset, info.LoadedBundle);
         }
 
         /// <summary>
@@ -181,10 +181,10 @@ namespace BundleSystem
         /// </summary>
         /// <param name="newHandle">New handle</param>
         /// <param name="oldHandle">Old handle to release</param>
-        public static void Pin<T>(this TrackHandle<T> newHandle, ref TrackHandle<T> oldHandle) where T : Object
+        public static void Pin<T>(this TrackHandle<T> newHandle, Component owner, ref TrackHandle<T> oldHandle) where T : Object
         {
+            if(newHandle.IsValid()) BundleManager.SupressAutoReleaseInternal(newHandle.Id, owner);
             oldHandle.Release();
-            if(newHandle.IsValid()) BundleManager.SupressAutoReleaseInternal(newHandle.Id);
             oldHandle = newHandle;
         }
 
@@ -193,9 +193,9 @@ namespace BundleSystem
         /// </summary>
         /// <param name="newRequest">New request</param>
         /// <param name="oldHandle">Old handle to release</param>
-        public static BundleSyncRequest<T> Pin<T>(this BundleSyncRequest<T> newRequest, ref TrackHandle<T> oldHandle) where T : Object
+        public static BundleSyncRequest<T> Pin<T>(this BundleSyncRequest<T> newRequest, Component owner, ref TrackHandle<T> oldHandle) where T : Object
         {
-            newRequest.Handle.Pin<T>(ref oldHandle);
+            newRequest.Handle.Pin<T>(owner, ref oldHandle);
             return newRequest;
         }
 
@@ -204,9 +204,9 @@ namespace BundleSystem
         /// </summary>
         /// <param name="newRequest">New request</param>
         /// <param name="oldHandle">Old handle to release</param>
-        public static BundleAsyncRequest<T> Pin<T>(this BundleAsyncRequest<T> newRequest, ref TrackHandle<T> oldHandle) where T : Object
+        public static BundleAsyncRequest<T> Pin<T>(this BundleAsyncRequest<T> newRequest, Component owner, ref TrackHandle<T> oldHandle) where T : Object
         {
-            newRequest.Handle.Pin<T>(ref oldHandle);
+            newRequest.Handle.Pin<T>(owner, ref oldHandle);
             return newRequest;
         }
 
@@ -239,13 +239,11 @@ namespace BundleSystem
         }
 
 
-        private static TrackHandle<T> TrackObject<T>(Component owner, Object asset, LoadedBundle loadedBundle) where T : Object
+        private static TrackHandle<T> TrackObject<T>(Object asset, LoadedBundle loadedBundle) where T : Object
         {
-            if(!owner.gameObject.scene.IsValid()) throw new System.Exception("Owner must be scene object");
             var trackId = ++s_LastTrackId;
             s_TrackInfoDict.Add(trackId, new TrackInfo(){
                 LoadedBundle = loadedBundle,
-                Owner = owner,
                 Asset = asset,
                 LoadTime = Time.realtimeSinceStartup,
                 Status = TrackStatus.AutoReleasable
@@ -412,24 +410,21 @@ namespace BundleSystem
                 if (!s_TrackInfoDict.TryGetNext(out var kv)) break;
                 //we don't want to release bundle while we're loading from it
                 if (kv.Value.Asset == s_LoadingObjectDummy) continue;
+                //it's pinned and owner still exists
+                if(kv.Value.Status == TrackStatus.Pinned && kv.Value.Owner != null) continue;
+                //it's auto releasable and timelimit not reached 
+                if(kv.Value.Status == TrackStatus.AutoReleasable && Time.realtimeSinceStartup < kv.Value.LoadTime + (immediate? 0f: 1f)) continue;
                 
-                //release requested or owner  is null
-                var shouldRelease = kv.Value.Owner == null || kv.Value.Status == TrackStatus.ReleaseRequested;
-
-                //not abrove but autoreleasetime passed
-                if(!shouldRelease && kv.Value.Status == TrackStatus.AutoReleasable)
-                {
-                    shouldRelease = kv.Value.LoadTime <= Time.realtimeSinceStartup - (immediate? 0f: 1f);
-                }
-
-                //continue when it does not need to be released
-                if(!shouldRelease) continue;
-
                 s_TrackInfoDict.Remove(kv.Key);
-                var instanceId = kv.Value.Owner.GetInstanceID();
-                if(s_TrackInstanceTransformDict.TryGetValue(instanceId, out var foundId) && foundId == kv.Key) 
+
+                //it may be null
+                if(!ReferenceEquals(kv.Value.Owner, null))
                 {
-                    s_TrackInstanceTransformDict.Remove(instanceId);
+                    var instanceId = kv.Value.Owner.GetInstanceID();
+                    if(s_TrackInstanceTransformDict.TryGetValue(instanceId, out var foundId) && foundId == kv.Key) 
+                    {
+                        s_TrackInstanceTransformDict.Remove(instanceId);
+                    }
                 }
 
                 ReleaseBundle(kv.Value.LoadedBundle);

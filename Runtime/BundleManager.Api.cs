@@ -55,7 +55,7 @@ namespace BundleSystem
                 if (string.IsNullOrEmpty(assetPath)) return BundleSyncRequest<T>.Empty; //asset not exist
                 var loadedAsset = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(assetPath);
                 if (loadedAsset == null) return BundleSyncRequest<T>.Empty;
-                return new BundleSyncRequest<T>(loadedAsset, TrackObject<T>(owner, loadedAsset, foundBundle));
+                return new BundleSyncRequest<T>(loadedAsset, TrackObject<T>(loadedAsset, foundBundle));
             }
             else
 #endif
@@ -64,7 +64,7 @@ namespace BundleSystem
                 if (!s_AssetBundles.TryGetValue(bundleName, out var foundBundle)) return BundleSyncRequest<T>.Empty; ;
                 var loadedAsset = foundBundle.Bundle.LoadAsset<T>(assetName);
                 if (loadedAsset == null) return BundleSyncRequest<T>.Empty;
-                return new BundleSyncRequest<T>(loadedAsset, TrackObject<T>(owner, loadedAsset, foundBundle));
+                return new BundleSyncRequest<T>(loadedAsset, TrackObject<T>(loadedAsset, foundBundle));
             }
         }
 
@@ -95,7 +95,7 @@ namespace BundleSystem
         }
 
 
-        public static BundleAsyncRequest<T> LoadAsync<T>(this Component owner, string bundleName, string assetName) where T : UnityEngine.Object
+        public static BundleAsyncRequest<T> LoadAsync<T>(string bundleName, string assetName) where T : UnityEngine.Object
         {
 #if UNITY_EDITOR
             if (UseAssetDatabaseMap)
@@ -106,7 +106,7 @@ namespace BundleSystem
                 if (string.IsNullOrEmpty(assetPath)) return BundleAsyncRequest<T>.Empty; //asset not exist
                 var loadedAsset = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(assetPath);
                 if (loadedAsset == null) return BundleAsyncRequest<T>.Empty; //asset not exist
-                var handle = TrackObject<T>(owner, loadedAsset, foundBundle);
+                var handle = TrackObject<T>(loadedAsset, foundBundle);
                 return new BundleAsyncRequest<T>(loadedAsset, handle);
             }
             else
@@ -116,7 +116,7 @@ namespace BundleSystem
                 if (!s_AssetBundles.TryGetValue(bundleName, out var foundBundle)) return BundleAsyncRequest<T>.Empty; //asset not exist
                 var request = foundBundle.Bundle.LoadAssetAsync<T>(assetName);
                 //need to keep bundle while loading, so we retain before load, release after load
-                var handle = TrackObject<T>(owner, s_LoadingObjectDummy, foundBundle);
+                var handle = TrackObject<T>(s_LoadingObjectDummy, foundBundle);
                 var bundleRequest = new BundleAsyncRequest<T>(request, handle);
                 request.completed += op => AsyncAssetLoaded(handle, request, bundleRequest);
                 return new BundleAsyncRequest<T>(request, handle);
