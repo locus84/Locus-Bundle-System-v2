@@ -1118,12 +1118,12 @@ Also works in editor</p>
   
   
   <a id="BundleSystem_BundleManager_LoadAsync_" data-uid="BundleSystem.BundleManager.LoadAsync*"></a>
-  <h4 id="BundleSystem_BundleManager_LoadAsync__1_Component_System_String_System_String_" data-uid="BundleSystem.BundleManager.LoadAsync``1(Component,System.String,System.String)">LoadAsync&lt;T&gt;(Component, String, String)</h4>
+  <h4 id="BundleSystem_BundleManager_LoadAsync__1_System_String_System_String_" data-uid="BundleSystem.BundleManager.LoadAsync``1(System.String,System.String)">LoadAsync&lt;T&gt;(String, String)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static BundleAsyncRequest&lt;T&gt; LoadAsync&lt;T&gt;(this Component owner, string bundleName, string assetName)
+    <pre><code class="lang-csharp hljs">public static BundleAsyncRequest&lt;T&gt; LoadAsync&lt;T&gt;(string bundleName, string assetName)
     where T : UnityEngine.Object</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1136,11 +1136,6 @@ Also works in editor</p>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><span class="xref">Component</span></td>
-        <td><span class="parametername">owner</span></td>
-        <td></td>
-      </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">bundleName</span></td>
@@ -1348,13 +1343,13 @@ Also works in editor</p>
   
   
   <a id="BundleSystem_BundleManager_Pin_" data-uid="BundleSystem.BundleManager.Pin*"></a>
-  <h4 id="BundleSystem_BundleManager_Pin__1_BundleSystem_BundleAsyncRequest___0__BundleSystem_TrackHandle___0___" data-uid="BundleSystem.BundleManager.Pin``1(BundleSystem.BundleAsyncRequest{``0},BundleSystem.TrackHandle{``0}@)">Pin&lt;T&gt;(BundleAsyncRequest&lt;T&gt;, ref TrackHandle&lt;T&gt;)</h4>
+  <h4 id="BundleSystem_BundleManager_Pin__1_BundleSystem_BundleAsyncRequest___0__Component_BundleSystem_TrackHandle___0___" data-uid="BundleSystem.BundleManager.Pin``1(BundleSystem.BundleAsyncRequest{``0},Component,BundleSystem.TrackHandle{``0}@)">Pin&lt;T&gt;(BundleAsyncRequest&lt;T&gt;, Component, ref TrackHandle&lt;T&gt;)</h4>
   <div class="markdown level1 summary"><p>Release old track handle and assign new handle from request.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static BundleAsyncRequest&lt;T&gt; Pin&lt;T&gt;(this BundleAsyncRequest&lt;T&gt; newRequest, ref TrackHandle&lt;T&gt; oldHandle)</code></pre>
+    <pre><code class="lang-csharp hljs">public static BundleAsyncRequest&lt;T&gt; Pin&lt;T&gt;(this BundleAsyncRequest&lt;T&gt; newRequest, Component owner, ref TrackHandle&lt;T&gt; oldHandle)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1371,6 +1366,11 @@ Also works in editor</p>
         <td><span class="parametername">newRequest</span></td>
         <td><p>New request</p>
 </td>
+      </tr>
+      <tr>
+        <td><span class="xref">Component</span></td>
+        <td><span class="parametername">owner</span></td>
+        <td></td>
       </tr>
       <tr>
         <td><a class="xref" href="BundleSystem.TrackHandle-1.html">TrackHandle</a>&lt;T&gt;</td>
@@ -1413,13 +1413,13 @@ Also works in editor</p>
   
   
   <a id="BundleSystem_BundleManager_Pin_" data-uid="BundleSystem.BundleManager.Pin*"></a>
-  <h4 id="BundleSystem_BundleManager_Pin__1_BundleSystem_BundleSyncRequest___0__BundleSystem_TrackHandle___0___" data-uid="BundleSystem.BundleManager.Pin``1(BundleSystem.BundleSyncRequest{``0},BundleSystem.TrackHandle{``0}@)">Pin&lt;T&gt;(BundleSyncRequest&lt;T&gt;, ref TrackHandle&lt;T&gt;)</h4>
+  <h4 id="BundleSystem_BundleManager_Pin__1_BundleSystem_BundleSyncRequest___0__Component_BundleSystem_TrackHandle___0___" data-uid="BundleSystem.BundleManager.Pin``1(BundleSystem.BundleSyncRequest{``0},Component,BundleSystem.TrackHandle{``0}@)">Pin&lt;T&gt;(BundleSyncRequest&lt;T&gt;, Component, ref TrackHandle&lt;T&gt;)</h4>
   <div class="markdown level1 summary"><p>Release old track handle and assign new handle from request.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static BundleSyncRequest&lt;T&gt; Pin&lt;T&gt;(this BundleSyncRequest&lt;T&gt; newRequest, ref TrackHandle&lt;T&gt; oldHandle)</code></pre>
+    <pre><code class="lang-csharp hljs">public static BundleSyncRequest&lt;T&gt; Pin&lt;T&gt;(this BundleSyncRequest&lt;T&gt; newRequest, Component owner, ref TrackHandle&lt;T&gt; oldHandle)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1436,6 +1436,11 @@ Also works in editor</p>
         <td><span class="parametername">newRequest</span></td>
         <td><p>New request</p>
 </td>
+      </tr>
+      <tr>
+        <td><span class="xref">Component</span></td>
+        <td><span class="parametername">owner</span></td>
+        <td></td>
       </tr>
       <tr>
         <td><a class="xref" href="BundleSystem.TrackHandle-1.html">TrackHandle</a>&lt;T&gt;</td>
@@ -1478,13 +1483,13 @@ Also works in editor</p>
   
   
   <a id="BundleSystem_BundleManager_Pin_" data-uid="BundleSystem.BundleManager.Pin*"></a>
-  <h4 id="BundleSystem_BundleManager_Pin__1_BundleSystem_TrackHandle___0__BundleSystem_TrackHandle___0___" data-uid="BundleSystem.BundleManager.Pin``1(BundleSystem.TrackHandle{``0},BundleSystem.TrackHandle{``0}@)">Pin&lt;T&gt;(TrackHandle&lt;T&gt;, ref TrackHandle&lt;T&gt;)</h4>
+  <h4 id="BundleSystem_BundleManager_Pin__1_BundleSystem_TrackHandle___0__Component_BundleSystem_TrackHandle___0___" data-uid="BundleSystem.BundleManager.Pin``1(BundleSystem.TrackHandle{``0},Component,BundleSystem.TrackHandle{``0}@)">Pin&lt;T&gt;(TrackHandle&lt;T&gt;, Component, ref TrackHandle&lt;T&gt;)</h4>
   <div class="markdown level1 summary"><p>Release old track handle and assign new handle.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Pin&lt;T&gt;(this TrackHandle&lt;T&gt; newHandle, ref TrackHandle&lt;T&gt; oldHandle)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void Pin&lt;T&gt;(this TrackHandle&lt;T&gt; newHandle, Component owner, ref TrackHandle&lt;T&gt; oldHandle)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1501,6 +1506,11 @@ Also works in editor</p>
         <td><span class="parametername">newHandle</span></td>
         <td><p>New handle</p>
 </td>
+      </tr>
+      <tr>
+        <td><span class="xref">Component</span></td>
+        <td><span class="parametername">owner</span></td>
+        <td></td>
       </tr>
       <tr>
         <td><a class="xref" href="BundleSystem.TrackHandle-1.html">TrackHandle</a>&lt;T&gt;</td>
@@ -1559,14 +1569,14 @@ Full remote url will be https://www.example.com/mypatch/[BuildTarget]</p>
   
   
   <a id="BundleSystem_BundleManager_TrackExplicit_" data-uid="BundleSystem.BundleManager.TrackExplicit*"></a>
-  <h4 id="BundleSystem_BundleManager_TrackExplicit__2_BundleSystem_TrackHandle___0____1_Component_" data-uid="BundleSystem.BundleManager.TrackExplicit``2(BundleSystem.TrackHandle{``0},``1,Component)">TrackExplicit&lt;TRef, T&gt;(TrackHandle&lt;TRef&gt;, T, Component)</h4>
+  <h4 id="BundleSystem_BundleManager_TrackExplicit__2_BundleSystem_TrackHandle___0____1_" data-uid="BundleSystem.BundleManager.TrackExplicit``2(BundleSystem.TrackHandle{``0},``1)">TrackExplicit&lt;TRef, T&gt;(TrackHandle&lt;TRef&gt;, T)</h4>
   <div class="markdown level1 summary"><p>Track part of loaded asset.
 Used when you explicitely track an asset which does not directly loaded from bundle system.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TrackHandle&lt;T&gt; TrackExplicit&lt;TRef, T&gt;(this TrackHandle&lt;TRef&gt; referenceHandle, T asset, Component newOwner = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static TrackHandle&lt;T&gt; TrackExplicit&lt;TRef, T&gt;(this TrackHandle&lt;TRef&gt; referenceHandle, T asset)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1588,12 +1598,6 @@ Used when you explicitely track an asset which does not directly loaded from bun
         <td><span class="xref">T</span></td>
         <td><span class="parametername">asset</span></td>
         <td><p>Asset to track</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Component</span></td>
-        <td><span class="parametername">newOwner</span></td>
-        <td><p>New owner if specified, shares same owner if not specified</p>
 </td>
       </tr>
     </tbody>

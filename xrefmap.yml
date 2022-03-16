@@ -1551,15 +1551,15 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.LoadAsync
   nameWithType: BundleManager.LoadAsync
-- uid: BundleSystem.BundleManager.LoadAsync``1(Component,System.String,System.String)
-  name: LoadAsync<T>(Component, String, String)
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadAsync__1_Component_System_String_System_String_
-  commentId: M:BundleSystem.BundleManager.LoadAsync``1(Component,System.String,System.String)
-  name.vb: LoadAsync(Of T)(Component, String, String)
-  fullName: BundleSystem.BundleManager.LoadAsync<T>(Component, System.String, System.String)
-  fullName.vb: BundleSystem.BundleManager.LoadAsync(Of T)(Component, System.String, System.String)
-  nameWithType: BundleManager.LoadAsync<T>(Component, String, String)
-  nameWithType.vb: BundleManager.LoadAsync(Of T)(Component, String, String)
+- uid: BundleSystem.BundleManager.LoadAsync``1(System.String,System.String)
+  name: LoadAsync<T>(String, String)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadAsync__1_System_String_System_String_
+  commentId: M:BundleSystem.BundleManager.LoadAsync``1(System.String,System.String)
+  name.vb: LoadAsync(Of T)(String, String)
+  fullName: BundleSystem.BundleManager.LoadAsync<T>(System.String, System.String)
+  fullName.vb: BundleSystem.BundleManager.LoadAsync(Of T)(System.String, System.String)
+  nameWithType: BundleManager.LoadAsync<T>(String, String)
+  nameWithType.vb: BundleManager.LoadAsync(Of T)(String, String)
 - uid: BundleSystem.BundleManager.LoadScene(System.String,LoadSceneMode)
   name: LoadScene(String, LoadSceneMode)
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadScene_System_String_LoadSceneMode_
@@ -1667,33 +1667,33 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.Pin
   nameWithType: BundleManager.Pin
-- uid: BundleSystem.BundleManager.Pin``1(BundleSystem.BundleAsyncRequest{``0},BundleSystem.TrackHandle{``0}@)
-  name: Pin<T>(BundleAsyncRequest<T>, ref TrackHandle<T>)
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Pin__1_BundleSystem_BundleAsyncRequest___0__BundleSystem_TrackHandle___0___
-  commentId: M:BundleSystem.BundleManager.Pin``1(BundleSystem.BundleAsyncRequest{``0},BundleSystem.TrackHandle{``0}@)
-  name.vb: Pin(Of T)(BundleAsyncRequest(Of T), ByRef TrackHandle(Of T))
-  fullName: BundleSystem.BundleManager.Pin<T>(BundleSystem.BundleAsyncRequest<T>, ref BundleSystem.TrackHandle<T>)
-  fullName.vb: BundleSystem.BundleManager.Pin(Of T)(BundleSystem.BundleAsyncRequest(Of T), ByRef BundleSystem.TrackHandle(Of T))
-  nameWithType: BundleManager.Pin<T>(BundleAsyncRequest<T>, ref TrackHandle<T>)
-  nameWithType.vb: BundleManager.Pin(Of T)(BundleAsyncRequest(Of T), ByRef TrackHandle(Of T))
-- uid: BundleSystem.BundleManager.Pin``1(BundleSystem.BundleSyncRequest{``0},BundleSystem.TrackHandle{``0}@)
-  name: Pin<T>(BundleSyncRequest<T>, ref TrackHandle<T>)
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Pin__1_BundleSystem_BundleSyncRequest___0__BundleSystem_TrackHandle___0___
-  commentId: M:BundleSystem.BundleManager.Pin``1(BundleSystem.BundleSyncRequest{``0},BundleSystem.TrackHandle{``0}@)
-  name.vb: Pin(Of T)(BundleSyncRequest(Of T), ByRef TrackHandle(Of T))
-  fullName: BundleSystem.BundleManager.Pin<T>(BundleSystem.BundleSyncRequest<T>, ref BundleSystem.TrackHandle<T>)
-  fullName.vb: BundleSystem.BundleManager.Pin(Of T)(BundleSystem.BundleSyncRequest(Of T), ByRef BundleSystem.TrackHandle(Of T))
-  nameWithType: BundleManager.Pin<T>(BundleSyncRequest<T>, ref TrackHandle<T>)
-  nameWithType.vb: BundleManager.Pin(Of T)(BundleSyncRequest(Of T), ByRef TrackHandle(Of T))
-- uid: BundleSystem.BundleManager.Pin``1(BundleSystem.TrackHandle{``0},BundleSystem.TrackHandle{``0}@)
-  name: Pin<T>(TrackHandle<T>, ref TrackHandle<T>)
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Pin__1_BundleSystem_TrackHandle___0__BundleSystem_TrackHandle___0___
-  commentId: M:BundleSystem.BundleManager.Pin``1(BundleSystem.TrackHandle{``0},BundleSystem.TrackHandle{``0}@)
-  name.vb: Pin(Of T)(TrackHandle(Of T), ByRef TrackHandle(Of T))
-  fullName: BundleSystem.BundleManager.Pin<T>(BundleSystem.TrackHandle<T>, ref BundleSystem.TrackHandle<T>)
-  fullName.vb: BundleSystem.BundleManager.Pin(Of T)(BundleSystem.TrackHandle(Of T), ByRef BundleSystem.TrackHandle(Of T))
-  nameWithType: BundleManager.Pin<T>(TrackHandle<T>, ref TrackHandle<T>)
-  nameWithType.vb: BundleManager.Pin(Of T)(TrackHandle(Of T), ByRef TrackHandle(Of T))
+- uid: BundleSystem.BundleManager.Pin``1(BundleSystem.BundleAsyncRequest{``0},Component,BundleSystem.TrackHandle{``0}@)
+  name: Pin<T>(BundleAsyncRequest<T>, Component, ref TrackHandle<T>)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Pin__1_BundleSystem_BundleAsyncRequest___0__Component_BundleSystem_TrackHandle___0___
+  commentId: M:BundleSystem.BundleManager.Pin``1(BundleSystem.BundleAsyncRequest{``0},Component,BundleSystem.TrackHandle{``0}@)
+  name.vb: Pin(Of T)(BundleAsyncRequest(Of T), Component, ByRef TrackHandle(Of T))
+  fullName: BundleSystem.BundleManager.Pin<T>(BundleSystem.BundleAsyncRequest<T>, Component, ref BundleSystem.TrackHandle<T>)
+  fullName.vb: BundleSystem.BundleManager.Pin(Of T)(BundleSystem.BundleAsyncRequest(Of T), Component, ByRef BundleSystem.TrackHandle(Of T))
+  nameWithType: BundleManager.Pin<T>(BundleAsyncRequest<T>, Component, ref TrackHandle<T>)
+  nameWithType.vb: BundleManager.Pin(Of T)(BundleAsyncRequest(Of T), Component, ByRef TrackHandle(Of T))
+- uid: BundleSystem.BundleManager.Pin``1(BundleSystem.BundleSyncRequest{``0},Component,BundleSystem.TrackHandle{``0}@)
+  name: Pin<T>(BundleSyncRequest<T>, Component, ref TrackHandle<T>)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Pin__1_BundleSystem_BundleSyncRequest___0__Component_BundleSystem_TrackHandle___0___
+  commentId: M:BundleSystem.BundleManager.Pin``1(BundleSystem.BundleSyncRequest{``0},Component,BundleSystem.TrackHandle{``0}@)
+  name.vb: Pin(Of T)(BundleSyncRequest(Of T), Component, ByRef TrackHandle(Of T))
+  fullName: BundleSystem.BundleManager.Pin<T>(BundleSystem.BundleSyncRequest<T>, Component, ref BundleSystem.TrackHandle<T>)
+  fullName.vb: BundleSystem.BundleManager.Pin(Of T)(BundleSystem.BundleSyncRequest(Of T), Component, ByRef BundleSystem.TrackHandle(Of T))
+  nameWithType: BundleManager.Pin<T>(BundleSyncRequest<T>, Component, ref TrackHandle<T>)
+  nameWithType.vb: BundleManager.Pin(Of T)(BundleSyncRequest(Of T), Component, ByRef TrackHandle(Of T))
+- uid: BundleSystem.BundleManager.Pin``1(BundleSystem.TrackHandle{``0},Component,BundleSystem.TrackHandle{``0}@)
+  name: Pin<T>(TrackHandle<T>, Component, ref TrackHandle<T>)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Pin__1_BundleSystem_TrackHandle___0__Component_BundleSystem_TrackHandle___0___
+  commentId: M:BundleSystem.BundleManager.Pin``1(BundleSystem.TrackHandle{``0},Component,BundleSystem.TrackHandle{``0}@)
+  name.vb: Pin(Of T)(TrackHandle(Of T), Component, ByRef TrackHandle(Of T))
+  fullName: BundleSystem.BundleManager.Pin<T>(BundleSystem.TrackHandle<T>, Component, ref BundleSystem.TrackHandle<T>)
+  fullName.vb: BundleSystem.BundleManager.Pin(Of T)(BundleSystem.TrackHandle(Of T), Component, ByRef BundleSystem.TrackHandle(Of T))
+  nameWithType: BundleManager.Pin<T>(TrackHandle<T>, Component, ref TrackHandle<T>)
+  nameWithType.vb: BundleManager.Pin(Of T)(TrackHandle(Of T), Component, ByRef TrackHandle(Of T))
 - uid: BundleSystem.BundleManager.SetBaseRemoteURL(System.String)
   name: SetBaseRemoteURL(String)
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_SetBaseRemoteURL_System_String_
@@ -1714,15 +1714,15 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.TrackExplicit
   nameWithType: BundleManager.TrackExplicit
-- uid: BundleSystem.BundleManager.TrackExplicit``2(BundleSystem.TrackHandle{``0},``1,Component)
-  name: TrackExplicit<TRef, T>(TrackHandle<TRef>, T, Component)
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_TrackExplicit__2_BundleSystem_TrackHandle___0____1_Component_
-  commentId: M:BundleSystem.BundleManager.TrackExplicit``2(BundleSystem.TrackHandle{``0},``1,Component)
-  name.vb: TrackExplicit(Of TRef, T)(TrackHandle(Of TRef), T, Component)
-  fullName: BundleSystem.BundleManager.TrackExplicit<TRef, T>(BundleSystem.TrackHandle<TRef>, T, Component)
-  fullName.vb: BundleSystem.BundleManager.TrackExplicit(Of TRef, T)(BundleSystem.TrackHandle(Of TRef), T, Component)
-  nameWithType: BundleManager.TrackExplicit<TRef, T>(TrackHandle<TRef>, T, Component)
-  nameWithType.vb: BundleManager.TrackExplicit(Of TRef, T)(TrackHandle(Of TRef), T, Component)
+- uid: BundleSystem.BundleManager.TrackExplicit``2(BundleSystem.TrackHandle{``0},``1)
+  name: TrackExplicit<TRef, T>(TrackHandle<TRef>, T)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_TrackExplicit__2_BundleSystem_TrackHandle___0____1_
+  commentId: M:BundleSystem.BundleManager.TrackExplicit``2(BundleSystem.TrackHandle{``0},``1)
+  name.vb: TrackExplicit(Of TRef, T)(TrackHandle(Of TRef), T)
+  fullName: BundleSystem.BundleManager.TrackExplicit<TRef, T>(BundleSystem.TrackHandle<TRef>, T)
+  fullName.vb: BundleSystem.BundleManager.TrackExplicit(Of TRef, T)(BundleSystem.TrackHandle(Of TRef), T)
+  nameWithType: BundleManager.TrackExplicit<TRef, T>(TrackHandle<TRef>, T)
+  nameWithType.vb: BundleManager.TrackExplicit(Of TRef, T)(TrackHandle(Of TRef), T)
 - uid: BundleSystem.BundleManager.TrackInstanceExplicit*
   name: TrackInstanceExplicit
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_TrackInstanceExplicit_
@@ -1836,14 +1836,14 @@ references:
   fullName.vb: BundleSystem.BundleSyncRequest(Of T).Handle
   nameWithType: BundleSyncRequest<T>.Handle
   nameWithType.vb: BundleSyncRequest(Of T).Handle
-- uid: BundleSystem.BundleSyncRequest`1.Pin
-  name: Pin()
-  href: api/BundleSystem.BundleSyncRequest-1.html#BundleSystem_BundleSyncRequest_1_Pin
-  commentId: M:BundleSystem.BundleSyncRequest`1.Pin
-  fullName: BundleSystem.BundleSyncRequest<T>.Pin()
-  fullName.vb: BundleSystem.BundleSyncRequest(Of T).Pin()
-  nameWithType: BundleSyncRequest<T>.Pin()
-  nameWithType.vb: BundleSyncRequest(Of T).Pin()
+- uid: BundleSystem.BundleSyncRequest`1.Pin(Component)
+  name: Pin(Component)
+  href: api/BundleSystem.BundleSyncRequest-1.html#BundleSystem_BundleSyncRequest_1_Pin_Component_
+  commentId: M:BundleSystem.BundleSyncRequest`1.Pin(Component)
+  fullName: BundleSystem.BundleSyncRequest<T>.Pin(Component)
+  fullName.vb: BundleSystem.BundleSyncRequest(Of T).Pin(Component)
+  nameWithType: BundleSyncRequest<T>.Pin(Component)
+  nameWithType.vb: BundleSyncRequest(Of T).Pin(Component)
 - uid: BundleSystem.BundleSyncRequest`1.Pin*
   name: Pin
   href: api/BundleSystem.BundleSyncRequest-1.html#BundleSystem_BundleSyncRequest_1_Pin_
@@ -1895,14 +1895,14 @@ references:
   fullName.vb: BundleSystem.BundleSyncRequests(Of T).Handles
   nameWithType: BundleSyncRequests<T>.Handles
   nameWithType.vb: BundleSyncRequests(Of T).Handles
-- uid: BundleSystem.BundleSyncRequests`1.Pin
-  name: Pin()
-  href: api/BundleSystem.BundleSyncRequests-1.html#BundleSystem_BundleSyncRequests_1_Pin
-  commentId: M:BundleSystem.BundleSyncRequests`1.Pin
-  fullName: BundleSystem.BundleSyncRequests<T>.Pin()
-  fullName.vb: BundleSystem.BundleSyncRequests(Of T).Pin()
-  nameWithType: BundleSyncRequests<T>.Pin()
-  nameWithType.vb: BundleSyncRequests(Of T).Pin()
+- uid: BundleSystem.BundleSyncRequests`1.Pin(Component)
+  name: Pin(Component)
+  href: api/BundleSystem.BundleSyncRequests-1.html#BundleSystem_BundleSyncRequests_1_Pin_Component_
+  commentId: M:BundleSystem.BundleSyncRequests`1.Pin(Component)
+  fullName: BundleSystem.BundleSyncRequests<T>.Pin(Component)
+  fullName.vb: BundleSystem.BundleSyncRequests(Of T).Pin(Component)
+  nameWithType: BundleSyncRequests<T>.Pin(Component)
+  nameWithType.vb: BundleSyncRequests(Of T).Pin(Component)
 - uid: BundleSystem.BundleSyncRequests`1.Pin*
   name: Pin
   href: api/BundleSystem.BundleSyncRequests-1.html#BundleSystem_BundleSyncRequests_1_Pin_
