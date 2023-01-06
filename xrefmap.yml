@@ -1532,15 +1532,15 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.Load
   nameWithType: BundleManager.Load
-- uid: BundleSystem.BundleManager.Load``1(Component,System.String,System.String)
-  name: Load<T>(Component, String, String)
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Load__1_Component_System_String_System_String_
-  commentId: M:BundleSystem.BundleManager.Load``1(Component,System.String,System.String)
-  name.vb: Load(Of T)(Component, String, String)
-  fullName: BundleSystem.BundleManager.Load<T>(Component, System.String, System.String)
-  fullName.vb: BundleSystem.BundleManager.Load(Of T)(Component, System.String, System.String)
-  nameWithType: BundleManager.Load<T>(Component, String, String)
-  nameWithType.vb: BundleManager.Load(Of T)(Component, String, String)
+- uid: BundleSystem.BundleManager.Load``1(System.String,System.String)
+  name: Load<T>(String, String)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Load__1_System_String_System_String_
+  commentId: M:BundleSystem.BundleManager.Load``1(System.String,System.String)
+  name.vb: Load(Of T)(String, String)
+  fullName: BundleSystem.BundleManager.Load<T>(System.String, System.String)
+  fullName.vb: BundleSystem.BundleManager.Load(Of T)(System.String, System.String)
+  nameWithType: BundleManager.Load<T>(String, String)
+  nameWithType.vb: BundleManager.Load(Of T)(String, String)
 - uid: BundleSystem.BundleManager.LoadAll*
   name: LoadAll
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadAll_
@@ -1548,15 +1548,15 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.LoadAll
   nameWithType: BundleManager.LoadAll
-- uid: BundleSystem.BundleManager.LoadAll``1(Component,System.String)
-  name: LoadAll<T>(Component, String)
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadAll__1_Component_System_String_
-  commentId: M:BundleSystem.BundleManager.LoadAll``1(Component,System.String)
-  name.vb: LoadAll(Of T)(Component, String)
-  fullName: BundleSystem.BundleManager.LoadAll<T>(Component, System.String)
-  fullName.vb: BundleSystem.BundleManager.LoadAll(Of T)(Component, System.String)
-  nameWithType: BundleManager.LoadAll<T>(Component, String)
-  nameWithType.vb: BundleManager.LoadAll(Of T)(Component, String)
+- uid: BundleSystem.BundleManager.LoadAll``1(System.String)
+  name: LoadAll<T>(String)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadAll__1_System_String_
+  commentId: M:BundleSystem.BundleManager.LoadAll``1(System.String)
+  name.vb: LoadAll(Of T)(String)
+  fullName: BundleSystem.BundleManager.LoadAll<T>(System.String)
+  fullName.vb: BundleSystem.BundleManager.LoadAll(Of T)(System.String)
+  nameWithType: BundleManager.LoadAll<T>(String)
+  nameWithType.vb: BundleManager.LoadAll(Of T)(String)
 - uid: BundleSystem.BundleManager.LoadAsync*
   name: LoadAsync
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadAsync_
@@ -1606,15 +1606,15 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.LoadWithSubAssets
   nameWithType: BundleManager.LoadWithSubAssets
-- uid: BundleSystem.BundleManager.LoadWithSubAssets``1(Component,System.String,System.String)
-  name: LoadWithSubAssets<T>(Component, String, String)
-  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadWithSubAssets__1_Component_System_String_System_String_
-  commentId: M:BundleSystem.BundleManager.LoadWithSubAssets``1(Component,System.String,System.String)
-  name.vb: LoadWithSubAssets(Of T)(Component, String, String)
-  fullName: BundleSystem.BundleManager.LoadWithSubAssets<T>(Component, System.String, System.String)
-  fullName.vb: BundleSystem.BundleManager.LoadWithSubAssets(Of T)(Component, System.String, System.String)
-  nameWithType: BundleManager.LoadWithSubAssets<T>(Component, String, String)
-  nameWithType.vb: BundleManager.LoadWithSubAssets(Of T)(Component, String, String)
+- uid: BundleSystem.BundleManager.LoadWithSubAssets``1(System.String,System.String)
+  name: LoadWithSubAssets<T>(String, String)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LoadWithSubAssets__1_System_String_System_String_
+  commentId: M:BundleSystem.BundleManager.LoadWithSubAssets``1(System.String,System.String)
+  name.vb: LoadWithSubAssets(Of T)(String, String)
+  fullName: BundleSystem.BundleManager.LoadWithSubAssets<T>(System.String, System.String)
+  fullName.vb: BundleSystem.BundleManager.LoadWithSubAssets(Of T)(System.String, System.String)
+  nameWithType: BundleManager.LoadWithSubAssets<T>(String, String)
+  nameWithType.vb: BundleManager.LoadWithSubAssets(Of T)(String, String)
 - uid: BundleSystem.BundleManager.LocalBundleRuntimePath
   name: LocalBundleRuntimePath
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_LocalBundleRuntimePath
