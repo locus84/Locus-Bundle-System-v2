@@ -1512,6 +1512,19 @@ references:
   isSpec: "True"
   fullName: BundleSystem.BundleManager.IsAssetExist
   nameWithType: BundleManager.IsAssetExist
+- uid: BundleSystem.BundleManager.IsSceneExist(System.String)
+  name: IsSceneExist(String)
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_IsSceneExist_System_String_
+  commentId: M:BundleSystem.BundleManager.IsSceneExist(System.String)
+  fullName: BundleSystem.BundleManager.IsSceneExist(System.String)
+  nameWithType: BundleManager.IsSceneExist(String)
+- uid: BundleSystem.BundleManager.IsSceneExist*
+  name: IsSceneExist
+  href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_IsSceneExist_
+  commentId: Overload:BundleSystem.BundleManager.IsSceneExist
+  isSpec: "True"
+  fullName: BundleSystem.BundleManager.IsSceneExist
+  nameWithType: BundleManager.IsSceneExist
 - uid: BundleSystem.BundleManager.Load*
   name: Load
   href: api/BundleSystem.BundleManager.html#BundleSystem_BundleManager_Load_
