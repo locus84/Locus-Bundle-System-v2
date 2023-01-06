@@ -235,6 +235,24 @@ namespace BundleSystem
                 return result;
             }
         }
+        
+        public static bool IsSceneExist(string sceneNameOrPath)
+        {
+            //check nameOrPathExist
+            if (!s_SceneInfos.TryGetValue(sceneNameOrPath, out var info)) return false;
+            
+#if UNITY_EDITOR
+            if (UseAssetDatabaseMap) return true;
+#endif
+            //check if disposed
+            if(info.LoadedBundle.IsDisposed)
+            {
+                s_SceneInfos.Remove(sceneNameOrPath);
+                return false;
+            }
+
+            return true;
+        }
 
         private static bool TryGetSceneInfo(string sceneNameOrPath, out SceneInfo info)
         {
