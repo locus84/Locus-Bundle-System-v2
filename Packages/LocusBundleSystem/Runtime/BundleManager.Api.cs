@@ -8,7 +8,7 @@ namespace BundleSystem
 {
     public static partial class BundleManager
     {
-        public static BundleSyncRequests<T> LoadAll<T>(this Component owner, string bundleName) where T : Object
+        public static BundleSyncRequests<T> LoadAll<T>(string bundleName) where T : Object
         {
 #if UNITY_EDITOR
             if (UseAssetDatabaseMap)
@@ -29,7 +29,7 @@ namespace BundleSystem
                 }
 
                 var loadedAssets = foundList.ToArray();
-                var handles = TrackObjects<T>(owner, loadedAssets, foundBundle);
+                var handles = TrackObjects<T>(loadedAssets, foundBundle);
                 return new BundleSyncRequests<T>(loadedAssets, handles);
             }
             else
@@ -38,13 +38,13 @@ namespace BundleSystem
                 if (!Initialized) throw new System.Exception("BundleManager not initialized, try initialize first!");
                 if (!s_AssetBundles.TryGetValue(bundleName, out var foundBundle)) return BundleSyncRequests<T>.Empty;
                 var loadedAssets = foundBundle.Bundle.LoadAllAssets<T>();
-                var handles = TrackObjects<T>(owner, loadedAssets, foundBundle);
+                var handles = TrackObjects<T>(loadedAssets, foundBundle);
                 return new BundleSyncRequests<T>(loadedAssets, handles);
             }
         }
 
 
-        public static BundleSyncRequest<T> Load<T>(this Component owner, string bundleName, string assetName) where T : UnityEngine.Object
+        public static BundleSyncRequest<T> Load<T>(string bundleName, string assetName) where T : UnityEngine.Object
         {
 #if UNITY_EDITOR
             if (UseAssetDatabaseMap)
@@ -69,7 +69,7 @@ namespace BundleSystem
         }
 
 
-        public static BundleSyncRequests<T> LoadWithSubAssets<T>(this Component owner, string bundleName, string assetName) where T : UnityEngine.Object
+        public static BundleSyncRequests<T> LoadWithSubAssets<T>(string bundleName, string assetName) where T : UnityEngine.Object
         {
 #if UNITY_EDITOR
             if (UseAssetDatabaseMap)
@@ -80,7 +80,7 @@ namespace BundleSystem
                 if (string.IsNullOrEmpty(assetPath)) return BundleSyncRequests<T>.Empty;
                 var assets = UnityEditor.AssetDatabase.LoadAllAssetsAtPath(assetPath);
                 var loadedAssets = assets.Select(a => a as T).Where(a => a != null).ToArray();
-                var handles = TrackObjects<T>(owner, loadedAssets, foundBundle);
+                var handles = TrackObjects<T>(loadedAssets, foundBundle);
                 return new BundleSyncRequests<T>(loadedAssets, handles);
             }
             else
@@ -89,7 +89,7 @@ namespace BundleSystem
                 if (!Initialized) throw new System.Exception("BundleManager not initialized, try initialize first!");
                 if (!s_AssetBundles.TryGetValue(bundleName, out var foundBundle)) return BundleSyncRequests<T>.Empty;
                 var loadedAssets = foundBundle.Bundle.LoadAssetWithSubAssets<T>(assetName);
-                var handles = TrackObjects<T>(owner, loadedAssets, foundBundle);
+                var handles = TrackObjects<T>(loadedAssets, foundBundle);
                 return new BundleSyncRequests<T>(loadedAssets, handles);
             }
         }

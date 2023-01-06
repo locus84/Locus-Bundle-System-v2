@@ -272,9 +272,8 @@ namespace BundleSystem
             return new TrackHandle<T>(trackId);
         }
 
-        private static TrackHandle<T>[] TrackObjects<T>(Component owner, Object[] assets, LoadedBundle loadedBundle) where T : Object
+        private static TrackHandle<T>[] TrackObjects<T>(Object[] assets, LoadedBundle loadedBundle) where T : Object
         {
-            if(!owner.gameObject.scene.IsValid()) throw new System.Exception("Owner must be scene object");
             var result = new TrackHandle<T>[assets.Length];
             for(int i = 0; i < assets.Length; i++)
             {
@@ -283,7 +282,6 @@ namespace BundleSystem
                 s_TrackInfoDict.Add(trackId, new TrackInfo()
                 {
                     LoadedBundle = loadedBundle,
-                    Owner = owner,
                     Asset = assets[i],
                     LoadTime = Time.realtimeSinceStartup,
                     Status = TrackStatus.AutoReleasable

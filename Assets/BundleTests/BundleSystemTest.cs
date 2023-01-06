@@ -84,7 +84,7 @@ namespace Tests
         public IEnumerator SyncApiTest()
         {
             //simple load
-            var texReq = m_Owner.Load<Texture>("Local", "TestTexture_Local");
+            var texReq = BundleManager.Load<Texture>("Local", "TestTexture_Local");
             Assert.NotNull(texReq.Asset);
             texReq.Dispose();
             BundleManager.UpdateImmediate();
@@ -110,7 +110,7 @@ namespace Tests
         {
             //sync pin empty
             {
-                var texReq = m_Owner.Load<Texture>("Local", "Unknown");
+                var texReq = BundleManager.Load<Texture>("Local", "Unknown");
                 //try pin right after load
                 texReq.Pin(m_Owner);
                 BundleManager.UpdateImmediate();
@@ -119,7 +119,7 @@ namespace Tests
 
             //sync dispose empty
             {
-                var texReq = m_Owner.Load<Texture>("Local", "Unknown");
+                var texReq = BundleManager.Load<Texture>("Local", "Unknown");
                 //try dispose right after load loading
                 texReq.Dispose();
                 BundleManager.UpdateImmediate();
