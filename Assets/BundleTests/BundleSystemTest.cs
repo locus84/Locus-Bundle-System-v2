@@ -371,6 +371,62 @@ namespace Tests
                 while(BundleManager.GetReloadingBundleCount() != 0) yield return null;
                 //after two seconds, it must be auto-released
                 Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+
+                //reload ref_B
+            }
+
+            Assert.IsTrue(handler.Success);
+			Application.logMessageReceivedThreaded -= handler.LogCallback;
+        }
+
+        //fix test for autoLoadAssetbundle=false
+        [UnityTest]
+        public IEnumerator SharedReferenceTest2()
+        {
+            var handler = new TestLogHandler();
+			Application.logMessageReceivedThreaded -= handler.LogCallback;   
+			Application.logMessageReceivedThreaded += handler.LogCallback;
+
+            //auto release
+            {
+                Debug.Log("Start Ref2_A");
+                var refAssetReq = BundleManager.LoadAsync<GameObject>("Ref2_A", "Ref2_A");
+
+                yield return refAssetReq;
+
+                Assert.NotNull(refAssetReq.Asset);
+                var inst = refAssetReq.Handle.Instantiate();
+                //reload ref2_A
+                yield return new WaitForSeconds(10f);
+
+                GameObject.Destroy(inst);
+                yield return new WaitForSeconds(1f);
+                BundleManager.UpdateImmediate();
+                //wait for reloading done
+                while(BundleManager.GetReloadingBundleCount() != 0) yield return null;
+                //after two seconds, it must be auto-released
+                Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
+            }
+
+            //auto release
+            {       
+                Debug.Log("Start Ref2_B");
+                var refAssetReq = BundleManager.LoadAsync<GameObject>("Ref2_B", "Ref2_B");
+                yield return refAssetReq;
+                
+                Assert.NotNull(refAssetReq.Asset);
+                var inst = refAssetReq.Handle.Instantiate();
+
+                //reload ref2_A
+                yield return new WaitForSeconds(10f);
+
+                GameObject.Destroy(inst);
+                yield return new WaitForSeconds(1f);
+                BundleManager.UpdateImmediate();
+                //wait for reloading done
+                while(BundleManager.GetReloadingBundleCount() != 0) yield return null;
+                //after two seconds, it must be auto-released
+                Assert.IsTrue(BundleManager.GetTrackingSnapshot().Count == 0);
                 //reload ref_B
             }
 

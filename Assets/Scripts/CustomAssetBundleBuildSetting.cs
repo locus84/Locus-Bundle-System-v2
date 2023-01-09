@@ -18,6 +18,9 @@ public class CustomAssetBundleBuildSetting : AssetBundleBuildSetting
         AddFilesInFolder("Ref_A", "Assets/TestRemoteResources/Ref_A", false, true, true, bundleSettings);
         AddFilesInFolder("Ref_B", "Assets/TestRemoteResources/Ref_B", false, true, true, bundleSettings);
         AddFilesInFolder("Ref_Shared", "Assets/TestRemoteResources/Ref_Shared", false, true, true, bundleSettings);
+        AddFilesInFolder("Ref2_A", "Assets/TestRemoteResources/Ref2_A", false, true, true, bundleSettings);
+        AddFilesInFolder("Ref2_B", "Assets/TestRemoteResources/Ref2_B", false, true, true, bundleSettings);
+        AddFilesInFolder("Ref2_Shared", "Assets/TestRemoteResources/Ref2_Shared", false, true, true, bundleSettings);
 
         return bundleSettings;
     }

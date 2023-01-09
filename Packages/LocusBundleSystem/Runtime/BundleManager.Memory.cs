@@ -64,11 +64,8 @@ namespace BundleSystem
         static Object s_LoadingObjectDummy = new Texture2D(0,0) { name = "LoadingDummy" };
         static IndexedDictionary<int, TrackInfo> s_TrackInfoDict = new IndexedDictionary<int, TrackInfo>(10);
         static Dictionary<int, int> s_TrackInstanceTransformDict = new Dictionary<int, int>(10);
-
-#if UNITY_EDITOR
-        //bundle ref count for editor
         private static Dictionary<string, int> s_BundleRefCounts = new Dictionary<string, int>(10);
-#endif
+
         /// <summary>
         /// Get current tracking information dictionary
         /// </summary>
