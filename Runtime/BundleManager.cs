@@ -18,7 +18,6 @@ namespace BundleSystem
         public bool IsLocalBundle;
         public string LoadPath;
         public UnityWebRequest CachedRequest;
-        public ReloadGroup Group;
         public int ReferenceCount;
         public bool IsReloading = false;
         public bool IsDisposed { get; private set; } = false;
@@ -194,7 +193,6 @@ namespace BundleSystem
             s_TrackInstanceTransformDict.Clear();
             s_SceneHandles.Clear();
             s_SceneRootObjectCache.Clear();
-            s_ReloadGroupDict.Clear();
             s_LastLoadedScene = default;
 
             s_CurrentReloadingCount = default;
@@ -360,11 +358,7 @@ namespace BundleSystem
 
             if (LogMessages) Debug.Log($"Initialize Success \nLocal URL : {LocalURL}");
             
-            if(GlobalBundleHash != localManifest.GlobalHashString)
-            {
-                RefreshReloadGroup(localManifest);
-                GlobalBundleHash = localManifest.GlobalHashString;
-            }
+            GlobalBundleHash = localManifest.GlobalHashString;
 
             //increase version
             s_InGameIncrementalVersion++;
@@ -626,20 +620,8 @@ namespace BundleSystem
             s_InGameIncrementalVersion = operation.Version;
             Manifest = operation.Manifest;
 
-            if(GlobalBundleHash != operation.Manifest.GlobalHashString)
-            {
-                RefreshReloadGroup(operation.Manifest);
-                GlobalBundleHash = operation.Manifest.GlobalHashString;
-            }
-            else
-            {
-                //use existing groups for added bundles as they have no group atm
-                foreach(var bundle in operation.BundlesToAddOrReplace)
-                {
-                    bundle.Group = s_ReloadGroupDict[bundle.Name];
-                }
-            }
-
+            GlobalBundleHash = operation.Manifest.GlobalHashString;
+            
             return true;
         }
 

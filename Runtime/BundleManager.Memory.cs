@@ -64,7 +64,11 @@ namespace BundleSystem
         static Object s_LoadingObjectDummy = new Texture2D(0,0) { name = "LoadingDummy" };
         static IndexedDictionary<int, TrackInfo> s_TrackInfoDict = new IndexedDictionary<int, TrackInfo>(10);
         static Dictionary<int, int> s_TrackInstanceTransformDict = new Dictionary<int, int>(10);
-        
+
+#if UNITY_EDITOR
+        //bundle ref count for editor
+        private static Dictionary<string, int> s_BundleRefCounts = new Dictionary<string, int>(10);
+#endif
         /// <summary>
         /// Get current tracking information dictionary
         /// </summary>
@@ -303,48 +307,60 @@ namespace BundleSystem
 
         private static void RetainBundle(LoadedBundle bundle, int count = 1)
         {
-            if(LogMessages) Debug.Log($"Bundle Reference Count {bundle.Name} += {count}");
-            bundle.ReferenceCount += count;
 #if UNITY_EDITOR
-            if(UseAssetDatabaseMap) return;
-#endif
-            if(bundle.Group.IsInvalid) return;
-            bundle.Group.ReferenceCount += count;
-            if(bundle.Group.IsDirty) return; //already dirty
-
-            if(LogMessages) Debug.Log($"ReloadGroup {bundle.Group.Index} gets dirty");
-
-            bundle.Group.IsDirty = true;
-            for(int i = 0; i < bundle.Group.Bundles.Count; i++)
+            if(UseAssetDatabaseMap)
             {
-                s_Helper.StartCoroutine(CoReloadBundle(bundle.Group.Bundles[i]));
+                if (!s_BundleRefCounts.ContainsKey(bundle.Name)) s_BundleRefCounts[bundle.Name] = count;
+                else s_BundleRefCounts[bundle.Name] += count;
+            }
+            else
+#endif
+            {
+                for (int i = 0; i < bundle.Dependencies.Count; i++)
+                {
+                    var refBundleName = bundle.Dependencies[i];
+                    var refBundle = s_AssetBundles[refBundleName];
+
+                    if (!s_BundleRefCounts.ContainsKey(refBundleName)) 
+                    {
+                        s_BundleRefCounts[refBundleName] = count;
+                    }
+                    else s_BundleRefCounts[refBundleName] += count;
+
+                    if(!refBundle.IsReloading && refBundle.CachedRequest == null)
+                    {
+                        s_Helper.StartCoroutine(CoReloadBundle(refBundle));
+                    }
+                }
             }
         }
 
         private static void ReleaseBundle(LoadedBundle bundle, int count = 1)
         {
-            if(LogMessages) Debug.Log($"Bundle Reference Count {bundle.Name} -= {count}");
-            bundle.ReferenceCount -= count;
 #if UNITY_EDITOR
-            if(UseAssetDatabaseMap) return;
-#endif
-            if(bundle.Group.IsInvalid) return;
-            bundle.Group.ReferenceCount -= count;
-            if(!bundle.Group.IsDirty || bundle.Group.ReferenceCount > 0) return;
-
-            if(LogMessages) Debug.Log($"ReloadGroup {bundle.Group.Index} reloading...");
-            
-            for(int i = 0; i < bundle.Group.Bundles.Count; i++)
+            if(UseAssetDatabaseMap)
             {
-                var refBundle = bundle.Group.Bundles[i];
-                if(refBundle.CachedRequest == null) continue;
-                refBundle.Bundle.Unload(true);
-                refBundle.Bundle = DownloadHandlerAssetBundle.GetContent(refBundle.CachedRequest);
-                //stored request needs to be disposed
-                refBundle.CachedRequest.Dispose();
-                refBundle.CachedRequest = null;
+                var nextCount = s_BundleRefCounts[bundle.Name] - count;
+                if(nextCount == 0) s_BundleRefCounts.Remove(bundle.Name);
+                else s_BundleRefCounts[bundle.Name] = nextCount;
             }
-            bundle.Group.IsDirty = false;
+            else
+#endif
+            {
+                for (int i = 0; i < bundle.Dependencies.Count; i++)
+                {
+                    var refBundleName = bundle.Dependencies[i];
+                    if (s_BundleRefCounts.ContainsKey(refBundleName))
+                    {
+                        s_BundleRefCounts[refBundleName] -= count;
+                        if (s_BundleRefCounts[refBundleName] <= 0) 
+                        {
+                            s_BundleRefCounts.Remove(refBundleName);
+                            ApplyReloadedBundle(refBundleName);
+                        }
+                    }
+                }
+            }
         }
 
         static Dictionary<int, LoadedBundle> s_SceneHandles = new Dictionary<int, LoadedBundle>(); 
@@ -428,6 +444,31 @@ namespace BundleSystem
                 ReleaseBundle(kv.Value.LoadedBundle);
             }
         }
+        
+        private static void ApplyReloadedBundle(string bundleName)
+        {
+            //find current active bundle and try reload
+            if(!s_AssetBundles.TryGetValue(bundleName, out var loadedBundle))
+            {
+                if (LogMessages) Debug.Log($"BundleName {bundleName} is no longer exist");
+                return;
+            }
+
+            //the reference count if from previous dispsed bundles and we don't need to reload
+            //before it gets dirty by Retainbundle function
+            if(loadedBundle.CachedRequest == null)
+            {
+                if (LogMessages) Debug.Log($"BundleName {bundleName} is still new");
+                return;
+            }
+
+            loadedBundle.Bundle.Unload(true);
+            loadedBundle.Bundle = DownloadHandlerAssetBundle.GetContent(loadedBundle.CachedRequest);
+            //stored request needs to be disposed
+            loadedBundle.CachedRequest.Dispose();
+            loadedBundle.CachedRequest = null;
+            if (LogMessages) Debug.Log($"Reloaded bundle {bundleName}");
+        }
 
         //reload related
         static int s_CurrentReloadingCount;
@@ -446,6 +487,9 @@ namespace BundleSystem
 
             var bundleReq = loadedBundle.IsLocalBundle? UnityWebRequestAssetBundle.GetAssetBundle(loadedBundle.LoadPath) : 
                 UnityWebRequestAssetBundle.GetAssetBundle(loadedBundle.LoadPath, new CachedAssetBundle(bundleName, loadedBundle.Hash));
+
+            //prevent autoload as it searches deps when loaded
+            ((DownloadHandlerAssetBundle)bundleReq.downloadHandler).autoLoadAssetBundle = false;
 
             yield return bundleReq.SendWebRequest();
 
