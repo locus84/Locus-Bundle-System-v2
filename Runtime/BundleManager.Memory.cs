@@ -323,11 +323,6 @@ namespace BundleSystem
                         s_BundleRefCounts[refBundleName] = count;
                     }
                     else s_BundleRefCounts[refBundleName] += count;
-
-                    if(!refBundle.IsReloading && refBundle.CachedRequest == null)
-                    {
-                        s_Helper.StartCoroutine(CoReloadBundle(refBundle));
-                    }
                 }
             }
         }
@@ -353,7 +348,7 @@ namespace BundleSystem
                         if (s_BundleRefCounts[refBundleName] <= 0) 
                         {
                             s_BundleRefCounts.Remove(refBundleName);
-                            ApplyReloadedBundle(refBundleName);
+                            ReloadOrApplyReloadedBundle(refBundleName);
                         }
                     }
                 }
@@ -442,7 +437,7 @@ namespace BundleSystem
             }
         }
         
-        private static void ApplyReloadedBundle(string bundleName)
+        private static void ReloadOrApplyReloadedBundle(string bundleName)
         {
             //find current active bundle and try reload
             if(!s_AssetBundles.TryGetValue(bundleName, out var loadedBundle))
@@ -451,11 +446,13 @@ namespace BundleSystem
                 return;
             }
 
-            //the reference count if from previous dispsed bundles and we don't need to reload
-            //before it gets dirty by Retainbundle function
+            //it'll be re measured after reloading is done
+            if(loadedBundle.IsReloading) return;
+
+            //if not reloading and cached request is null, then here we do it
             if(loadedBundle.CachedRequest == null)
             {
-                if (LogMessages) Debug.Log($"BundleName {bundleName} is still new");
+                s_Helper.StartCoroutine(CoReloadBundle(loadedBundle));
                 return;
             }
 
