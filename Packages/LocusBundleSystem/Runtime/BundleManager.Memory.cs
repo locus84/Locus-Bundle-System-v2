@@ -339,7 +339,7 @@ namespace BundleSystem
                 {
                     var refBundleName = bundle.Dependencies[i];
                     var prevCount = s_BundleRefCounts.TryGetValue(refBundleName, out var found)? found : 0;
-                    var nextCount = prevCount - found;
+                    var nextCount = prevCount - count;
                     s_BundleRefCounts[refBundleName] = nextCount;
 
                     //don't need to reload
