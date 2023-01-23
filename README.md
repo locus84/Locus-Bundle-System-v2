@@ -1,4 +1,4 @@
-# Locus Bundle System For Unity
+# Locus Bundle System For Unity - Version 2
 
 [![Discord](https://img.shields.io/discord/865867751813414933.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/kfVzV7qaEF)
 
@@ -14,6 +14,13 @@ So here is my own bundle system that also utilizes Scriptable Build Pipline and 
 This is build up to support very common senarios I've experienced.\
 But you can extend this on purpose.(just fork and make modifications)
 
+
+**What's the differences compared to version 1**
+
+I highly focused on memory management.
+If you load an asset, the asset will be released automatically after a few seconds later.
+If you load an asset, and you need to prevent the asset to be unloaded, you need to set an owner for the asset.
+If you instantiate an asset, the asset(gameobject) will owned by instantiated gameobject so it'll be released after the gameobject has been destroyed.
 
 \
 **Synchronized API Support!**
