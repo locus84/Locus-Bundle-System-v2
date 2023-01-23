@@ -10,7 +10,6 @@ namespace BundleSystem
         {
             public int CurrentIndex { get; private set; } = -1;
 
-
             List<KeyValuePair<TKey, TValue>> m_InnerList;
             Dictionary<TKey, int> m_KeyDictionary;
 
