@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Locus Bundle System For Unity | LocusBundleSystemV2 documentation </title>
+    <title>Locus Bundle System For Unity - Version 2 | LocusBundleSystemV2 documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Locus Bundle System For Unity | LocusBundleSystemV2 documentation ">
+    <meta name="title" content="Locus Bundle System For Unity - Version 2 | LocusBundleSystemV2 documentation ">
     <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="favicon.ico">
@@ -70,7 +70,7 @@
         <div class="article row grid">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="locus-bundle-system-for-unity">Locus Bundle System For Unity</h1>
+<h1 id="locus-bundle-system-for-unity---version-2">Locus Bundle System For Unity - Version 2</h1>
 
 <p><a href="https://discord.gg/kfVzV7qaEF"><img src="https://img.shields.io/discord/865867751813414933.svg?label=&amp;logo=discord&amp;logoColor=ffffff&amp;color=7389D8&amp;labelColor=6A7EC2" alt="Discord"></a></p>
 <p><a href="https://forum.unity.com/threads/simpler-alternative-to-addressables.820998">Unity Forum Thread</a></p>
@@ -81,6 +81,11 @@ And also, there&#39;s no synchronized api which is familier to <strong>Resource.
 <p>So here is my own bundle system that also utilizes Scriptable Build Pipline and it provides synchronized API.</p>
 <p>This is build up to support very common senarios I&#39;ve experienced.\
 But you can extend this on purpose.(just fork and make modifications)</p>
+<p><strong>What&#39;s the differences compared to version 1</strong></p>
+<p>I highly focused on memory management.
+If you load an asset, the asset will be released automatically after a few seconds later.
+If you load an asset, and you need to prevent the asset to be unloaded, you need to set an owner for the asset.
+If you instantiate an asset, the asset(gameobject) will owned by instantiated gameobject so it&#39;ll be released after the gameobject has been destroyed.</p>
 <p>\
 <strong>Synchronized API Support!</strong></p>
 <p>Main pros of Unity Addressables system is memory management.\

@@ -2,193 +2,193 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.AssetBundleBuilder.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.AssetBundleBuildManifest.BundleInfo.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.AssetBundleBuildManifest.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.AssetBundleBuildProcessors.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.AssetBundleBuildSetting.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.AssetBundleTrackingVisualizer.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.AssetDependencyTree.Context.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.AssetDependencyTree.Node.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.AssetDependencyTree.ProcessResult.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.AssetDependencyTree.RootNode.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.AssetDependencyTree.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.BundleAsyncOperation.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.BundleAsyncOperation-1.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.BundleAsyncOperationBase.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.BundleAsyncRequest-1.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.BundleAsyncSceneRequest.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.BundleDonwloadAsyncOperation.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.BundleErrorCode.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.BundleManager.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.BundleSetting.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.BundleSyncRequest-1.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.BundleSyncRequests-1.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.IAwaiter-1.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.TrackHandle-1.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.TrackInfo.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.TrackStatus.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.Utility.AssetIncludePredicate.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.Utility.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/api/BundleSystem.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/index.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/manual/coniunctis.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://locus84.github.io/Locus-Bundle-System-v2/manual/etiam.html</loc>
-    <lastmod>2023-01-23T10:13:47+00:00</lastmod>
+    <lastmod>2023-01-23T12:04:27+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
