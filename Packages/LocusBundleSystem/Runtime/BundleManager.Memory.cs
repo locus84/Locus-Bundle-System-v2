@@ -64,8 +64,8 @@ namespace BundleSystem
         static Object s_LoadingObjectDummy = new Texture2D(0,0) { name = "LoadingDummy" };
         static IndexedDictionary<int, TrackInfo> s_TrackInfoDict = new IndexedDictionary<int, TrackInfo>(10);
         static Dictionary<int, int> s_TrackInstanceTransformDict = new Dictionary<int, int>(10);
-        private static IndexedDictionary<string, int> s_BundleRefCounts = new IndexedDictionary<string, int>(10);
-        private static HashSet<string> s_Releaseable = new HashSet<string>();
+        private static Dictionary<string, int> s_BundleRefCounts = new Dictionary<string, int>(10);
+        private static HashSet<string> s_ReleaseableBundles = new HashSet<string>();
 
         /// <summary>
         /// Get current tracking information dictionary
@@ -316,9 +316,17 @@ namespace BundleSystem
             {
                 for (int i = 0; i < bundle.Dependencies.Count; i++)
                 {
-                    var refBundleName = bundle.Dependencies[i];
-                    var prevCount = s_BundleRefCounts.TryGetValue(refBundleName, out var found)? found : 0;
-                    s_BundleRefCounts[refBundleName] = found + count;
+                    var refBundleName = bundle.Dependencies[i];                    
+                    if(s_BundleRefCounts.TryGetValue(refBundleName, out var found))
+                    {
+                        s_BundleRefCounts[refBundleName] = found + count;
+                    }
+                    else
+                    {
+                        s_ReleaseableBundles.Remove(refBundleName);
+                        s_BundleRefCounts.Add(refBundleName, count);
+                    }
+
                 }
             }
         }
@@ -348,9 +356,14 @@ namespace BundleSystem
                     var loadedBundle = s_AssetBundles[refBundleName];
 
                     //already reloaded/reloading
-                    if(loadedBundle.CachedRequest != null || loadedBundle.IsReloading) continue;
+                    if(loadedBundle.CachedRequest == null) 
+                    {
+                        s_Helper.StartCoroutine(CoReloadBundle(loadedBundle));
+                        continue;
+                    }
 
-                    s_Helper.StartCoroutine(CoReloadBundle(loadedBundle));
+                    s_BundleRefCounts.Remove(refBundleName);
+                    s_ReleaseableBundles.Add(refBundleName);
                 }
             }
         }
@@ -399,7 +412,7 @@ namespace BundleSystem
         private static void Update(bool immediate)
         {
             UpdateTrackInfos(immediate);
-            UpdateBundles(immediate);
+            UpdateBundles();
         }
 
         private static void UpdateTrackInfos(bool immediate)
@@ -443,41 +456,31 @@ namespace BundleSystem
             }
         }
         
-        private static void UpdateBundles(bool immediate)
+        private static void UpdateBundles()
         {
-            int trackBundleCount;
-            if(immediate)
-            {
-                s_BundleRefCounts.ResetCurrentIndex();
-                trackBundleCount = s_BundleRefCounts.Count;
-            }
-            else
-            {
-                trackBundleCount = Mathf.CeilToInt(Time.unscaledDeltaTime * 0.2f * s_BundleRefCounts.Count);
-            }
-
-            for(int i = 0; i < trackBundleCount; i++)
-            {
-                //maybe empty
-                if (!s_BundleRefCounts.TryGetNext(out var kv)) break;
-
-                if(kv.Value > 0) continue;
-                
-                s_BundleRefCounts.Remove(kv.Key);
+            if(s_ReleaseableBundles.Count == 0) return;
 
 #if UNITY_EDITOR
-                if(UseAssetDatabaseMap) continue;
+            if(UseAssetDatabaseMap) 
+            {
+                s_ReleaseableBundles.Clear();
+                return;
+            }
 #endif
 
-                var loadedBundle = s_AssetBundles[kv.Key];
+            foreach(var bundleName in s_ReleaseableBundles)
+            {
+                var loadedBundle = s_AssetBundles[bundleName];
 
                 loadedBundle.Bundle.Unload(true);
                 loadedBundle.Bundle = DownloadHandlerAssetBundle.GetContent(loadedBundle.CachedRequest);
                 //stored request needs to be disposed
                 loadedBundle.CachedRequest.Dispose();
                 loadedBundle.CachedRequest = null;
-                if (LogMessages) Debug.Log($"Reloaded bundle {kv.Key}");
+                if (LogMessages) Debug.Log($"Reloaded bundle {loadedBundle}");
             }
+
+            s_ReleaseableBundles.Clear();
         }
 
         //reload related
@@ -486,7 +489,6 @@ namespace BundleSystem
 
         static IEnumerator CoReloadBundle(LoadedBundle loadedBundle)
         {
-            loadedBundle.IsReloading = true;
             var bundleName = loadedBundle.Name;
             if (LogMessages) Debug.Log($"Start Reloading Bundle {bundleName}");
 
@@ -504,7 +506,6 @@ namespace BundleSystem
             yield return bundleReq.SendWebRequest();
 
             s_CurrentReloadingCount--;
-            loadedBundle.IsReloading = false;
 
             if (!Utility.CheckRequestSuccess(bundleReq))
             {
