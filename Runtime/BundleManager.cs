@@ -19,7 +19,6 @@ namespace BundleSystem
         public string LoadPath;
         public UnityWebRequest CachedRequest;
         public int ReferenceCount;
-        public bool IsReloading = false;
         public bool IsDisposed { get; private set; } = false;
 
         //constructor for editor
@@ -170,6 +169,7 @@ namespace BundleSystem
             s_AssetBundles.Clear();
             s_LocalBundles.Clear();
             s_SceneInfos.Clear();
+            s_ReleaseableBundles.Clear();
             s_InGameIncrementalVersion = 0;
 
             UseAssetDatabaseMap = true;
