@@ -99,6 +99,7 @@ namespace BundleSystem
             var buildTarget = EditorUserBuildSettings.activeBuildTarget;
             var groupTarget = BuildPipeline.GetBuildTargetGroup(buildTarget);//generate sharedBundle if needed, and pre generate dependency
             var buildParams = new CustomBuildParameters(bundleSettingList, treeResult, buildTarget, groupTarget, setting.OutputPath);
+            var settingsPath = AssetDatabase.GetAssetPath(setting);
             buildParams.WriteLinkXML = true;
             buildParams.UseCache = !setting.ForceRebuild;
             var returnCode = ContentPipeline.BuildAssetBundles(buildParams, new BundleBuildContent(treeResult.ResultBundles.ToArray()), out var bundleResult);
@@ -106,7 +107,7 @@ namespace BundleSystem
             if (returnCode == ReturnCode.Success)
             {
                 WriteManifestFile(buildParams.OutputFolder, setting, bundleResult, buildTarget, setting.RemoteURL, userDefinedVersion);
-                var linkPath = CopyLinkDotXml(setting.OutputPath, AssetDatabase.GetAssetPath(setting));
+                var linkPath = CopyLinkDotXml(setting.OutputPath, settingsPath);
                 if (!Application.isBatchMode) EditorUtility.DisplayDialog("Build Succeeded!", $"Bundle build succeeded, \n {linkPath} updated!", "Confirm");
             }
             else
